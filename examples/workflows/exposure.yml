@@ -1,0 +1,37 @@
+# Example: run the Anti-REA exposure report on every build and attach it to the run.
+#
+# Drop this into .github/workflows/ in your project. It builds your release the way you normally do,
+# then points Anti-REA at the built artifact. The report is advisory: it never blocks the build unless
+# you set `fail-on`.
+name: Exposure report
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  exposure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the project
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      # --- build your release however you normally do, e.g.: ---
+      # - run: npm ci && npm run dist        # Electron
+      # - run: ./gradlew assembleRelease     # Android
+      # - run: go build -o dist/app ./...    # Go
+
+      - name: Anti-REA exposure report
+        uses: your-org/anti-rea@v0.8.0
+        id: exposure
+        with:
+          path: dist # the directory or file your build produced
+          # fail-on: high            # uncomment to fail the job on a high+ finding
+          include-third-party: "false"
+
+      - name: Show the result
+        run: |
+          echo "Max grade: ${{ steps.exposure.outputs.max-grade }}"
+          echo "Findings:  ${{ steps.exposure.outputs.findings }}"
+          echo "Report:    ${{ steps.exposure.outputs.report-json }}"

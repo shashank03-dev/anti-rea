@@ -27,6 +27,8 @@ From v0.7 it checks for **reverse-engineering aids** a release should not hand o
 
 It can verify **build provenance** (DSSE / in-toto / SLSA, with pinned keys) against the shipped bytes. And it can **sign its decision** as an in-toto attestation that a deploy step verifies.
 
+From v0.8 it adds an **advisory exposure report** — the defensive mirror of a reverse-engineering (REA-class) tool. `anti-rea expose <path>` answers: *if someone ran a REA-class tool on my build, what would they recover, which of it can I avoid, and what do I change?* It covers Mach-O/ELF/PE, Electron, .NET, Unity IL2CPP, Android APK, Flutter, Go, Rust, PyInstaller, WebAssembly, ML models (GGUF/safetensors/TFLite), Godot and GPU kernels, grading each finding by a fixed rubric, separating your own code from vendored components, and redacting any secret it meets. It is standalone and **trips no gate** — the release decision is untouched. It ships as a CLI command, a GitHub Action and a zero-dependency MCP server.
+
 Every conclusion is an evidence record with an explicit result state, coverage, budget and limitations. Hard gates decide the release; no score does.
 
 It has zero runtime dependencies and needs Node ≥ 20. This is the "measurement and evidence system" that the Anti-REA research recommends building first (§1, §14 stage 1).
@@ -35,8 +37,8 @@ It has zero runtime dependencies and needs Node ≥ 20. This is the "measurement
 
 ## Evidence status
 
-- **Correctness:** 96 tests.
-  - Unit, pipeline and regression tests.
+- **Correctness:** 150 tests.
+  - Unit, pipeline and regression tests, plus the v0.8 exposure units, golden/redaction, fuzz (~10,000 seeded corruptions plus structure-preserving mutation of valid fixtures), review-regression and differential tests.
   - **Differential tests** against:
     - `@electron/asar`, Info-ZIP, `ditto`, bsdtar and Python `zipfile`;
     - xz(1), lzma(1), bzip2, lz4 and ar(1);
@@ -122,6 +124,8 @@ npm run demo:fixed
 | `anti-rea verify-attestation --attestation a.json --public-key k.pub [--artifact f]… [--require-decision pass]` | Checks the signature, predicate type, subject coverage and decision. **Exit codes:** 0 = valid, 2 = invalid. |
 | `anti-rea inspect --manifest m.json [--json]` | Facts with no policy applied: Mach-O signing (team, runtime, entitlements, bad pages), bundle seals, Electron fuses and ASAR integrity, PE Authenticode presence; and (v0.7) native debug info, debug maps and local symbols, debug files, source files, unminified JavaScript and Electron leads. |
 | `anti-rea inventory --manifest m.json [--json]` | The release closure, including nested entries, with sha256 for each, plus a deterministic release ID. |
+| `anti-rea expose (<path> \| --manifest m.json) [--out dir] [--json] [--fail-on <severity>] [--include-third-party]` | (v0.8) Advisory reverse-engineering exposure report. `<path>` may be a `.app`, `.apk`/`.ipa`/`.exe`, a directory or a file. Writes `exposure.json` + `exposure.md`; owner findings rank first. Trips no gate. **Exit codes:** 0 advisory, 2 if `--fail-on` is met by the maximum grade, 1 error. |
+| `anti-rea mcp-config [--json]` | (v0.8) Prints registration snippets for the read-only `anti-rea-mcp` MCP server. |
 | `anti-rea fingerprint --file secret.pem` or `--stdin` | Prints the canonical sha256 to put in the manifest. The secret is never printed. |
 | `anti-rea authz-plan --manifest m.json [--out plan.json]` | Expands the declared authorization matrix into a test plan for **your own** harness. |
 | `anti-rea stats zero-event --n 3000` / `stats min-trials --target 0.001` | Exact zero-event upper bound (research §11). Valid only for independent trials. |
@@ -204,6 +208,26 @@ An exception needs an `owner`, `scope`, `rationale` and `expiry`. It can be narr
   - unquoted `NAME=a.b` values: `.` reads as a member expression;
   - runtime instrumentation and behavioural-cloning lanes are not implemented. Use `--import` for detector breadth.
 
+## Exposure (v0.8, advisory)
+
+`anti-rea expose <path>` is the defensive mirror of a reverse-engineering tool. It is static, read-only,
+in-memory, makes no network calls, and **trips no gate** — `assure` never runs it, so the release
+decision is untouched by construction.
+
+```bash
+anti-rea expose /Applications/MyApp.app
+anti-rea expose dist/app.apk --fail-on high        # exit 2 if the max grade is high or critical
+npm run expose-demo                                # a synthetic release covering every format
+```
+
+- **Findings** are graded by a **fixed rubric** (attack surface → severity; [rubric.ts](src/analyzers/rubric.ts)); analyzers never invent a grade. `--fail-on` uses the **maximum** grade, never an average, so a critical can't be hidden.
+- Each finding is attributed **owner vs third-party** (dependencies, vendored runtimes, engine libraries), and marked **avoidable** (a toolchain setting removes it) vs inherent (ObjC/Swift metadata, Go `pclntab`, IL2CPP `global-metadata.dat`).
+- The report is **about the product**: a profile (platforms, frameworks, languages), findings by surface with your code first, a deduplicated hardening checklist, coverage with every opaque artifact named, and the REA → Anti-REA matrix.
+- It never prints secret values. Go `-ldflags -X`, `KEY=…` pairs and model `__metadata__` are redacted; tests assert a planted secret never appears in the serialized report.
+- Distribution: a **GitHub Action** (`uses: <owner>/anti-rea@v0.8.0`, see [examples/workflows/exposure.yml](examples/workflows/exposure.yml)), a zero-dependency **MCP server** (`anti-rea mcp-config`; [docs/AGENTS.md](docs/AGENTS.md)), and the CLI.
+
+Coverage and the honest gaps (Flutter/GPU detected-only; EVM/BEAM detected as roadmap stubs) are in [docs/REA-COVERAGE.md](docs/REA-COVERAGE.md); the design and the tuning-only calibration are in [docs/research/V08-CHANGES.md](docs/research/V08-CHANGES.md).
+
 ## Benchmark (pre-registered v6; run once on 2026-11-07)
 
 ```bash
@@ -261,7 +285,7 @@ Complete examples: [fixtures/demo-app/manifest.json](fixtures/demo-app/manifest.
 |---|---|
 | 0 Research specification | ✅ encoded as types, validation and policy |
 | 1 Release assurance foundation | ✅ this codebase, self-reviewed and differentially tested |
-| 2 Platform adapters | ◐ macOS Mach-O / bundle-seal / entitlement semantics, Electron fuses and ASAR integrity, PE Authenticode *presence*; (v0.7) Mach-O and ELF symbol-table and debug-section facts. No DEX semantics; no PE debug-directory parsing. |
+| 2 Platform adapters | ◐ macOS Mach-O / bundle-seal / entitlement semantics, Electron fuses and ASAR integrity, PE Authenticode *presence*; (v0.7) Mach-O and ELF symbol-table and debug-section facts; (v0.8, advisory exposure only) PE debug-directory / `DllCharacteristics`, ELF program-header hardening, DEX + APK signing block + binary-XML manifest, and the other exposure formats. The gated lanes are unchanged. |
 | 3 Adversarial evaluation | ◐ Pre-registered release-gate benchmarks (v1–v6) and a static tamper sub-study against `codesign`. Runtime and cloning lanes are not implemented. |
 | 4 Architecture, API, attestation | ◐ Authorization-matrix evaluation, DSSE/in-toto/SLSA provenance verification, signed decision attestations. |
 | 5–6 Transformations, confidential execution | ✗ out of scope until stage-3 measurements justify them |
@@ -272,14 +296,18 @@ Byte identity (sha256) does **not** authenticate the build context. Declare `pro
 
 ```
 src/model/     result states, manifest, policy, evidence types
-src/codecs/    zero-dependency xz/LZMA2, lzma, bzip2, lz4, UDIF/HFS+ (DMG), plist, Mach-O and Mach-O/ELF symbol-table readers; CRCs
-src/lanes/     containers, inventory, detectors, decode, exposure, placement, authorization, external, platform, provenance, aids (reverse-engineering aids)
-src/engine/    evaluate (pipeline), gate, report, stats, attest (signed decisions)
+src/codecs/    zero-dependency xz/LZMA2, lzma, bzip2, lz4, UDIF/HFS+ (DMG), plist, Mach-O, ELF, PE, Android binary-XML (AXML) and symbol-table readers; CRCs
+src/lanes/     containers, inventory, detectors, decode, exposure, placement, authorization, external, platform, provenance, aids, recovery (v0.8 exposure)
+src/analyzers/ (v0.8) the exposure analyzers (native, electron, dotnet, unity, apk, flutter, go, rust, pyinstaller, wasm, models, godot, gpu, stubs), rubric, attribution, redaction
+src/engine/    evaluate (pipeline), gate, report, stats, attest (signed decisions), exposure-report (v0.8)
+src/mcp/       (v0.8) zero-dependency JSON-RPC-over-stdio MCP server (anti-rea-mcp)
 src/pack/      deterministic asar/zip/tar writers (fixtures and tests)
-test/          unit, pipeline, regression and differential tests (node:test)
+test/          unit, pipeline, regression, differential and (v0.8) exposure/fuzz tests (node:test)
 bench/         v6 pre-registration, corpus generator, runner, scorer, platform sub-study, baseline installer, calibration, minify classifier corpus, dsymutil differential; v1/–v5/ archived
-docs/research/ self-review, tool landscape, calibration, v0.2–v0.7 changes, benchmark results
-fixtures/demo-app/  synthetic app, build script, manifest, policy, authz results
+docs/          AGENTS.md (v0.8 agent workflow), REA-COVERAGE.md (v0.8 coverage matrix), research/ (self-review, calibration, v0.2–v0.8 changes, benchmark results)
+action.yml     (v0.8) composite GitHub Action; examples/workflows/exposure.yml
+fixtures/demo-app/     synthetic app, build script, manifest, policy, authz results
+fixtures/expose-demo/  (v0.8) multi-format synthetic release builder (every format, gitignored output)
 ```
 
 Every secret in the fixtures and benchmark corpus is **synthetic** and is not used for anything.

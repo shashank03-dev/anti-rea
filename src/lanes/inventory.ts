@@ -1,5 +1,5 @@
 import { existsSync, readFileSync, readlinkSync, statSync } from "node:fs";
-import { dirname, isAbsolute, relative, resolve } from "node:path";
+import { basename, dirname, isAbsolute, relative, resolve } from "node:path";
 import type { Manifest } from "../model/manifest.js";
 import type { EvidenceRecord, Finding } from "../model/evidence.js";
 import type { Outcome } from "../model/result.js";
@@ -16,7 +16,8 @@ import { lineCol, readItem, unsupported } from "./types.js";
  * Build the release closure: every byte under the declared roots, plus the
  * contents of supported nested containers, each with a sha256 (doc §6.3).
  */
-export function buildInventory(manifest: Manifest, baseDir: string, limits: Limits = DEFAULT_LIMITS): Inventory {
+/** Shared builder: the same classification, expansion and limits for manifest roots and single paths. */
+function inventoryBuilder(limits: Limits) {
   const items: InventoryItem[] = [];
   const notes: string[] = [];
   let expandedBytes = 0;
@@ -28,21 +29,22 @@ export function buildInventory(manifest: Manifest, baseDir: string, limits: Limi
     const ref = { path, sha256: sha256Hex(buf), bytes: buf.length };
     const c = classify(path, buf);
     const base = { ref, parent, depth };
+    const peek = abs ? ({ kind: "disk", abs } as const) : ({ kind: "mem", buf } as const);
     if (c.type === "plain") {
       items.push({ ...base, source: abs ? { kind: "disk", abs } : { kind: "mem", buf }, kind: parent ? "entry" : "file", supported: true, note: c.note });
       return;
     }
     if (c.type === "opaque") {
-      items.push({ ...base, source: null, kind: "container", supported: false, unsupportedReason: `${c.format}: format not supported by this version (content not inspected)` });
+      items.push({ ...base, source: null, kind: "container", supported: false, unsupportedReason: `${c.format}: format not supported by this version (content not inspected)`, peek });
       return;
     }
     if (depth >= limits.maxDepth) {
-      items.push({ ...base, source: null, kind: "container", supported: false, unsupportedReason: `nesting depth exceeds ${limits.maxDepth}` });
+      items.push({ ...base, source: null, kind: "container", supported: false, unsupportedReason: `nesting depth exceeds ${limits.maxDepth}`, peek });
       return;
     }
     const ex = expand(c.kind, path, buf, limits);
     if (!ex.ok) {
-      items.push({ ...base, source: null, kind: "container", supported: false, unsupportedReason: ex.reason });
+      items.push({ ...base, source: null, kind: "container", supported: false, unsupportedReason: ex.reason, peek });
       return;
     }
     items.push({ ...base, source: null, kind: "container", supported: true, raw: abs ? { kind: "disk", abs } : { kind: "mem", buf } });
@@ -70,15 +72,26 @@ export function buildInventory(manifest: Manifest, baseDir: string, limits: Limi
     }
   };
 
-  const symlinks: string[] = [];
-  for (const root of manifest.releaseClosure.roots) {
-    const label = root.replace(/\/+$/, "");
-    const absRoot = resolve(baseDir, root);
-    if (!existsSync(absRoot) || !statSync(absRoot).isDirectory()) {
-      notes.push(`release root "${root}" does not exist or is not a directory`);
-      gap(label, "declared release root missing");
-      continue;
+  /** A regular file on disk, at virtual path `path`. Over-size files are gaps whose bytes stay peekable. */
+  const addDiskFile = (path: string, abs: string) => {
+    let buf: Buffer;
+    try {
+      const size = statSync(abs).size;
+      if (size > limits.maxFileBytes) {
+        gap(path, `file size ${size} exceeds limit ${limits.maxFileBytes}`, { ref: { path, sha256: "", bytes: size }, peek: { kind: "disk", abs } });
+        return;
+      }
+      buf = readFileSync(abs);
+    } catch (e) {
+      gap(path, `unreadable (${(e as NodeJS.ErrnoException).code ?? (e as Error).message})`);
+      return;
     }
+    add(path, buf, 0, undefined, abs);
+  };
+
+  const symlinks: string[] = [];
+  /** Every file under a directory root, labelled `label/<rel>`. */
+  const addDirectory = (label: string, absRoot: string) => {
     for (const f of walkFiles(absRoot)) {
       const path = `${label}/${f.rel}`;
       if (f.error) {
@@ -97,25 +110,51 @@ export function buildInventory(manifest: Manifest, baseDir: string, limits: Limi
         symlinks.push(`${path} -> ${target}${inside ? "" : " (target outside the release closure; only the link path ships)"}`);
         continue;
       }
-      let buf: Buffer;
-      try {
-        const size = statSync(f.abs).size;
-        if (size > limits.maxFileBytes) {
-          gap(path, `file size ${size} exceeds limit ${limits.maxFileBytes}`, { ref: { path, sha256: "", bytes: size } });
-          continue;
-        }
-        buf = readFileSync(f.abs);
-      } catch (e) {
-        gap(path, `unreadable (${(e as NodeJS.ErrnoException).code ?? (e as Error).message})`);
-        continue;
-      }
-      add(path, buf, 0, undefined, f.abs);
+      addDiskFile(path, f.abs);
     }
-  }
+  };
 
-  if (symlinks.length > 0)
-    notes.push(`${symlinks.length} symbolic link(s) recorded, not followed (a link ships its path; targets inside the release are inspected as themselves): ${symlinks.slice(0, 10).join("; ")}${symlinks.length > 10 ? "; …" : ""}`);
-  return { releaseId: computeReleaseId(items.map((i) => i.ref)), items, notes, limits };
+  const finish = (): Inventory => {
+    if (symlinks.length > 0)
+      notes.push(`${symlinks.length} symbolic link(s) recorded, not followed (a link ships its path; targets inside the release are inspected as themselves): ${symlinks.slice(0, 10).join("; ")}${symlinks.length > 10 ? "; …" : ""}`);
+    return { releaseId: computeReleaseId(items.map((i) => i.ref)), items, notes, limits };
+  };
+
+  return { notes, gap, addDiskFile, addDirectory, finish };
+}
+
+export function buildInventory(manifest: Manifest, baseDir: string, limits: Limits = DEFAULT_LIMITS): Inventory {
+  const b = inventoryBuilder(limits);
+  for (const root of manifest.releaseClosure.roots) {
+    const label = root.replace(/\/+$/, "");
+    const absRoot = resolve(baseDir, root);
+    if (!existsSync(absRoot) || !statSync(absRoot).isDirectory()) {
+      b.notes.push(`release root "${root}" does not exist or is not a directory`);
+      b.gap(label, "declared release root missing");
+      continue;
+    }
+    b.addDirectory(label, absRoot);
+  }
+  return b.finish();
+}
+
+/**
+ * v0.8: the inventory of ONE path a launcher points at, with no manifest: a directory (an `.app`
+ * bundle, an unpacked build) or a single file (`.apk`, `.ipa`, `.exe`, `.AppImage`, …). Items are
+ * labelled with the path's base name, exactly as a manifest root of that name would label them.
+ */
+export function inventoryOfPath(absPath: string, limits: Limits = DEFAULT_LIMITS): { inventory: Inventory; label: string; kind: "file" | "directory" } {
+  const b = inventoryBuilder(limits);
+  const label = basename(absPath.replace(/\/+$/, "")) || absPath;
+  if (!existsSync(absPath)) throw new RangeError(`${absPath} does not exist`);
+  const st = statSync(absPath);
+  if (st.isDirectory()) {
+    b.addDirectory(label, absPath);
+    return { inventory: b.finish(), label, kind: "directory" };
+  }
+  if (!st.isFile()) throw new RangeError(`${absPath} is neither a file nor a directory`);
+  b.addDiskFile(label, absPath);
+  return { inventory: b.finish(), label, kind: "file" };
 }
 
 /** Path relative to its own root or container, used for private-artifact glob matching. */

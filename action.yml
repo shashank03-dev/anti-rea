@@ -1,0 +1,109 @@
+name: "Anti-REA Exposure"
+description: "Advisory reverse-engineering exposure report for a release build: what a REA-class tool would recover, and the toolchain settings that reduce it. Read-only; it trips no gate."
+author: "Anti-REA"
+branding:
+  icon: "eye"
+  color: "purple"
+
+inputs:
+  path:
+    description: "Path (in the caller's workspace) to inspect: a .app, .apk/.ipa/.exe, a directory or a single file."
+    required: false
+    default: "."
+  manifest:
+    description: "Alternatively, an Anti-REA manifest whose release closure to inspect (overrides `path`)."
+    required: false
+    default: ""
+  fail-on:
+    description: "Fail the job if the maximum grade meets this severity (critical|high|medium|low|info). Empty = advisory only."
+    required: false
+    default: ""
+  include-third-party:
+    description: "Include third-party/vendored findings in the Markdown report."
+    required: false
+    default: "false"
+
+outputs:
+  max-grade:
+    description: "The maximum severity found (critical|high|medium|low|info), or 'none'."
+    value: ${{ steps.expose.outputs.max-grade }}
+  findings:
+    description: "Total number of findings."
+    value: ${{ steps.expose.outputs.findings }}
+  report-md:
+    description: "Path to the generated exposure.md."
+    value: ${{ steps.expose.outputs.report-md }}
+  report-json:
+    description: "Path to the generated exposure.json."
+    value: ${{ steps.expose.outputs.report-json }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+      with:
+        node-version: "22"
+
+    - name: Build Anti-REA
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: npm ci && npm run build
+
+    - name: Run exposure report
+      id: expose
+      shell: bash
+      # Inputs travel as environment variables, never interpolated into the script (no injection, no word splitting).
+      env:
+        INPUT_PATH: ${{ inputs.path }}
+        INPUT_MANIFEST: ${{ inputs.manifest }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        INPUT_INCLUDE_THIRD_PARTY: ${{ inputs.include-third-party }}
+        ACTION_PATH: ${{ github.action_path }}
+        OUT: ${{ runner.temp }}/anti-rea-exposure
+      run: |
+        set -euo pipefail
+        args=(expose)
+        if [ -n "$INPUT_MANIFEST" ]; then args+=(--manifest "$INPUT_MANIFEST"); else args+=("$INPUT_PATH"); fi
+        if [ "$INPUT_INCLUDE_THIRD_PARTY" = "true" ]; then args+=(--include-third-party); fi
+        if [ -n "$INPUT_FAIL_ON" ]; then args+=(--fail-on "$INPUT_FAIL_ON"); fi
+        args+=(--out "$OUT")
+        # Exit 2 means the fail-on threshold was met; record it so the summary and upload still run, and let the
+        # last step fail the job. Any other non-zero exit is a real error and fails here.
+        rc=0
+        node "$ACTION_PATH/build/src/cli.js" "${args[@]}" || rc=$?
+        if [ "$rc" -ne 0 ] && [ "$rc" -ne 2 ]; then exit "$rc"; fi
+        echo "threshold-met=$([ "$rc" -eq 2 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+        node -e '
+          const fs = require("fs");
+          const out = process.env.OUT;
+          const r = JSON.parse(fs.readFileSync(out + "/exposure.json", "utf8"));
+          const lines = [
+            `max-grade=${r.summary.maxGrade || "none"}`,
+            `findings=${r.summary.total}`,
+            `report-md=${out}/exposure.md`,
+            `report-json=${out}/exposure.json`,
+          ];
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, lines.join("\n") + "\n");
+          if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, fs.readFileSync(out + "/exposure.md", "utf8"));
+        '
+
+    - name: Upload exposure report
+      uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+      if: always()
+      with:
+        name: anti-rea-exposure
+        path: |
+          ${{ runner.temp }}/anti-rea-exposure/exposure.md
+          ${{ runner.temp }}/anti-rea-exposure/exposure.json
+        if-no-files-found: warn
+
+    - name: Enforce fail-on threshold
+      if: ${{ steps.expose.outputs.threshold-met == 'true' }}
+      shell: bash
+      env:
+        HAVE: ${{ steps.expose.outputs.max-grade }}
+        WANT: ${{ inputs.fail-on }}
+      run: |
+        echo "anti-rea: max grade $HAVE meets fail-on $WANT" >&2
+        exit 2

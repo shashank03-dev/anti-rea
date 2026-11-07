@@ -1,11 +1,12 @@
 {
   "name": "anti-rea",
-  "version": "0.7.0",
-  "description": "Anti-REA: a defensive release-assurance engine. Inventories what a build actually ships, detects declared server-only secrets that leaked into the distribution, checks asset placement, records evidence with explicit result states, and enforces hard release gates.",
+  "version": "0.8.0",
+  "description": "Anti-REA: a defensive release-assurance engine. Inventories what a build actually ships, detects declared server-only secrets that leaked into the distribution, checks asset placement, records evidence with explicit result states, enforces hard release gates, and (v0.8) reports what a reverse-engineering tool would recover from a release.",
   "license": "Apache-2.0",
   "type": "module",
   "bin": {
-    "anti-rea": "build/src/cli.js"
+    "anti-rea": "build/src/cli.js",
+    "anti-rea-mcp": "build/src/mcp/server.js"
   },
   "files": [
     "build/src",
@@ -21,7 +22,9 @@
     "test": "npm run build && node --test \"build/test/**/*.test.js\"",
     "cli": "node build/src/cli.js",
     "demo": "npm run build && node fixtures/demo-app/build-release.mjs vulnerable && node build/src/cli.js assure --manifest fixtures/demo-app/manifest.json --policy fixtures/demo-app/policy.json --authz-results fixtures/demo-app/authz-results.vulnerable.json --out build/demo-report/vulnerable",
-    "demo:fixed": "npm run build && node fixtures/demo-app/build-release.mjs fixed && node build/src/cli.js assure --manifest fixtures/demo-app/manifest.json --policy fixtures/demo-app/policy.json --authz-results fixtures/demo-app/authz-results.fixed.json --out build/demo-report/fixed"
+    "demo:fixed": "npm run build && node fixtures/demo-app/build-release.mjs fixed && node build/src/cli.js assure --manifest fixtures/demo-app/manifest.json --policy fixtures/demo-app/policy.json --authz-results fixtures/demo-app/authz-results.fixed.json --out build/demo-report/fixed",
+    "expose-demo": "npm run build && node fixtures/expose-demo/build.mjs && node build/src/cli.js expose fixtures/expose-demo/release --out build/expose-report --include-third-party",
+    "mcp": "npm run build && node build/src/mcp/server.js"
   },
   "devDependencies": {
     "@electron/asar": "^4.3.1",
