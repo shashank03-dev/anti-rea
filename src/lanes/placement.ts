@@ -38,7 +38,9 @@ export function placementLane(manifest: Manifest, inv: Inventory, startedAt: str
         invocation: {},
         budget: {},
         outcome: "inconclusive",
-        limitations: ["No assets are declared in the manifest, so asset placement cannot be evaluated. Declare and owner-review critical assets (doc §6.2)."],
+        limitations: [
+          "No assets are declared in the manifest, so asset placement cannot be evaluated. Declare what must never ship: server-only secrets by sha256 fingerprint (`anti-rea fingerprint --file <secret>`) and server-only code by marker names (research doc §6.2).",
+        ],
         findings: [],
         finishedAt: nowIso(),
       },

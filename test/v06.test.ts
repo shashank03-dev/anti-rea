@@ -125,7 +125,13 @@ test("macho: code signatures parse; cdhash equals codesign's; a modified page is
   assert.ok(cds.every((c) => c.badPages === 0 && c.identifier === "dev.anti-rea.t"));
   assert.ok(cds.some((c) => c.cdhash === cdhashFromCodesign(exe)));
   const b = readFileSync(exe);
-  for (const s of m.slices) b[s.offset + 0x4100] = b[s.offset + 0x4100]! ^ 0xff; // codesign checks the host slice
+  // Tamper INSIDE each slice's signed range (codeLimit), not at a fixed offset: /usr/bin/true's layout differs
+  // between macOS releases, and a byte past codeLimit is unsigned, so codesign would rightly still verify.
+  for (const s of m.slices) {
+    const limit = s.codeDirectories[0]?.codeLimit ?? 0x2000;
+    const at = s.offset + Math.floor(limit / 2);
+    b[at] = b[at]! ^ 0xff; // codesign checks the host slice
+  }
   writeFileSync(exe, b);
   assert.equal(csOk(app), false);
   assert.ok(readMachO(b).slices.some((s) => s.codeDirectories.some((c) => c.badPages > 0)));

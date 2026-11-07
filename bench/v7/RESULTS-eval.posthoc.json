@@ -1,0 +1,153 @@
+{
+  "schema": "anti-rea/bench-v7-posthoc/v1",
+  "note": "POST-HOC, not pre-registered. Drops Go cases whose artifact is a Go package archive, not an executable (a subject-discovery defect found after the run).",
+  "droppedCases": 29,
+  "droppedSubjects": [
+    "go:golang.org/x/net@v0.54.0/html/atom",
+    "go:golang.org/x/sys@v0.44.0/unix",
+    "go:golang.org/x/text@v0.37.0",
+    "go:golang.org/x/text@v0.37.0/cases",
+    "go:golang.org/x/text@v0.37.0/date",
+    "go:golang.org/x/text@v0.37.0/encoding/charmap",
+    "go:golang.org/x/text@v0.37.0/encoding/ianaindex",
+    "go:golang.org/x/text@v0.37.0/encoding/japanese",
+    "go:golang.org/x/text@v0.37.0/encoding/simplifiedchinese",
+    "go:golang.org/x/text@v0.37.0/encoding/traditionalchinese",
+    "go:golang.org/x/text@v0.37.0/feature/plural",
+    "go:golang.org/x/text@v0.37.0/language",
+    "go:golang.org/x/text@v0.37.0/secure/precis",
+    "go:golang.org/x/text@v0.37.0/unicode/bidi",
+    "go:golang.org/x/text@v0.37.0/unicode/cldr",
+    "go:golang.org/x/text@v0.37.0/unicode/rangetable",
+    "go:modernc.org/libc@v1.74.1",
+    "go:modernc.org/sqlite@v1.55.0"
+  ],
+  "units": 566,
+  "overall": {
+    "ar": {
+      "k": 547,
+      "n": 566,
+      "rate": 0.9664310954063604,
+      "ci": [
+        0.9480729716739476,
+        0.9796706861127069
+      ]
+    },
+    "bl": {
+      "k": 543,
+      "n": 566,
+      "rate": 0.9593639575971732,
+      "ci": [
+        0.9396478246102529,
+        0.9740688053463451
+      ]
+    }
+  },
+  "falsePositives": {
+    "ar": {
+      "fp": 0,
+      "n": 333,
+      "ci": [
+        0,
+        0.011016584124038695
+      ]
+    },
+    "bl": {
+      "fp": 0,
+      "n": 333,
+      "ci": [
+        0,
+        0.011016584124038695
+      ]
+    }
+  },
+  "mcnemar": {
+    "b": 14,
+    "c": 10,
+    "p": 0.5412561893463139
+  },
+  "families": {
+    "go": {
+      "ar": {
+        "k": 134,
+        "n": 134,
+        "rate": 1,
+        "ci": [
+          0.9728465171202012,
+          1
+        ]
+      },
+      "bl": {
+        "k": 134,
+        "n": 134,
+        "rate": 1,
+        "ci": [
+          0.9728465171202012,
+          1
+        ]
+      }
+    },
+    "c": {
+      "ar": {
+        "k": 144,
+        "n": 144,
+        "rate": 1,
+        "ci": [
+          0.9747081185124842,
+          1
+        ]
+      },
+      "bl": {
+        "k": 144,
+        "n": 144,
+        "rate": 1,
+        "ci": [
+          0.9747081185124842,
+          1
+        ]
+      }
+    },
+    "js": {
+      "ar": {
+        "k": 269,
+        "n": 288,
+        "rate": 0.9340277777777778,
+        "ci": [
+          0.8988912473820916,
+          0.9598163725029742
+        ]
+      },
+      "bl": {
+        "k": 265,
+        "n": 288,
+        "rate": 0.9201388888888888,
+        "ci": [
+          0.8825780696913186,
+          0.9487027460820587
+        ]
+      }
+    }
+  },
+  "goExecutables": 67,
+  "withinDocumentedScope": {
+    "note": "excludes the 19 indirect webPreferences units (P1: outside the documented literal-object scope)",
+    "ar": {
+      "k": 547,
+      "n": 547,
+      "rate": 1,
+      "ci": [
+        0.9932788505203027,
+        1
+      ]
+    },
+    "bl": {
+      "k": 533,
+      "n": 547,
+      "rate": 0.9744058500914077,
+      "ci": [
+        0.9574299353697497,
+        0.9859383734304958
+      ]
+    }
+  }
+}

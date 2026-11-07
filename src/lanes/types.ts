@@ -27,6 +27,12 @@ export interface InventoryItem {
    * scanned items). Used by the platform lane for ASAR-integrity and bundle-seal checks; never scanned.
    */
   readonly raw?: ItemSource;
+  /**
+   * v0.8: bytes of an item that is NOT scanned (opaque format, over the size limit, too deeply nested, or
+   * a container that failed to expand). Only the exposure lane reads it, and only for header- or
+   * trailer-based facts (a 7 GB GGUF model still has a readable header). Never used by gated lanes.
+   */
+  readonly peek?: ItemSource;
 }
 
 export interface Inventory {

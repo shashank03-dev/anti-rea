@@ -6,3 +6,4 @@ fixtures/demo-app/release/
 bench/.tools/
 bench/runs/
 bench/.background/
+fixtures/expose-demo/release/

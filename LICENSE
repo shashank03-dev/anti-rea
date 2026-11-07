@@ -1,0 +1,40 @@
+Anti-REA — Proprietary Software License
+
+Copyright (c) 2026 Anti-REA authors. All rights reserved.
+
+1. Ownership. Anti-REA, including its source code, compiled code, documentation, benchmark
+   materials and any updates (together, the "Software"), is owned by the copyright holder and is
+   protected by copyright and other intellectual-property laws. The Software is licensed, not sold.
+
+2. No license without agreement. No right to use, install, run, copy, modify, merge, publish,
+   distribute, sublicense, sell, rent, lease or create derivative works of the Software is granted
+   except under a separate written license agreement with the copyright holder (an "Agreement"),
+   and then only to the extent and for the term that Agreement states. Obtaining a copy of the
+   Software, from a package registry or elsewhere, does not by itself grant any of those rights.
+
+3. Restrictions. Unless an Agreement expressly permits it, you may not: (a) remove or alter any
+   copyright, license or proprietary notice; (b) decompile, disassemble or otherwise reverse
+   engineer the Software, except to the extent applicable law expressly permits this despite this
+   restriction; (c) provide the Software, or its functionality, to third parties as a service;
+   (d) use the Software to build a competing product; or (e) publish benchmark or performance
+   results about the Software without the copyright holder's prior written consent.
+
+4. Reports. Reports, attestations and other output that the Software generates about your own
+   releases belong to you. The copyright holder claims no rights in your releases or their contents.
+
+5. Disclaimer of warranty. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+   PARTICULAR PURPOSE AND NON-INFRINGEMENT, UNLESS AN AGREEMENT STATES OTHERWISE. The Software makes
+   scoped, evidence-based statements about the release closure, assets and checks you declare. It
+   does not guarantee that software cannot be reverse engineered, copied or attacked, and the
+   absence of a finding is not proof that an exposure is absent.
+
+6. Limitation of liability. TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL THE COPYRIGHT
+   HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+   OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR ITS USE, UNLESS AN
+   AGREEMENT STATES OTHERWISE.
+
+7. Termination. Any rights granted under an Agreement end automatically if you breach this license
+   or that Agreement. On termination you must stop using the Software and destroy all copies.
+
+For licensing, contact the copyright holder.

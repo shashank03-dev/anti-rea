@@ -1,8 +1,10 @@
 #!/usr/bin/env node
-import { readFileSync, writeFileSync } from "node:fs";
-import { dirname, resolve, sep } from "node:path";
-import { ConfigError, loadManifest, loadPolicy } from "./util/io.js";
-import { setClock } from "./util/clock.js";
+import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { dirname, isAbsolute, relative, resolve, sep } from "node:path";
+import { fileURLToPath } from "node:url";
+import { ConfigError, loadManifest, loadPolicy, validateManifest, validatePolicy } from "./util/io.js";
+import { scaffold } from "./engine/init.js";
+import { nowIso, setClock } from "./util/clock.js";
 import { assure } from "./engine/evaluate.js";
 import { renderSummary, writeReport } from "./engine/report.js";
 import { buildInventory } from "./lanes/inventory.js";
@@ -15,8 +17,16 @@ import { decisionStatement, signStatement, verifyAttestation } from "./engine/at
 import { collectAidsFacts, minifyVerdict } from "./lanes/aids.js";
 import { collectPlatformFacts } from "./lanes/platform.js";
 import { sha256Hex } from "./util/hash.js";
+import { inventoryOfPath } from "./lanes/inventory.js";
+import { detectApp, recoveryLane } from "./lanes/recovery.js";
+import { buildExposureReport, renderExposureSummary, writeExposureReport } from "./engine/exposure-report.js";
+import { meetsThreshold } from "./analyzers/rubric.js";
+import type { Severity } from "./model/result.js";
+import type { Inventory } from "./lanes/types.js";
 
 const EXIT = { pass: 0, error: 1, block: 2 } as const;
+
+const SEVERITIES: readonly Severity[] = ["critical", "high", "medium", "low", "info"];
 
 const HELP = `${TOOL_NAME} ${TOOL_VERSION} — release assurance with hard gates
 
@@ -35,10 +45,23 @@ Usage:
       Check an attestation's signature, predicate and (optionally) that each artifact is a subject.
       Exit code: 0 valid, 2 invalid.
 
+  anti-rea expose (<path> | --manifest <file>) [--out <dir>] [--json] [--fail-on <severity>] [--include-third-party]
+      Advisory reverse-engineering exposure report for a release: "if someone ran a REA-class tool on
+      my build, what would they recover, and what do I change?" <path> may be a .app, an .apk/.ipa/.exe,
+      a directory or a single file; or point at a manifest's release closure. Writes exposure.json +
+      exposure.md. Owner findings rank first; third-party findings are collapsed unless --include-third-party.
+      Trips no gate. Exit code: 0 advisory, 2 if --fail-on <severity> is met by the maximum grade, 1 error.
+
+  anti-rea init <dist-dir> [--out <dir>] [--force]
+      Scaffold anti-rea.manifest.json + anti-rea.policy.json for a build directory, so \`assure\` runs on day one.
+      Platform expectations (macOS signing, Electron fuses, ASAR integrity, Authenticode) are declared only
+      when the build contains code they apply to. You then add your server-only secrets and code markers.
+
   anti-rea inspect --manifest <file> [--json]
       Print platform facts: Mach-O signing (team, hardened runtime, entitlements, page hashes),
       bundle seals, Electron fuses and ASAR integrity, PE Authenticode presence; and reverse-engineering
-      aids: native debug info / debug maps / local symbols, debug files, sources, unminified JS, Electron leads.
+      aids: native debug info / debug maps / local symbols, debug files, sources, unminified JS, Electron leads;
+      and (v0.8) one "recovery" line per exposure finding (JSON: "recovery").
 
   anti-rea inventory --manifest <file> [--json]
       List the release closure (including nested container entries) with sha256 and the release ID.
@@ -52,6 +75,9 @@ Usage:
   anti-rea stats zero-event --n <trials> [--confidence 0.95]
   anti-rea stats min-trials --target <p> [--confidence 0.95]
       Exact one-sided upper bound for zero observed events in n independent trials (doc §11).
+
+  anti-rea mcp-config [--json]
+      Print registration snippets for the read-only Anti-REA MCP server (anti-rea-mcp).
 
   anti-rea version | help
 `;
@@ -139,6 +165,12 @@ function main(argv: string[]): number {
     setClock(d);
   }
 
+  // `--version` / `-v` with no command is the conventional spelling of `version`.
+  if ((c0 === undefined && flags.version !== undefined) || (c0 === "-v" && cmd.length === 1)) {
+    process.stdout.write(`${TOOL_VERSION}\n`);
+    return EXIT.pass;
+  }
+
   switch (c0) {
     case undefined:
     case "help":
@@ -206,14 +238,108 @@ function main(argv: string[]): number {
       return r.problems.length === 0 ? EXIT.pass : EXIT.block;
     }
 
+    case "expose": {
+      // Validate flags before the (possibly long) inventory walk.
+      let failOn: Severity | undefined;
+      if (flags["fail-on"] !== undefined) {
+        if (typeof flags["fail-on"] !== "string" || !SEVERITIES.includes(flags["fail-on"] as Severity)) throw new UsageError(`--fail-on must be one of ${SEVERITIES.join(", ")}`);
+        failOn = flags["fail-on"] as Severity;
+      }
+      if (flags.out === true) throw new UsageError("--out needs a directory");
+      const includeThirdParty = flags["include-third-party"] === true;
+      const writeFiles = !(flags.json === true && flags.out === undefined);
+      const outFlag = typeof flags.out === "string" ? resolve(flags.out) : undefined;
+
+      let inv: Inventory;
+      let app: { name: string; version: string };
+      let out = outFlag ?? resolve("anti-rea-exposure");
+      if (typeof flags.manifest === "string") {
+        const manifest = loadManifest(flags.manifest);
+        const baseDir = dirname(resolve(manifest.path));
+        out = outFlag ?? resolve(baseDir, "anti-rea-exposure");
+        if (writeFiles) assertOutsideRoots(out, manifest.path, manifest.value.releaseClosure.roots);
+        inv = buildInventory(manifest.value, baseDir);
+        app = manifest.value.application;
+      } else if (typeof c1 === "string") {
+        const abs = resolve(c1);
+        // A report written inside the inspected directory would be scanned as part of it next time.
+        if (writeFiles && existsSync(abs) && statSync(abs).isDirectory() && (out === abs || out.startsWith(abs + sep)))
+          throw new UsageError(`the report folder ${out} is inside the inspected directory ${abs}; pass --out <dir> outside it`);
+        const r = inventoryOfPath(abs);
+        inv = r.inventory;
+        app = detectApp(inv, r.label);
+      } else {
+        throw new UsageError("expose needs a <path> or --manifest <file>");
+      }
+
+      const result = recoveryLane(inv, nowIso(), { app });
+      const report = buildExposureReport(result, result.profile);
+      if (writeFiles) {
+        const files = writeExposureReport(report, out, { includeThirdParty });
+        if (flags.json === true) process.stdout.write(JSON.stringify(report, null, 2) + "\n");
+        else process.stdout.write(`${renderExposureSummary(report)}\nexposure report: ${files.md}\nexposure json: ${files.json}\n`);
+      } else process.stdout.write(JSON.stringify(report, null, 2) + "\n");
+      if (failOn && report.summary.maxGrade && meetsThreshold(report.summary.maxGrade, failOn)) return EXIT.block;
+      return EXIT.pass;
+    }
+
+    case "init": {
+      if (typeof c1 !== "string") throw new UsageError("init needs the build directory: anti-rea init <dist-dir> [--out <dir>] [--force]");
+      if (flags.out === true) throw new UsageError("--out needs a directory");
+      const rel = resolve(c1);
+      if (!existsSync(rel)) throw new UsageError(`${c1} does not exist`);
+      if (!statSync(rel).isDirectory())
+        throw new UsageError(`${c1} is a file; init needs the directory your build writes (for example dist/). For a single .apk/.ipa/.exe, \`anti-rea expose ${c1}\` needs no setup.`);
+      const outDir = typeof flags.out === "string" ? resolve(flags.out) : resolve(".");
+      // Every byte under a release root ships: a manifest written inside the release would ship with it.
+      if (outDir === rel || outDir.startsWith(rel + sep))
+        throw new UsageError(`${outDir} is inside the release directory ${rel}; run init from (or --out to) a directory outside the build output`);
+      const manifestPath = resolve(outDir, "anti-rea.manifest.json");
+      const policyPath = resolve(outDir, "anti-rea.policy.json");
+      for (const p of [manifestPath, policyPath])
+        if (existsSync(p) && flags.force !== true) throw new UsageError(`${p} already exists; pass --force to overwrite it`);
+
+      const r = inventoryOfPath(rel);
+      const facts = collectPlatformFacts(r.inventory);
+      const electron = facts.fuses.length > 0 || r.inventory.items.some((i) => /\.asar$/i.test(i.ref.path));
+      // A nearby build (the usual `dist/` beside the manifest) gets a portable relative root; a far-away
+      // one (another drive, or 3+ levels up) an absolute path, which reads better than ../../../…
+      const relRoot = relative(outDir, rel).split(sep).join("/");
+      const root = isAbsolute(relRoot) || relRoot.startsWith("../../../") ? rel.split(sep).join("/") : relRoot;
+      const result = scaffold({ root, app: detectApp(r.inventory, r.label), inventory: r.inventory, facts, electron });
+      // The written manifest must load exactly as `assure` will load it.
+      validateManifest(JSON.parse(JSON.stringify(result.manifest)), manifestPath);
+      validatePolicy(JSON.parse(JSON.stringify(result.policy)), policyPath);
+      mkdirSync(outDir, { recursive: true });
+      writeFileSync(manifestPath, JSON.stringify(result.manifest, null, 2) + "\n");
+      writeFileSync(policyPath, JSON.stringify(result.policy, null, 2) + "\n");
+
+      const show = (p: string) => {
+        const r = relative(process.cwd(), p);
+        return r && !r.startsWith("..") && !isAbsolute(r) ? r : p;
+      };
+      const lines = [
+        `anti-rea init: ${result.manifest.application.name} ${result.manifest.application.version} (${r.inventory.items.length} artifacts under ${root})`,
+        `wrote ${show(manifestPath)} and ${show(policyPath)}`,
+        "declared from what the build contains:",
+        ...result.declared.map((d) => `  - ${d}`),
+        "next:",
+        ...result.nextSteps.map((s, i) => `  ${i + 1}. ${s}`),
+        `  ${result.nextSteps.length + 1}. anti-rea assure --manifest ${show(manifestPath)} --policy ${show(policyPath)} --out anti-rea-report`,
+      ];
+      process.stdout.write(lines.join("\n") + "\n");
+      return EXIT.pass;
+    }
+
     case "inspect": {
       const manifest = loadManifest(req(flags, "manifest"));
       const inv = buildInventory(manifest.value, dirname(resolve(manifest.path)));
       const facts = collectPlatformFacts(inv);
       const aids = collectAidsFacts(inv, manifest.value.reAids ?? { minified: { include: ["**/*.{js,mjs,cjs}"], exclude: ["**/node_modules/**"] } });
+      const recovery = recoveryLane(inv, nowIso(), { app: manifest.value.application }).findings;
       if (flags.json === true) {
         const { electron, ...rest } = aids;
-        process.stdout.write(JSON.stringify({ ...facts, aids: { ...rest, electron: electron.map(({ text: _t, ...e }) => e) } }, null, 2) + "\n");
+        process.stdout.write(JSON.stringify({ ...facts, aids: { ...rest, electron: electron.map(({ text: _t, ...e }) => e) }, recovery }, null, 2) + "\n");
         return EXIT.pass;
       }
       const w = (s: string) => process.stdout.write(s + "\n");
@@ -239,6 +365,7 @@ function main(argv: string[]): number {
         if (v.ok === false) w(`js     ${j.path} ${v.why}`);
       }
       for (const e of aids.electron) w(`electron ${e.path}${e.insecure.map((l) => ` ${l.key}=${l.value}`).join("")}${e.devTools.length ? ` openDevTools×${e.devTools.length}` : ""}`);
+      for (const f of recovery) w(`recovery [${f.severity}] ${f.analyzerId} ${f.path}${f.origin === "third-party" ? " (third-party)" : ""} — ${f.title}`);
       return EXIT.pass;
     }
 
@@ -260,6 +387,20 @@ function main(argv: string[]): number {
         writeFileSync(flags.out, text);
         process.stdout.write(`wrote ${plan.cases.length} cases to ${flags.out}\n`);
       } else process.stdout.write(text);
+      return EXIT.pass;
+    }
+
+    case "mcp-config": {
+      const mcpPath = fileURLToPath(new URL("./mcp/server.js", import.meta.url));
+      const config = { mcpServers: { "anti-rea": { command: "node", args: [mcpPath] } } };
+      if (flags.json === true) {
+        process.stdout.write(JSON.stringify(config, null, 2) + "\n");
+        return EXIT.pass;
+      }
+      process.stdout.write(`Anti-REA MCP server (read-only). Server entry:\n  ${mcpPath}\n\n`);
+      process.stdout.write(`Claude Code:\n  claude mcp add anti-rea -- node ${mcpPath}\n\n`);
+      process.stdout.write(`Generic MCP client config (e.g. ~/.config/mcp or an editor's mcp.json):\n${JSON.stringify(config, null, 2)}\n\n`);
+      process.stdout.write(`Tools: expose_release, inventory, inspect, analyze_artifact. The server reads release bytes only and never writes or runs anything.\n`);
       return EXIT.pass;
     }
 

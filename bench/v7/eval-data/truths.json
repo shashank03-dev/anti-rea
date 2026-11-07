@@ -1,0 +1,8461 @@
+{
+ "schema": "anti-rea/bench-v7-truths/v1",
+ "cases": [
+  {
+   "id": "000",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/pelletier/go-toml/v2@v2.2.4/cmd/tomltestgen",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_pelletier_go-toml_v2_v2.2.4_cmd_tomltestgen|darwin|-s|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "001",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-secure",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-w",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_server-secure|linux|-w|false",
+    "format": "elf",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "002",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-record-format-h264-to-disk",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-w",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_server-record-format-h264-to-disk|windows|-w|false",
+    "format": "pe",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "003",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-pause",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_client-play-pause|darwin|-s|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "004",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-mjpeg",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_client-play-format-mjpeg|windows||false",
+    "format": "pe",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "005",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/text@v0.37.0/encoding/ianaindex",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s -w",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_encoding_ianaindex|darwin|-s_-w|false",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "006",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/alecthomas/kong@v1.15.0/_examples/docker",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-w",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_alecthomas_kong_v1.15.0__examples_docker|darwin|-w|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "007",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/gorilla/websocket@v1.5.3/examples/filewatch",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_gorilla_websocket_v1.5.3_examples_filewatch|linux|-s|false",
+    "format": "elf",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "008",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/matthewhartstonge/argon2@v1.5.3/cmd/argon2",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-w",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_matthewhartstonge_argon2_v1.5.3_cmd_argon2|linux|-w|false",
+    "format": "elf",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "009",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:golang.org/x/net@v0.54.0/http2/h2i",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_net_v0.54.0_http2_h2i|linux||true",
+    "format": "elf",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "010",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-play-format-h264-from-disk",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-w",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_server-play-format-h264-from-disk|darwin|-w|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "011",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-record-format-g711",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_client-record-format-g711|windows|-s_-w|true",
+    "format": "pe",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "012",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-auth",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_server-auth|linux||true",
+    "format": "elf",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "013",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-auth",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_server-auth|windows|-s|false",
+    "format": "pe",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "014",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:modernc.org/sqlite@v1.55.0/examples/vtab_basic",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-w",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_modernc.org_sqlite_v1.55.0_examples_vtab_basic|windows|-w|true",
+    "format": "pe",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "015",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/pelletier/go-toml/v2@v2.2.4/cmd/gotoml-test-encoder",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_pelletier_go-toml_v2_v2.2.4_cmd_gotoml-test-encoder|darwin|-s|false",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "016",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-timestamp",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_client-play-timestamp|windows|-s_-w|true",
+    "format": "pe",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "017",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-auth",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s -w",
+    "trimpath": false,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_server-auth|darwin|-s_-w|false",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "018",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/gorilla/websocket@v1.5.3/examples/filewatch",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_gorilla_websocket_v1.5.3_examples_filewatch|darwin|-s_-w|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "019",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/pion/sctp@v1.9.5/examples/ping-pong/ping",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_pion_sctp_v1.9.5_examples_ping-pong_ping|linux|-s|true",
+    "format": "elf",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "020",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:golang.org/x/net@v0.54.0/html/atom",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_net_v0.54.0_html_atom|windows||false",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "021",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:modernc.org/sqlite@v1.55.0/examples/vtab_regexp",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_modernc.org_sqlite_v1.55.0_examples_vtab_regexp|linux||false",
+    "format": "elf",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "022",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:golang.org/x/sys@v0.44.0/windows/mkwinsyscall",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_sys_v0.44.0_windows_mkwinsyscall|windows|-s_-w|true",
+    "format": "pe",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "023",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/text@v0.37.0/encoding/traditionalchinese",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_encoding_traditionalchinese|darwin||true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "024",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:google.golang.org/protobuf@v1.36.10/cmd/protoc-gen-go",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_google.golang.org_protobuf_v1.36.10_cmd_protoc-gen-go|linux||false",
+    "format": "elf",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "025",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:modernc.org/sqlite@v1.55.0/examples/vtab_basic",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_modernc.org_sqlite_v1.55.0_examples_vtab_basic|linux|-s|true",
+    "format": "elf",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "026",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:golang.org/x/text@v0.37.0/encoding/simplifiedchinese",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_encoding_simplifiedchinese|windows|-s|true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "027",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/text@v0.37.0/unicode/cldr",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_unicode_cldr|darwin||true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "028",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:modernc.org/sqlite@v1.55.0/examples/vtab_basic",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_modernc.org_sqlite_v1.55.0_examples_vtab_basic|linux|-s_-w|true",
+    "format": "elf",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "029",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/xo/terminfo@v0.0.0-20220910002029-abceb7e1c41e/_examples",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-w",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_xo_terminfo_v0.0.0-20220910002029-abceb7e1c41e__examples|windows|-w|false",
+    "format": "pe",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "030",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/text@v0.37.0/language",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_language|darwin|-s|true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "031",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-record-format-mjpeg",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_client-record-format-mjpeg|windows|-s|true",
+    "format": "pe",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "032",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/text@v0.37.0/encoding/charmap",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_encoding_charmap|darwin||false",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "033",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:golang.org/x/text@v0.37.0/feature/plural",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_feature_plural|linux||false",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "034",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/sys@v0.44.0/windows/mkwinsyscall",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_sys_v0.44.0_windows_mkwinsyscall|darwin||true",
+    "format": "macho",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "035",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/text@v0.37.0/language",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-w",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_language|darwin|-w|false",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "036",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:golang.org/x/text@v0.37.0/unicode/bidi",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_unicode_bidi|linux|-s_-w|true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "037",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/!micah!parks/jwkset@v0.11.0/cmd/gen_ec",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com__micah_parks_jwkset_v0.11.0_cmd_gen_ec|windows||false",
+    "format": "pe",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "038",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/gorilla/websocket@v1.5.3/examples/chat",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s -w",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_gorilla_websocket_v1.5.3_examples_chat|darwin|-s_-w|false",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "039",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:google.golang.org/protobuf@v1.36.10/cmd/protoc-gen-go",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_google.golang.org_protobuf_v1.36.10_cmd_protoc-gen-go|linux||false",
+    "format": "elf",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "040",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/pion/sctp@v1.9.5/examples/ping-pong/ping",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_pion_sctp_v1.9.5_examples_ping-pong_ping|darwin|-s|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "041",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:golang.org/x/text@v0.37.0/cmd/gotext/examples/extract_http",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_cmd_gotext_examples_extract_http|windows|-s|false",
+    "format": "pe",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "042",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:google.golang.org/protobuf@v1.36.10/cmd/protoc-gen-go",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_google.golang.org_protobuf_v1.36.10_cmd_protoc-gen-go|windows|-s|false",
+    "format": "pe",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "043",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-record-format-mjpeg",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s -w",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_client-record-format-mjpeg|darwin|-s_-w|false",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "044",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/gorilla/websocket@v1.5.3/examples/chat",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_gorilla_websocket_v1.5.3_examples_chat|windows|-s|false",
+    "format": "pe",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "045",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/gorilla/websocket@v1.5.3/examples/filewatch",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_gorilla_websocket_v1.5.3_examples_filewatch|windows|-s_-w|false",
+    "format": "pe",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "046",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-h264-mpeg4audio-to-disk",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_client-play-format-h264-mpeg4audio-to-disk|darwin|-s|false",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "047",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:golang.org/x/text@v0.37.0/feature/plural",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_feature_plural|linux|-s_-w|true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "048",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:modernc.org/libc@v1.74.1",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-w",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_modernc.org_libc_v1.74.1|windows|-w|true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "049",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:golang.org/x/net@v0.54.0/http2/h2i",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_net_v0.54.0_http2_h2i|linux||false",
+    "format": "elf",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "050",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/text@v0.37.0",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0|darwin|-s_-w|true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "051",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/pion/webrtc/v4@v4.2.12/examples",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-w",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_pion_webrtc_v4_v4.2.12_examples|windows|-w|true",
+    "format": "pe",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "052",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:golang.org/x/text@v0.37.0",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0|windows|-s|true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "053",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:golang.org/x/text@v0.37.0/cases",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_cases|windows|-s|false",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "054",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-record-format-mjpeg",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_client-record-format-mjpeg|darwin|-s|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "055",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-secure",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_server-secure|darwin|-s|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "056",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/text@v0.37.0/encoding/ianaindex",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_encoding_ianaindex|darwin||true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "057",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/gorilla/websocket@v1.5.3/examples/chat",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_gorilla_websocket_v1.5.3_examples_chat|windows||true",
+    "format": "pe",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "058",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/text@v0.37.0",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-w",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0|darwin|-w|true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "059",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/text@v0.37.0/encoding/japanese",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_encoding_japanese|darwin||true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "060",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-h264-mpeg4audio-to-disk",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-w",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_client-play-format-h264-mpeg4audio-to-disk|linux|-w|true",
+    "format": "elf",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "061",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-mjpeg",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_client-play-format-mjpeg|linux|-s_-w|true",
+    "format": "elf",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "062",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-opus",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-w",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_client-play-format-opus|darwin|-w|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "063",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/pion/sctp@v1.9.5/examples/ping-pong/ping",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_pion_sctp_v1.9.5_examples_ping-pong_ping|linux||false",
+    "format": "elf",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "064",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-record-format-mjpeg",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_client-record-format-mjpeg|darwin|-s|false",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "065",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/pion/webrtc/v4@v4.2.12/examples",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_pion_webrtc_v4_v4.2.12_examples|linux|-s_-w|true",
+    "format": "elf",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "066",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/xo/terminfo@v0.0.0-20220910002029-abceb7e1c41e/_examples",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-w",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_xo_terminfo_v0.0.0-20220910002029-abceb7e1c41e__examples|darwin|-w|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "067",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:golang.org/x/text@v0.37.0/encoding/traditionalchinese",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": false,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_encoding_traditionalchinese|linux|-s_-w|false",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "068",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:golang.org/x/text@v0.37.0/unicode/rangetable",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-w",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_unicode_rangetable|windows|-w|true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "069",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:google.golang.org/protobuf@v1.36.10/cmd/protoc-gen-go",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_google.golang.org_protobuf_v1.36.10_cmd_protoc-gen-go|darwin|-s|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "070",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-secure",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_server-secure|linux|-s|false",
+    "format": "elf",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "071",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/quic-go/quic-go@v0.59.0/fuzzing/transportparameters/cmd",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_quic-go_quic-go_v0.59.0_fuzzing_transportparameters_cmd|windows||false",
+    "format": "pe",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "072",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/quic-go/quic-go@v0.59.0/fuzzing/header/cmd",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_quic-go_quic-go_v0.59.0_fuzzing_header_cmd|windows|-s_-w|false",
+    "format": "pe",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "073",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:golang.org/x/text@v0.37.0/encoding/japanese",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_encoding_japanese|windows|-s_-w|false",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "074",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/alecthomas/kong@v1.15.0/_examples/shell/commandstring",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-w",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_alecthomas_kong_v1.15.0__examples_shell_commandstring|darwin|-w|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "075",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:github.com/gorilla/websocket@v1.5.3/examples/chat",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_gorilla_websocket_v1.5.3_examples_chat|windows|-s|false",
+    "format": "pe",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "076",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:golang.org/x/text@v0.37.0",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0|linux|-s|false",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "077",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/xo/terminfo@v0.0.0-20220910002029-abceb7e1c41e/_examples",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_xo_terminfo_v0.0.0-20220910002029-abceb7e1c41e__examples|linux|-s|false",
+    "format": "elf",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "078",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:modernc.org/sqlite@v1.55.0",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-w",
+    "trimpath": false,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_modernc.org_sqlite_v1.55.0|darwin|-w|false",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "079",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_server|darwin|-s_-w|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "080",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/pelletier/go-toml/v2@v2.2.4/cmd/tomljson",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_pelletier_go-toml_v2_v2.2.4_cmd_tomljson|linux|-s_-w|true",
+    "format": "elf",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "081",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-secure",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_server-secure|darwin|-s|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "082",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/text@v0.37.0/unicode/rangetable",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_unicode_rangetable|darwin||true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "083",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:golang.org/x/text@v0.37.0/date",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_date|windows|-s_-w|true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "084",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/proxy-backchannel",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": true,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_proxy-backchannel|darwin||false",
+    "format": "macho",
+    "dwarf": true,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "085",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:golang.org/x/text@v0.37.0/secure/precis",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_secure_precis|linux||false",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "086",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/proxy-backchannel",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-w",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": true
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_bluenviron_gortsplib_v5_v5.5.3_examples_proxy-backchannel|linux|-w|false",
+    "format": "elf",
+    "dwarf": false,
+    "locals": true,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "087",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:github.com/pelletier/go-toml/v2@v2.2.4/cmd/tomljson",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_pelletier_go-toml_v2_v2.2.4_cmd_tomljson|linux|-s|true",
+    "format": "elf",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "088",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:golang.org/x/net@v0.54.0/http2/h2i",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_net_v0.54.0_http2_h2i|linux|-s|false",
+    "format": "elf",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "089",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/sys@v0.44.0/unix",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": true,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_sys_v0.44.0_unix|darwin||true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "090",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/matthewhartstonge/argon2@v1.5.3/cmd/argon2",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_matthewhartstonge_argon2_v1.5.3_cmd_argon2|darwin|-s_-w|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "091",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:github.com/pion/webrtc/v4@v4.2.12/examples",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s -w",
+    "trimpath": true,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_github.com_pion_webrtc_v4_v4.2.12_examples|darwin|-s_-w|true",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "092",
+   "family": "go",
+   "format": "pe",
+   "subject": "go:golang.org/x/text@v0.37.0/collate/tools/colcmp",
+   "config": {
+    "goos": "windows",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "zip"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_collate_tools_colcmp|windows|-s|false",
+    "format": "pe",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "093",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/text@v0.37.0/date",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-w",
+    "trimpath": true,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": true
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_text_v0.37.0_date|darwin|-w|true",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "094",
+   "family": "go",
+   "format": "macho",
+   "subject": "go:golang.org/x/sys@v0.44.0/windows/mkwinsyscall",
+   "config": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "ldflags": "-s -w",
+    "trimpath": false,
+    "packaging": "direct"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_sys_v0.44.0_windows_mkwinsyscall|darwin|-s_-w|false",
+    "format": "macho",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "095",
+   "family": "go",
+   "format": "elf",
+   "subject": "go:golang.org/x/net@v0.54.0/html/atom",
+   "config": {
+    "goos": "linux",
+    "goarch": "amd64",
+    "ldflags": "-s",
+    "trimpath": false,
+    "packaging": "tgz"
+   },
+   "classes": [
+    "dwarf",
+    "locals"
+   ],
+   "truth": {
+    "dwarf": false,
+    "locals": false
+   },
+   "construction": {
+    "dwarf": false,
+    "locals": false
+   },
+   "reference": {
+    "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/.cache/go/go_golang.org_x_net_v0.54.0_html_atom|linux|-s|false",
+    "format": "other",
+    "dwarf": false,
+    "locals": false,
+    "debugmap": false,
+    "dsym": false
+   }
+  },
+  {
+   "id": "096",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": false,
+    "strip": "-S -x",
+    "shipDsym": false,
+    "packaging": "direct",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/096/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "097",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": false,
+    "strip": "-S",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/097/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "098",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "-x",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/098/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "099",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "-S -x",
+    "shipDsym": true,
+    "packaging": "tgz",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": true
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": true
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/099/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/099/work/libzstd.dylib.dSYM/Contents/Resources/DWARF/libzstd.dylib",
+     "format": "macho",
+     "dwarf": true,
+     "locals": true,
+     "debugmap": false,
+     "dsym": true
+    }
+   }
+  },
+  {
+   "id": "100",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": false,
+    "strip": "-S",
+    "shipDsym": false,
+    "packaging": "tgz",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/100/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "101",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": false,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/101/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "102",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "-x",
+    "shipDsym": false,
+    "packaging": "tgz",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/102/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "103",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "-S",
+    "shipDsym": true,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": true
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": true
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/103/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/103/work/libquickjs.dylib.dSYM/Contents/Resources/DWARF/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": true,
+     "locals": false,
+     "debugmap": false,
+     "dsym": true
+    }
+   }
+  },
+  {
+   "id": "104",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": false,
+    "strip": "-S -x",
+    "shipDsym": false,
+    "packaging": "tgz",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/104/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "105",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": false,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "tgz",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/105/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "106",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "direct",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": true,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/106/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": true,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "107",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "-S",
+    "shipDsym": false,
+    "packaging": "direct",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/107/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "108",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": false,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "tgz",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/108/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "109",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "-x",
+    "shipDsym": true,
+    "packaging": "tgz",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": true
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": false,
+    "dsym": true
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/109/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/109/work/libzstd.dylib.dSYM/Contents/Resources/DWARF/libzstd.dylib",
+     "format": "macho",
+     "dwarf": true,
+     "locals": true,
+     "debugmap": false,
+     "dsym": true
+    }
+   }
+  },
+  {
+   "id": "110",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "-S -x",
+    "shipDsym": false,
+    "packaging": "tgz",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/110/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "111",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": false,
+    "strip": "-S -x",
+    "shipDsym": false,
+    "packaging": "direct",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/111/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "112",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "-x",
+    "shipDsym": false,
+    "packaging": "direct",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/112/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "113",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "-x",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/113/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "114",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "-S",
+    "shipDsym": true,
+    "packaging": "zip",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": true
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": true
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/114/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/114/work/libzstd.dylib.dSYM/Contents/Resources/DWARF/libzstd.dylib",
+     "format": "macho",
+     "dwarf": true,
+     "locals": true,
+     "debugmap": false,
+     "dsym": true
+    }
+   }
+  },
+  {
+   "id": "115",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": false,
+    "strip": "-S",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/115/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "116",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/116/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": true,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "117",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": true,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/117/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": true,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "118",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "tgz",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/118/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": true,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "119",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "tgz",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/119/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": true,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "120",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "-S",
+    "shipDsym": true,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": true
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": true
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/120/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/120/work/libquickjs.dylib.dSYM/Contents/Resources/DWARF/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": true,
+     "locals": false,
+     "debugmap": false,
+     "dsym": true
+    }
+   }
+  },
+  {
+   "id": "121",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "-S",
+    "shipDsym": false,
+    "packaging": "tgz",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/121/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "122",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": false,
+    "strip": "-S -x",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/122/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "123",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": false,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/123/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "124",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "-S -x",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/124/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "125",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "-S -x",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/125/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "126",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "direct",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": true,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/126/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": true,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "127",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "-S",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/127/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "128",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "tgz",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/128/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": true,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "129",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "-x",
+    "shipDsym": true,
+    "packaging": "zip",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": true
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": false,
+    "dsym": true
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/129/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/129/work/libzstd.dylib.dSYM/Contents/Resources/DWARF/libzstd.dylib",
+     "format": "macho",
+     "dwarf": true,
+     "locals": true,
+     "debugmap": false,
+     "dsym": true
+    }
+   }
+  },
+  {
+   "id": "130",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": false,
+    "strip": "-S -x",
+    "shipDsym": false,
+    "packaging": "direct",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/130/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "131",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "tgz",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/131/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": true,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "132",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": false,
+    "strip": "-S",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/132/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "133",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "tgz",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": true,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/133/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": true,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "134",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "-S -x",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/134/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "135",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": false,
+    "strip": "-x",
+    "shipDsym": false,
+    "packaging": "direct",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/135/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "136",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": false,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "direct",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/136/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "137",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": false,
+    "strip": "-S",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/137/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "138",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "-S -x",
+    "shipDsym": true,
+    "packaging": "tgz",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": true
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": true
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/138/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/138/work/libzstd.dylib.dSYM/Contents/Resources/DWARF/libzstd.dylib",
+     "format": "macho",
+     "dwarf": true,
+     "locals": true,
+     "debugmap": false,
+     "dsym": true
+    }
+   }
+  },
+  {
+   "id": "139",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "-S",
+    "shipDsym": true,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": true
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": true
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/139/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/139/work/libquickjs.dylib.dSYM/Contents/Resources/DWARF/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": true,
+     "locals": false,
+     "debugmap": false,
+     "dsym": true
+    }
+   }
+  },
+  {
+   "id": "140",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "direct",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/140/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": true,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "141",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:zstd",
+   "config": {
+    "g": true,
+    "strip": "-S",
+    "shipDsym": false,
+    "packaging": "direct",
+    "units": 39
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/141/work/libzstd.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": true,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "142",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": true,
+    "strip": "-x",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": true,
+    "locals": false,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/142/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "143",
+   "family": "c",
+   "format": "macho",
+   "subject": "c:quickjs",
+   "config": {
+    "g": false,
+    "strip": "none",
+    "shipDsym": false,
+    "packaging": "zip",
+    "units": 2
+   },
+   "classes": [
+    "debugmap",
+    "locals",
+    "dsym"
+   ],
+   "truth": {
+    "debugmap": false,
+    "locals": false,
+    "dsym": false
+   },
+   "construction": {
+    "debugmap": false,
+    "locals": true,
+    "dsym": false
+   },
+   "reference": {
+    "dylib": {
+     "file": "/Users/shashank/Desktop/Anti-REA/bench/runs/v7/eval/cases/143/work/libquickjs.dylib",
+     "format": "macho",
+     "dwarf": false,
+     "locals": false,
+     "debugmap": false,
+     "dsym": false
+    },
+    "dsym": null
+   }
+  },
+  {
+   "id": "144",
+   "family": "js",
+   "format": "js",
+   "subject": "js:agent-base",
+   "config": {
+    "map": "external-names",
+    "minify": true,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "145",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@npmcli/installed-package-contents",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": "webSecurity: false",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": true,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "146",
+   "family": "js",
+   "format": "js",
+   "subject": "js:tinyglobby",
+   "config": {
+    "map": "reference-only",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "147",
+   "family": "js",
+   "format": "js",
+   "subject": "js:yallist",
+   "config": {
+    "map": "inline-sources",
+    "minify": true,
+    "insecure": null,
+    "style": "indirect",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "148",
+   "family": "js",
+   "format": "js",
+   "subject": "js:npm-install-checks",
+   "config": {
+    "map": "external-sources",
+    "minify": false,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "149",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmfund",
+   "config": {
+    "map": "reference-only",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "150",
+   "family": "js",
+   "format": "js",
+   "subject": "js:cacache",
+   "config": {
+    "map": "inline-names",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "151",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmpack",
+   "config": {
+    "map": "none",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "152",
+   "family": "js",
+   "format": "js",
+   "subject": "js:tar",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "153",
+   "family": "js",
+   "format": "js",
+   "subject": "js:smart-buffer",
+   "config": {
+    "map": "none",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "154",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@npmcli/redact",
+   "config": {
+    "map": "inline-names",
+    "minify": true,
+    "insecure": "sandbox: false",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "155",
+   "family": "js",
+   "format": "js",
+   "subject": "js:postcss-selector-parser",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": "contextIsolation: false",
+    "style": "indirect",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "156",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@sigstore/protobuf-specs",
+   "config": {
+    "map": "inline-sources",
+    "minify": true,
+    "insecure": "nodeIntegration: true",
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": true,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "157",
+   "family": "js",
+   "format": "js",
+   "subject": "js:npm-audit-report",
+   "config": {
+    "map": "inline-names",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "158",
+   "family": "js",
+   "format": "js",
+   "subject": "js:proggy",
+   "config": {
+    "map": "external-names",
+    "minify": false,
+    "insecure": "nodeIntegration: true",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "159",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmversion",
+   "config": {
+    "map": "external-names",
+    "minify": false,
+    "insecure": "webSecurity: false",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "160",
+   "family": "js",
+   "format": "js",
+   "subject": "js:parse-conflict-json",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "161",
+   "family": "js",
+   "format": "js",
+   "subject": "js:nopt",
+   "config": {
+    "map": "inline-names",
+    "minify": false,
+    "insecure": "sandbox: false",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "162",
+   "family": "js",
+   "format": "js",
+   "subject": "js:npm-packlist",
+   "config": {
+    "map": "inline-names",
+    "minify": true,
+    "insecure": "webSecurity: false",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "163",
+   "family": "js",
+   "format": "js",
+   "subject": "js:minipass-pipeline",
+   "config": {
+    "map": "inline-names",
+    "minify": false,
+    "insecure": null,
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": true,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "164",
+   "family": "js",
+   "format": "js",
+   "subject": "js:smart-buffer",
+   "config": {
+    "map": "external-names",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "165",
+   "family": "js",
+   "format": "js",
+   "subject": "js:semver",
+   "config": {
+    "map": "external-sources",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "166",
+   "family": "js",
+   "format": "js",
+   "subject": "js:npm-package-arg",
+   "config": {
+    "map": "external-names",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "167",
+   "family": "js",
+   "format": "js",
+   "subject": "js:p-map",
+   "config": {
+    "map": "external-names",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "168",
+   "family": "js",
+   "format": "js",
+   "subject": "js:tiny-relative-date",
+   "config": {
+    "map": "inline-names",
+    "minify": true,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "169",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmteam",
+   "config": {
+    "map": "external-sources",
+    "minify": true,
+    "insecure": "nodeIntegration: true",
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "170",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmaccess",
+   "config": {
+    "map": "none",
+    "minify": false,
+    "insecure": null,
+    "style": "indirect",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "171",
+   "family": "js",
+   "format": "js",
+   "subject": "js:ip-address",
+   "config": {
+    "map": "external-sources",
+    "minify": true,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "172",
+   "family": "js",
+   "format": "js",
+   "subject": "js:spdx-expression-parse",
+   "config": {
+    "map": "external-sources",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "173",
+   "family": "js",
+   "format": "js",
+   "subject": "js:lru-cache",
+   "config": {
+    "map": "none",
+    "minify": true,
+    "insecure": "contextIsolation: false",
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "174",
+   "family": "js",
+   "format": "js",
+   "subject": "js:cmd-shim",
+   "config": {
+    "map": "reference-only",
+    "minify": false,
+    "insecure": "contextIsolation: false",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "175",
+   "family": "js",
+   "format": "js",
+   "subject": "js:minizlib",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": "sandbox: false",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "176",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@isaacs/fs-minipass",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": true,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "177",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmdiff",
+   "config": {
+    "map": "inline-sources",
+    "minify": true,
+    "insecure": "contextIsolation: false",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "178",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@sigstore/tuf",
+   "config": {
+    "map": "inline-names",
+    "minify": true,
+    "insecure": "webSecurity: false",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "179",
+   "family": "js",
+   "format": "js",
+   "subject": "js:cmd-shim",
+   "config": {
+    "map": "reference-only",
+    "minify": false,
+    "insecure": "contextIsolation: false",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "180",
+   "family": "js",
+   "format": "js",
+   "subject": "js:tiny-relative-date",
+   "config": {
+    "map": "none",
+    "minify": true,
+    "insecure": "contextIsolation: false",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "181",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmdiff",
+   "config": {
+    "map": "reference-only",
+    "minify": true,
+    "insecure": null,
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "182",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@npmcli/installed-package-contents",
+   "config": {
+    "map": "none",
+    "minify": true,
+    "insecure": null,
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "183",
+   "family": "js",
+   "format": "js",
+   "subject": "js:tiny-relative-date",
+   "config": {
+    "map": "none",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "184",
+   "family": "js",
+   "format": "js",
+   "subject": "js:write-file-atomic",
+   "config": {
+    "map": "external-names",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "185",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@sigstore/tuf",
+   "config": {
+    "map": "external-sources",
+    "minify": true,
+    "insecure": null,
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "186",
+   "family": "js",
+   "format": "js",
+   "subject": "js:supports-color",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": "contextIsolation: false",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "187",
+   "family": "js",
+   "format": "js",
+   "subject": "js:fs-minipass",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "188",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@npmcli/config",
+   "config": {
+    "map": "none",
+    "minify": false,
+    "insecure": "contextIsolation: false",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "189",
+   "family": "js",
+   "format": "js",
+   "subject": "js:npm-profile",
+   "config": {
+    "map": "external-names",
+    "minify": true,
+    "insecure": "contextIsolation: false",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "190",
+   "family": "js",
+   "format": "js",
+   "subject": "js:debug",
+   "config": {
+    "map": "external-sources",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "191",
+   "family": "js",
+   "format": "js",
+   "subject": "js:spdx-expression-parse",
+   "config": {
+    "map": "external-sources",
+    "minify": false,
+    "insecure": "contextIsolation: false",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": true,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "192",
+   "family": "js",
+   "format": "js",
+   "subject": "js:tiny-relative-date",
+   "config": {
+    "map": "inline-names",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "193",
+   "family": "js",
+   "format": "js",
+   "subject": "js:ci-info",
+   "config": {
+    "map": "external-names",
+    "minify": true,
+    "insecure": null,
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "194",
+   "family": "js",
+   "format": "js",
+   "subject": "js:npm-pick-manifest",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "195",
+   "family": "js",
+   "format": "js",
+   "subject": "js:init-package-json",
+   "config": {
+    "map": "none",
+    "minify": false,
+    "insecure": "contextIsolation: false",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "196",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@sigstore/verify",
+   "config": {
+    "map": "inline-names",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "197",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@npmcli/installed-package-contents",
+   "config": {
+    "map": "none",
+    "minify": true,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "198",
+   "family": "js",
+   "format": "js",
+   "subject": "js:read",
+   "config": {
+    "map": "inline-sources",
+    "minify": true,
+    "insecure": "sandbox: false",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": true,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "199",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@sigstore/verify",
+   "config": {
+    "map": "external-names",
+    "minify": false,
+    "insecure": "webSecurity: false",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "200",
+   "family": "js",
+   "format": "js",
+   "subject": "js:smart-buffer",
+   "config": {
+    "map": "external-names",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "201",
+   "family": "js",
+   "format": "js",
+   "subject": "js:minimatch",
+   "config": {
+    "map": "inline-names",
+    "minify": true,
+    "insecure": "webSecurity: false",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "202",
+   "family": "js",
+   "format": "js",
+   "subject": "js:brace-expansion",
+   "config": {
+    "map": "reference-only",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "203",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmfund",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": "sandbox: false",
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": true,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "204",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@npmcli/promise-spawn",
+   "config": {
+    "map": "inline-names",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "205",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@npmcli/promise-spawn",
+   "config": {
+    "map": "reference-only",
+    "minify": false,
+    "insecure": "contextIsolation: false",
+    "style": "indirect",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "206",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@npmcli/promise-spawn",
+   "config": {
+    "map": "reference-only",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "207",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@npmcli/installed-package-contents",
+   "config": {
+    "map": "none",
+    "minify": true,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "208",
+   "family": "js",
+   "format": "js",
+   "subject": "js:path-scurry",
+   "config": {
+    "map": "inline-names",
+    "minify": false,
+    "insecure": "nodeIntegration: true",
+    "style": "indirect",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "209",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmpack",
+   "config": {
+    "map": "external-names",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "210",
+   "family": "js",
+   "format": "js",
+   "subject": "js:read",
+   "config": {
+    "map": "none",
+    "minify": false,
+    "insecure": null,
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "211",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@npmcli/promise-spawn",
+   "config": {
+    "map": "external-sources",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "212",
+   "family": "js",
+   "format": "js",
+   "subject": "js:ini",
+   "config": {
+    "map": "external-sources",
+    "minify": false,
+    "insecure": "contextIsolation: false",
+    "style": "indirect",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "213",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@gar/promise-retry",
+   "config": {
+    "map": "inline-sources",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "214",
+   "family": "js",
+   "format": "js",
+   "subject": "js:parse-conflict-json",
+   "config": {
+    "map": "none",
+    "minify": false,
+    "insecure": "contextIsolation: false",
+    "style": "indirect",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "215",
+   "family": "js",
+   "format": "js",
+   "subject": "js:path-scurry",
+   "config": {
+    "map": "none",
+    "minify": true,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "216",
+   "family": "js",
+   "format": "js",
+   "subject": "js:tar",
+   "config": {
+    "map": "none",
+    "minify": true,
+    "insecure": "nodeIntegration: true",
+    "style": "indirect",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "217",
+   "family": "js",
+   "format": "js",
+   "subject": "js:tuf-js",
+   "config": {
+    "map": "external-sources",
+    "minify": false,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "218",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmfund",
+   "config": {
+    "map": "inline-sources",
+    "minify": true,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "219",
+   "family": "js",
+   "format": "js",
+   "subject": "js:cacache",
+   "config": {
+    "map": "external-sources",
+    "minify": true,
+    "insecure": "webSecurity: false",
+    "style": "indirect",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "220",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmdiff",
+   "config": {
+    "map": "inline-names",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "221",
+   "family": "js",
+   "format": "js",
+   "subject": "js:p-map",
+   "config": {
+    "map": "external-sources",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "222",
+   "family": "js",
+   "format": "js",
+   "subject": "js:nopt",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": "contextIsolation: false",
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "223",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmdiff",
+   "config": {
+    "map": "reference-only",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "224",
+   "family": "js",
+   "format": "js",
+   "subject": "js:write-file-atomic",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "225",
+   "family": "js",
+   "format": "js",
+   "subject": "js:tuf-js",
+   "config": {
+    "map": "external-names",
+    "minify": true,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "226",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@npmcli/package-json",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": "contextIsolation: false",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": true,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "227",
+   "family": "js",
+   "format": "js",
+   "subject": "js:cmd-shim",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": true,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "228",
+   "family": "js",
+   "format": "js",
+   "subject": "js:cmd-shim",
+   "config": {
+    "map": "external-sources",
+    "minify": false,
+    "insecure": "nodeIntegration: true",
+    "style": "indirect",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "229",
+   "family": "js",
+   "format": "js",
+   "subject": "js:socks-proxy-agent",
+   "config": {
+    "map": "reference-only",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "230",
+   "family": "js",
+   "format": "js",
+   "subject": "js:minipass",
+   "config": {
+    "map": "reference-only",
+    "minify": false,
+    "insecure": "sandbox: false",
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "231",
+   "family": "js",
+   "format": "js",
+   "subject": "js:ssri",
+   "config": {
+    "map": "reference-only",
+    "minify": false,
+    "insecure": "webSecurity: false",
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "232",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmversion",
+   "config": {
+    "map": "inline-names",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "233",
+   "family": "js",
+   "format": "js",
+   "subject": "js:npm-pick-manifest",
+   "config": {
+    "map": "inline-names",
+    "minify": false,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "234",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@sigstore/core",
+   "config": {
+    "map": "none",
+    "minify": true,
+    "insecure": "contextIsolation: false",
+    "style": "indirect",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "235",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@sigstore/protobuf-specs",
+   "config": {
+    "map": "none",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "236",
+   "family": "js",
+   "format": "js",
+   "subject": "js:@npmcli/config",
+   "config": {
+    "map": "reference-only",
+    "minify": true,
+    "insecure": null,
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": false,
+    "mapWithSources": false,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "237",
+   "family": "js",
+   "format": "js",
+   "subject": "js:chalk",
+   "config": {
+    "map": "inline-sources",
+    "minify": false,
+    "insecure": "allowRunningInsecureContent: true",
+    "style": "literal",
+    "devtools": false,
+    "hardNegative": false,
+    "packaging": "asar"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "238",
+   "family": "js",
+   "format": "js",
+   "subject": "js:undici",
+   "config": {
+    "map": "external-sources",
+    "minify": true,
+    "insecure": "contextIsolation: false",
+    "style": "indirect",
+    "devtools": true,
+    "hardNegative": false,
+    "packaging": "asar-in-zip"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": true,
+    "devtools": true
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  },
+  {
+   "id": "239",
+   "family": "js",
+   "format": "js",
+   "subject": "js:libnpmdiff",
+   "config": {
+    "map": "inline-sources",
+    "minify": true,
+    "insecure": null,
+    "style": "indirect",
+    "devtools": false,
+    "hardNegative": true,
+    "packaging": "dir"
+   },
+   "classes": [
+    "map",
+    "webprefs",
+    "devtools"
+   ],
+   "truth": {
+    "map": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "construction": {
+    "map": true,
+    "mapWithSources": true,
+    "webprefs": false,
+    "devtools": false
+   },
+   "natural": {
+    "inlineMapComment": false,
+    "devtoolsText": false
+   }
+  }
+ ]
+}

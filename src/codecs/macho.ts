@@ -27,6 +27,12 @@ export const CS_LINKER_SIGNED = 0x20000;
 const MH_FILETYPES: Record<number, string> = { 1: "object", 2: "execute", 6: "dylib", 7: "dylinker", 8: "bundle", 9: "dylib-stub", 11: "kext" };
 const CPU: Record<number, string> = { 7: "i386", 0x01000007: "x86_64", 12: "arm", 0x0100000c: "arm64", 0x0200000c: "arm64_32" };
 
+/** Architecture name including the arm64e ABI (cpusubtype 2), so a fat arm64 + arm64e pair is not reported twice as "arm64". */
+function archName(cputype: number, cpusubtype: number): string {
+  if (cputype === 0x0100000c && (cpusubtype & 0xffffff) === 2) return "arm64e";
+  return CPU[cputype] ?? `cpu-${cputype.toString(16)}`;
+}
+
 export interface CodeDirectoryInfo {
   readonly identifier: string;
   readonly teamId?: string;
@@ -174,7 +180,7 @@ function parseSlice(slice: Buffer, arch: string, offset: number): SliceInfo {
   const filetype = MH_FILETYPES[slice.readUInt32LE(12)] ?? `type-${slice.readUInt32LE(12)}`;
   const ncmds = slice.readUInt32LE(16);
   let p = is64 ? 32 : 28;
-  const base = { arch: arch || CPU[cputype] || `cpu-${cputype.toString(16)}`, filetype, offset, size: slice.length };
+  const base = { arch: arch || archName(cputype, slice.readUInt32LE(8)), filetype, offset, size: slice.length };
   for (let i = 0; i < ncmds; i++) {
     if (p + 8 > slice.length) return { ...base, signed: false, codeDirectories: [], hasCmsSignature: false, error: "load commands truncated" };
     const cmd = slice.readUInt32LE(p);
@@ -223,7 +229,8 @@ export function machOSlices(b: Buffer): { arch: string; buf: Buffer }[] {
   const be = b.readUInt32BE(0);
   if (be !== 0xcafebabe && be !== 0xcafebabf) {
     const cpu = b.length >= 8 ? b.readUInt32LE(4) : 0;
-    return [{ arch: CPU[cpu] ?? `cpu-${cpu.toString(16)}`, buf: b }];
+    const sub = b.length >= 12 ? b.readUInt32LE(8) : 0;
+    return [{ arch: archName(cpu, sub), buf: b }];
   }
   const n = b.readUInt32BE(4);
   const entry = be === 0xcafebabf ? 32 : 20;
@@ -231,9 +238,10 @@ export function machOSlices(b: Buffer): { arch: string; buf: Buffer }[] {
   for (let i = 0; i < n; i++) {
     const at = 8 + i * entry;
     const cputype = b.readUInt32BE(at);
+    const cpusubtype = b.readUInt32BE(at + 4);
     const off = be === 0xcafebabf ? Number(b.readBigUInt64BE(at + 8)) : b.readUInt32BE(at + 8);
     const size = be === 0xcafebabf ? Number(b.readBigUInt64BE(at + 16)) : b.readUInt32BE(at + 12);
-    out.push({ arch: CPU[cputype] ?? `cpu-${cputype.toString(16)}`, buf: b.subarray(off, off + size) });
+    out.push({ arch: archName(cputype, cpusubtype), buf: b.subarray(off, off + size) });
   }
   return out;
 }
@@ -249,13 +257,117 @@ export function readMachO(b: Buffer): MachOInfo {
     for (let i = 0; i < n; i++) {
       const at = 8 + i * entry;
       const cputype = b.readUInt32BE(at);
+      const cpusubtype = b.readUInt32BE(at + 4);
       const off = be === 0xcafebabf ? Number(b.readBigUInt64BE(at + 8)) : b.readUInt32BE(at + 8);
       const size = be === 0xcafebabf ? Number(b.readBigUInt64BE(at + 16)) : b.readUInt32BE(at + 12);
-      slices.push(parseSlice(b.subarray(off, off + size), CPU[cputype] ?? `cpu-${cputype.toString(16)}`, off));
+      slices.push(parseSlice(b.subarray(off, off + size), archName(cputype, cpusubtype), off));
     }
     return { fat: true, slices };
   }
   return { fat: false, slices: [parseSlice(b, "", 0)] };
+}
+
+// ---------------------------------------------------------------- hardening (v0.8 exposure)
+
+const MH_PIE = 0x200000;
+const MH_ALLOW_STACK_EXECUTION = 0x20000;
+/** LC_BUILD_VERSION platform ids (and the older LC_VERSION_MIN_* commands below). */
+const PLATFORM: Record<number, string> = { 1: "macOS", 2: "iOS", 3: "tvOS", 4: "watchOS", 5: "bridgeOS", 6: "macCatalyst", 7: "iOS-simulator", 8: "tvOS-simulator", 9: "watchOS-simulator", 10: "DriverKit", 11: "visionOS", 12: "visionOS-simulator" };
+
+export interface MachOHardening {
+  readonly arch: string;
+  readonly filetype: string;
+  /** MH_PIE: the image is position-independent (ASLR applies). Only meaningful for MH_EXECUTE. */
+  readonly pie: boolean;
+  /** Target platform from LC_BUILD_VERSION / LC_VERSION_MIN_* (undefined when neither is present). */
+  readonly platform?: string;
+  readonly minOs?: string;
+  /** LC_ENCRYPTION_INFO[_64] cryptid: non-zero ⇒ the slice is FairPlay-encrypted (iOS App Store). */
+  readonly cryptid?: number;
+  /** The slice imports a stack-protector symbol (`__stack_chk_fail`/`_guard`): the build has canaries. */
+  readonly stackCanary: boolean;
+  /** MH_ALLOW_STACK_EXECUTION set ⇒ an executable stack (NX off on the stack). */
+  readonly execStack: boolean;
+  readonly error?: string;
+}
+
+function version(v: number): string {
+  return `${v >>> 16}.${(v >> 8) & 0xff}.${v & 0xff}`;
+}
+
+function sliceHardening(s: Buffer, arch: string): MachOHardening {
+  const magic = s.length >= 4 ? s.readUInt32LE(0) : 0;
+  const is64 = magic === 0xfeedfacf;
+  const base = { arch, filetype: "unknown", pie: false, stackCanary: false, execStack: false };
+  if (!is64 && magic !== 0xfeedface) return { ...base, error: "not a little-endian Mach-O slice" };
+  const filetype = MH_FILETYPES[s.readUInt32LE(12)] ?? `type-${s.readUInt32LE(12)}`;
+  const ncmds = s.readUInt32LE(16);
+  const flags = s.readUInt32LE(24);
+  let platform: string | undefined;
+  let minOs: string | undefined;
+  let cryptid: number | undefined;
+  let symtab: { symoff: number; nsyms: number; stroff: number; strsize: number } | null = null;
+  let p = is64 ? 32 : 28;
+  for (let i = 0; i < ncmds; i++) {
+    if (p + 8 > s.length) break;
+    const cmd = s.readUInt32LE(p);
+    const size = s.readUInt32LE(p + 4);
+    if (size < 8 || p + size > s.length) break;
+    if (cmd === 0x32 && p + 20 <= s.length) {
+      // LC_BUILD_VERSION: platform, minos, sdk
+      platform = PLATFORM[s.readUInt32LE(p + 8)] ?? `platform-${s.readUInt32LE(p + 8)}`;
+      minOs = version(s.readUInt32LE(p + 12));
+    } else if ((cmd === 0x24 || cmd === 0x25 || cmd === 0x2f || cmd === 0x30) && platform === undefined && p + 12 <= s.length) {
+      // LC_VERSION_MIN_MACOSX (0x24), _IPHONEOS (0x25), _TVOS (0x2f), _WATCHOS (0x30). (0x26/0x27 are
+      // LC_FUNCTION_STARTS / LC_DYLD_ENVIRONMENT and must not be read as a platform.)
+      platform = cmd === 0x24 ? "macOS" : cmd === 0x25 ? "iOS" : cmd === 0x2f ? "tvOS" : "watchOS";
+      minOs = version(s.readUInt32LE(p + 8));
+    } else if ((cmd === 0x21 || cmd === 0x2c) && p + 20 <= s.length) {
+      // LC_ENCRYPTION_INFO / LC_ENCRYPTION_INFO_64: cryptoff, cryptsize, cryptid
+      cryptid = s.readUInt32LE(p + 16);
+    } else if (cmd === 0x2) {
+      symtab = { symoff: s.readUInt32LE(p + 8), nsyms: s.readUInt32LE(p + 12), stroff: s.readUInt32LE(p + 16), strsize: s.readUInt32LE(p + 20) };
+    }
+    p += size;
+  }
+  let stackCanary = false;
+  if (symtab) {
+    const ent = is64 ? 16 : 12;
+    if (symtab.symoff + symtab.nsyms * ent <= s.length && symtab.stroff + symtab.strsize <= s.length) {
+      const strtab = s.subarray(symtab.stroff, symtab.stroff + symtab.strsize);
+      const cap = Math.min(symtab.nsyms, 5_000_000);
+      for (let i = 0; i < cap && !stackCanary; i++) {
+        const at = symtab.symoff + i * ent;
+        const type = s[at + 4]!;
+        // undefined symbols (N_UNDF, type bits 0) are imports; stack-protector refs are imported from libSystem
+        if ((type & 0x0e) === 0) {
+          const name = cstr(strtab, s.readUInt32LE(at));
+          if (/_{2,3}stack_chk_(fail|guard)/.test(name)) stackCanary = true;
+        }
+      }
+    }
+  }
+  return {
+    arch,
+    filetype,
+    pie: (flags & MH_PIE) !== 0,
+    ...(platform !== undefined ? { platform } : {}),
+    ...(minOs !== undefined ? { minOs } : {}),
+    ...(cryptid !== undefined ? { cryptid } : {}),
+    stackCanary,
+    execStack: (flags & MH_ALLOW_STACK_EXECUTION) !== 0,
+  };
+}
+
+/** Per-slice hardening facts (PIE, platform, FairPlay cryptid, stack canary). Agrees with `otool -hv`/`-l`. */
+export function machoHardening(b: Buffer): MachOHardening[] {
+  return machOSlices(b).map(({ arch, buf }) => {
+    try {
+      return sliceHardening(buf, arch);
+    } catch (e) {
+      return { arch, filetype: "unknown", pie: false, stackCanary: false, execStack: false, error: (e as Error).message };
+    }
+  });
 }
 
 /** Hash bytes with a CodeDirectory's hash type, truncated to its slot size (for special-slot checks). */
