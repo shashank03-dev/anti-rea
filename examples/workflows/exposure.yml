@@ -40,6 +40,6 @@ jobs:
       # Release gate (in your release job): blocks until every declared check passes.
       # - run: npx --yes anti-rea@0.1.0 assure --manifest anti-rea.manifest.json --policy anti-rea.policy.json --out anti-rea-report
       #
-      # Teams with access to the anti-rea/anti-rea repository can use the composite Action instead of npx:
-      # - uses: anti-rea/anti-rea@v0.1.0
+      # Or use the composite GitHub Action instead of npx:
+      # - uses: shashank03-dev/anti-rea@v0.1.0
       #   with: { path: dist, fail-on: high }

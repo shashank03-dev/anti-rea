@@ -6,11 +6,11 @@
   "author": "Anti-REA authors",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anti-rea/anti-rea.git"
+    "url": "git+https://github.com/shashank03-dev/anti-rea.git"
   },
-  "homepage": "https://github.com/anti-rea/anti-rea#readme",
+  "homepage": "https://github.com/shashank03-dev/anti-rea#readme",
   "bugs": {
-    "url": "https://github.com/anti-rea/anti-rea/issues"
+    "url": "https://github.com/shashank03-dev/anti-rea/issues"
   },
   "keywords": [
     "reverse-engineering",
