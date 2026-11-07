@@ -1,0 +1,6859 @@
+{
+  "schema": "anti-rea/bench-v7-decisions/v1",
+  "set": "eval",
+  "frozenSha256": "dfc1343aee1e4f1a0acfd216adc97af85fadd198f401291b996920d80f601842",
+  "node": "v26.11.1",
+  "startedAt": "2026-11-07T14:57:53.566Z",
+  "cases": [
+    {
+      "id": "000",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 114,
+      "blMs": 54,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "001",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 140,
+      "blMs": 60,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)",
+        "Unstripped .symtab with local symbols"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "002",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 130,
+      "blMs": 50,
+      "arTitles": [
+        "COFF symbol table shipped",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "003",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 109,
+      "blMs": 22,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "004",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 137,
+      "blMs": 58,
+      "arTitles": [
+        "COFF symbol table shipped",
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "005",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 90,
+      "blMs": 21,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "006",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 110,
+      "blMs": 33,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "007",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 132,
+      "blMs": 35,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "008",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 107,
+      "blMs": 44,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)",
+        "Unstripped .symtab with local symbols"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "009",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 133,
+      "blMs": 50,
+      "arTitles": [
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)",
+        "Unstripped .symtab with local symbols"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "010",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 128,
+      "blMs": 83,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "011",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 124,
+      "blMs": 18,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "012",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 147,
+      "blMs": 106,
+      "arTitles": [
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)",
+        "Unstripped .symtab with local symbols"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "013",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 124,
+      "blMs": 33,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "014",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 128,
+      "blMs": 78,
+      "arTitles": [
+        "COFF symbol table shipped",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "015",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 104,
+      "blMs": 37,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "016",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 132,
+      "blMs": 39,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "017",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 117,
+      "blMs": 22,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "018",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 127,
+      "blMs": 37,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "019",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 104,
+      "blMs": 18,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "020",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 92,
+      "blMs": 21,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "021",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 145,
+      "blMs": 63,
+      "arTitles": [
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)",
+        "Unstripped .symtab with local symbols"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "022",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 112,
+      "blMs": 20,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "023",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 89,
+      "blMs": 19,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "024",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 154,
+      "blMs": 110,
+      "arTitles": [
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)",
+        "Unstripped .symtab with local symbols"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "025",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 111,
+      "blMs": 21,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "026",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 93,
+      "blMs": 20,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "027",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 112,
+      "blMs": 26,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "028",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 125,
+      "blMs": 30,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "029",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 106,
+      "blMs": 39,
+      "arTitles": [
+        "COFF symbol table shipped",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "030",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 96,
+      "blMs": 26,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "031",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 133,
+      "blMs": 33,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "032",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 97,
+      "blMs": 20,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "033",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 92,
+      "blMs": 19,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "034",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 117,
+      "blMs": 30,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "035",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 94,
+      "blMs": 24,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "036",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 98,
+      "blMs": 21,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "037",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 122,
+      "blMs": 28,
+      "arTitles": [
+        "COFF symbol table shipped",
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "038",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 125,
+      "blMs": 59,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "039",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 161,
+      "blMs": 71,
+      "arTitles": [
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)",
+        "Unstripped .symtab with local symbols"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "040",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 111,
+      "blMs": 36,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "041",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 114,
+      "blMs": 28,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "042",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 146,
+      "blMs": 22,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "043",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 127,
+      "blMs": 60,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "044",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 134,
+      "blMs": 59,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "045",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 144,
+      "blMs": 78,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "046",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 137,
+      "blMs": 33,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "047",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 98,
+      "blMs": 23,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "048",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 120,
+      "blMs": 31,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "049",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 161,
+      "blMs": 92,
+      "arTitles": [
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)",
+        "Unstripped .symtab with local symbols"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "050",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 100,
+      "blMs": 19,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "051",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 148,
+      "blMs": 65,
+      "arTitles": [
+        "COFF symbol table shipped",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "052",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 100,
+      "blMs": 21,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "053",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 99,
+      "blMs": 21,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "054",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 126,
+      "blMs": 34,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "055",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 119,
+      "blMs": 22,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "056",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 96,
+      "blMs": 23,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "057",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 135,
+      "blMs": 51,
+      "arTitles": [
+        "COFF symbol table shipped",
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "058",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 23,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "059",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 99,
+      "blMs": 21,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "060",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 136,
+      "blMs": 87,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)",
+        "Unstripped .symtab with local symbols"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "061",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 126,
+      "blMs": 59,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "062",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 127,
+      "blMs": 47,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "063",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 108,
+      "blMs": 29,
+      "arTitles": [
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)",
+        "Unstripped .symtab with local symbols"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "064",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 120,
+      "blMs": 57,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "065",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 126,
+      "blMs": 33,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "066",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 106,
+      "blMs": 33,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "067",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 89,
+      "blMs": 18,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "068",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 89,
+      "blMs": 22,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "069",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 123,
+      "blMs": 35,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "070",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 126,
+      "blMs": 64,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "071",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 115,
+      "blMs": 53,
+      "arTitles": [
+        "COFF symbol table shipped",
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "072",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 114,
+      "blMs": 37,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "073",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 89,
+      "blMs": 23,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "074",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 119,
+      "blMs": 55,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "075",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 114,
+      "blMs": 22,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "076",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 99,
+      "blMs": 19,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "077",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 105,
+      "blMs": 27,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "078",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 103,
+      "blMs": 20,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "079",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 132,
+      "blMs": 63,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "080",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 114,
+      "blMs": 26,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "081",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 126,
+      "blMs": 62,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "082",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 94,
+      "blMs": 19,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "083",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 99,
+      "blMs": 19,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "084",
+      "ar": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": true,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 142,
+      "blMs": 99,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Embedded DWARF debug information",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "085",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 96,
+      "blMs": 23,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "086",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 145,
+      "blMs": 61,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)",
+        "Unstripped .symtab with local symbols"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "087",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 115,
+      "blMs": 27,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "088",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 122,
+      "blMs": 30,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "Non-PIE Go binary (toolchain default)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "089",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 103,
+      "blMs": 23,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "090",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 105,
+      "blMs": 34,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "091",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 132,
+      "blMs": 75,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "092",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 130,
+      "blMs": 56,
+      "arTitles": [
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names",
+        "No Control Flow Guard (Go toolchain default)",
+        "Unsigned PE (no Authenticode)"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "093",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 108,
+      "blMs": 26,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "094",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 111,
+      "blMs": 22,
+      "arTitles": [
+        "Ad-hoc signed executable (no Developer ID)",
+        "Go buildinfo: module, dependencies and build settings",
+        "Go pclntab function names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "095",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 100,
+      "blMs": 20,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "096",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 98,
+      "blMs": 20,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "097",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 98,
+      "blMs": 22,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "098",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 104,
+      "blMs": 27,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "099",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 112,
+      "blMs": 28,
+      "arTitles": [
+        "dSYM debug companion shipped"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "100",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 101,
+      "blMs": 25,
+      "arTitles": [
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "101",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 99,
+      "blMs": 21,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "102",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 103,
+      "blMs": 24,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "103",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 101,
+      "blMs": 22,
+      "arTitles": [
+        "dSYM debug companion shipped"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "104",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 103,
+      "blMs": 22,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "105",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 105,
+      "blMs": 24,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "106",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 105,
+      "blMs": 37,
+      "arTitles": [
+        "Debug map (stabs): build paths, source and object files"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "107",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 150,
+      "blMs": 22,
+      "arTitles": [
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "108",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 197,
+      "blMs": 34,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "109",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 189,
+      "blMs": 46,
+      "arTitles": [
+        "dSYM debug companion shipped"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "110",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 166,
+      "blMs": 42,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "111",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 183,
+      "blMs": 34,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "112",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 162,
+      "blMs": 37,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "113",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 186,
+      "blMs": 34,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "114",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 177,
+      "blMs": 60,
+      "arTitles": [
+        "Unstripped local symbol names",
+        "dSYM debug companion shipped"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "115",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 132,
+      "blMs": 28,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "116",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 131,
+      "blMs": 36,
+      "arTitles": [
+        "Debug map (stabs): build paths, source and object files",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "117",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 118,
+      "blMs": 21,
+      "arTitles": [
+        "Debug map (stabs): build paths, source and object files"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "118",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 114,
+      "blMs": 26,
+      "arTitles": [
+        "Debug map (stabs): build paths, source and object files",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "119",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 104,
+      "blMs": 26,
+      "arTitles": [
+        "Debug map (stabs): build paths, source and object files",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "120",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 97,
+      "blMs": 22,
+      "arTitles": [
+        "dSYM debug companion shipped"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "121",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 99,
+      "blMs": 22,
+      "arTitles": [
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "122",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 94,
+      "blMs": 22,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "123",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 95,
+      "blMs": 24,
+      "arTitles": [
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "124",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 88,
+      "blMs": 19,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "125",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 89,
+      "blMs": 18,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "126",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 17,
+      "arTitles": [
+        "Debug map (stabs): build paths, source and object files"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "127",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 18,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "128",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 93,
+      "blMs": 23,
+      "arTitles": [
+        "Debug map (stabs): build paths, source and object files",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "129",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 97,
+      "blMs": 38,
+      "arTitles": [
+        "dSYM debug companion shipped"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "130",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 94,
+      "blMs": 20,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "131",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 100,
+      "blMs": 25,
+      "arTitles": [
+        "Debug map (stabs): build paths, source and object files",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "132",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 97,
+      "blMs": 22,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "133",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 95,
+      "blMs": 20,
+      "arTitles": [
+        "Debug map (stabs): build paths, source and object files"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "134",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 93,
+      "blMs": 23,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "135",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 92,
+      "blMs": 17,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "136",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 93,
+      "blMs": 19,
+      "arTitles": [
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "137",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 93,
+      "blMs": 24,
+      "arTitles": [
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "138",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 99,
+      "blMs": 26,
+      "arTitles": [
+        "dSYM debug companion shipped"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "139",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": true,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 21,
+      "arTitles": [
+        "dSYM debug companion shipped"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "140",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": true,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 89,
+      "blMs": 19,
+      "arTitles": [
+        "Debug map (stabs): build paths, source and object files",
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "141",
+      "ar": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": true,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 18,
+      "arTitles": [
+        "Unstripped local symbol names"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "142",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 87,
+      "blMs": 19,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "143",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 87,
+      "blMs": 19,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "144",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 93,
+      "blMs": 1,
+      "arTitles": [
+        "Insecure Electron webPreferences: allowRunningInsecureContent: !0",
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "145",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 91,
+      "blMs": 88,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source",
+        "Insecure Electron webPreferences: webSecurity: false"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "146",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 96,
+      "blMs": 85,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "147",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 93,
+      "blMs": 85,
+      "arTitles": [
+        "Inline source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "148",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 93,
+      "blMs": 2,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Insecure Electron webPreferences: allowRunningInsecureContent: true",
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "149",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 98,
+      "blMs": 88,
+      "arTitles": [
+        "Electron DevTools opened from shipped code"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "150",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 95,
+      "blMs": 2,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "151",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 97,
+      "blMs": 81,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "152",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 92,
+      "blMs": 83,
+      "arTitles": [
+        "Inline source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "153",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 89,
+      "blMs": 1,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "154",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 95,
+      "blMs": 81,
+      "arTitles": [
+        "Inline source map restores original names and layout",
+        "Insecure Electron webPreferences: sandbox: !1"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "155",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 90,
+      "blMs": 77,
+      "arTitles": [
+        "Inline source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "156",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 91,
+      "blMs": 78,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "157",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 90,
+      "blMs": 84,
+      "arTitles": [
+        "Inline source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "158",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 95,
+      "blMs": 80,
+      "arTitles": [
+        "Insecure Electron webPreferences: nodeIntegration: true",
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "159",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 100,
+      "blMs": 88,
+      "arTitles": [
+        "Insecure Electron webPreferences: webSecurity: false",
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "160",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 79,
+      "arTitles": [
+        "Inline source map ships the original source",
+        "Insecure Electron webPreferences: allowRunningInsecureContent: true"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "161",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 92,
+      "blMs": 2,
+      "arTitles": [
+        "Inline source map restores original names and layout",
+        "Insecure Electron webPreferences: sandbox: false"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "162",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 94,
+      "blMs": 79,
+      "arTitles": [
+        "Inline source map restores original names and layout",
+        "Insecure Electron webPreferences: webSecurity: !1"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "163",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 88,
+      "blMs": 80,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "164",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 98,
+      "blMs": 2,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "165",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 98,
+      "blMs": 87,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "166",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 95,
+      "blMs": 79,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "167",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 95,
+      "blMs": 82,
+      "arTitles": [
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "168",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 95,
+      "blMs": 2,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map restores original names and layout",
+        "Insecure Electron webPreferences: allowRunningInsecureContent: !0"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "169",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 99,
+      "blMs": 3,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "170",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 95,
+      "blMs": 3,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "171",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 98,
+      "blMs": 89,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Insecure Electron webPreferences: allowRunningInsecureContent: !0",
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "172",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 92,
+      "blMs": 79,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "173",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 89,
+      "blMs": 81,
+      "arTitles": [
+        "Electron DevTools opened from shipped code"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "174",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 93,
+      "arTitles": [
+        "Insecure Electron webPreferences: contextIsolation: false"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "175",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 96,
+      "blMs": 84,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source",
+        "Insecure Electron webPreferences: sandbox: false"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "176",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 96,
+      "blMs": 82,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "177",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 122,
+      "blMs": 89,
+      "arTitles": [
+        "Inline source map ships the original source",
+        "Insecure Electron webPreferences: contextIsolation: !1"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "178",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 101,
+      "blMs": 4,
+      "arTitles": [
+        "Inline source map restores original names and layout",
+        "Insecure Electron webPreferences: webSecurity: !1"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "179",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 78,
+      "arTitles": [
+        "Insecure Electron webPreferences: contextIsolation: false"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "180",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 88,
+      "blMs": 80,
+      "arTitles": [
+        "Insecure Electron webPreferences: contextIsolation: !1"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "181",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 108,
+      "blMs": 97,
+      "arTitles": [
+        "Electron DevTools opened from shipped code"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "182",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 90,
+      "blMs": 78,
+      "arTitles": [
+        "Electron DevTools opened from shipped code"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "183",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 89,
+      "blMs": 1,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "184",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 90,
+      "blMs": 2,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "185",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 107,
+      "blMs": 3,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "186",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 90,
+      "blMs": 79,
+      "arTitles": [
+        "Inline source map ships the original source",
+        "Insecure Electron webPreferences: contextIsolation: false"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "187",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 89,
+      "blMs": 84,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "188",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 94,
+      "blMs": 2,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Insecure Electron webPreferences: contextIsolation: false"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "189",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 98,
+      "blMs": 3,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Insecure Electron webPreferences: contextIsolation: !1",
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "190",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 1,
+      "arTitles": [
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "191",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 91,
+      "blMs": 1,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Insecure Electron webPreferences: contextIsolation: false",
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "192",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 79,
+      "arTitles": [
+        "Inline source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "193",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 89,
+      "blMs": 80,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "194",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 91,
+      "blMs": 2,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "195",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 93,
+      "blMs": 82,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Insecure Electron webPreferences: contextIsolation: false"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "196",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 78,
+      "arTitles": [
+        "Inline source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "197",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 81,
+      "arTitles": [
+        "Insecure Electron webPreferences: allowRunningInsecureContent: !0"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "198",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 91,
+      "blMs": 2,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source",
+        "Insecure Electron webPreferences: sandbox: !1"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "199",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 95,
+      "blMs": 2,
+      "arTitles": [
+        "Insecure Electron webPreferences: webSecurity: false",
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "200",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 90,
+      "blMs": 84,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "201",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 101,
+      "blMs": 81,
+      "arTitles": [
+        "Inline source map restores original names and layout",
+        "Insecure Electron webPreferences: webSecurity: !1"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "202",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 93,
+      "blMs": 79,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "203",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 139,
+      "blMs": 11,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "204",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 101,
+      "arTitles": [
+        "Inline source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "205",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 94,
+      "blMs": 82,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "206",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 1,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "207",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 89,
+      "blMs": 1,
+      "arTitles": [
+        "Insecure Electron webPreferences: allowRunningInsecureContent: !0"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "208",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 92,
+      "blMs": 78,
+      "arTitles": [
+        "Inline source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "209",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 107,
+      "blMs": 5,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "210",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 90,
+      "blMs": 82,
+      "arTitles": [
+        "Electron DevTools opened from shipped code"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "211",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 90,
+      "blMs": 80,
+      "arTitles": [
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "212",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 93,
+      "blMs": 78,
+      "arTitles": [
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "213",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 92,
+      "blMs": 1,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "214",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 91,
+      "blMs": 2,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "215",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 89,
+      "blMs": 82,
+      "arTitles": [
+        "Electron DevTools opened from shipped code"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "216",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 93,
+      "blMs": 1,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "217",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 120,
+      "blMs": 3,
+      "arTitles": [
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "218",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 140,
+      "blMs": 104,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "219",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 105,
+      "blMs": 89,
+      "arTitles": [
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "220",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 116,
+      "blMs": 94,
+      "arTitles": [
+        "Inline source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "221",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 98,
+      "blMs": 2,
+      "arTitles": [
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "222",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 97,
+      "blMs": 94,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "223",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 111,
+      "blMs": 92,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "224",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 100,
+      "blMs": 2,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source",
+        "Insecure Electron webPreferences: allowRunningInsecureContent: true"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "225",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 123,
+      "blMs": 3,
+      "arTitles": [
+        "Insecure Electron webPreferences: allowRunningInsecureContent: !0",
+        "Source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "226",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 117,
+      "blMs": 91,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source",
+        "Insecure Electron webPreferences: contextIsolation: false"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "227",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 102,
+      "blMs": 1,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Inline source map ships the original source",
+        "Insecure Electron webPreferences: allowRunningInsecureContent: true"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "228",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 99,
+      "blMs": 91,
+      "arTitles": [
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "229",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 99,
+      "blMs": 2,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "230",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 105,
+      "blMs": 1,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Insecure Electron webPreferences: sandbox: false"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "231",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": true,
+        "devtools": true
+      },
+      "arMs": 103,
+      "blMs": 86,
+      "arTitles": [
+        "Electron DevTools opened from shipped code"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "232",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 105,
+      "blMs": 102,
+      "arTitles": [
+        "Inline source map restores original names and layout"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "233",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": false,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 109,
+      "blMs": 98,
+      "arTitles": [
+        "Inline source map restores original names and layout",
+        "Insecure Electron webPreferences: allowRunningInsecureContent: true"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "234",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 100,
+      "blMs": 94,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "235",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 100,
+      "blMs": 88,
+      "arTitles": [
+        "Electron DevTools opened from shipped code"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "236",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "mapWithSources": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": false,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 102,
+      "blMs": 90,
+      "arTitles": [],
+      "opaque": []
+    },
+    {
+      "id": "237",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": true,
+        "devtools": false
+      },
+      "arMs": 98,
+      "blMs": 90,
+      "arTitles": [
+        "Inline source map ships the original source",
+        "Insecure Electron webPreferences: allowRunningInsecureContent: true"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "238",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": true
+      },
+      "arMs": 115,
+      "blMs": 103,
+      "arTitles": [
+        "Electron DevTools opened from shipped code",
+        "Source map ships the original source"
+      ],
+      "opaque": []
+    },
+    {
+      "id": "239",
+      "ar": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "mapWithSources": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "bl": {
+        "dwarf": false,
+        "locals": false,
+        "debugmap": false,
+        "dsym": false,
+        "map": true,
+        "webprefs": false,
+        "devtools": false
+      },
+      "arMs": 131,
+      "blMs": 11,
+      "arTitles": [
+        "Inline source map ships the original source"
+      ],
+      "opaque": []
+    }
+  ],
+  "finishedAt": "2026-11-07T14:58:29.889Z"
+}

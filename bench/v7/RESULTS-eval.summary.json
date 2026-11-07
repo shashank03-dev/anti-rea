@@ -1,0 +1,1872 @@
+{
+  "set": "eval",
+  "frozenSha256": "dfc1343aee1e4f1a0acfd216adc97af85fadd198f401291b996920d80f601842",
+  "cases": {
+    "total": 240,
+    "excluded": 0,
+    "errors": 0
+  },
+  "units": 624,
+  "overall": {
+    "ar": {
+      "k": 605,
+      "n": 624,
+      "rate": 0.969551282051282,
+      "ci": [
+        0.9528577267085276,
+        0.9815703892247167
+      ]
+    },
+    "bl": {
+      "k": 601,
+      "n": 624,
+      "rate": 0.9631410256410257,
+      "ci": [
+        0.9452049130111235,
+        0.9764937310002195
+      ]
+    }
+  },
+  "fpr": {
+    "ar": {
+      "tp": 0,
+      "fn": 0,
+      "tn": 391,
+      "fp": 0,
+      "recall": null,
+      "specificity": 1,
+      "fpr": 0,
+      "fprCi": [
+        0,
+        0.009390109284315641
+      ]
+    },
+    "bl": {
+      "tp": 0,
+      "fn": 0,
+      "tn": 391,
+      "fp": 0,
+      "recall": null,
+      "specificity": 1,
+      "fpr": 0,
+      "fprCi": [
+        0,
+        0.009390109284315641
+      ]
+    }
+  },
+  "nativeAcc": {
+    "ar": {
+      "k": 336,
+      "n": 336,
+      "rate": 1,
+      "ci": [
+        0.9890812392626422,
+        1
+      ]
+    },
+    "bl": {
+      "k": 336,
+      "n": 336,
+      "rate": 1,
+      "ci": [
+        0.9890812392626422,
+        1
+      ]
+    }
+  },
+  "mcnemar": {
+    "b": 14,
+    "c": 10,
+    "p": 0.5412561893463139
+  },
+  "perClass": {
+    "dwarf": {
+      "ar": {
+        "tp": 13,
+        "fn": 0,
+        "tn": 83,
+        "fp": 0,
+        "recall": 1,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.043471152166441804
+        ]
+      },
+      "bl": {
+        "tp": 13,
+        "fn": 0,
+        "tn": 83,
+        "fp": 0,
+        "recall": 1,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.043471152166441804
+        ]
+      },
+      "n": 96
+    },
+    "locals": {
+      "ar": {
+        "tp": 40,
+        "fn": 0,
+        "tn": 104,
+        "fp": 0,
+        "recall": 1,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.034848306587674044
+        ]
+      },
+      "bl": {
+        "tp": 40,
+        "fn": 0,
+        "tn": 104,
+        "fp": 0,
+        "recall": 1,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.034848306587674044
+        ]
+      },
+      "n": 144
+    },
+    "debugmap": {
+      "ar": {
+        "tp": 10,
+        "fn": 0,
+        "tn": 38,
+        "fp": 0,
+        "recall": 1,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.0925127614158783
+        ]
+      },
+      "bl": {
+        "tp": 10,
+        "fn": 0,
+        "tn": 38,
+        "fp": 0,
+        "recall": 1,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.0925127614158783
+        ]
+      },
+      "n": 48
+    },
+    "dsym": {
+      "ar": {
+        "tp": 8,
+        "fn": 0,
+        "tn": 40,
+        "fp": 0,
+        "recall": 1,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.08809730287880238
+        ]
+      },
+      "bl": {
+        "tp": 8,
+        "fn": 0,
+        "tn": 40,
+        "fp": 0,
+        "recall": 1,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.08809730287880238
+        ]
+      },
+      "n": 48
+    },
+    "map": {
+      "ar": {
+        "tp": 66,
+        "fn": 0,
+        "tn": 30,
+        "fp": 0,
+        "recall": 1,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.11570330822202779
+        ]
+      },
+      "bl": {
+        "tp": 66,
+        "fn": 0,
+        "tn": 30,
+        "fp": 0,
+        "recall": 1,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.11570330822202779
+        ]
+      },
+      "n": 96
+    },
+    "webprefs": {
+      "ar": {
+        "tp": 34,
+        "fn": 19,
+        "tn": 43,
+        "fp": 0,
+        "recall": 0.6415094339622641,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.08221112115413848
+        ]
+      },
+      "bl": {
+        "tp": 30,
+        "fn": 23,
+        "tn": 43,
+        "fp": 0,
+        "recall": 0.5660377358490566,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.08221112115413848
+        ]
+      },
+      "n": 96
+    },
+    "devtools": {
+      "ar": {
+        "tp": 43,
+        "fn": 0,
+        "tn": 53,
+        "fp": 0,
+        "recall": 1,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.06723454630630113
+        ]
+      },
+      "bl": {
+        "tp": 43,
+        "fn": 0,
+        "tn": 53,
+        "fp": 0,
+        "recall": 1,
+        "specificity": 1,
+        "fpr": 0,
+        "fprCi": [
+          0,
+          0.06723454630630113
+        ]
+      },
+      "n": 96
+    }
+  },
+  "strata": {
+    "family=go": {
+      "n": 192,
+      "ar": {
+        "k": 192,
+        "n": 192,
+        "rate": 1,
+        "ci": [
+          0.9809704778312212,
+          1
+        ]
+      },
+      "bl": {
+        "k": 192,
+        "n": 192,
+        "rate": 1,
+        "ci": [
+          0.9809704778312212,
+          1
+        ]
+      }
+    },
+    "family=c": {
+      "n": 144,
+      "ar": {
+        "k": 144,
+        "n": 144,
+        "rate": 1,
+        "ci": [
+          0.9747081185124842,
+          1
+        ]
+      },
+      "bl": {
+        "k": 144,
+        "n": 144,
+        "rate": 1,
+        "ci": [
+          0.9747081185124842,
+          1
+        ]
+      }
+    },
+    "family=js": {
+      "n": 288,
+      "ar": {
+        "k": 269,
+        "n": 288,
+        "rate": 0.9340277777777778,
+        "ci": [
+          0.8988912473820916,
+          0.9598163725029742
+        ]
+      },
+      "bl": {
+        "k": 265,
+        "n": 288,
+        "rate": 0.9201388888888888,
+        "ci": [
+          0.8825780696913186,
+          0.9487027460820587
+        ]
+      }
+    },
+    "go format=elf": {
+      "n": 58,
+      "ar": {
+        "k": 58,
+        "n": 58,
+        "rate": 1,
+        "ci": [
+          0.9383789910960829,
+          1
+        ]
+      },
+      "bl": {
+        "k": 58,
+        "n": 58,
+        "rate": 1,
+        "ci": [
+          0.9383789910960829,
+          1
+        ]
+      }
+    },
+    "go format=pe": {
+      "n": 56,
+      "ar": {
+        "k": 56,
+        "n": 56,
+        "rate": 1,
+        "ci": [
+          0.9362499033376404,
+          1
+        ]
+      },
+      "bl": {
+        "k": 56,
+        "n": 56,
+        "rate": 1,
+        "ci": [
+          0.9362499033376404,
+          1
+        ]
+      }
+    },
+    "go format=macho": {
+      "n": 78,
+      "ar": {
+        "k": 78,
+        "n": 78,
+        "rate": 1,
+        "ci": [
+          0.9538075796719534,
+          1
+        ]
+      },
+      "bl": {
+        "k": 78,
+        "n": 78,
+        "rate": 1,
+        "ci": [
+          0.9538075796719534,
+          1
+        ]
+      }
+    },
+    "packaging=direct": {
+      "n": 83,
+      "ar": {
+        "k": 83,
+        "n": 83,
+        "rate": 1,
+        "ci": [
+          0.9565288478335607,
+          1
+        ]
+      },
+      "bl": {
+        "k": 83,
+        "n": 83,
+        "rate": 1,
+        "ci": [
+          0.9565288478335607,
+          1
+        ]
+      }
+    },
+    "packaging=zip": {
+      "n": 132,
+      "ar": {
+        "k": 132,
+        "n": 132,
+        "rate": 1,
+        "ci": [
+          0.9724408222765437,
+          1
+        ]
+      },
+      "bl": {
+        "k": 132,
+        "n": 132,
+        "rate": 1,
+        "ci": [
+          0.9724408222765437,
+          1
+        ]
+      }
+    },
+    "packaging=tgz": {
+      "n": 121,
+      "ar": {
+        "k": 121,
+        "n": 121,
+        "rate": 1,
+        "ci": [
+          0.9699734227772441,
+          1
+        ]
+      },
+      "bl": {
+        "k": 121,
+        "n": 121,
+        "rate": 1,
+        "ci": [
+          0.9699734227772441,
+          1
+        ]
+      }
+    },
+    "packaging=dir": {
+      "n": 105,
+      "ar": {
+        "k": 101,
+        "n": 105,
+        "rate": 0.9619047619047619,
+        "ci": [
+          0.905327719297399,
+          0.9895244066333944
+        ]
+      },
+      "bl": {
+        "k": 96,
+        "n": 105,
+        "rate": 0.9142857142857143,
+        "ci": [
+          0.8435166767945346,
+          0.9600546403711461
+        ]
+      }
+    },
+    "packaging=asar": {
+      "n": 108,
+      "ar": {
+        "k": 97,
+        "n": 108,
+        "rate": 0.8981481481481481,
+        "ci": [
+          0.8250640135083407,
+          0.9480491719565876
+        ]
+      },
+      "bl": {
+        "k": 99,
+        "n": 108,
+        "rate": 0.9166666666666666,
+        "ci": [
+          0.8476960712281807,
+          0.9611852470300501
+        ]
+      }
+    },
+    "packaging=asar-in-zip": {
+      "n": 75,
+      "ar": {
+        "k": 71,
+        "n": 75,
+        "rate": 0.9466666666666667,
+        "ci": [
+          0.8690391927215249,
+          0.9852792353408217
+        ]
+      },
+      "bl": {
+        "k": 70,
+        "n": 75,
+        "rate": 0.9333333333333333,
+        "ci": [
+          0.851239520842217,
+          0.9780007475302044
+        ]
+      }
+    },
+    "webprefs insecure, literal, not minified": {
+      "n": 20,
+      "ar": {
+        "k": 20,
+        "n": 20,
+        "rate": 1,
+        "ci": [
+          0.8315665290169143,
+          1
+        ]
+      },
+      "bl": {
+        "k": 20,
+        "n": 20,
+        "rate": 1,
+        "ci": [
+          0.8315665290169143,
+          1
+        ]
+      }
+    },
+    "webprefs insecure, literal, minified (!0/!1)": {
+      "n": 14,
+      "ar": {
+        "k": 14,
+        "n": 14,
+        "rate": 1,
+        "ci": [
+          0.7683642383498857,
+          1
+        ]
+      },
+      "bl": {
+        "k": 0,
+        "n": 14,
+        "rate": 0,
+        "ci": [
+          0,
+          0.2316357616501165
+        ]
+      }
+    },
+    "webprefs insecure, indirect (P1: out of scope)": {
+      "n": 19,
+      "ar": {
+        "k": 0,
+        "n": 19,
+        "rate": 0,
+        "ci": [
+          0,
+          0.1764669118069654
+        ]
+      },
+      "bl": {
+        "k": 10,
+        "n": 19,
+        "rate": 0.5263157894736842,
+        "ci": [
+          0.28864324791699913,
+          0.755525310533804
+        ]
+      }
+    },
+    "hard-negative mentions (webprefs+devtools negatives)": {
+      "n": 21,
+      "ar": {
+        "k": 21,
+        "n": 21,
+        "rate": 1,
+        "ci": [
+          0.8389023847809207,
+          1
+        ]
+      },
+      "bl": {
+        "k": 21,
+        "n": 21,
+        "rate": 1,
+        "ci": [
+          0.8389023847809207,
+          1
+        ]
+      }
+    },
+    "map=reference-only (comment, map not shipped)": {
+      "n": 13,
+      "ar": {
+        "k": 13,
+        "n": 13,
+        "rate": 1,
+        "ci": [
+          0.7529473619995295,
+          1
+        ]
+      },
+      "bl": {
+        "k": 13,
+        "n": 13,
+        "rate": 1,
+        "ci": [
+          0.7529473619995295,
+          1
+        ]
+      }
+    },
+    "map=external-sources": {
+      "n": 15,
+      "ar": {
+        "k": 15,
+        "n": 15,
+        "rate": 1,
+        "ci": [
+          0.7819806390894672,
+          1
+        ]
+      },
+      "bl": {
+        "k": 15,
+        "n": 15,
+        "rate": 1,
+        "ci": [
+          0.7819806390894672,
+          1
+        ]
+      }
+    },
+    "map=external-names": {
+      "n": 13,
+      "ar": {
+        "k": 13,
+        "n": 13,
+        "rate": 1,
+        "ci": [
+          0.7529473619995295,
+          1
+        ]
+      },
+      "bl": {
+        "k": 13,
+        "n": 13,
+        "rate": 1,
+        "ci": [
+          0.7529473619995295,
+          1
+        ]
+      }
+    },
+    "map=inline-sources": {
+      "n": 22,
+      "ar": {
+        "k": 22,
+        "n": 22,
+        "rate": 1,
+        "ci": [
+          0.8456274871844256,
+          1
+        ]
+      },
+      "bl": {
+        "k": 22,
+        "n": 22,
+        "rate": 1,
+        "ci": [
+          0.8456274871844256,
+          1
+        ]
+      }
+    },
+    "map=inline-names": {
+      "n": 16,
+      "ar": {
+        "k": 16,
+        "n": 16,
+        "rate": 1,
+        "ci": [
+          0.794092785792178,
+          1
+        ]
+      },
+      "bl": {
+        "k": 16,
+        "n": 16,
+        "rate": 1,
+        "ci": [
+          0.794092785792178,
+          1
+        ]
+      }
+    },
+    "map=none": {
+      "n": 17,
+      "ar": {
+        "k": 17,
+        "n": 17,
+        "rate": 1,
+        "ci": [
+          0.8049356770309071,
+          1
+        ]
+      },
+      "bl": {
+        "k": 17,
+        "n": 17,
+        "rate": 1,
+        "ci": [
+          0.8049356770309071,
+          1
+        ]
+      }
+    }
+  },
+  "grade": {
+    "n": 66,
+    "k": 66
+  },
+  "hypotheses": {
+    "H1": {
+      "claim": "AR overall accuracy ≥ 95% and exact 95% CI lower bound ≥ 93%",
+      "supported": true
+    },
+    "H2": {
+      "claim": "AR false-positive rate on truth-negative units ≤ 2%",
+      "supported": true
+    },
+    "H3": {
+      "claim": "AR accuracy > BL accuracy, exact McNemar p < 0.01",
+      "supported": false
+    },
+    "H4": {
+      "claim": "On native units (Go + C), AR agrees with the reference on ≥ 99%",
+      "supported": true
+    },
+    "H5": {
+      "claim": "Every class: AR recall ≥ 90% (indirect webPreferences excluded, P1) and specificity ≥ 95%",
+      "supported": true
+    }
+  },
+  "disagreements": [
+    {
+      "id": "020",
+      "subject": "go:golang.org/x/net@v0.54.0/html/atom",
+      "config": {
+        "goos": "windows",
+        "goarch": "amd64",
+        "ldflags": "",
+        "trimpath": false,
+        "packaging": "zip"
+      },
+      "construction": {
+        "dwarf": true,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "023",
+      "subject": "go:golang.org/x/text@v0.37.0/encoding/traditionalchinese",
+      "config": {
+        "goos": "darwin",
+        "goarch": "arm64",
+        "ldflags": "",
+        "trimpath": true,
+        "packaging": "direct"
+      },
+      "construction": {
+        "dwarf": true,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "027",
+      "subject": "go:golang.org/x/text@v0.37.0/unicode/cldr",
+      "config": {
+        "goos": "darwin",
+        "goarch": "arm64",
+        "ldflags": "",
+        "trimpath": true,
+        "packaging": "tgz"
+      },
+      "construction": {
+        "dwarf": true,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "032",
+      "subject": "go:golang.org/x/text@v0.37.0/encoding/charmap",
+      "config": {
+        "goos": "darwin",
+        "goarch": "arm64",
+        "ldflags": "",
+        "trimpath": false,
+        "packaging": "tgz"
+      },
+      "construction": {
+        "dwarf": true,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "033",
+      "subject": "go:golang.org/x/text@v0.37.0/feature/plural",
+      "config": {
+        "goos": "linux",
+        "goarch": "amd64",
+        "ldflags": "",
+        "trimpath": false,
+        "packaging": "direct"
+      },
+      "construction": {
+        "dwarf": true,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "035",
+      "subject": "go:golang.org/x/text@v0.37.0/language",
+      "config": {
+        "goos": "darwin",
+        "goarch": "arm64",
+        "ldflags": "-w",
+        "trimpath": false,
+        "packaging": "zip"
+      },
+      "construction": {
+        "dwarf": false,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "048",
+      "subject": "go:modernc.org/libc@v1.74.1",
+      "config": {
+        "goos": "windows",
+        "goarch": "amd64",
+        "ldflags": "-w",
+        "trimpath": true,
+        "packaging": "tgz"
+      },
+      "construction": {
+        "dwarf": false,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "056",
+      "subject": "go:golang.org/x/text@v0.37.0/encoding/ianaindex",
+      "config": {
+        "goos": "darwin",
+        "goarch": "arm64",
+        "ldflags": "",
+        "trimpath": true,
+        "packaging": "zip"
+      },
+      "construction": {
+        "dwarf": true,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "058",
+      "subject": "go:golang.org/x/text@v0.37.0",
+      "config": {
+        "goos": "darwin",
+        "goarch": "arm64",
+        "ldflags": "-w",
+        "trimpath": true,
+        "packaging": "tgz"
+      },
+      "construction": {
+        "dwarf": false,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "059",
+      "subject": "go:golang.org/x/text@v0.37.0/encoding/japanese",
+      "config": {
+        "goos": "darwin",
+        "goarch": "arm64",
+        "ldflags": "",
+        "trimpath": true,
+        "packaging": "direct"
+      },
+      "construction": {
+        "dwarf": true,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "068",
+      "subject": "go:golang.org/x/text@v0.37.0/unicode/rangetable",
+      "config": {
+        "goos": "windows",
+        "goarch": "amd64",
+        "ldflags": "-w",
+        "trimpath": true,
+        "packaging": "zip"
+      },
+      "construction": {
+        "dwarf": false,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "078",
+      "subject": "go:modernc.org/sqlite@v1.55.0",
+      "config": {
+        "goos": "darwin",
+        "goarch": "arm64",
+        "ldflags": "-w",
+        "trimpath": false,
+        "packaging": "direct"
+      },
+      "construction": {
+        "dwarf": false,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "082",
+      "subject": "go:golang.org/x/text@v0.37.0/unicode/rangetable",
+      "config": {
+        "goos": "darwin",
+        "goarch": "arm64",
+        "ldflags": "",
+        "trimpath": true,
+        "packaging": "direct"
+      },
+      "construction": {
+        "dwarf": true,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "085",
+      "subject": "go:golang.org/x/text@v0.37.0/secure/precis",
+      "config": {
+        "goos": "linux",
+        "goarch": "amd64",
+        "ldflags": "",
+        "trimpath": false,
+        "packaging": "tgz"
+      },
+      "construction": {
+        "dwarf": true,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "089",
+      "subject": "go:golang.org/x/sys@v0.44.0/unix",
+      "config": {
+        "goos": "darwin",
+        "goarch": "arm64",
+        "ldflags": "",
+        "trimpath": true,
+        "packaging": "tgz"
+      },
+      "construction": {
+        "dwarf": true,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "093",
+      "subject": "go:golang.org/x/text@v0.37.0/date",
+      "config": {
+        "goos": "darwin",
+        "goarch": "arm64",
+        "ldflags": "-w",
+        "trimpath": true,
+        "packaging": "tgz"
+      },
+      "construction": {
+        "dwarf": false,
+        "locals": true
+      },
+      "truth": {
+        "dwarf": false,
+        "locals": false
+      }
+    },
+    {
+      "id": "097",
+      "subject": "c:quickjs",
+      "config": {
+        "g": false,
+        "strip": "-S",
+        "shipDsym": false,
+        "packaging": "zip",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": false,
+        "locals": true,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "098",
+      "subject": "c:zstd",
+      "config": {
+        "g": true,
+        "strip": "-x",
+        "shipDsym": false,
+        "packaging": "zip",
+        "units": 39
+      },
+      "construction": {
+        "debugmap": true,
+        "locals": false,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "101",
+      "subject": "c:quickjs",
+      "config": {
+        "g": false,
+        "strip": "none",
+        "shipDsym": false,
+        "packaging": "zip",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": false,
+        "locals": true,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "102",
+      "subject": "c:zstd",
+      "config": {
+        "g": true,
+        "strip": "-x",
+        "shipDsym": false,
+        "packaging": "tgz",
+        "units": 39
+      },
+      "construction": {
+        "debugmap": true,
+        "locals": false,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "103",
+      "subject": "c:quickjs",
+      "config": {
+        "g": true,
+        "strip": "-S",
+        "shipDsym": true,
+        "packaging": "zip",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": false,
+        "locals": true,
+        "dsym": true
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": true
+      }
+    },
+    {
+      "id": "105",
+      "subject": "c:quickjs",
+      "config": {
+        "g": false,
+        "strip": "none",
+        "shipDsym": false,
+        "packaging": "tgz",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": false,
+        "locals": true,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "106",
+      "subject": "c:quickjs",
+      "config": {
+        "g": true,
+        "strip": "none",
+        "shipDsym": false,
+        "packaging": "direct",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": true,
+        "locals": true,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": true,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "108",
+      "subject": "c:quickjs",
+      "config": {
+        "g": false,
+        "strip": "none",
+        "shipDsym": false,
+        "packaging": "tgz",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": false,
+        "locals": true,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "109",
+      "subject": "c:zstd",
+      "config": {
+        "g": true,
+        "strip": "-x",
+        "shipDsym": true,
+        "packaging": "tgz",
+        "units": 39
+      },
+      "construction": {
+        "debugmap": true,
+        "locals": false,
+        "dsym": true
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": true
+      }
+    },
+    {
+      "id": "112",
+      "subject": "c:zstd",
+      "config": {
+        "g": true,
+        "strip": "-x",
+        "shipDsym": false,
+        "packaging": "direct",
+        "units": 39
+      },
+      "construction": {
+        "debugmap": true,
+        "locals": false,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "113",
+      "subject": "c:quickjs",
+      "config": {
+        "g": true,
+        "strip": "-x",
+        "shipDsym": false,
+        "packaging": "zip",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": true,
+        "locals": false,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "115",
+      "subject": "c:quickjs",
+      "config": {
+        "g": false,
+        "strip": "-S",
+        "shipDsym": false,
+        "packaging": "zip",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": false,
+        "locals": true,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "117",
+      "subject": "c:quickjs",
+      "config": {
+        "g": true,
+        "strip": "none",
+        "shipDsym": false,
+        "packaging": "zip",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": true,
+        "locals": true,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": true,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "120",
+      "subject": "c:quickjs",
+      "config": {
+        "g": true,
+        "strip": "-S",
+        "shipDsym": true,
+        "packaging": "zip",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": false,
+        "locals": true,
+        "dsym": true
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": true
+      }
+    },
+    {
+      "id": "126",
+      "subject": "c:quickjs",
+      "config": {
+        "g": true,
+        "strip": "none",
+        "shipDsym": false,
+        "packaging": "direct",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": true,
+        "locals": true,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": true,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "127",
+      "subject": "c:quickjs",
+      "config": {
+        "g": true,
+        "strip": "-S",
+        "shipDsym": false,
+        "packaging": "zip",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": false,
+        "locals": true,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "129",
+      "subject": "c:zstd",
+      "config": {
+        "g": true,
+        "strip": "-x",
+        "shipDsym": true,
+        "packaging": "zip",
+        "units": 39
+      },
+      "construction": {
+        "debugmap": true,
+        "locals": false,
+        "dsym": true
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": true
+      }
+    },
+    {
+      "id": "132",
+      "subject": "c:quickjs",
+      "config": {
+        "g": false,
+        "strip": "-S",
+        "shipDsym": false,
+        "packaging": "zip",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": false,
+        "locals": true,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "133",
+      "subject": "c:quickjs",
+      "config": {
+        "g": true,
+        "strip": "none",
+        "shipDsym": false,
+        "packaging": "tgz",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": true,
+        "locals": true,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": true,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "139",
+      "subject": "c:quickjs",
+      "config": {
+        "g": true,
+        "strip": "-S",
+        "shipDsym": true,
+        "packaging": "zip",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": false,
+        "locals": true,
+        "dsym": true
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": true
+      }
+    },
+    {
+      "id": "142",
+      "subject": "c:quickjs",
+      "config": {
+        "g": true,
+        "strip": "-x",
+        "shipDsym": false,
+        "packaging": "zip",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": true,
+        "locals": false,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    },
+    {
+      "id": "143",
+      "subject": "c:quickjs",
+      "config": {
+        "g": false,
+        "strip": "none",
+        "shipDsym": false,
+        "packaging": "zip",
+        "units": 2
+      },
+      "construction": {
+        "debugmap": false,
+        "locals": true,
+        "dsym": false
+      },
+      "truth": {
+        "debugmap": false,
+        "locals": false,
+        "dsym": false
+      }
+    }
+  ],
+  "excludedCases": [],
+  "errors": [
+    {
+      "id": "155",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "inline-sources",
+        "minify": false,
+        "insecure": "contextIsolation: false",
+        "style": "indirect",
+        "devtools": false,
+        "hardNegative": false,
+        "packaging": "asar"
+      }
+    },
+    {
+      "id": "156",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "inline-sources",
+        "minify": true,
+        "insecure": "nodeIntegration: true",
+        "style": "indirect",
+        "devtools": true,
+        "hardNegative": true,
+        "packaging": "asar"
+      }
+    },
+    {
+      "id": "169",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "external-sources",
+        "minify": true,
+        "insecure": "nodeIntegration: true",
+        "style": "indirect",
+        "devtools": true,
+        "hardNegative": false,
+        "packaging": "dir"
+      }
+    },
+    {
+      "id": "173",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "none",
+        "minify": true,
+        "insecure": "contextIsolation: false",
+        "style": "indirect",
+        "devtools": true,
+        "hardNegative": false,
+        "packaging": "asar-in-zip"
+      }
+    },
+    {
+      "id": "176",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "inline-sources",
+        "minify": false,
+        "insecure": "allowRunningInsecureContent: true",
+        "style": "indirect",
+        "devtools": true,
+        "hardNegative": true,
+        "packaging": "asar"
+      }
+    },
+    {
+      "id": "203",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "inline-sources",
+        "minify": false,
+        "insecure": "sandbox: false",
+        "style": "indirect",
+        "devtools": true,
+        "hardNegative": true,
+        "packaging": "dir"
+      }
+    },
+    {
+      "id": "205",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "reference-only",
+        "minify": false,
+        "insecure": "contextIsolation: false",
+        "style": "indirect",
+        "devtools": false,
+        "hardNegative": false,
+        "packaging": "asar"
+      }
+    },
+    {
+      "id": "208",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "inline-names",
+        "minify": false,
+        "insecure": "nodeIntegration: true",
+        "style": "indirect",
+        "devtools": false,
+        "hardNegative": false,
+        "packaging": "asar"
+      }
+    },
+    {
+      "id": "212",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "external-sources",
+        "minify": false,
+        "insecure": "contextIsolation: false",
+        "style": "indirect",
+        "devtools": false,
+        "hardNegative": false,
+        "packaging": "asar"
+      }
+    },
+    {
+      "id": "214",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "none",
+        "minify": false,
+        "insecure": "contextIsolation: false",
+        "style": "indirect",
+        "devtools": false,
+        "hardNegative": false,
+        "packaging": "dir"
+      }
+    },
+    {
+      "id": "215",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "none",
+        "minify": true,
+        "insecure": "allowRunningInsecureContent: true",
+        "style": "indirect",
+        "devtools": true,
+        "hardNegative": false,
+        "packaging": "asar"
+      }
+    },
+    {
+      "id": "216",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "none",
+        "minify": true,
+        "insecure": "nodeIntegration: true",
+        "style": "indirect",
+        "devtools": false,
+        "hardNegative": true,
+        "packaging": "dir"
+      }
+    },
+    {
+      "id": "218",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "inline-sources",
+        "minify": true,
+        "insecure": "allowRunningInsecureContent: true",
+        "style": "indirect",
+        "devtools": true,
+        "hardNegative": false,
+        "packaging": "asar"
+      }
+    },
+    {
+      "id": "219",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "external-sources",
+        "minify": true,
+        "insecure": "webSecurity: false",
+        "style": "indirect",
+        "devtools": false,
+        "hardNegative": false,
+        "packaging": "asar"
+      }
+    },
+    {
+      "id": "222",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "inline-sources",
+        "minify": false,
+        "insecure": "contextIsolation: false",
+        "style": "indirect",
+        "devtools": true,
+        "hardNegative": false,
+        "packaging": "asar-in-zip"
+      }
+    },
+    {
+      "id": "228",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "external-sources",
+        "minify": false,
+        "insecure": "nodeIntegration: true",
+        "style": "indirect",
+        "devtools": false,
+        "hardNegative": true,
+        "packaging": "asar-in-zip"
+      }
+    },
+    {
+      "id": "231",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "reference-only",
+        "minify": false,
+        "insecure": "webSecurity: false",
+        "style": "indirect",
+        "devtools": true,
+        "hardNegative": false,
+        "packaging": "asar"
+      }
+    },
+    {
+      "id": "234",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "none",
+        "minify": true,
+        "insecure": "contextIsolation: false",
+        "style": "indirect",
+        "devtools": false,
+        "hardNegative": false,
+        "packaging": "asar"
+      }
+    },
+    {
+      "id": "238",
+      "cls": "webprefs",
+      "truth": true,
+      "ar": false,
+      "family": "js",
+      "format": "js",
+      "config": {
+        "map": "external-sources",
+        "minify": true,
+        "insecure": "contextIsolation: false",
+        "style": "indirect",
+        "devtools": true,
+        "hardNegative": false,
+        "packaging": "asar-in-zip"
+      }
+    }
+  ]
+}

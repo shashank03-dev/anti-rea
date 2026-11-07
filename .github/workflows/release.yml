@@ -31,6 +31,11 @@ jobs:
         run: ls LICENSE* >/dev/null 2>&1 || { echo "add a LICENSE file before publishing"; exit 1; }
       # prepublishOnly runs the full test suite; prepack builds.
       - run: npm run smoke
-      - run: npm publish --provenance --access public
+      # npm generates provenance only for PUBLIC source repositories; from a private one it would fail the publish.
+      - name: Publish
+        shell: bash
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PRIVATE_REPO: ${{ github.event.repository.private }}
+        run: |
+          if [ "$PRIVATE_REPO" = "true" ]; then npm publish --access public; else npm publish --provenance --access public; fi

@@ -35,9 +35,61 @@ It has zero runtime dependencies and needs Node ≥ 22 (Node 20 reached end-of-l
 
 > **Scope.** Anti-REA makes scoped statements about a declared release closure, declared assets and the lanes that ran. It never claims an application "cannot be reverse engineered" (research §3).
 
+> **Versions.** The first public release is **0.1.0**. The "v0.1–v0.8" names in this README and in `docs/research/` are internal development milestones that came before it.
+
+## For your release: quick start
+
+Install it in the project that builds your app (Node ≥ 22):
+
+```bash
+npm install --save-dev anti-rea
+```
+
+**1. See what a reverse-engineering tool would recover.** No setup needed. Point it at what your build produces:
+
+```bash
+npx anti-rea expose dist/MyApp.app
+```
+
+It writes `anti-rea-exposure/exposure.md` and `exposure.json`: what is exposed, whether it is your code or a dependency's, and the exact toolchain setting that removes it (for example `strip -S`, or building without `sourcesContent`). Re-run after each fix.
+
+**2. Gate the release.** Scaffold a manifest and policy from your build, then declare what must never ship:
+
+```bash
+npx anti-rea init dist
+```
+
+```bash
+npx anti-rea fingerprint --file path/to/server-only-secret.pem
+```
+
+```bash
+npx anti-rea assure --manifest anti-rea.manifest.json --policy anti-rea.policy.json --out anti-rea-report
+```
+
+`init` declares only the checks your build has something for, such as macOS signing, Electron fuses or Authenticode. `assure` exits **2 (block)** until each finding is fixed or covered by a named, expiring exception. It also blocks until you declare at least one asset. That is deliberate: a release cannot pass before its owner has said what must not ship.
+
+**3. Let your coding agent drive the fixes.** Register the read-only MCP server once:
+
+```bash
+claude mcp add anti-rea -- npx -y -p anti-rea anti-rea-mcp
+```
+
+Then ask your agent, for example, *"Run expose_release on dist/ and fix every avoidable owner finding in our build config."* See [docs/AGENTS.md](docs/AGENTS.md) for the workflow and a snippet to paste into your repository's agent instructions.
+
+**4. Keep it fixed in CI.** Add [examples/workflows/exposure.yml](examples/workflows/exposure.yml), which fails the build on a high-or-worse exposure, and run `assure` in your release job.
+
 ## Evidence status
 
-- **Correctness:** 150 tests.
+- **Exposure report (`expose`), v7 benchmark.** Pre-registered (commit `a8d681b`) and run once on 240 real builds of disjoint Go, C and JS/Electron code, scored against an independent reference checker ([results](bench/v7/RESULTS-eval.md), [protocol](bench/v7/PREREGISTRATION.md)):
+  - **96.6% accuracy** [94.8, 98.0] on 566 checks. That is the post-hoc figure; the registered one is 97.0% on 624 checks. A harness defect, disclosed in the results, built 29 Go library archives instead of executables.
+  - **0 false positives** in 333 checks of hardened builds.
+  - **100%** on native debug info, symbols, debug maps and dSYMs (67 Go executables across ELF/PE/Mach-O, plus C dylibs), inside zip, tar.gz and app.asar packaging.
+  - **66/66** source maps found and graded correctly, and **43/43** `openDevTools()` calls.
+  - Every miss is one predicted scope gap: an insecure `webPreferences` value passed through a variable (0/19).
+  - It is **not** more accurate than a careful expert checklist built from llvm tools and regexes (p = 0.54, as predicted). It matches that checklist in one command, and adds attribution, grading and fixes.
+- **Real-world robustness:** `expose` completed on every one of the 101 applications installed on the development machine, with no crash. The slowest took 12.6 s, and peak memory was 1.5 GB.
+- **Correctness:** 164 tests on macOS. Linux (Node 22 and 24) was verified in a container. CI is configured for Linux, macOS and Windows on Node 22, 24 and 26; Windows has not been run yet.
   - Unit, pipeline and regression tests, plus the v0.8 exposure units, golden/redaction, fuzz (~10,000 seeded corruptions plus structure-preserving mutation of valid fixtures), review-regression and differential tests.
   - **Differential tests** against:
     - `@electron/asar`, Info-ZIP, `ditto`, bsdtar and Python `zipfile`;
@@ -224,7 +276,7 @@ npm run expose-demo                                # a synthetic release coverin
 - Each finding is attributed **owner vs third-party** (dependencies, vendored runtimes, engine libraries), and marked **avoidable** (a toolchain setting removes it) vs inherent (ObjC/Swift metadata, Go `pclntab`, IL2CPP `global-metadata.dat`).
 - The report is **about the product**: a profile (platforms, frameworks, languages), findings by surface with your code first, a deduplicated hardening checklist, coverage with every opaque artifact named, and the REA → Anti-REA matrix.
 - It never prints secret values. Go `-ldflags -X`, `KEY=…` pairs and model `__metadata__` are redacted; tests assert a planted secret never appears in the serialized report.
-- Distribution: a **GitHub Action** (`uses: <owner>/anti-rea@v0.8.0`, see [examples/workflows/exposure.yml](examples/workflows/exposure.yml)), a zero-dependency **MCP server** (`anti-rea mcp-config`; [docs/AGENTS.md](docs/AGENTS.md)), and the CLI.
+- Distribution: a CI step (`npx anti-rea@0.1.0 expose …`, or the composite **GitHub Action** `anti-rea/anti-rea@v0.1.0`; see [examples/workflows/exposure.yml](examples/workflows/exposure.yml)), a zero-dependency **MCP server** (`anti-rea mcp-config`; [docs/AGENTS.md](docs/AGENTS.md)), and the CLI.
 
 Coverage and the honest gaps (Flutter/GPU detected-only; EVM/BEAM detected as roadmap stubs) are in [docs/REA-COVERAGE.md](docs/REA-COVERAGE.md); the design and the tuning-only calibration are in [docs/research/V08-CHANGES.md](docs/research/V08-CHANGES.md).
 
