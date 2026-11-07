@@ -81,7 +81,7 @@ Then ask your agent, for example, *"Run expose_release on dist/ and fix every av
 
 ## Evidence status
 
-- **Exposure report (`expose`), v7 benchmark.** Pre-registered (commit `a8d681b`) and run once on 240 real builds of disjoint Go, C and JS/Electron code, scored against an independent reference checker ([results](bench/v7/RESULTS-eval.md), [protocol](bench/v7/PREREGISTRATION.md)):
+- **Exposure report (`expose`), v7 benchmark.** Pre-registered (commit `986e2d7`) and run once on 240 real builds of disjoint Go, C and JS/Electron code, scored against an independent reference checker ([results](bench/v7/RESULTS-eval.md), [protocol](bench/v7/PREREGISTRATION.md)):
   - **96.6% accuracy** [94.8, 98.0] on 566 checks. That is the post-hoc figure; the registered one is 97.0% on 624 checks. A harness defect, disclosed in the results, built 29 Go library archives instead of executables.
   - **0 false positives** in 333 checks of hardened builds.
   - **100%** on native debug info, symbols, debug maps and dSYMs (67 Go executables across ELF/PE/Mach-O, plus C dylibs), inside zip, tar.gz and app.asar packaging.

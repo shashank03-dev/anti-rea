@@ -1,6 +1,6 @@
 # v7 results: the exposure report on real toolchain builds
 
-**Run once, on 2026-11-07, against the frozen tree `dfc1343a…`, pre-registered in commit `a8d681b`
+**Run once, on 2026-11-07, against the frozen tree `dfc1343a…`, pre-registered in commit `986e2d7`
 ([PREREGISTRATION.md](PREREGISTRATION.md)).** 240 cases, 0 excluded, 0 tool errors.
 
 ## Summary
@@ -80,7 +80,7 @@ All cases are listed in the registered output below.
 ## Reproduce
 
 ```bash
-git checkout a8d681b
+git checkout 986e2d7
 node bench/v7/subjects.mjs     # optional: rediscover subjects (needs the same caches)
 node bench/v7/corpus.mjs --set eval
 node bench/v7/run.mjs --set eval
