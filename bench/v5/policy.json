@@ -1,0 +1,5 @@
+{
+  "schema": "anti-rea/policy/v1",
+  "releaseScope": "benchmark scenario release/ directory",
+  "requiredLanes": ["inventory", "exposure", "placement"]
+}

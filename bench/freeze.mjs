@@ -9,7 +9,7 @@ import { dirname, join, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const INCLUDE = ["src", "bench/freeze.mjs", "bench/corpus.mjs", "bench/run.mjs", "bench/score.mjs", "bench/policy.json", "bench/policy.open.json", "package.json", "bench/v4/anti-rea-0.4.0"];
+const INCLUDE = ["src", "bench/freeze.mjs", "bench/corpus.mjs", "bench/run.mjs", "bench/score.mjs", "bench/policy.json", "bench/policy.open.json", "package.json", "bench/v4/anti-rea-0.4.0", "bench/v5/anti-rea-0.5.0", "bench/platform.mjs", "bench/policy.platform.json"];
 
 export function frozenFiles() {
   const out = [];

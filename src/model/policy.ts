@@ -16,6 +16,8 @@ export type GateId =
   | "unrecognizedTokenLead" // a prefixed, high-entropy token of an unrecognised provider, not matched to any declared asset
   | "keyedCredentialLead" // a generated value assigned to a credential-named key, not matched to any declared asset
   | "lowConfidenceCredentialLead" // a medium/low-confidence credential-shaped value (generic entropy, JWT, often-public keys)
+  | "platformHardeningViolation" // v0.6: a declared signing / hardening / Electron-fuse / integrity expectation is violated
+  | "provenanceMismatch" // v0.6: shipped bytes are not covered by valid, trusted build provenance
   | "requiredLaneInconclusive"; // a mandatory lane could not run to a conclusion
 
 export type GateAction = "block" | "warn";
@@ -61,6 +63,8 @@ export const DEFAULT_GATES: Record<GateId, GateAction> = {
   unrecognizedTokenLead: "block",
   keyedCredentialLead: "block",
   lowConfidenceCredentialLead: "warn",
+  platformHardeningViolation: "block",
+  provenanceMismatch: "block",
   requiredLaneInconclusive: "block",
 };
 
@@ -73,8 +77,10 @@ export const ALL_GATES: readonly GateId[] = [
   "unrecognizedTokenLead",
   "keyedCredentialLead",
   "lowConfidenceCredentialLead",
+  "platformHardeningViolation",
+  "provenanceMismatch",
   "requiredLaneInconclusive",
 ];
 
-export const KNOWN_LANES = ["inventory", "exposure", "placement", "authorization", "external"] as const;
+export const KNOWN_LANES = ["inventory", "exposure", "placement", "authorization", "external", "platform", "provenance"] as const;
 export type LaneId = (typeof KNOWN_LANES)[number];

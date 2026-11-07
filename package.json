@@ -1,6 +1,6 @@
 {
   "name": "anti-rea",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Anti-REA: a defensive release-assurance engine. Inventories what a build actually ships, detects declared server-only secrets that leaked into the distribution, checks asset placement, records evidence with explicit result states, and enforces hard release gates.",
   "license": "Apache-2.0",
   "type": "module",

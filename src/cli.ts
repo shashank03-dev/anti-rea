@@ -11,6 +11,9 @@ import { EXTERNAL_TOOLS, type ExternalImport, type ExternalTool } from "./lanes/
 import { fingerprintOf } from "./lanes/detectors.js";
 import { minTrialsForBound, zeroEventUpperBound } from "./engine/stats.js";
 import { TOOL_NAME, TOOL_VERSION } from "./version.js";
+import { decisionStatement, signStatement, verifyAttestation } from "./engine/attest.js";
+import { collectPlatformFacts } from "./lanes/platform.js";
+import { sha256Hex } from "./util/hash.js";
 
 const EXIT = { pass: 0, error: 1, block: 2 } as const;
 
@@ -23,6 +26,17 @@ Usage:
       release: gitleaks:<report.json> (gitleaks --report-format json, without --redact) or
       trufflehog:<results.jsonl> (trufflehog filesystem --json). Repeatable.
       Exit code: 0 pass / pass-with-exceptions, 2 block, 1 error.
+
+      --sign-key <private.pem> also writes attestation.dsse.json: a DSSE-signed in-toto Statement
+      binding the decision, gates, policy and report digest to the shipped artifacts' sha256.
+
+  anti-rea verify-attestation --attestation <file> --public-key <pem> [--artifact <file>]... [--require-decision pass]
+      Check an attestation's signature, predicate and (optionally) that each artifact is a subject.
+      Exit code: 0 valid, 2 invalid.
+
+  anti-rea inspect --manifest <file> [--json]
+      Print platform facts: Mach-O signing (team, hardened runtime, entitlements, page hashes),
+      bundle seals, Electron fuses and ASAR integrity, PE Authenticode presence.
 
   anti-rea inventory --manifest <file> [--json]
       List the release closure (including nested container entries) with sha256 and the release ID.
@@ -41,7 +55,7 @@ Usage:
 `;
 
 type Flags = Record<string, string | true>;
-const REPEATABLE = new Set(["import"]);
+const REPEATABLE = new Set(["import", "artifact"]);
 
 function parse(argv: string[]): { cmd: string[]; flags: Flags; multi: Record<string, string[]> } {
   const cmd: string[] = [];
@@ -140,8 +154,14 @@ function main(argv: string[]): number {
       assertOutsideRoots(out, manifest.path, manifest.value.releaseClosure.roots);
       const rep = assure({ manifest, policy, authzResults: authz, imports: parseImports(multi.import) });
       const files = writeReport(rep, out);
+      let att = "";
+      if (typeof flags["sign-key"] === "string") {
+        const env = signStatement(decisionStatement(rep, readFileSync(files.json, "utf8")), readFileSync(flags["sign-key"], "utf8"));
+        att = resolve(out, "attestation.dsse.json");
+        writeFileSync(att, JSON.stringify(env, null, 2) + "\n");
+      }
       if (flags.json === true) process.stdout.write(JSON.stringify(rep, null, 2) + "\n");
-      else process.stdout.write(`${renderSummary(rep)}\nreport: ${files.md}\nevidence: ${files.json}\n`);
+      else process.stdout.write(`${renderSummary(rep)}\nreport: ${files.md}\nevidence: ${files.json}\n${att ? `attestation: ${att}\n` : ""}`);
       return rep.decision === "block" ? EXIT.block : EXIT.pass;
     }
 
@@ -168,6 +188,41 @@ function main(argv: string[]): number {
         }
         for (const n of inv.notes) process.stdout.write(`note: ${n}\n`);
       }
+      return EXIT.pass;
+    }
+
+    case "verify-attestation": {
+      const env = JSON.parse(readFileSync(req(flags, "attestation"), "utf8"));
+      const artifacts = (multi.artifact ?? []).map((p) => ({ path: p, sha256: sha256Hex(readFileSync(p)) }));
+      const r = verifyAttestation(env, readFileSync(req(flags, "public-key"), "utf8"), {
+        artifacts,
+        ...(typeof flags["require-decision"] === "string" ? { requireDecision: flags["require-decision"] } : {}),
+      });
+      const pred = r.statement?.predicate as { decision?: string; releaseId?: string } | undefined;
+      if (r.problems.length === 0) process.stdout.write(`valid: decision ${pred?.decision} for release ${pred?.releaseId?.slice(0, 12)} (${r.statement!.subject.length} subjects)\n`);
+      else for (const p of r.problems) process.stdout.write(`invalid: ${p}\n`);
+      return r.problems.length === 0 ? EXIT.pass : EXIT.block;
+    }
+
+    case "inspect": {
+      const manifest = loadManifest(req(flags, "manifest"));
+      const facts = collectPlatformFacts(buildInventory(manifest.value, dirname(resolve(manifest.path))));
+      if (flags.json === true) {
+        process.stdout.write(JSON.stringify(facts, null, 2) + "\n");
+        return EXIT.pass;
+      }
+      const w = (s: string) => process.stdout.write(s + "\n");
+      for (const m of facts.machO)
+        for (const s of m.slices)
+          w(`macho  ${m.path} [${s.arch}] ${s.signed ? (s.adhoc ? "adhoc" : s.developerSigned ? `team ${s.teamId ?? "?"}` : "signed") : "UNSIGNED"}${s.hardenedRuntime ? " runtime" : ""}${s.badPages ? ` BAD-PAGES:${s.badPages}` : ""}${s.entitlements.length ? ` ent: ${s.entitlements.join(",")}` : ""}`);
+      for (const b of facts.bundles) {
+        w(`bundle ${b.path} ${b.sealProblems.length ? `SEAL PROBLEMS: ${b.sealProblems.length}` : `seal ok (${b.sealedFiles} files)`}`);
+        for (const p of b.sealProblems.slice(0, 10)) w(`         - ${p}`);
+        for (const a of b.asarIntegrity ?? []) w(`         asar ${a.file} integrity ${a.absent ? "declared, not shipped" : a.ok ? "ok" : "MISMATCH"}`);
+      }
+      for (const f of facts.fuses) w(`fuses  ${f.path} v${f.version} ${Object.entries(f.fuses).map(([k, v]) => `${k}=${v}`).join(" ")}`);
+      for (const p of facts.pe) w(`pe     ${p.path} ${p.authenticode ? "authenticode" : "UNSIGNED"}`);
+      for (const e of facts.errors) w(`error  ${e}`);
       return EXIT.pass;
     }
 

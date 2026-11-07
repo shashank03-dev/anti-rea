@@ -1,0 +1,26 @@
+{
+  "set": "eval",
+  "N": 60,
+  "accuracy": {
+    "AR-1": 60,
+    "CS-D": 44,
+    "CS-T": 52
+  },
+  "hypotheses": [
+    {
+      "id": "H12 (platform accuracy)",
+      "verdict": "SUPPORTED",
+      "detail": "AR-1 correct 60/60 (need ≥95%)"
+    },
+    {
+      "id": "H12b (agreement with codesign on clean + tampered)",
+      "verdict": "SUPPORTED",
+      "detail": "AR-1 and CS-D decisions agree on 44/44 P-CLEAN + P-TAMPER scenarios (need all)"
+    },
+    {
+      "id": "H12c (AR-1 vs scripted codesign policy CS-T)",
+      "verdict": "SUPPORTED",
+      "detail": "AR-1 60/60 vs CS-T 52/60: 8 : 0, exact McNemar p=7.81e-3 (need AR-1 ahead, p<0.01)"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
-import { existsSync, readFileSync, statSync } from "node:fs";
-import { resolve } from "node:path";
+import { existsSync, readFileSync, readlinkSync, statSync } from "node:fs";
+import { dirname, isAbsolute, relative, resolve } from "node:path";
 import type { Manifest } from "../model/manifest.js";
 import type { EvidenceRecord, Finding } from "../model/evidence.js";
 import type { Outcome } from "../model/result.js";
@@ -45,7 +45,7 @@ export function buildInventory(manifest: Manifest, baseDir: string, limits: Limi
       items.push({ ...base, source: null, kind: "container", supported: false, unsupportedReason: ex.reason });
       return;
     }
-    items.push({ ...base, source: null, kind: "container", supported: true });
+    items.push({ ...base, source: null, kind: "container", supported: true, raw: abs ? { kind: "disk", abs } : { kind: "mem", buf } });
     for (const n of ex.notes) notes.push(`${path}: ${n}`);
     for (const e of ex.entries) {
       const vpath = `${path}!/${e.name}`;
@@ -70,6 +70,7 @@ export function buildInventory(manifest: Manifest, baseDir: string, limits: Limi
     }
   };
 
+  const symlinks: string[] = [];
   for (const root of manifest.releaseClosure.roots) {
     const label = root.replace(/\/+$/, "");
     const absRoot = resolve(baseDir, root);
@@ -85,7 +86,15 @@ export function buildInventory(manifest: Manifest, baseDir: string, limits: Limi
         continue;
       }
       if (f.isSymlink) {
-        gap(path, "symlink not followed");
+        // v0.6: a symlink ships a PATH, not bytes; a target inside the release is inspected as itself.
+        // v0.5 recorded every symlink as a coverage gap, so every real macOS app bundle (framework
+        // `Versions/Current` links) was inconclusive and blocked whatever its contents.
+        let target = "?";
+        try {
+          target = readlinkSync(f.abs);
+        } catch {}
+        const inside = target !== "?" && !isAbsolute(target) && !relative(absRoot, resolve(dirname(f.abs), target)).startsWith("..");
+        symlinks.push(`${path} -> ${target}${inside ? "" : " (target outside the release closure; only the link path ships)"}`);
         continue;
       }
       let buf: Buffer;
@@ -104,6 +113,8 @@ export function buildInventory(manifest: Manifest, baseDir: string, limits: Limi
     }
   }
 
+  if (symlinks.length > 0)
+    notes.push(`${symlinks.length} symbolic link(s) recorded, not followed (a link ships its path; targets inside the release are inspected as themselves): ${symlinks.slice(0, 10).join("; ")}${symlinks.length > 10 ? "; …" : ""}`);
   return { releaseId: computeReleaseId(items.map((i) => i.ref)), items, notes, limits };
 }
 

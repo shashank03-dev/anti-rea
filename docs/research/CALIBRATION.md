@@ -205,3 +205,50 @@ After these fixes mingw-w64 has 0 leads. **E is therefore tuning data now.**
 | Warn-only | 59 | 34 Go test vectors, 11 JWTs, 9 URL passwords, 5 Google API keys |
 
 **Throughput,** on the same set A bytes: v0.4 ran at 48.2 MB/s and **v0.5 at 55.4 MB/s**, despite the extra rules, because the hot regexes are now anchored. Across all 17.1 GB it averaged 31.5 MB/s; that figure includes After Effects' 6.1 GB of binaries.
+
+## Round 6 (v0.6): A–E re-run, then a new validation set F
+
+v0.6 changed three content rules for v5's misses ([V06-CHANGES.md](V06-CHANGES.md) §1):
+- `pk_` is no longer public;
+- a UUID plus a random rest is generated;
+- `PAT` is a credential noun.
+
+**Re-run on A–E** (43 targets, 17.1 GB, all tuning data): **identical to v0.5's final run.**
+
+| Gate | Leads | Composition |
+|---|---|---|
+| Blocking keyed | 1,719 | the same WhatsApp proxy credentials and Adobe client secrets |
+| Blocking structural or call | 0 | — |
+| Format | 13 | unchanged |
+| Warn-only | 59 | unchanged |
+
+The three new rules produced **no new lead on 17.1 GB of real code.**
+
+**Validation on F** (single clean pass; 12 targets, 1.58 GB, never scanned before):
+- `/System/Applications`, all 51 of them;
+- Homebrew openssl@4, gettext, ncurses, pcre2, aria2, libssh2, docker-compose, docker-buildx, sdl3, highway and simdjson.
+
+**F failed:**
+
+| Release | Leads | Assessment |
+|---|---|---|
+| Home.app (and its widget) | **1 blocking format lead** (`huggingface-token`) | **false.** Objective-C selectors from Apple's HomeFoundation category prefix (`hf_clearCached…`, `hf_currentUserSupported…`) contain 34-letter runs matching `hf_[A-Za-z]{34}`. That rule is unchanged since v0.1. There were 8 distinct matching strings. |
+| aria2 | 1 warn-only URL password | documentation example |
+
+There were 0 keyed, structural or call leads on F.
+
+**Fix after F:** the Hugging Face format rule rejects a body whose CamelCase-word coverage is ≥ 0.7 **and** whose vowel share is ≥ 0.28. English identifiers are about 38% vowels; random letters about 19%.
+
+| Measure | Result |
+|---|---|
+| Selectors rejected | all 8 |
+| Random 34-letter bodies rejected (wrongly) | 0.62%, measured on 400,000 |
+| Hugging Face recall on random tokens after the fix | 99.4% |
+
+A grid of thresholds was tried on these 8 strings, so the guard is fitted to one app's selectors. **F is therefore tuning data now.** The v6 benchmark background (git `share/`, abseil, libvpx) is the next unseen data.
+
+After the fix, `/System/Applications` has 0 leads.
+
+**Throughput** across A–E was 31.7 MB/s (v0.5: 31.5 MB/s). F ran at 20.3 MB/s, dominated by `/System/Applications`' many small Mach-O files. Both runs shared the machine with other jobs.
+
+**Pattern across rounds:** every fresh validation set so far (C, D, E, F) has found at least one false-lead class. The classes are getting smaller: 690 leads in E, 1 in F. They have also moved from the new rules to an old format rule. A new kind of release should still be expected to produce some false leads. Triage them with scoped, expiring exceptions.

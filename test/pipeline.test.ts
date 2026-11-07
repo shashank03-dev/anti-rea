@@ -44,7 +44,7 @@ test("clean release passes; every required lane concludes", () => {
   const { dir, pem } = release();
   const rep = assure({ manifest: standardManifest(dir, pem), policy: policyOf() });
   assert.equal(rep.decision, "pass", rep.blockingReasons.join("\n"));
-  assert.deepEqual(rep.coverage.lanes, { inventory: "concluded", exposure: "concluded", placement: "concluded", authorization: "not-run", external: "not-run" });
+  assert.deepEqual(rep.coverage.lanes, { inventory: "concluded", exposure: "concluded", placement: "concluded", authorization: "not-run", external: "not-run", platform: "not-run", provenance: "not-run" });
   assert.deepEqual(rep.coverage.assetsUnaddressed, []);
   const sk = rep.evidence.find((r) => r.id === "exposure/signing-key")!;
   assert.equal(sk.outcome, "not-recovered-within-budget", "negative is a scoped observation, not a proof");

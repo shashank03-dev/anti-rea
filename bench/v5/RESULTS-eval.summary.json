@@ -1,0 +1,3848 @@
+{
+  "summary": {
+    "AR-0": {
+      "ran": true,
+      "n": 260,
+      "correct": 192,
+      "accuracy": 0.7384615384615385,
+      "ci": [
+        0.6805870458043637,
+        0.7908098919276798
+      ],
+      "falseBlock": 0.2,
+      "falsePass": 0.3,
+      "toolErrors": 0,
+      "spuriousTotal": 4,
+      "medianMs": 113,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 1,
+        "PUBLIC-DECLARED": 1,
+        "SERVER-IMPL": 0,
+        "PRIVATE-ARTIFACT": 0,
+        "UNDECLARED-LEAK": 0.9,
+        "UNVERIFIABLE": 1,
+        "UNVERIFIABLE-CLEAN": 0,
+        "EXAMPLE-DOCS": 1,
+        "COMPRESSED-CLEAN": 1
+      }
+    },
+    "AR-1": {
+      "ran": true,
+      "n": 260,
+      "correct": 232,
+      "accuracy": 0.8923076923076924,
+      "ci": [
+        0.8481250087501802,
+        0.9272365713205806
+      ],
+      "falseBlock": 0.2,
+      "falsePass": 0.05,
+      "toolErrors": 0,
+      "spuriousTotal": 4,
+      "medianMs": 121,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 1,
+        "PUBLIC-DECLARED": 1,
+        "SERVER-IMPL": 1,
+        "PRIVATE-ARTIFACT": 1,
+        "UNDECLARED-LEAK": 0.9,
+        "UNVERIFIABLE": 1,
+        "UNVERIFIABLE-CLEAN": 0,
+        "EXAMPLE-DOCS": 1,
+        "COMPRESSED-CLEAN": 1
+      }
+    },
+    "AR-1o": {
+      "ran": true,
+      "n": 260,
+      "correct": 232,
+      "accuracy": 0.8923076923076924,
+      "ci": [
+        0.8481250087501802,
+        0.9272365713205806
+      ],
+      "falseBlock": 0,
+      "falsePass": 0.175,
+      "toolErrors": 0,
+      "spuriousTotal": 4,
+      "medianMs": 120.5,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 1,
+        "PUBLIC-DECLARED": 1,
+        "SERVER-IMPL": 1,
+        "PRIVATE-ARTIFACT": 1,
+        "UNDECLARED-LEAK": 0.9,
+        "UNVERIFIABLE": 0,
+        "UNVERIFIABLE-CLEAN": 1,
+        "EXAMPLE-DOCS": 1,
+        "COMPRESSED-CLEAN": 1
+      }
+    },
+    "AR-1@0.4": {
+      "ran": true,
+      "n": 260,
+      "correct": 210,
+      "accuracy": 0.8076923076923077,
+      "ci": [
+        0.7544525309524244,
+        0.8537661354974471
+      ],
+      "falseBlock": 0.27,
+      "falsePass": 0.14375,
+      "toolErrors": 0,
+      "spuriousTotal": 4,
+      "medianMs": 122,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 1,
+        "PUBLIC-DECLARED": 1,
+        "SERVER-IMPL": 1,
+        "PRIVATE-ARTIFACT": 1,
+        "UNDECLARED-LEAK": 0.7125,
+        "UNVERIFIABLE": 1,
+        "UNVERIFIABLE-CLEAN": 0,
+        "EXAMPLE-DOCS": 1,
+        "COMPRESSED-CLEAN": 0.65
+      }
+    },
+    "GL-D": {
+      "ran": true,
+      "n": 260,
+      "correct": 115,
+      "accuracy": 0.4423076923076923,
+      "ci": [
+        0.38097923594185656,
+        0.5049664214718146
+      ],
+      "falseBlock": 0.22,
+      "falsePass": 0.76875,
+      "toolErrors": 0,
+      "spuriousTotal": 14,
+      "medianMs": 193,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 0.2,
+        "PUBLIC-DECLARED": 0.5,
+        "SERVER-IMPL": 0.05,
+        "PRIVATE-ARTIFACT": 0,
+        "UNDECLARED-LEAK": 0.4,
+        "UNVERIFIABLE": 0,
+        "UNVERIFIABLE-CLEAN": 1,
+        "EXAMPLE-DOCS": 0.4,
+        "COMPRESSED-CLEAN": 1
+      }
+    },
+    "GL-T": {
+      "ran": true,
+      "n": 260,
+      "correct": 196,
+      "accuracy": 0.7538461538461538,
+      "ci": [
+        0.6968377503218066,
+        0.8049667442520925
+      ],
+      "falseBlock": 0.15,
+      "falsePass": 0.30625,
+      "toolErrors": 0,
+      "spuriousTotal": 18,
+      "medianMs": 200,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 0.95,
+        "PUBLIC-DECLARED": 0.9,
+        "SERVER-IMPL": 1,
+        "PRIVATE-ARTIFACT": 0.8,
+        "UNDECLARED-LEAK": 0.7,
+        "UNVERIFIABLE": 0,
+        "UNVERIFIABLE-CLEAN": 1,
+        "EXAMPLE-DOCS": 0.4,
+        "COMPRESSED-CLEAN": 0.95
+      }
+    },
+    "TH-D": {
+      "ran": true,
+      "n": 260,
+      "correct": 167,
+      "accuracy": 0.6423076923076924,
+      "ci": [
+        0.5807583146571531,
+        0.7005711271370587
+      ],
+      "falseBlock": 0,
+      "falsePass": 0.58125,
+      "toolErrors": 0,
+      "spuriousTotal": 6,
+      "medianMs": 492,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 0.75,
+        "PUBLIC-DECLARED": 1,
+        "SERVER-IMPL": 0,
+        "PRIVATE-ARTIFACT": 0,
+        "UNDECLARED-LEAK": 0.65,
+        "UNVERIFIABLE": 0,
+        "UNVERIFIABLE-CLEAN": 1,
+        "EXAMPLE-DOCS": 1,
+        "COMPRESSED-CLEAN": 1
+      }
+    },
+    "TH-T": {
+      "ran": true,
+      "n": 260,
+      "correct": 210,
+      "accuracy": 0.8076923076923077,
+      "ci": [
+        0.7544525309524244,
+        0.8537661354974471
+      ],
+      "falseBlock": 0,
+      "falsePass": 0.3125,
+      "toolErrors": 0,
+      "spuriousTotal": 6,
+      "medianMs": 496,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 0.9,
+        "PUBLIC-DECLARED": 1,
+        "SERVER-IMPL": 1,
+        "PRIVATE-ARTIFACT": 1,
+        "UNDECLARED-LEAK": 0.65,
+        "UNVERIFIABLE": 0,
+        "UNVERIFIABLE-CLEAN": 1,
+        "EXAMPLE-DOCS": 1,
+        "COMPRESSED-CLEAN": 1
+      }
+    },
+    "DS-D": {
+      "ran": true,
+      "n": 260,
+      "correct": 120,
+      "accuracy": 0.46153846153846156,
+      "ci": [
+        0.399764547873641,
+        0.524199095418791
+      ],
+      "falseBlock": 0.27,
+      "falsePass": 0.70625,
+      "toolErrors": 0,
+      "spuriousTotal": 109,
+      "medianMs": 502.5,
+      "perFamily": {
+        "CLEAN": 0.95,
+        "LEAK-DECLARED": 0.2,
+        "PUBLIC-DECLARED": 0.5,
+        "SERVER-IMPL": 0.3,
+        "PRIVATE-ARTIFACT": 0.3,
+        "UNDECLARED-LEAK": 0.325,
+        "UNVERIFIABLE": 0.25,
+        "UNVERIFIABLE-CLEAN": 0.85,
+        "EXAMPLE-DOCS": 0.45,
+        "COMPRESSED-CLEAN": 0.9
+      }
+    },
+    "AR-2": {
+      "ran": true,
+      "n": 260,
+      "correct": 237,
+      "accuracy": 0.9115384615384615,
+      "ci": [
+        0.8702220186186618,
+        0.9430954700690128
+      ],
+      "falseBlock": 0.2,
+      "falsePass": 0.01875,
+      "toolErrors": 0,
+      "spuriousTotal": 10,
+      "medianMs": 623,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 1,
+        "PUBLIC-DECLARED": 1,
+        "SERVER-IMPL": 1,
+        "PRIVATE-ARTIFACT": 1,
+        "UNDECLARED-LEAK": 0.9625,
+        "UNVERIFIABLE": 1,
+        "UNVERIFIABLE-CLEAN": 0,
+        "EXAMPLE-DOCS": 1,
+        "COMPRESSED-CLEAN": 1
+      }
+    }
+  },
+  "paired": {
+    "AR-1 vs GL-D": {
+      "aRightBWrong": 138,
+      "aWrongBRight": 21,
+      "diff": 0.45000000000000007,
+      "p": 2.6834209354301914e-22
+    },
+    "AR-1 vs GL-T": {
+      "aRightBWrong": 58,
+      "aWrongBRight": 22,
+      "diff": 0.13846153846153852,
+      "p": 0.00007010573979919522
+    },
+    "AR-1 vs TH-D": {
+      "aRightBWrong": 90,
+      "aWrongBRight": 25,
+      "diff": 0.25,
+      "p": 8.369029836304069e-10
+    },
+    "AR-1 vs TH-T": {
+      "aRightBWrong": 47,
+      "aWrongBRight": 25,
+      "diff": 0.08461538461538465,
+      "p": 0.01277459553806429
+    },
+    "AR-1 vs DS-D": {
+      "aRightBWrong": 131,
+      "aWrongBRight": 19,
+      "diff": 0.4307692307692308,
+      "p": 9.060361693511675e-22
+    },
+    "AR-1 vs AR-1@0.4": {
+      "aRightBWrong": 22,
+      "aWrongBRight": 0,
+      "diff": 0.08461538461538465,
+      "p": 4.7683715820312495e-7
+    },
+    "AR-2 vs GL-D": {
+      "aRightBWrong": 142,
+      "aWrongBRight": 20,
+      "diff": 0.46923076923076923,
+      "p": 7.447696595224577e-24
+    },
+    "AR-2 vs GL-T": {
+      "aRightBWrong": 61,
+      "aWrongBRight": 20,
+      "diff": 0.1576923076923077,
+      "p": 0.000005656214894965471
+    },
+    "AR-2 vs TH-D": {
+      "aRightBWrong": 90,
+      "aWrongBRight": 20,
+      "diff": 0.26923076923076916,
+      "p": 8.637551655997309e-12
+    },
+    "AR-2 vs TH-T": {
+      "aRightBWrong": 47,
+      "aWrongBRight": 20,
+      "diff": 0.10384615384615381,
+      "p": 0.0013071686857635293
+    },
+    "AR-2 vs DS-D": {
+      "aRightBWrong": 134,
+      "aWrongBRight": 17,
+      "diff": 0.44999999999999996,
+      "p": 9.74273012295967e-24
+    },
+    "AR-1o vs GL-D": {
+      "aRightBWrong": 118,
+      "aWrongBRight": 1,
+      "diff": 0.45000000000000007,
+      "p": 3.6111186457260275e-34
+    },
+    "AR-1o vs GL-T": {
+      "aRightBWrong": 38,
+      "aWrongBRight": 2,
+      "diff": 0.13846153846153852,
+      "p": 1.4933903003111221e-9
+    },
+    "AR-1o vs TH-D": {
+      "aRightBWrong": 70,
+      "aWrongBRight": 5,
+      "diff": 0.25,
+      "p": 9.817755603716736e-16
+    },
+    "AR-1o vs TH-T": {
+      "aRightBWrong": 27,
+      "aWrongBRight": 5,
+      "diff": 0.08461538461538465,
+      "p": 0.00011307420209050103
+    },
+    "AR-1o vs DS-D": {
+      "aRightBWrong": 119,
+      "aWrongBRight": 7,
+      "diff": 0.4307692307692308,
+      "p": 2.1067440399653605e-27
+    }
+  },
+  "recall": {
+    "AR-0": {
+      "LEAK-DECLARED / W5-tgz": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W9-bz2": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W3-zip": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W10-zst": [
+        5,
+        5
+      ],
+      "LEAK-DECLARED / W14-lz4": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W15-zip-bzip2": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W12-percent": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W8-xz": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, bare)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, bare)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, config)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, method)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, bare)": [
+        2,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        1
+      ],
+      "UNVERIFIABLE / W17-enc-dmg": [
+        0,
+        8
+      ],
+      "UNVERIFIABLE / W13-enc-zip": [
+        0,
+        12
+      ]
+    },
+    "AR-1": {
+      "LEAK-DECLARED / W5-tgz": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W9-bz2": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W3-zip": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W10-zst": [
+        5,
+        5
+      ],
+      "LEAK-DECLARED / W14-lz4": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W15-zip-bzip2": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W12-percent": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W8-xz": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, bare)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, bare)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, config)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, method)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, bare)": [
+        2,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        1
+      ],
+      "UNVERIFIABLE / W17-enc-dmg": [
+        0,
+        8
+      ],
+      "UNVERIFIABLE / W13-enc-zip": [
+        0,
+        12
+      ]
+    },
+    "AR-1o": {
+      "LEAK-DECLARED / W5-tgz": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W9-bz2": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W3-zip": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W10-zst": [
+        5,
+        5
+      ],
+      "LEAK-DECLARED / W14-lz4": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W15-zip-bzip2": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W12-percent": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W8-xz": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, bare)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, bare)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, config)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, method)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, bare)": [
+        2,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        1
+      ],
+      "UNVERIFIABLE / W17-enc-dmg": [
+        0,
+        8
+      ],
+      "UNVERIFIABLE / W13-enc-zip": [
+        0,
+        12
+      ]
+    },
+    "AR-1@0.4": {
+      "LEAK-DECLARED / W5-tgz": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W9-bz2": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W3-zip": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W10-zst": [
+        5,
+        5
+      ],
+      "LEAK-DECLARED / W14-lz4": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W15-zip-bzip2": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W12-percent": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W8-xz": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, bare)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, config)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, config)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, method)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, bare)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, bare)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, config)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, config)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, method)": [
+        1,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        1
+      ],
+      "UNVERIFIABLE / W17-enc-dmg": [
+        0,
+        8
+      ],
+      "UNVERIFIABLE / W13-enc-zip": [
+        0,
+        12
+      ]
+    },
+    "GL-D": {
+      "LEAK-DECLARED / W5-tgz": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W9-bz2": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W3-zip": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W10-zst": [
+        0,
+        5
+      ],
+      "LEAK-DECLARED / W14-lz4": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W15-zip-bzip2": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W12-percent": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W8-xz": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, env)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, config)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, method)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, bare)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, env)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, config)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, ctor)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, bare)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, bare)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, env)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, config)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, ctor)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, method)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, bare)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, bare)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, env)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, config)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, config)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, ctor)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, ctor)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, method)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        1
+      ],
+      "UNVERIFIABLE / W17-enc-dmg": [
+        0,
+        8
+      ],
+      "UNVERIFIABLE / W13-enc-zip": [
+        0,
+        12
+      ]
+    },
+    "GL-T": {
+      "LEAK-DECLARED / W5-tgz": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W9-bz2": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W3-zip": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W10-zst": [
+        5,
+        5
+      ],
+      "LEAK-DECLARED / W14-lz4": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W15-zip-bzip2": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W12-percent": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W8-xz": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, bare)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, method)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, bare)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, config)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, config)": [
+        2,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, ctor)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, ctor)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, method)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        1
+      ],
+      "UNVERIFIABLE / W17-enc-dmg": [
+        0,
+        8
+      ],
+      "UNVERIFIABLE / W13-enc-zip": [
+        0,
+        12
+      ]
+    },
+    "TH-D": {
+      "LEAK-DECLARED / W5-tgz": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W9-bz2": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W3-zip": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W10-zst": [
+        4,
+        5
+      ],
+      "LEAK-DECLARED / W14-lz4": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W15-zip-bzip2": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W12-percent": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W8-xz": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, env)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, bare)": [
+        2,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, config)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, config)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, method)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, bare)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, bare)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, env)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, config)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, config)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, method)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, bare)": [
+        2,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        1
+      ],
+      "UNVERIFIABLE / W17-enc-dmg": [
+        0,
+        8
+      ],
+      "UNVERIFIABLE / W13-enc-zip": [
+        0,
+        12
+      ]
+    },
+    "TH-T": {
+      "LEAK-DECLARED / W5-tgz": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W9-bz2": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W3-zip": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W10-zst": [
+        5,
+        5
+      ],
+      "LEAK-DECLARED / W14-lz4": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W15-zip-bzip2": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W12-percent": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W8-xz": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, env)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, bare)": [
+        2,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, config)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, config)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, method)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, bare)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, bare)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, env)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, config)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, config)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, method)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, bare)": [
+        2,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        1
+      ],
+      "UNVERIFIABLE / W17-enc-dmg": [
+        0,
+        8
+      ],
+      "UNVERIFIABLE / W13-enc-zip": [
+        0,
+        12
+      ]
+    },
+    "DS-D": {
+      "LEAK-DECLARED / W5-tgz": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W9-bz2": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W3-zip": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W10-zst": [
+        0,
+        5
+      ],
+      "LEAK-DECLARED / W14-lz4": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W15-zip-bzip2": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W12-percent": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W8-xz": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, env)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, env)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, env)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, config)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, config)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, ctor)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, method)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, method)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, bare)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, bare)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, env)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, env)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, env)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, config)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, config)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, ctor)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, method)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, bare)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, bare)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, env)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, config)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, config)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, ctor)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, ctor)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, method)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, bare)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, bare)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, env)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, config)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, config)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, ctor)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, method)": [
+        0,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, method)": [
+        2,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        1
+      ],
+      "UNVERIFIABLE / W17-enc-dmg": [
+        0,
+        8
+      ],
+      "UNVERIFIABLE / W13-enc-zip": [
+        0,
+        12
+      ]
+    },
+    "AR-2": {
+      "LEAK-DECLARED / W5-tgz": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W9-bz2": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W3-zip": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W10-zst": [
+        5,
+        5
+      ],
+      "LEAK-DECLARED / W14-lz4": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W15-zip-bzip2": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W12-percent": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W8-xz": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (INSIDE, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (INSIDE, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, env)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (NAMED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (NAMED, bare)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (NAMED, bare)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, config)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, ctor)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, method)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-PREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-PREFIXED, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-PREFIXED, bare)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, env)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, env)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, config)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, config)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, ctor)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, ctor)": [
+        1,
+        2
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, method)": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (HELDOUT-UNPREFIXED, method)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (HELDOUT-UNPREFIXED, bare)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W3-zip (HELDOUT-UNPREFIXED, bare)": [
+        0,
+        1
+      ],
+      "UNVERIFIABLE / W17-enc-dmg": [
+        0,
+        8
+      ],
+      "UNVERIFIABLE / W13-enc-zip": [
+        0,
+        12
+      ]
+    }
+  },
+  "undeclaredCells": {
+    "INSIDE / env": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        4,
+        4
+      ],
+      "GL-D": [
+        3,
+        4
+      ],
+      "GL-T": [
+        4,
+        4
+      ],
+      "TH-D": [
+        4,
+        4
+      ],
+      "TH-T": [
+        4,
+        4
+      ],
+      "DS-D": [
+        1,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "INSIDE / config": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        4,
+        4
+      ],
+      "GL-D": [
+        3,
+        4
+      ],
+      "GL-T": [
+        4,
+        4
+      ],
+      "TH-D": [
+        4,
+        4
+      ],
+      "TH-T": [
+        4,
+        4
+      ],
+      "DS-D": [
+        3,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "INSIDE / ctor": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        4,
+        4
+      ],
+      "GL-D": [
+        4,
+        4
+      ],
+      "GL-T": [
+        4,
+        4
+      ],
+      "TH-D": [
+        4,
+        4
+      ],
+      "TH-T": [
+        4,
+        4
+      ],
+      "DS-D": [
+        3,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "INSIDE / method": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        4,
+        4
+      ],
+      "GL-D": [
+        2,
+        4
+      ],
+      "GL-T": [
+        4,
+        4
+      ],
+      "TH-D": [
+        4,
+        4
+      ],
+      "TH-T": [
+        4,
+        4
+      ],
+      "DS-D": [
+        0,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "INSIDE / bare": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        4,
+        4
+      ],
+      "GL-D": [
+        3,
+        4
+      ],
+      "GL-T": [
+        4,
+        4
+      ],
+      "TH-D": [
+        4,
+        4
+      ],
+      "TH-T": [
+        4,
+        4
+      ],
+      "DS-D": [
+        2,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "NAMED / env": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        4,
+        4
+      ],
+      "GL-D": [
+        2,
+        4
+      ],
+      "GL-T": [
+        4,
+        4
+      ],
+      "TH-D": [
+        3,
+        4
+      ],
+      "TH-T": [
+        3,
+        4
+      ],
+      "DS-D": [
+        0,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "NAMED / config": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        4,
+        4
+      ],
+      "GL-D": [
+        2,
+        4
+      ],
+      "GL-T": [
+        4,
+        4
+      ],
+      "TH-D": [
+        4,
+        4
+      ],
+      "TH-T": [
+        4,
+        4
+      ],
+      "DS-D": [
+        2,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "NAMED / ctor": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        4,
+        4
+      ],
+      "GL-D": [
+        2,
+        4
+      ],
+      "GL-T": [
+        4,
+        4
+      ],
+      "TH-D": [
+        3,
+        4
+      ],
+      "TH-T": [
+        3,
+        4
+      ],
+      "DS-D": [
+        0,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "NAMED / method": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        4,
+        4
+      ],
+      "GL-D": [
+        3,
+        4
+      ],
+      "GL-T": [
+        4,
+        4
+      ],
+      "TH-D": [
+        4,
+        4
+      ],
+      "TH-T": [
+        4,
+        4
+      ],
+      "DS-D": [
+        2,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "NAMED / bare": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        4,
+        4
+      ],
+      "GL-D": [
+        3,
+        4
+      ],
+      "GL-T": [
+        4,
+        4
+      ],
+      "TH-D": [
+        3,
+        4
+      ],
+      "TH-T": [
+        3,
+        4
+      ],
+      "DS-D": [
+        2,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "HELDOUT-PREFIXED / env": {
+      "AR-0": [
+        2,
+        4
+      ],
+      "AR-1": [
+        2,
+        4
+      ],
+      "AR-1o": [
+        2,
+        4
+      ],
+      "AR-1@0.4": [
+        2,
+        4
+      ],
+      "GL-D": [
+        2,
+        4
+      ],
+      "GL-T": [
+        4,
+        4
+      ],
+      "TH-D": [
+        2,
+        4
+      ],
+      "TH-T": [
+        2,
+        4
+      ],
+      "DS-D": [
+        2,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "HELDOUT-PREFIXED / config": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        2,
+        4
+      ],
+      "GL-D": [
+        2,
+        4
+      ],
+      "GL-T": [
+        4,
+        4
+      ],
+      "TH-D": [
+        2,
+        4
+      ],
+      "TH-T": [
+        2,
+        4
+      ],
+      "DS-D": [
+        1,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "HELDOUT-PREFIXED / ctor": {
+      "AR-0": [
+        3,
+        4
+      ],
+      "AR-1": [
+        3,
+        4
+      ],
+      "AR-1o": [
+        3,
+        4
+      ],
+      "AR-1@0.4": [
+        1,
+        4
+      ],
+      "GL-D": [
+        0,
+        4
+      ],
+      "GL-T": [
+        2,
+        4
+      ],
+      "TH-D": [
+        2,
+        4
+      ],
+      "TH-T": [
+        2,
+        4
+      ],
+      "DS-D": [
+        0,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "HELDOUT-PREFIXED / method": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        2,
+        4
+      ],
+      "GL-D": [
+        0,
+        4
+      ],
+      "GL-T": [
+        0,
+        4
+      ],
+      "TH-D": [
+        1,
+        4
+      ],
+      "TH-T": [
+        1,
+        4
+      ],
+      "DS-D": [
+        0,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "HELDOUT-PREFIXED / bare": {
+      "AR-0": [
+        3,
+        4
+      ],
+      "AR-1": [
+        3,
+        4
+      ],
+      "AR-1o": [
+        3,
+        4
+      ],
+      "AR-1@0.4": [
+        0,
+        4
+      ],
+      "GL-D": [
+        0,
+        4
+      ],
+      "GL-T": [
+        2,
+        4
+      ],
+      "TH-D": [
+        2,
+        4
+      ],
+      "TH-T": [
+        2,
+        4
+      ],
+      "DS-D": [
+        3,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "HELDOUT-UNPREFIXED / env": {
+      "AR-0": [
+        3,
+        4
+      ],
+      "AR-1": [
+        3,
+        4
+      ],
+      "AR-1o": [
+        3,
+        4
+      ],
+      "AR-1@0.4": [
+        3,
+        4
+      ],
+      "GL-D": [
+        1,
+        4
+      ],
+      "GL-T": [
+        2,
+        4
+      ],
+      "TH-D": [
+        2,
+        4
+      ],
+      "TH-T": [
+        2,
+        4
+      ],
+      "DS-D": [
+        1,
+        4
+      ],
+      "AR-2": [
+        3,
+        4
+      ]
+    },
+    "HELDOUT-UNPREFIXED / config": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        3,
+        4
+      ],
+      "GL-D": [
+        0,
+        4
+      ],
+      "GL-T": [
+        2,
+        4
+      ],
+      "TH-D": [
+        0,
+        4
+      ],
+      "TH-T": [
+        0,
+        4
+      ],
+      "DS-D": [
+        0,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "HELDOUT-UNPREFIXED / ctor": {
+      "AR-0": [
+        3,
+        4
+      ],
+      "AR-1": [
+        3,
+        4
+      ],
+      "AR-1o": [
+        3,
+        4
+      ],
+      "AR-1@0.4": [
+        3,
+        4
+      ],
+      "GL-D": [
+        0,
+        4
+      ],
+      "GL-T": [
+        0,
+        4
+      ],
+      "TH-D": [
+        2,
+        4
+      ],
+      "TH-T": [
+        2,
+        4
+      ],
+      "DS-D": [
+        1,
+        4
+      ],
+      "AR-2": [
+        3,
+        4
+      ]
+    },
+    "HELDOUT-UNPREFIXED / method": {
+      "AR-0": [
+        4,
+        4
+      ],
+      "AR-1": [
+        4,
+        4
+      ],
+      "AR-1o": [
+        4,
+        4
+      ],
+      "AR-1@0.4": [
+        1,
+        4
+      ],
+      "GL-D": [
+        0,
+        4
+      ],
+      "GL-T": [
+        0,
+        4
+      ],
+      "TH-D": [
+        0,
+        4
+      ],
+      "TH-T": [
+        0,
+        4
+      ],
+      "DS-D": [
+        2,
+        4
+      ],
+      "AR-2": [
+        4,
+        4
+      ]
+    },
+    "HELDOUT-UNPREFIXED / bare": {
+      "AR-0": [
+        2,
+        4
+      ],
+      "AR-1": [
+        2,
+        4
+      ],
+      "AR-1o": [
+        2,
+        4
+      ],
+      "AR-1@0.4": [
+        0,
+        4
+      ],
+      "GL-D": [
+        0,
+        4
+      ],
+      "GL-T": [
+        0,
+        4
+      ],
+      "TH-D": [
+        2,
+        4
+      ],
+      "TH-T": [
+        2,
+        4
+      ],
+      "DS-D": [
+        1,
+        4
+      ],
+      "AR-2": [
+        3,
+        4
+      ]
+    }
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "verdict": "NOT SUPPORTED",
+      "detail": "GL-D: Δ=45.0% p=2.68e-22 (need Δ≥15.0%, p<0.002); GL-T: Δ=13.8% p=7.01e-5 (need Δ≥15.0%, p<0.002); TH-D: Δ=25.0% p=8.37e-10 (need Δ≥15.0%, p<0.002); TH-T: Δ=8.5% p=1.28e-2 (need Δ≥15.0%, p<0.002); DS-D: Δ=43.1% p=9.06e-22 (need Δ≥15.0%, p<0.002)"
+    },
+    {
+      "id": "H1b",
+      "verdict": "NOT SUPPORTED",
+      "detail": "GL-D: Δ=45.0% p=2.68e-22 (need Δ>0, p<0.01); GL-T: Δ=13.8% p=7.01e-5 (need Δ>0, p<0.01); TH-D: Δ=25.0% p=8.37e-10 (need Δ>0, p<0.01); TH-T: Δ=8.5% p=1.28e-2 (need Δ>0, p<0.01); DS-D: Δ=43.1% p=9.06e-22 (need Δ>0, p<0.01)"
+    },
+    {
+      "id": "H1c (recommended config AR-2)",
+      "verdict": "SUPPORTED",
+      "detail": "GL-D: Δ=46.9% p=7.45e-24 (need Δ>0, p<0.01); GL-T: Δ=15.8% p=5.66e-6 (need Δ>0, p<0.01); TH-D: Δ=26.9% p=8.64e-12 (need Δ>0, p<0.01); TH-T: Δ=10.4% p=1.31e-3 (need Δ>0, p<0.01); DS-D: Δ=45.0% p=9.74e-24 (need Δ>0, p<0.01)"
+    },
+    {
+      "id": "H2",
+      "verdict": "SUPPORTED",
+      "detail": "AR-2 acc 91.2% vs AR-1 89.2%; UNDECLARED-LEAK false passes AR-2 3 vs AR-1 8"
+    },
+    {
+      "id": "H3",
+      "verdict": "SUPPORTED",
+      "detail": "AR-1 silent passes on secrets inside uninspectable content: 0/20"
+    },
+    {
+      "id": "H5 (expected loss)",
+      "verdict": "CONFIRMED (Anti-REA loses)",
+      "detail": "false blocks on clean uninspectable content: AR-1 20/20, TH-D 0/20"
+    },
+    {
+      "id": "H4 (keyed detector generalises)",
+      "verdict": "SUPPORTED",
+      "detail": "held-out unprefixed, env/config style: blocked 7/8 (need ≥80%)"
+    },
+    {
+      "id": "H4c (call styles)",
+      "verdict": "SUPPORTED",
+      "detail": "held-out formats, ctor/method style: blocked 14/16 (need ≥70%)"
+    },
+    {
+      "id": "H4d (bare factory calls)",
+      "verdict": "SUPPORTED",
+      "detail": "held-out formats, bare style: blocked 5/8 (need ≥50%)"
+    },
+    {
+      "id": "H6 (decoders)",
+      "verdict": "SUPPORTED",
+      "detail": "COMPRESSED-CLEAN correct 20/20 (need ≥95%); LEAK-DECLARED via W7-base64/W8-xz/W9-bz2/W10-zst/W11-deb/W12-percent/W14-lz4/W15-zip-bzip2/W16-dmg blocked with needle found 14/14 (need all)"
+    },
+    {
+      "id": "H7 (held-out secret-marked prefixes)",
+      "verdict": "SUPPORTED",
+      "detail": "secret-marked prefixes blocked 6/6 across all styles (need ≥80%); unmarked prefixes blocked 10/14"
+    },
+    {
+      "id": "H8 (noise)",
+      "verdict": "SUPPORTED",
+      "detail": "AR-1 spurious findings: 4 (need ≤20)"
+    },
+    {
+      "id": "H9 (undeclared leaks)",
+      "verdict": "SUPPORTED",
+      "detail": "UNDECLARED-LEAK correct: AR-1 72, TH-T 52, GL-T 56 of 80 (need AR-1 ≥ TH-T)"
+    },
+    {
+      "id": "H9b (undeclared leaks, significance)",
+      "verdict": "SUPPORTED",
+      "detail": "AR-1 vs TH-T on UNDECLARED-LEAK: 25 : 5 discordant, exact McNemar p=3.25e-4 (need AR-1 ahead and p<0.05)"
+    },
+    {
+      "id": "H10 (secondary: AR-1o vs TH-T)",
+      "verdict": "SUPPORTED",
+      "detail": "AR-1o (uninspectable content warns) vs TH-T: Δ=8.5%, 27 : 5, p=1.13e-4 (need Δ>0, p<0.01)"
+    },
+    {
+      "id": "H11 (v0.5 vs v0.4, same corpus)",
+      "verdict": "SUPPORTED",
+      "detail": "AR-1 89.2% vs AR-1@0.4 80.8%: Δ=8.5%, 22 : 0, p=4.77e-7 (need Δ>0, p<0.01)"
+    }
+  ],
+  "environment": {
+    "node": "v26.11.1",
+    "platform": "darwin-arm64",
+    "tools": {
+      "gitleaks": "8.30.1",
+      "trufflehog": "trufflehog 3.99.8",
+      "detect-secrets": "1.5.0"
+    },
+    "frozenSha256": "88f2bb1ef3a40f75bd660676cd5c81bb9b6fbde1e7f46b5a0dd18191b3d2eb7d"
+  }
+}

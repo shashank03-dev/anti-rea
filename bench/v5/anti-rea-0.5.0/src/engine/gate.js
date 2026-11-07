@@ -1,0 +1,84 @@
+import { ALL_GATES, DEFAULT_GATES, KNOWN_LANES } from "../model/policy.js";
+import { locationText } from "./report.js";
+export function laneStatuses(evidence) {
+    const out = {};
+    for (const lane of KNOWN_LANES) {
+        const recs = evidence.filter((r) => r.lane === lane);
+        out[lane] = recs.length === 0 ? "not-run" : recs.some((r) => r.outcome === "inconclusive") ? "inconclusive" : "concluded";
+    }
+    return out;
+}
+function laneOf(f) {
+    return f.id.split("/")[0];
+}
+function active(ex, today) {
+    return ex.expiry >= today; // ISO dates compare lexicographically; expiry is inclusive
+}
+function toApplied(f, ex) {
+    return { findingId: f.id, owner: ex.owner, scope: ex.scope, rationale: ex.rationale, expiry: ex.expiry };
+}
+export function evaluateGates(policy, manifest, evidence, today) {
+    const lanes = laneStatuses(evidence);
+    const all = evidence.flatMap((r) => r.findings);
+    // Synthesise findings for required lanes that did not run to a conclusion.
+    for (const lane of policy.requiredLanes) {
+        const st = lanes[lane];
+        if (st === "concluded")
+            continue;
+        const why = evidence
+            .filter((r) => r.lane === lane && r.outcome === "inconclusive")
+            .flatMap((r) => r.limitations.map((l) => (r.assetId ? `[${r.assetId}] ${l}` : l)));
+        all.push({
+            id: `${lane}/required-lane-${st}`,
+            title: `Required lane "${lane}" ${st === "not-run" ? "did not run" : "is inconclusive"}`,
+            severity: "high",
+            confidence: "confirmed",
+            gate: "requiredLaneInconclusive",
+            detail: why.length > 0 ? why.join(" | ") : "No evidence records were produced for this lane.",
+        });
+    }
+    const assetAction = new Map(manifest.assets.map((a) => [a.id, a.onConfirmedDistribution]));
+    const exceptions = policy.exceptions ?? [];
+    const gates = [];
+    const blockingReasons = [];
+    for (const gate of ALL_GATES) {
+        const action = policy.gates[gate] ?? DEFAULT_GATES[gate];
+        const tripping = all.filter((f) => f.gate === gate);
+        const blocking = [];
+        const warnings = [];
+        const excepted = [];
+        const expired = [];
+        for (const f of tripping) {
+            const perAsset = f.assetId ? assetAction.get(f.assetId) : undefined;
+            const effective = perAsset === "warn" && gate !== "requiredLaneInconclusive" ? "warn" : action;
+            if (effective === "warn") {
+                warnings.push(f);
+                continue;
+            }
+            const matches = exceptions.filter((ex) => ex.gate === gate && (!ex.assetId || ex.assetId === f.assetId) && (!ex.lane || ex.lane === laneOf(f)));
+            const live = matches.find((ex) => active(ex, today));
+            if (live) {
+                excepted.push(toApplied(f, live));
+            }
+            else {
+                for (const ex of matches)
+                    expired.push(toApplied(f, ex));
+                blocking.push(f);
+            }
+        }
+        // One reason per distinct finding title, listing every location (no duplicate lines).
+        const grouped = new Map();
+        for (const f of blocking) {
+            const locs = grouped.get(f.title) ?? [];
+            const t = locationText(f);
+            if (t)
+                locs.push(t);
+            grouped.set(f.title, locs);
+        }
+        for (const [title, locs] of grouped)
+            blockingReasons.push(`[${gate}] ${title}${locs.length ? ` @ ${locs.join(", ")}` : ""}`);
+        gates.push({ gate: gate, action, tripped: tripping.length > 0, blocking, warnings, excepted, expiredExceptions: expired });
+    }
+    const decision = blockingReasons.length > 0 ? "block" : gates.some((g) => g.excepted.length > 0) ? "pass-with-exceptions" : "pass";
+    return { gates, decision, blockingReasons, lanes };
+}

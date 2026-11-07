@@ -58,6 +58,19 @@ function plausiblePemBody(value: string): boolean {
   return body.length >= 64 && /^[A-Za-z0-9+/=]+$/.test(body);
 }
 
+/**
+ * v0.6 (validation set F): a letters-only body that is mostly CamelCase words with an English vowel
+ * share is an identifier, not a token. Apple's Home.app binaries carry Objective-C selectors such as
+ * `hf_clearCached…` (the HomeFoundation `hf_` category prefix) that match Hugging Face's
+ * `hf_[A-Za-z]{34}` format. Random 34-letter bodies pass this test 99.4% of the time (measured on 4e5).
+ */
+function wordRun(body: string): boolean {
+  let camel = 0;
+  for (const w of body.match(/[A-Z][a-z]{2,}/g) ?? []) camel += w.length;
+  const vowels = (body.match(/[aeiouAEIOU]/g) ?? []).length;
+  return camel / body.length >= 0.7 && vowels / body.length >= 0.28;
+}
+
 /** `(?<!…)` boundary shared by token formats: not glued to a longer identifier. */
 const B = "(?<![A-Za-z0-9_])";
 const E = "(?![A-Za-z0-9_])";
@@ -85,7 +98,7 @@ const FORMAT_DETECTORS: readonly Detector[] = [
   fmt("npm-token", "npm access token", "high", `${B}npm_[A-Za-z0-9]{36}(?![A-Za-z0-9])`),
   fmt("pypi-token", "PyPI upload token", "high", `${B}pypi-AgEIcHlwaS5vcmc[A-Za-z0-9_-]{50,}`),
   fmt("sendgrid-api-key", "SendGrid API key", "high", `${B}SG\\.[A-Za-z0-9_-]{22}\\.[A-Za-z0-9_-]{43}(?![A-Za-z0-9_-])`),
-  fmt("huggingface-token", "Hugging Face access token", "high", `${B}hf_[A-Za-z]{34}(?![A-Za-z0-9])`),
+  fmt("huggingface-token", "Hugging Face access token", "high", `${B}hf_[A-Za-z]{34}(?![A-Za-z0-9])`, { accept: (v) => !wordRun(v.slice(3)) }),
   fmt("shopify-token", "Shopify access token or shared secret", "high", `${B}shp(?:at|ca|pa|ss)_[a-fA-F0-9]{32}(?![A-Za-z0-9])`),
   fmt("digitalocean-token", "DigitalOcean token", "high", `${B}do[opr]_v1_[a-f0-9]{64}(?![A-Za-z0-9])`),
   fmt("anthropic-api-key", "Anthropic API key", "critical", `${B}sk-ant-(?:api|admin)\\d{2}-[A-Za-z0-9_-]{80,}`),
@@ -157,7 +170,9 @@ const KEYED_RE = new RegExp(
 
 const PLACEHOLDER = /your|example|placeholder|change[_-]?me|dummy|sample|redacted|insert|replace|fake|mock|todo|undefined|null|true|false|^x+$|^\*+$|^0+$/i;
 /** v0.4 calibration: `sdkKey: "client-…"` (Statsig) is public by the issuer's own naming. */
-const PUBLIC_VALUE = /^(?:client|pk|pub|public|publishable)(?:_(?:live|test))?[_-]/i;
+// v0.6: `pk_` alone is not public. Stripe's publishable keys are `pk_live_`/`pk_test_`; Klaviyo's PRIVATE
+// keys are `pk_<hex>` (the v5 benchmark's deliberate counter-example, missed by v0.5 in every style).
+const PUBLIC_VALUE = /^(?:(?:client|pub|public|publishable)(?:_(?:live|test))?[_-]|pk_(?:live|test)_)/i;
 const UUID_ONLY = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const UUID_ANY = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
 
@@ -276,7 +291,13 @@ export function generatedValue(v: string): boolean {
   if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(v)) return true; // UUID-form keys (e.g. Heroku)
   if (hexKey(v) || randomToken(v)) return true;
   const uuid = UUID_ANY.exec(v);
-  if (uuid && uuid[0].length >= 0.6 * v.length) return true; // `sk-lf-<uuid>`, `<uuid>:<hex>`
+  if (uuid && uuid[0].length >= 0.6 * v.length) return true; // `sk-lf-<uuid>`
+  // v0.6: a UUID joined to a random secret (`<key-id>:<key-secret>`, fal's format): v0.5 rejected it
+  // because neither half was at least half of the value.
+  if (uuid) {
+    const rest = (v.slice(0, uuid.index) + v.slice(uuid.index + uuid[0].length)).replace(/^[-_.:]+|[-_.:]+$/g, "");
+    if (rest.length >= 16 && !/[-_.:]/.test(rest) && (hexKey(rest) || randomToken(rest) || (/^[0-9a-f]+$/i.test(rest) && singleCaseRandom(rest)))) return true;
+  }
   const segs = v.split(/[-_.:]+/).filter(Boolean);
   if (segs.length < 2) return false;
   let bi = 0;
@@ -307,7 +328,8 @@ const quotedOrPlain = (v: string, m: RegExpMatchArray) => m[2] !== "" || !/[.:]/
  * `…_TOKEN_URL`, `…_SECRET_NAME`) and names marked public (`…_PUBLIC_KEY`, `…_SITE_KEY`) are excluded.
  * Case-sensitive on purpose: camelCase `…Key` names (`cacheKey`) are mostly not credentials.
  */
-const CRED_SEGMENT = /^(?:KEY|APIKEY|TOKEN|SECRET|PASSWORD|PASSWD|PWD|CREDENTIALS?|AUTH)$/;
+// v0.6: PAT (personal access token; `AIRTABLE_PAT`, `GITHUB_PAT`), missed by v0.5 in the v5 benchmark.
+const CRED_SEGMENT = /^(?:KEY|APIKEY|TOKEN|SECRET|PASSWORD|PASSWD|PWD|CREDENTIALS?|AUTH|PAT)$/;
 const NOT_SECRET_TAIL = /^(?:IDS?|NAME|PATH|FILE|DIR|URL|URI|HEADER|PREFIX|TYPE|LEN|LENGTH|SIZE|COUNT|VERSION|FORMAT|FIELD|PARAM|ENV|VAR|LABEL|ALIAS|REGION|ENDPOINT|HOST|PORT|ALG|ALGORITHM|KIND|MODE|INDEX|HASH|EXPIRY|EXPIRES|TTL|LOCATION|STORE|PROVIDER|ISSUER)$/;
 const PUBLIC_SEGMENT = /^(?:PUBLIC|PUBLISHABLE|PUB|SITE|ANON)$/;
 const KEYED_CONST: Detector = {

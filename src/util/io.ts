@@ -124,6 +124,36 @@ export function validateManifest(json: unknown, file = "<manifest>"): Manifest {
       });
     }
   }
+  if (json.platform !== undefined) {
+    const pl = json.platform;
+    if (!isObj(pl)) throw err("platform must be an object");
+    for (const k of Object.keys(pl)) if (!["macos", "electron", "windows"].includes(k)) throw err(`platform.${k} is not supported (macos, electron, windows)`);
+    const bools = (o: unknown, at: string, keys: string[]) => {
+      if (!isObj(o)) throw err(`${at} must be an object`);
+      for (const k of keys) if (o[k] !== undefined && typeof o[k] !== "boolean") throw err(`${at}.${k} must be a boolean`);
+      return o;
+    };
+    if (pl.macos !== undefined) {
+      const m = bools(pl.macos, "platform.macos", ["requireSigned", "requireDeveloperId", "requireHardenedRuntime", "requireIntactSeal"]);
+      if (m.teamId !== undefined && (typeof m.teamId !== "string" || !/^[A-Z0-9]{10}$/.test(m.teamId))) throw err("platform.macos.teamId must be a 10-character Apple team ID");
+      if (m.forbiddenEntitlements !== undefined && !isStrArr(m.forbiddenEntitlements)) throw err("platform.macos.forbiddenEntitlements must be a string array");
+    }
+    if (pl.electron !== undefined) {
+      const e = bools(pl.electron, "platform.electron", ["requireAsarIntegrity"]);
+      if (e.fuses !== undefined) {
+        if (!isObj(e.fuses)) throw err("platform.electron.fuses must be an object of booleans");
+        for (const [k, v] of Object.entries(e.fuses)) if (typeof v !== "boolean") throw err(`platform.electron.fuses.${k} must be a boolean`);
+      }
+    }
+    if (pl.windows !== undefined) bools(pl.windows, "platform.windows", ["requireAuthenticode"]);
+  }
+  if (json.provenance !== undefined) {
+    const pv = json.provenance;
+    if (!isObj(pv) || typeof pv.statement !== "string" || pv.statement.length === 0) throw err("provenance.statement must be a path");
+    if (pv.publicKeys !== undefined && !isStrArr(pv.publicKeys)) throw err("provenance.publicKeys must be a string array of paths");
+    if (pv.builderId !== undefined && typeof pv.builderId !== "string") throw err("provenance.builderId must be a string");
+    if (pv.subjects !== undefined && !isStrArr(pv.subjects)) throw err("provenance.subjects must be a string array of globs");
+  }
   return json as unknown as Manifest;
 }
 

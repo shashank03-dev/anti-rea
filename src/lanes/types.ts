@@ -22,6 +22,11 @@ export interface InventoryItem {
   readonly unsupportedReason?: string;
   /** Coverage caveat that does not make the item unsupported (e.g. native binary scanned raw). */
   readonly note?: string;
+  /**
+   * v0.6: the raw bytes of an EXPANDED container (whose `source` is null because its entries are the
+   * scanned items). Used by the platform lane for ASAR-integrity and bundle-seal checks; never scanned.
+   */
+  readonly raw?: ItemSource;
 }
 
 export interface Inventory {
@@ -29,6 +34,13 @@ export interface Inventory {
   readonly items: readonly InventoryItem[];
   readonly notes: readonly string[];
   readonly limits: Limits;
+}
+
+/** Raw bytes of any item: a scannable file/entry, or an expanded container. */
+export function readRaw(item: InventoryItem): Buffer | null {
+  const src = item.source ?? item.raw;
+  if (!src) return null;
+  return src.kind === "mem" ? src.buf : readFileSync(src.abs);
 }
 
 export function readItem(item: InventoryItem): Buffer | null {

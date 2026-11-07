@@ -1,11 +1,25 @@
 # Anti-REA — release assurance with hard gates
 
-Anti-REA decides whether a release should **ship or be blocked**. It looks at the bytes actually being delivered, including the contents of nested `app.asar`, zip/jar/apk/ipa (stored, deflate, bzip2 and LZMA entries), tar, gzip, xz, lzma, bzip2, zstd, lz4 and ar/.deb files, plus base64-, hex- and percent-encoded text inside them, and weighs them against an **owner-declared asset model**:
+Anti-REA decides whether a release should **ship or be blocked**. It looks at the bytes actually being delivered. That includes the contents of nested files:
+- `app.asar`;
+- zip/jar/apk/ipa (stored, deflate, bzip2 and LZMA entries);
+- tar, gzip, xz, lzma, bzip2, zstd, lz4 and ar/.deb;
+- DMG (UDIF with HFS+);
+- base64-, hex- and percent-encoded text inside any of them.
+
+It weighs those bytes against an **owner-declared asset model**:
 
 - **Server-only** secrets and implementations must not ship.
 - **Public-by-design** values may ship.
 - **Private artifacts** such as source maps and debug symbols must not ship.
 - Content that **cannot be inspected** is a coverage gap, never a silent pass.
+
+From v0.6 it can also check **platform hardening** against what the owner declares:
+- macOS code signatures, every code page and bundle seal;
+- hardened runtime, team and entitlements;
+- Electron fuses and ASAR integrity.
+
+It can verify **build provenance** (DSSE / in-toto / SLSA, with pinned keys) against the shipped bytes. And it can **sign its decision** as an in-toto attestation that a deploy step verifies.
 
 Every conclusion is an evidence record with an explicit result state, coverage, budget and limitations. Hard gates decide the release; no score does.
 
@@ -15,45 +29,53 @@ It has zero runtime dependencies and needs Node ≥ 20. This is the "measurement
 
 ## Evidence status
 
-- **Correctness:** 83 tests.
+- **Correctness:** 96 tests.
   - Unit, pipeline and regression tests.
-  - **Differential tests** against `@electron/asar`, Info-ZIP, `ditto`, bsdtar, Python `zipfile`, xz(1), lzma(1), bzip2, lz4, ar(1) and, from v0.5, **`hdiutil(1)` DMGs**, on real third-party files.
-  - DMG reading: UDZO, UDBZ, UDRO, UDCO and ULMO images with HFS+ volumes, including hard links, Unicode names and resource forks, come back byte-identical. Under 3,000 random corruptions there were 0 wrong outputs.
-- **False positives:** the rules were tuned and validated on 17.1 GB of real code: 43 apps, toolchains and packages, in sets A, C, D and E ([CALIBRATION.md](docs/research/CALIBRATION.md)).
-  - Final v0.5 result: **0 blocking structural or call-style leads.**
-  - The blocking keyed leads (1,719) are all real credentials shipped by design: WhatsApp's embedded proxy credentials and Adobe's OAuth client secrets.
-  - **Each held-out validation set has found false leads** (C, D and E), which were fixed afterwards, so all four sets are now tuning data.
-  - Throughput on set A: 55.4 MB/s, up from v0.4's 48.2 MB/s.
-- **Comparison with current tools:** five pre-registered, sealed benchmarks, each run once ([results](docs/research/BENCHMARK-RESULTS.md)).
-  - **v5 (this version, v0.5; N = 260, new background, 16 held-out formats):**
+  - **Differential tests** against:
+    - `@electron/asar`, Info-ZIP, `ditto`, bsdtar and Python `zipfile`;
+    - xz(1), lzma(1), bzip2, lz4 and ar(1);
+    - `hdiutil(1)` DMGs;
+    - from v0.6, **`plutil(1)` and `codesign(1)`**.
+- **Platform lane** (v0.6) on real apps, against `codesign`:
+  - cdhashes agree on 145/145 Mach-O files;
+  - **0 seal problems on 20 intact installed apps**;
+  - **25/25 tamper cases agree** (copies of Ghostty, Loom and Figma).
+- **False positives:** the rules were tuned and validated on 18.7 GB of real code: 55 apps, toolchains and packages in sets A–F ([CALIBRATION.md](docs/research/CALIBRATION.md)).
+  - On sets A–E, v0.6 produced **0 blocking structural or call-style leads**. The 1,719 blocking keyed leads are all real credentials shipped by design: WhatsApp's embedded proxy credentials and Adobe's OAuth client secrets.
+  - **Every fresh validation set so far has found a false-lead class.** The newest, F (1.58 GB), had one: Objective-C `hf_` selectors in Home.app that matched the Hugging Face format. It was fixed afterwards, so F is tuning data now.
+- **Comparison with current tools:** six pre-registered, sealed benchmarks, each run once ([results](docs/research/BENCHMARK-RESULTS.md)).
+  - **v6** (v0.6; N = 260, new background, 16 held-out formats never used before):
 
-    | Config | Accuracy | p |
+    | Config | Accuracy | p vs Anti-REA |
     |---|---|---|
-    | **Anti-REA + TruffleHog import (recommended)** | **91.2%** | 0.0013 vs tuned TruffleHog |
-    | Anti-REA alone | **89.2%** | 0.013 vs tuned TruffleHog |
-    | v0.4 on the same corpus | 80.8% | **5e-7** (22 : 0 against v0.5) |
-    | Tuned TruffleHog | 80.8% | — |
-    | Tuned gitleaks | 75.4% | 7e-5 |
+    | **Anti-REA alone** | **91.5%** | — |
+    | **Anti-REA + TruffleHog import** | **91.5%** | — |
+    | Tuned TruffleHog | 81.2% | **0.0013** |
+    | Tuned gitleaks | 75.0% | 3e-6 |
+    | v0.4 on the same corpus | 81.5% | 3e-8 (26 : 0) |
+    | v0.5 on the same corpus | 91.5% | identical decisions |
 
-    - The recommended configuration is significantly better than every baseline (H1c supported).
-    - Anti-REA alone misses the pre-registered p < 0.01 bar against tuned TruffleHog (p = 0.013), so H1b is **not supported**.
-    - "Substantially better" (H1, Δ ≥ 15 points) is **not supported.**
-  - **20 of v0.5's 28 errors** are clean releases containing an encrypted zip or DMG, blocked fail-closed. TruffleHog passes all 40 such releases, including the 20 that hide a secret.
-  - **The other 8** are held-out formats:
-    - Klaviyo's private keys use a `pk_` prefix that looks public;
-    - fal's `<uuid>:<hex>` pairs;
-    - a bare-call UUID;
-    - `AIRTABLE_PAT`.
+    - Anti-REA alone is **significantly better than every baseline** (H1b). This is the first study where AR-1 alone cleared that bar.
+    - "Substantially better" (H1: Δ ≥ 15 points against every baseline) is **still not supported**. Against tuned TruffleHog the gap is 10.4 points.
+    - **20 of Anti-REA's 22 errors** are clean releases containing an encrypted zip or DMG, blocked fail-closed by design. The other two:
+      - a random Mistral key that looked word-like;
+      - a Postmark UUID passed to a bare factory call, a predicted miss.
+    - v0.6 and v0.5 decided all 260 identically. The v0.6 detector fixes were not exercised by v6's formats; the result shows v0.5's rules generalised.
+  - **v6 platform sub-study** (N = 60 signed app bundles):
+    - **Anti-REA 60/60.** `codesign --verify` scored 44/60, and a scripted `codesign` policy check 52/60.
+    - Anti-REA agreed with `codesign` on every intact and tampered bundle.
+    - The 8-scenario lead over the scripted check comes from Electron fuses and ASAR integrity, which `codesign` does not read. That lead is **by construction**.
   - **Earlier studies:**
 
     | Study | Anti-REA | Tuned TruffleHog | Result |
     |---|---|---|---|
+    | v5 (v0.5) | 89.2% (AR-2: 91.2%) | 80.8% | p = 0.013 (AR-2: 0.0013) |
     | v4 (v0.4) | 85.0% | 81.7% | p = 0.35 |
     | v3 (v0.3) | 90.0% | 84.5% | p = 0.16 |
     | v2 (v0.2) | 86.0% | 89.5% | tie |
     | v1 (v0.1) | 84.4% | 93.9% | worse |
 
-    Each study's losses drove the next version: [v0.2](docs/research/V02-CHANGES.md), [v0.3](docs/research/V03-CHANGES.md), [v0.4](docs/research/V04-CHANGES.md), [v0.5](docs/research/V05-CHANGES.md).
+    Each study's losses drove the next version: [v0.2](docs/research/V02-CHANGES.md), [v0.3](docs/research/V03-CHANGES.md), [v0.4](docs/research/V04-CHANGES.md), [v0.5](docs/research/V05-CHANGES.md), [v0.6](docs/research/V06-CHANGES.md).
 
 ## Quick start
 
@@ -90,6 +112,9 @@ npm run demo:fixed
 | Command | Purpose |
 |---|---|
 | `anti-rea assure --manifest m.json --policy p.json [--authz-results r.json] [--import <tool>:<file>]… [--out dir] [--json] [--now ISO]` | Full pipeline. Writes `report.json` and `report.md`. **Exit codes:** 0 = pass or pass-with-exceptions, 2 = block, 1 = error. `--out` may not be inside a release root. |
+| `anti-rea assure … --sign-key key.pem` | Also writes `attestation.dsse.json`: a DSSE-signed in-toto Statement binding the decision, gates, policy and report digest to every shipped artifact's sha256. |
+| `anti-rea verify-attestation --attestation a.json --public-key k.pub [--artifact f]… [--require-decision pass]` | Checks the signature, predicate type, subject coverage and decision. **Exit codes:** 0 = valid, 2 = invalid. |
+| `anti-rea inspect --manifest m.json [--json]` | Platform facts with no policy applied: Mach-O signing (team, runtime, entitlements, bad pages), bundle seals, Electron fuses and ASAR integrity, PE Authenticode presence. |
 | `anti-rea inventory --manifest m.json [--json]` | The release closure, including nested entries, with sha256 for each, plus a deterministic release ID. |
 | `anti-rea fingerprint --file secret.pem` or `--stdin` | Prints the canonical sha256 to put in the manifest. The secret is never printed. |
 | `anti-rea authz-plan --manifest m.json [--out plan.json]` | Expands the declared authorization matrix into a test plan for **your own** harness. |
@@ -104,17 +129,21 @@ Anti-REA applies the asset model to the imported findings. Declared public value
 ## How it works
 
 ```
-manifest (owner-declared assets) + policy (gates)
+manifest (owner-declared assets, platform + provenance expectations) + policy (gates)
         │
-inventory ──── walk roots; classify by magic bytes; expand zip/asar/tar/gzip in memory (resource-limited);
-        │      sha256 everything; release ID; flag declared-private artifacts and source-map comments
-exposure ───── chunked Latin-1 views (+ UTF-16LE for binaries): 9 detectors + fingerprint sweep
-        │      → CONFIRMED only on a declared-fingerprint match; otherwise a lead
+inventory ──── walk roots; classify by magic bytes; expand zip/asar/tar/gzip/xz/bzip2/zstd/lz4/ar/DMG
+        │      in memory (resource-limited); sha256 everything; release ID; symlinks recorded as notes;
+        │      flag declared-private artifacts and source-map comments
+exposure ───── chunked Latin-1 views (+ UTF-16LE for binaries): format, structural, keyed and call
+        │      detectors + fingerprint sweep → CONFIRMED only on a declared-fingerprint match
 placement ──── owner-declared server-only markers, searched as raw UTF-8/UTF-16LE bytes
 authorization ─ owner-executed results vs. server-side ground truth (Anti-REA sends no traffic)
 external ───── imported gitleaks/TruffleHog findings, mapped through the asset model
+platform ───── Mach-O signatures (page hashes recomputed), bundle seals, entitlements, hardened
+        │      runtime, team, Electron fuses, ASAR integrity, PE Authenticode presence   [when declared]
+provenance ─── DSSE signatures (pinned keys), SLSA builder id, subject digests vs. shipped bytes [when declared]
         │
-gates ──────── block / warn / owned + scoped + expiring exceptions → decision
+gates ──────── block / warn / owned + scoped + expiring exceptions → decision ──→ optional signed attestation
 ```
 
 ### Result states (research §9.1)
@@ -138,6 +167,8 @@ gates ──────── block / warn / owned + scoped + expiring exceptio
 | `unrecognizedTokenLead` | block | A `<prefix>_<random>` token from an unknown provider whose prefix marks it secret (`sk`, `secret`, `tkn`, `pat`, `key`, `api`, …). The shape filters and the secret-marker requirement were calibrated on 2.1 GB of real apps ([CALIBRATION.md](docs/research/CALIBRATION.md)). |
 | `keyedCredentialLead` | block | A generated-looking value (random token, 32+ hex, or UUID) assigned to a key whose name ends in a credential noun: `…_API_KEY`, `apiKey`, `access_token`, `client_secret`, `password` and so on. It catches unprefixed credentials. Placeholders, templates, editor-theme scopes and base64-encoded prose are excluded. |
 | `lowConfidenceCredentialLead` | warn | A JWT, an often-public key (Google), a test-mode key, or a password in a URL. |
+| `platformHardeningViolation` | block | A declared platform expectation is violated: unsigned or ad hoc code where Developer ID is required, a modified code page, a broken bundle seal, no hardened runtime, the wrong team, a forbidden entitlement, an Electron fuse in the wrong state, an ASAR integrity mismatch, or a PE file without Authenticode. |
+| `provenanceMismatch` | block | A shipped artifact is not a subject of trusted build provenance or differs from the attested digest, or the provenance is unsigned, badly signed or from an unexpected builder. |
 | `requiredLaneInconclusive` | block | A required lane did not run to a conclusion. |
 
 There is no aggregate score. Research §10.1 gives a counterexample: a score of 82/100 can coexist with an exposed critical secret.
@@ -148,17 +179,25 @@ An exception needs an `owner`, `scope`, `rationale` and `expiry`. It can be narr
 
 - **No plaintext secrets.** The manifest holds sha256 fingerprints only, and the validator rejects anything else. Reports carry a redacted preview and a hash. Tests assert that serialized reports contain no secret material.
 - **Canonical fingerprints.** A PEM key matches whether it ships as a `.pem` file or as a `\n`-escaped string literal.
-- **Native binaries are scanned.** PE, ELF and Mach-O are read as raw bytes, as Latin-1 and as UTF-16LE. Installers whose payload is compressed (NSIS, Inno Setup, MSI, DMG, pkg) are opaque. So are formats this version cannot decode: 7z, RAR, squashfs, RPM, Cabinet, DMG, encrypted zip entries, zip methods other than stored/deflate/bzip2/LZMA, and xz filters other than delta and x86-BCJ. Opaque or corrupt content makes the content lanes inconclusive.
+- **Native binaries are scanned.** PE, ELF and Mach-O are read as raw bytes, as Latin-1 and as UTF-16LE. Installers whose payload is compressed (NSIS, Inno Setup, MSI, pkg) are opaque. So are formats this version cannot decode: 7z, RAR, squashfs, RPM, Cabinet, LZFSE- or APFS-based and encrypted DMGs, encrypted zip entries, zip methods other than stored/deflate/bzip2/LZMA, and xz filters other than delta and x86-BCJ. Opaque or corrupt content makes the content lanes inconclusive.
 - **Zero-dependency decoders.** The xz/LZMA2, lzma, bzip2 and lz4 decoders are checked byte-for-byte against xz(1), lzma(1), bzip2, lz4(1), Python `zipfile` and bsdtar. All integrity checks are verified. 3,000 fuzzed corruptions were all rejected, and none decoded silently to wrong bytes ([V02-CHANGES.md](docs/research/V02-CHANGES.md)).
 - **Encoded text is decoded.** Base64/base64url, hex and percent-encoding are decoded up to two layers, and only when the result is readable text. Findings record the decoding chain.
 - **Read-only, in-memory expansion.** Nothing is extracted to disk. Entry size, total size, entry count and depth are limited to stop decompression bombs. On-disk files up to 2 GiB are read lazily and scanned in overlapping chunks.
+- **Platform checks are validated against `codesign(1)`:**
+  - cdhashes agree on 145/145 Mach-O files;
+  - 0 seal problems on 20 intact installed apps;
+  - 25/25 tamper cases agree.
+
+  Certificate chains, notarization and revocation are **not** validated. Use `codesign`/`spctl` or `signtool` for chain trust. Bundle *structure* (for example a missing `Versions/Current` link) and extended attributes are not modelled ([V06-CHANGES.md](docs/research/V06-CHANGES.md)).
+- **Provenance trust comes from pinned keys.** Sigstore certificate chains, Rekor inclusion and keyless identities are not verified.
 - **Known gaps:**
   - the archive formats listed above;
   - encodings beyond two layers, encryption, and secrets assembled at runtime;
-  - a credential with no recognised format that is **not** assigned to a credential-named key is not detected, for example `new Client("…")`;
-  - the key-noun list is finite, so names like `SEGMENT_WRITE_KEY` are missed. Use `--import` for detector breadth.
+  - a credential with no recognised format, passed as a bare UUID to an unknown call, or to a method whose name carries no configuration verb (for example `api.setKey("…")`), is not detected;
+  - unquoted `NAME=a.b` values: `.` reads as a member expression;
+  - runtime instrumentation and behavioural-cloning lanes are not implemented. Use `--import` for detector breadth.
 
-## Benchmark (pre-registered v5; run once on 2026-11-07)
+## Benchmark (pre-registered v6; run once on 2026-11-07)
 
 ```bash
 bench/install-baselines.sh
@@ -176,12 +215,19 @@ node bench/run.mjs --set eval
 node bench/score.mjs --set eval
 ```
 
-- The install script fetches the baselines into the gitignored `bench/.tools/`, verifying the publishers' checksums.
-- The corpus step generates 260 scenarios across 10 families, including a forced 4 × 5 × 4 grid of undeclared leaks (credential group × render style × repeat). The background is real third-party bytes: Zen browser toolkit code, bash-completion scripts and a `libx265` slice, with the sha256 of each recorded. The **eval seed is derived from the frozen code hash**, so it cannot be picked.
-- `run.mjs` refuses to run unless the code matches the hash in the pre-registration and the corpus seed matches that hash.
-- `score.mjs` computes exact CIs and McNemar tests, and evaluates H1–H11 mechanically, including v0.5 against the frozen v0.4 build on the same corpus.
+```bash
+node bench/platform.mjs --set eval --gen --run --score
+```
 
-See [bench/PREREGISTRATION.md](bench/PREREGISTRATION.md) for the families, held-out strata, hypotheses, dev-set disclosure and threats to validity. The v1–v4 studies are archived in [bench/v1/](bench/v1/) through [bench/v4/](bench/v4/).
+- The install script fetches the baselines into the gitignored `bench/.tools/`, verifying the publishers' checksums.
+- **The corpus step** generates 260 scenarios across 10 families. They include a forced 4 × 5 × 4 grid of undeclared leaks (credential group × render style × repeat).
+  - The background is real third-party bytes: git's `share/` tree, abseil's headers and a `libvpx` slice. The sha256 of each is recorded.
+  - The **eval seeds are derived from the frozen code hash**, so they cannot be picked.
+- **The platform step** (macOS) builds 60 ad-hoc-signed app bundles with `codesign`, tampers with some of them, and compares Anti-REA with `codesign`-based checks.
+- `run.mjs` and `platform.mjs` refuse to run eval unless the code matches the hash in the pre-registration.
+- `score.mjs` computes exact CIs and McNemar tests and evaluates the hypotheses mechanically. That includes v0.6 against the frozen v0.5 and v0.4 builds on the same corpus.
+
+See [bench/PREREGISTRATION.md](bench/PREREGISTRATION.md) for the families, held-out strata, hypotheses, predictions, dev-set disclosure and threats to validity. The v1–v5 studies are archived in [bench/v1/](bench/v1/) through [bench/v5/](bench/v5/).
 
 ## Manifest and policy
 
@@ -193,6 +239,13 @@ Complete examples: [fixtures/demo-app/manifest.json](fixtures/demo-app/manifest.
   - A fingerprint may belong to only one asset.
   - A server-only asset with neither markers nor fingerprints is an **unresolved gap**.
 - **`authorization`:** principals, tenants, objects, operations and `defaultExpected`, plus explicit `cases`. Conflicting results for one case make the lane inconclusive.
+- **`platform`** (v0.6):
+  - `macos`: `requireSigned`, `requireDeveloperId`, `requireHardenedRuntime`, `teamId`, `forbiddenEntitlements`, `requireIntactSeal`;
+  - `electron`: `fuses` (for example `{"RunAsNode": false}`) and `requireAsarIntegrity`;
+  - `windows`: `requireAuthenticode`.
+
+  An expectation with nothing to apply to is inconclusive.
+- **`provenance`** (v0.6): `statement` (a DSSE envelope, Sigstore bundle or in-toto Statement; JSON or JSONL), `publicKeys`, `builderId` and `subjects` (globs; default: every top-level file).
 
 ## Status against the research roadmap (§14)
 
@@ -200,24 +253,24 @@ Complete examples: [fixtures/demo-app/manifest.json](fixtures/demo-app/manifest.
 |---|---|
 | 0 Research specification | ✅ encoded as types, validation and policy |
 | 1 Release assurance foundation | ✅ this codebase, self-reviewed and differentially tested |
-| 2 Platform adapters | ◐ Generic containers and raw native-binary scanning only. No DEX, Mach-O or PE *semantics*. |
-| 3 Adversarial evaluation | ◐ The release-gate benchmark is pre-registered. Runtime, cloning and tamper lanes are not implemented. |
-| 4 Architecture, API, attestation | ◐ Authorization matrix evaluation only |
+| 2 Platform adapters | ◐ macOS Mach-O / bundle-seal / entitlement semantics, Electron fuses and ASAR integrity, PE Authenticode *presence*. No DEX, ELF or PE semantics beyond that. |
+| 3 Adversarial evaluation | ◐ Pre-registered release-gate benchmarks (v1–v6) and a static tamper sub-study against `codesign`. Runtime and cloning lanes are not implemented. |
+| 4 Architecture, API, attestation | ◐ Authorization-matrix evaluation, DSSE/in-toto/SLSA provenance verification, signed decision attestations. |
 | 5–6 Transformations, confidential execution | ✗ out of scope until stage-3 measurements justify them |
 
-Byte identity (sha256) does **not** authenticate the build context. Pair the tool with SLSA-style provenance for that (research §9.2).
+Byte identity (sha256) does **not** authenticate the build context. Declare `provenance` to check the shipped bytes against signed SLSA-style provenance (research §9.2).
 
 ## Layout
 
 ```
 src/model/     result states, manifest, policy, evidence types
-src/codecs/    zero-dependency xz/LZMA2, lzma, bzip2 and lz4 decoders, CRC32/CRC64/xxHash32
-src/lanes/     containers, inventory, detectors, decode (base64/hex/percent), exposure, placement, authorization, external
-src/engine/    evaluate (pipeline), gate, report, stats
+src/codecs/    zero-dependency xz/LZMA2, lzma, bzip2, lz4, UDIF/HFS+ (DMG), plist and Mach-O readers; CRCs
+src/lanes/     containers, inventory, detectors, decode, exposure, placement, authorization, external, platform, provenance
+src/engine/    evaluate (pipeline), gate, report, stats, attest (signed decisions)
 src/pack/      deterministic asar/zip/tar writers (fixtures and tests)
 test/          unit, pipeline, regression and differential tests (node:test)
-bench/         v3 pre-registration, corpus generator, runner, scorer, baseline installer, calibration; v1/ and v2/ archived
-docs/research/ self-review, tool landscape, calibration, v0.2–v0.5 changes, benchmark results
+bench/         v6 pre-registration, corpus generator, runner, scorer, platform sub-study, baseline installer, calibration; v1/–v5/ archived
+docs/research/ self-review, tool landscape, calibration, v0.2–v0.6 changes, benchmark results
 fixtures/demo-app/  synthetic app, build script, manifest, policy, authz results
 ```
 

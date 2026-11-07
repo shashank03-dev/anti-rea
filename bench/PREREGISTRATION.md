@@ -1,44 +1,52 @@
-# Pre-registration v5: Anti-REA v0.5 vs. current secret scanners (and vs. v0.4) as release gates
+# Pre-registration v6: Anti-REA v0.6 vs. current secret scanners (and vs. v0.5), plus a platform sub-study
 
-**Registered:** 2026-11-07. The eval corpus had not been generated, and no tool had been run on it, at registration time.
+**Registered:** 2026-11-07. The eval corpora (main and platform) had not been generated, and no tool had been run on them, at registration time.
 
 Earlier studies, archived:
 - [bench/v1/](v1/): v0.1, lost to tuned TruffleHog.
 - [bench/v2/](v2/): v0.2, a tie.
 - [bench/v3/](v3/): v0.3, 90.0% vs 84.5%, p = 0.16.
 - [bench/v4/](v4/): v0.4, 85.0% vs 81.7%, p = 0.35.
+- [bench/v5/](v5/): v0.5, 89.2% vs 80.8%, p = 0.013. The recommended AR-2 configuration reached 91.2% (p = 0.0013).
 
-**Frozen tool and harness:** frozen-sha256: `88f2bb1ef3a40f75bd660676cd5c81bb9b6fbde1e7f46b5a0dd18191b3d2eb7d`
+**Frozen tool and harness:** frozen-sha256: `6099fbf64928e75cfac18a16ba74bca86693ebb8dbd9989e6b5de7219e54dfb0`
 
 `node bench/freeze.mjs` computes the hash over:
 - `src/`;
-- `bench/freeze.mjs`, `bench/corpus.mjs`, `bench/run.mjs` and `bench/score.mjs`;
-- `bench/policy.json` and `bench/policy.open.json`;
+- `bench/freeze.mjs`, `bench/corpus.mjs`, `bench/run.mjs`, `bench/score.mjs` and **`bench/platform.mjs`**;
+- `bench/policy.json`, `bench/policy.open.json` and **`bench/policy.platform.json`**;
 - `package.json`;
-- **`bench/v4/anti-rea-0.4.0/`**, the compiled v0.4 tool exactly as evaluated in v4.
+- `bench/v4/anti-rea-0.4.0/` and **`bench/v5/anti-rea-0.5.0/`**, the compiled v0.4 and v0.5 tools as evaluated.
 
-**Eval seed:** the first 32 bits of the frozen hash, `0x88f2bb1e`. `bench/run.mjs --set eval` refuses to run if the tree does not match the hash, or if the corpus seed was not derived from it.
+**Eval seeds:**
+- main corpus: the first 32 bits of the frozen hash, `0x6099fbf6`;
+- platform corpus: bits 32–63, `0x4928e75c`.
+
+`bench/run.mjs --set eval` and `bench/platform.mjs --set eval` refuse to run if the tree does not match the hash, or if the corpus seed was not derived from it.
 
 ## 1. Questions
 
 1. **Primary (unchanged since v1).** Given the same owner knowledge, is Anti-REA substantially better than current secret scanners at the ship/block decision?
-2. **Improvement.** On the same sealed corpus, is v0.5 better than the frozen v0.4?
-3. **Generalisation.** Do the v0.5 fixes for v4's diagnosed losses hold on formats and call shapes never used in development? The fixes are listed in [docs/research/V05-CHANGES.md](../docs/research/V05-CHANGES.md):
-   - single-case and compound values;
-   - any constructor, configuration methods and assigned factory calls;
-   - CONSTANT_CASE credential names;
-   - DMG reading.
+2. **Regression.** On the same sealed corpus, does v0.6 lose anything v0.5 got right? v0.6's content-lane changes are small:
+   - three detector fixes for v5's misses;
+   - symlinks recorded as notes;
+   - a Hugging Face format guard from calibration set F.
+   
+   See [docs/research/V06-CHANGES.md](../docs/research/V06-CHANGES.md).
+3. **Generalisation.** Do the detectors hold on 16 provider formats never used in development or in any earlier benchmark?
+4. **Platform (new).** Does the v0.6 platform lane decide correctly on signed macOS/Electron bundles? Does it agree with `codesign(1)` on tampering? Does it beat a scripted `codesign` policy check?
 
 ## 2. Systems
 
-The tool versions are the same as v2–v4: gitleaks 8.30.1, TruffleHog 3.99.8, detect-secrets 1.5.0.
+Tool versions are the same as v2–v5: gitleaks 8.30.1, TruffleHog 3.99.8, detect-secrets 1.5.0.
 
-The configurations are as in v4, plus one new one:
+Main study: the configurations are as in v5, plus **AR-1@0.5**.
 
 | Config | Description | Role |
 |---|---|---|
-| AR-1 | Anti-REA v0.5, asset model | primary |
-| **AR-1@0.4** (new) | the v0.4 build, same manifest and policy | same-corpus comparison |
+| AR-1 | Anti-REA v0.6, asset model | primary |
+| **AR-1@0.5** (new) | the v0.5 build, same manifest and policy | regression comparison |
+| AR-1@0.4 | the v0.4 build | earlier comparison |
 | AR-0 | no owner knowledge | |
 | AR-1o | uninspectable content warns | secondary |
 | AR-2 | Anti-REA + TruffleHog import | **recommended configuration** |
@@ -46,173 +54,192 @@ The configurations are as in v4, plus one new one:
 | TH-D, TH-T | TruffleHog, defaults and tuned | baselines |
 | DS-D | detect-secrets | baseline |
 
+Platform sub-study:
+
+| Config | Description |
+|---|---|
+| AR-1 | Anti-REA v0.6. The manifest declares `platform.macos.requireHardenedRuntime`, `platform.electron.fuses.RunAsNode = false` and `platform.electron.requireAsarIntegrity`. The policy requires the platform lane. |
+| CS-D | `codesign --verify --deep --strict` |
+| CS-T | CS-D, plus the hardened-runtime flag from `codesign -dvvv`, plus a forbidden-entitlement check from `codesign -d --entitlements`, using the same three entitlements as Anti-REA's default. This is the check a release engineer would script. |
+
 Everything runs fully offline, and the decision rule is unchanged.
 
-## 3. Corpus (v5)
+## 3. Main corpus (v6)
 
-**Size:** 9 families × 20 scenarios, plus a forced UNDECLARED-LEAK factorial of 4 strata × 5 styles × **4** (= 80), so **N = 260**.
+**Size:** as in v5. There are 9 families × 20 scenarios, plus the forced UNDECLARED-LEAK factorial of 4 strata × 5 styles × 4 (= 80), so **N = 260**. The families and wrappers are unchanged; DMG wrappers were added in v5.
 
-**New background.** These are real bytes never scanned during v0.5 development, any calibration round, or v1–v4:
-- the Zen browser's **toolkit** JavaScript and JSON (`Contents/Resources/omni.ja`; v4 used the separate `browser/omni.ja`);
-- Homebrew bash-completion scripts;
-- the native addon: slices of Homebrew `libx265`.
+**New background.** These are real bytes never scanned during v0.6 development, in any calibration round (A–F), or in v1–v5:
+- Homebrew git 2.56.0's `share/` tree: AsciiDoc and HTML docs, man pages, perl modules, gitweb, hook templates, bash/zsh completion and message catalogs;
+- abseil's C++ headers;
+- the native addon: slices of Homebrew `libvpx`.
 
-The pool holds 1,534 files, with every sha256 recorded in `index.json`.
+The pool holds 1,333 files, with every sha256 recorded in `index.json`.
 
-**DMG is now a readable wrapper:**
-- **LEAK-DECLARED** gains W16-dmg (UDZO, HFS+).
-- **COMPRESSED-CLEAN** draws 2 of {xz, bz2, zst, deb, lz4, zip-bzip2, **dmg**}.
-- **UNVERIFIABLE** and **UNVERIFIABLE-CLEAN** use formats no tool can read without a password: an encrypted zip (ZipCrypto) and an **AES-256 encrypted DMG**.
-
-**Held-out strata (eval pool, new).** Dev uses v4's eval pool, already exposed by the v4 run.
+**Held-out strata.** Dev uses v5's eval pool, already exposed by the v5 run. The eval pool is new:
 
 - **HELDOUT-PREFIXED:**
 
   | Provider | Format |
   |---|---|
-  | DeepSeek | `sk-<32 hex>` |
-  | Langfuse | `sk-lf-<uuid>` |
-  | Anyscale | `esecret_<26 lowercase alnum>` |
-  | Fireworks | `fw_<24>` |
-  | Together | `tgp_v1_<43 url-safe>` |
-  | Notion | `ntn_<11 digits><35>` |
-  | Airtable | `pat<14>.<64 hex>` |
-  | **Klaviyo** | `pk_<34 hex>` |
-
-  Klaviyo's *private* keys use the `pk_` prefix that most issuers reserve for public keys. It is a deliberate counter-example to Anti-REA's public-prefix rule.
+  | Groq | `gsk_<52>` |
+  | xAI | `xai-<80>` |
+  | Perplexity | `pplx-<48>` |
+  | Replicate | `r8_<37>` |
+  | Linear | `lin_api_<40>` |
+  | Doppler | `dp.st.prd.<43>` |
+  | Pinecone | `pcsk_<5>_<60>` |
+  | **Mapbox secret** | `sk.eyJ1Ijoi…` (a JWT-like base64url body with `.` separators) |
 
 - **HELDOUT-UNPREFIXED:**
 
   | Provider | Env name | Value shape |
   |---|---|---|
-  | fal | `FAL_KEY` | `<uuid>:<32 hex>` |
-  | Railway | `RAILWAY_TOKEN` | UUID |
-  | Algolia | `ALGOLIA_ADMIN_API_KEY` | 32 hex |
-  | Pusher | `PUSHER_APP_SECRET` | 20 hex |
-  | Cloudinary | `CLOUDINARY_API_SECRET` | 27 url-safe |
-  | Zendesk | `ZENDESK_API_TOKEN` | 40 alnum |
-  | Mixpanel | `MIXPANEL_API_SECRET` | 32 hex |
-  | Bitly | `BITLY_ACCESS_TOKEN` | 40 hex |
+  | Mistral | `MISTRAL_API_KEY` | 32 alnum |
+  | Cohere | `CO_API_KEY` | 40 alnum |
+  | ElevenLabs | `ELEVENLABS_API_KEY` | 32 hex |
+  | **Postmark** | `POSTMARK_SERVER_TOKEN` | UUID |
+  | Contentful | `CONTENTFUL_ACCESS_TOKEN` | 43 url-safe |
+  | Twilio | `TWILIO_AUTH_TOKEN` | 32 hex |
+  | Segment | `SEGMENT_WRITE_KEY` | 32 alnum |
+  | Okta | `OKTA_API_TOKEN` | `00<40 url-safe>` |
 
-The SDK option, class and factory names for each provider are listed in `bench/corpus.mjs`. They are from the author's memory of the SDKs and **not verified per provider**.
+Two are deliberate counter-examples:
+- **Mapbox:** the `.` separators and JWT shape;
+- **Postmark:** a bare UUID, the shape v0.6 still treats as an identifier when it is passed positionally. The v5 Railway miss was not fixed.
 
-**Render styles** are as in v4, with one change. **Method** calls are drawn by the seeded generator from **12** credential-passing calls from real SDK usage, not v4's fixed 4:
-- `analytics.load`, `Bugsnag.start`, `client.login`, `api.setKey`;
-- `Purchases.configure`, `posthog.init`, `amplitude.init`, `sgMail.setApiKey`;
-- `twitter.setBearerToken`, `octokit.auth`, `sdk.useKey`, `crisp.authenticate`.
+Linear has a dedicated format detector in Anti-REA. It is also likely known to gitleaks and TruffleHog.
 
-v0.5's configuration-verb list was written after v4's misses, so a short fixed list would test the rules against their own design.
+SDK option, class and factory names are from the author's memory and are **not verified**. The render styles and the 12 seeded method calls are the same as v5.
+
+## 3b. Platform corpus (new)
+
+Each scenario is an `Example.app` bundle:
+- its main executable is a copy of `/usr/bin/true` (universal);
+- it contains an `app.asar` holding real background bytes, with a matching `ElectronAsarIntegrity` entry in Info.plist;
+- it contains an Electron fuse wire file;
+- it has three real background files as resources.
+
+Every bundle is ad-hoc signed by `codesign` with the hardened runtime unless stated otherwise. Then it is left alone or tampered with.
+
+| Family (truth) | Kinds | Eval n |
+|---|---|---|
+| P-CLEAN (pass) | intact | 20 |
+| P-TAMPER (block) | modified resource, added file, deleted resource, modified code page (every slice), modified Info.plist, modified `app.asar` header | 6 × 4 = 24 |
+| P-HARDENING (block) | signed with `get-task-allow`, signed without the hardened runtime, `RunAsNode` fuse enabled, ASAR integrity hash wrong (signed afterwards) | 4 × 4 = 16 |
+
+The order is seeded, N = 60, and dev N = 15.
 
 ## 4. Metrics
 
-The metrics are as in v4: exact Clopper–Pearson intervals, exact McNemar tests, per-family breakdowns, the stratum × style table, spurious findings and median time.
+Main study: as in v5. Platform study: accuracy per config and per kind, and exact McNemar tests.
 
-## 5. Hypotheses (scored mechanically by `bench/score.mjs`)
+## 5. Hypotheses (scored mechanically by `bench/score.mjs` and `bench/platform.mjs --score`)
+
+Thresholds are as in v5 unless stated otherwise. The sample sizes below are the actual cell counts: 4 per stratum × style cell.
 
 **Primary and superiority**
 - **H1 (primary).** AR-1 vs every baseline: Δ ≥ 15 points **and** McNemar p < 0.002.
 - **H1b.** AR-1 vs every baseline: Δ > 0 **and** p < 0.01.
 - **H1c (recommended configuration).** AR-2 vs every baseline: Δ > 0 **and** p < 0.01.
-- **H2.** AR-2's accuracy ≥ AR-1's, **and** AR-2 has strictly fewer UNDECLARED-LEAK false passes.
+- **H2.** AR-2 accuracy ≥ AR-1 **and** strictly fewer UNDECLARED-LEAK false passes.
 
 **Uninspectable content and decoders**
 - **H3.** AR-1 has 0 false passes on UNVERIFIABLE.
 - **H5 (expected loss).** On UNVERIFIABLE-CLEAN, AR-1 has more false blocks than TH-D.
-- **H6 (decoders, now including DMG).** AR-1 is correct on at least 95% of COMPRESSED-CLEAN, **and** every LEAK-DECLARED scenario via W7–W12 or W14–W16 is blocked with its needle found.
+- **H6.** COMPRESSED-CLEAN ≥ 95% correct, **and** every LEAK-DECLARED scenario via W7–W12 or W14–W16 is blocked with its needle found.
 
 **Held-out credentials**
-- **H4.** Held-out unprefixed, env or config style (n = 16): AR-1 blocks at least 80%.
-- **H4c.** Held-out formats, ctor or method style (n = 32): **at least 70%**. In v4 the target was 50% and the result 5/12.
-- **H4d (new).** Held-out formats, bare factory style (n = 16): at least 50%. This was a predicted loss in v4 (0/6).
-- **H7.** Held-out secret-marked prefixes (DeepSeek, Langfuse, Anyscale) across all five styles: at least 80%.
+- **H4.** Held-out unprefixed, env or config style (n = 8): at least 80%.
+- **H4c.** Held-out formats, ctor or method style (n = 16): at least 70%.
+- **H4d.** Held-out formats, bare style (n = 8): at least 50%.
+- **H7.** Held-out secret-marked prefixes (**Groq `gsk_`, Pinecone `pcsk_`, Mapbox `sk.`**) across all five styles: at least 80%.
 
 **Noise and undeclared leaks**
-- **H8 (noise).** AR-1 has at most 20 spurious findings.
+- **H8.** AR-1 has at most 20 spurious findings.
 - **H9.** UNDECLARED-LEAK correct: AR-1 ≥ TH-T.
-- **H9b.** AR-1 beats TH-T on UNDECLARED-LEAK, with McNemar p < 0.05.
+- **H9b.** On UNDECLARED-LEAK, AR-1 is ahead of TH-T with p < 0.05.
 
-**Secondary and improvement**
-- **H10 (secondary).** AR-1o vs TH-T: Δ > 0 and p < 0.01.
-- **H11 (new, improvement).** AR-1 vs AR-1@0.4 on the same corpus: Δ > 0 and exact McNemar p < 0.01.
+**Secondary and regression**
+- **H10.** AR-1o vs TH-T: Δ > 0 and p < 0.01.
+- **H11 (changed: regression, not significance).** AR-1 vs AR-1@0.5: Δ ≥ 0 **and 0 scenarios that v0.5 got right and v0.6 gets wrong.** v0.6's content-lane changes are too small for a significance test to be meaningful.
+- **H11b.** AR-1 vs AR-1@0.4: Δ > 0 and p < 0.01.
 
-**Author's predictions,** reasoned from the rules and the provider table, written before the eval run:
-- **H1: not supported.** The UNVERIFIABLE pair cancels out (AR blocks both, the baselines pass both). The gain over TH-T comes mostly from about 80 UNDECLARED scenarios, which is not enough for 15 points.
-- **H1b: likely not supported.** TH-T looks beatable at p < 0.01. Tuned gitleaks' generic keyword rules did well on env/config in v4 (dev: AR-1 vs GL-T, p = 0.18).
-- **H1c: as H1b.**
-- **H2: uncertain.** On dev it tied, 51 vs 51.
-- **H3, H5, H6 and H8: supported or confirmed.**
-- **H4: likely supported** (about 14/16). fal's `<uuid>:<hex>` is rejected by the value test, a known gap listed in V05-CHANGES §2.
-- **H4c: likely supported.**
-  - Klaviyo (`pk_`) and fal fail in every style.
-  - `api.setKey` and `sdk.useKey` match no method rule.
-- **H4d: likely supported.** Klaviyo, fal and Railway fail: Railway's bare UUID is treated as an identifier.
-- **H7: likely supported.**
-  - DeepSeek through the hex rule.
-  - Anyscale through `esecret` plus the single-case body.
-  - Langfuse through the keyed and call rules (its UUID body defeats the structural rule).
-- **H9 and H9b: likely supported.**
-- **H10: likely supported.**
-- **H11: likely supported.** v0.4 cannot read DMGs, so it blocks clean DMGs in COMPRESSED-CLEAN, and it misses the single-case, compound and call-style cells.
+**Platform (new)**
+- **H12.** AR-1 is correct on at least 95% of the 60 platform scenarios.
+- **H12b.** AR-1 and CS-D make the same decision on every P-CLEAN and P-TAMPER scenario (44/44).
+- **H12c.** AR-1 vs CS-T: AR-1 ahead **and** exact McNemar p < 0.01.
+
+**Author's predictions,** reasoned from the rules and the provider tables, written before the eval run. The detector was not run on samples of the eval formats.
+
+**Main study**
+- **H1: not supported**, for the same structural reason as v5. The UNVERIFIABLE pair cancels out, and about 80 UNDECLARED scenarios are too few for 15 points.
+- **H1b: uncertain.** v5 was p = 0.013 against TH-T, and the new providers change the cells.
+- **H1c: likely supported,** as in v5.
+- **H2: uncertain.**
+- **H3, H5, H6 and H8: supported or confirmed.** For H8, git's credential documentation contains example URL passwords. These would be warn-only spurious findings.
+- **H4: likely supported.** Every unprefixed provider has a credential-noun name.
+- **H4c: likely supported.** The expected misses are Postmark ctor and method (positional UUID), plus `api.setKey` and `sdk.useKey` draws, which no method rule matches (dev miss S039).
+- **H4d: likely supported.** Postmark fails (bare UUID).
+- **H7: uncertain.**
+  - Groq and Pinecone should match the structural marker rule (`[a-z]{0,3}sk`) in every style.
+  - Mapbox's `sk.` with a JWT-like dotted body may be read as a JWT or as a member expression when unquoted. If it fails outside the keyed styles, H7 falls below 80%.
+- **H9: likely supported. H9b: uncertain. H10: likely supported.**
+- **H11: likely supported.** The only v0.6 change that can turn a correct v0.5 block into a miss is the Hugging Face guard. It rejects about 0.6% of random tokens, and Hugging Face appears in about 2–3 NAMED scenarios. That gives about a 2% chance of one regression.
+- **H11b: likely supported,** because v0.4 cannot read DMGs.
+
+**Platform study**
+- **H12: supported (60/60). H12b: supported.**
+- **H12c: likely supported, by construction:**
+  - CS-T does not read Electron fuses or ASAR integrity, so the 8 RunAsNode and integrity-mismatch scenarios go 8 : 0 to AR-1, with p = 0.0078.
+  - This measures the value of declaring Electron hardening in one gate. It is **not** a claim that `codesign` is wrong: those bundles are validly signed.
 
 ## 6. Procedure
 
-1. Harness validation on dev only (seed `0x5eed0005`, N = 56).
+1. Harness validation on dev only: main seed `0x5eed0006` with N = 56, and platform seed `0x91a7f006` with N = 15.
 2. Changes allowed only to harness parsing and invocation, and to baseline-config fairness. **No `src/` change in response to dev results.**
-3. Freeze. Then generate the eval corpus and run everything once.
+3. Freeze. Then generate both eval corpora and run everything once.
 
 ## 7. Threats to validity
 
-- **The author designed the corpus, the provider table and the tool.**
-  - The v0.5 call rules were designed after seeing v4's call-style misses. v5 counters this with new providers, new SDK names and a broader, seeded method list. But the author picked those too, knowing the rules.
-  - **Per-cell results and the AR-1@0.4 comparison are primary for interpretation.**
-- **DMG favours Anti-REA.** No baseline reads DMG, so W16-dmg and clean-DMG scenarios favour Anti-REA by construction, as earlier decoder families did. DMG is, however, the standard macOS release format.
-- **Calibration history** (see [docs/research/CALIBRATION.md](../docs/research/CALIBRATION.md), round 5):
-  - The v0.5 rules were tuned on sets A, C and D, all of which were already tuning data.
-  - They were validated once on a **new set E** (7.6 GB). **E failed:**
-    - 690 structural leads in mingw-w64's GCC binaries, from a v0.2 bug in which `[a-z]*sk` matched "mask";
-    - 30 keyed leads, which were OAuth client secrets shipped in Adobe apps, so true leads.
-  - The mask bug was fixed after E, so **E is tuning data now.** The v5 background is the next unseen data.
-- **Unverified SDK naming.** Provider class, factory and option names are from memory.
-- **Background from installed applications.** The bytes are machine-specific; their sha256s are recorded.
-- **Cells are small** (4 per cell).
+- **The author designed the corpora, the provider tables, the platform kinds and the tool.** The platform kinds map one-to-one onto rules the author wrote. H12 and H12c therefore test correctness of implementation against `codesign` and the declared policy, not discovery of unknown attacks. **H12b is the externally referenced check.**
+- **Calibration history** ([docs/research/CALIBRATION.md](../docs/research/CALIBRATION.md), round 6):
+  - The v0.6 rules re-ran over sets A–E (17.1 GB, all tuning data) with results identical to v0.5's final run.
+  - **Validation set F failed** (1.58 GB, never scanned before: `/System/Applications` and 11 Homebrew packages). It produced **1 false blocking lead**: Objective-C `hf_…` selectors in Home.app matched the Hugging Face format.
+  - A guard was added afterwards: CamelCase coverage ≥ 0.7 and vowel share ≥ 0.28. Its recall cost on random tokens was measured at 0.6%.
+  - **F is tuning data now.** The v6 background is the next unseen data.
+- **Unverified SDK naming and key shapes,** from the author's memory.
+- **The platform bundles are ad-hoc signed** copies of a system binary, not Developer-ID-signed apps. Chain trust is out of scope for both Anti-REA and the CS configs here.
+- **Background from installed packages.** The bytes are machine-specific; sha256s are recorded.
+- **Small cells** (4 per cell; 4 per platform kind).
 
 ## 8. Amendments and dev-set disclosure
 
-None. One note: the dev run used src/version.ts at "0.4.0"; the version string was bumped to 0.5.0 before freezing, which changes no rule.
-
-**Dev-set disclosure** (N = 56):
+**Dev-set disclosure, main** (N = 56). These are the results after the Hugging Face guard from calibration set F. The run was repeated because that `src/` change came from calibration, not from dev results. The guard changed no dev decision.
 
 | Config | Correct |
 |---|---|
 | AR-1 | 51/56 (91.1%) |
 | AR-1o | 51/56 |
 | AR-2 | 51/56 |
-| AR-1@0.4 | 46/56 (82.1%) |
-| GL-T | 45/56 |
+| AR-1@0.5 | 49/56 (87.5%) |
+| AR-1@0.4 | 45/56 |
+| TH-T | 45/56 (80.4%) |
 | AR-0 | 43/56 |
-| TH-T | 41/56 (73.2%) |
-| TH-D | 32/56 |
+| GL-T | 40/56 |
+| TH-D | 38/56 |
 | GL-D | 27/56 |
-| DS-D | 23/56 |
+| DS-D | 21/56 |
 
 Results on dev:
-- **Supported or confirmed:** H3, H4 (2/2), H4c (3/4), H4d (2/2), H5, H6, H8, H9, H9b (9 : 0, p = 0.004) and H10.
-- **Not supported:** H1, H1b (GL-T p = 0.18; TH-T p = 0.03), H1c, H2 (a tie) and H11 (5 : 0, p = 0.06).
-- **Not evaluable:** H7, because the dev pool has no eval-marked providers.
+- **Supported or confirmed:** H3, H4 (2/2), H4c (3/4), H4d (2/2), H5, H6, H8, H9 and H11 (2 : 0, no regressions).
+- **Not supported:** H1, H1b (TH-T p = 0.18), H1c, H2 (a tie), H9b (4 : 0, p = 0.125), H10 (p = 0.03) and H11b (6 : 0, p = 0.03).
+- **Not evaluable:** H7.
 
 AR-1's 5 dev errors:
-- **4 are UNVERIFIABLE-CLEAN**, by design.
-- **1 is a recall miss** (S034): `setApiKey("rnd_<32>")`, whose random body happened to have a word-run fraction of 0.50, above the 0.45 limit. This is the ~4.5% loss measured for 32-character values. It was not changed, because changing `src/` in response to dev results isn't allowed.
+- 4 are UNVERIFIABLE-CLEAN, by design.
+- 1 is Cloudinary via `api.setKey("…")` (S039), a method name no rule matches. It was not changed (no `src/` change in response to dev).
 
-The single spurious finding for every Anti-REA configuration is a warn-only JWT-shaped string in the Firefox toolkit background (`aboutLogging/jwt.mjs`).
-
-## 9. Post-run errata (no effect on any verdict)
-
-These were added after the eval run. The thresholds and the scoring code are unchanged.
-- **Wrong sample sizes in §5.** The n values double-counted the cells. With 4 scenarios per cell, the counts are:
-  - H4 (one stratum × 2 styles): **8**, not 16;
-  - H4c (2 strata × 2 styles): **16**, not 32;
-  - H4d (2 strata × 1 style): **8**, not 16.
-  
-  The hypotheses are percentage thresholds computed by `score.mjs` from the actual cells, so no verdict depends on these figures.
-- **One AR-1 miss was not in the predictions:** Airtable in env style (`AIRTABLE_PAT`). "PAT" is not a credential noun. The author noticed this while reasoning about the provider table but did not write it into §5.
+**Dev-set disclosure, platform** (N = 15):
+- AR-1 15/15, CS-D 11/15, CS-T 13/15.
+- H12 and H12b supported.
+- H12c not supported on dev (2 : 0, p = 0.5; dev has one scenario per kind).

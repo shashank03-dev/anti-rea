@@ -109,7 +109,7 @@ function main() {
   const paired = {};
   for (const a of ["AR-1", "AR-2", "AR-1o"]) {
     if (!summary[a]?.ran) continue;
-    for (const b of [...BASELINES, ...(a === "AR-1" ? ["AR-1@0.4"] : [])]) {
+    for (const b of [...BASELINES, ...(a === "AR-1" ? ["AR-1@0.5", "AR-1@0.4"] : [])]) {
       if (!summary[b]?.ran) continue;
       const A = new Map(by(a).map((r) => [r.scenario, correct(r)]));
       let bb = 0, cc = 0;
@@ -203,8 +203,8 @@ function main() {
     const nwOk = nw.filter((r) => correct(r) && r.needleHits.every(Boolean)).length;
     const ok6 = ccOk >= Math.ceil(0.95 * cc.length) && nwOk === nw.length;
     H.push({ id: "H6 (decoders)", verdict: ok6 ? "SUPPORTED" : "NOT SUPPORTED", detail: `COMPRESSED-CLEAN correct ${ccOk}/${cc.length} (need ≥95%); LEAK-DECLARED via ${NEW.join("/")} blocked with needle found ${nwOk}/${nw.length} (need all)` });
-    // H7 (v5): held-out prefixes that mark the token secret (sk-, sk-lf-, esecret_), across ALL styles.
-    const MARKED = ["deepseek", "langfuse", "anyscale"];
+    // H7 (v6): held-out prefixes that mark the token secret (gsk_, pcsk_, sk.), across ALL styles.
+    const MARKED = ["groq", "pinecone", "mapbox"];
     const marked = hp.filter((r) => MARKED.includes(needleOf(r).format));
     const unmarked = hp.filter((r) => !MARKED.includes(needleOf(r).format));
     const ok7 = marked.length > 0 && accOf(marked) >= Math.ceil(0.8 * marked.length);
@@ -229,10 +229,16 @@ function main() {
         H.push({ id: "H10 (secondary: AR-1o vs TH-T)", verdict: e.diff > 0 && e.p < 0.01 ? "SUPPORTED" : "NOT SUPPORTED", detail: `AR-1o (uninspectable content warns) vs TH-T: Δ=${pct(e.diff)}, ${e.aRightBWrong} : ${e.aWrongBRight}, p=${e.p.toExponential(2)} (need Δ>0, p<0.01)` });
       }
     }
-    // H11 (v5): measured improvement over the frozen v0.4 tool on the same sealed corpus.
+    // H11 (v6): improvement over the frozen v0.5 tool on the same sealed corpus. v0.6's content-lane
+    // changes are small (three detector fixes and symlinks), so this is a weak test: Δ ≥ 0 and no
+    // scenario v0.5 got right that v0.6 gets wrong (no regression), not significance.
+    if (summary["AR-1@0.5"]?.ran) {
+      const e = paired["AR-1 vs AR-1@0.5"];
+      H.push({ id: "H11 (v0.6 vs v0.5, no regression)", verdict: e.diff >= 0 && e.aWrongBRight === 0 ? "SUPPORTED" : "NOT SUPPORTED", detail: `AR-1 ${pct(summary["AR-1"].accuracy)} vs AR-1@0.5 ${pct(summary["AR-1@0.5"].accuracy)}: Δ=${pct(e.diff)}, ${e.aRightBWrong} : ${e.aWrongBRight}, p=${e.p.toExponential(2)} (need Δ≥0 and 0 regressions)` });
+    }
     if (summary["AR-1@0.4"]?.ran) {
       const e = paired["AR-1 vs AR-1@0.4"];
-      H.push({ id: "H11 (v0.5 vs v0.4, same corpus)", verdict: e.diff > 0 && e.p < 0.01 ? "SUPPORTED" : "NOT SUPPORTED", detail: `AR-1 ${pct(summary["AR-1"].accuracy)} vs AR-1@0.4 ${pct(summary["AR-1@0.4"].accuracy)}: Δ=${pct(e.diff)}, ${e.aRightBWrong} : ${e.aWrongBRight}, p=${e.p.toExponential(2)} (need Δ>0, p<0.01)` });
+      H.push({ id: "H11b (v0.6 vs v0.4, same corpus)", verdict: e.diff > 0 && e.p < 0.01 ? "SUPPORTED" : "NOT SUPPORTED", detail: `AR-1 ${pct(summary["AR-1"].accuracy)} vs AR-1@0.4 ${pct(summary["AR-1@0.4"].accuracy)}: Δ=${pct(e.diff)}, ${e.aRightBWrong} : ${e.aWrongBRight}, p=${e.p.toExponential(2)} (need Δ>0, p<0.01)` });
     }
     // Per-cell table for UNDECLARED-LEAK (report only).
     cellTable = {};

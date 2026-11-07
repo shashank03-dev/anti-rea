@@ -110,6 +110,8 @@ export const CONFIGS = [
   { id: "AR-1o", label: "Anti-REA, owner asset model, inconclusive lanes warn", needs: [], run: AR("manifest.json", () => [], "bench/policy.open.json") },
   // v5: the v0.4 tool exactly as evaluated in v4 (bench/v4/anti-rea-0.4.0), for a same-corpus regression comparison.
   { id: "AR-1@0.4", label: "Anti-REA v0.4 (frozen v4 build), owner asset model", needs: [], run: AR("manifest.json", () => [], "bench/policy.json", "bench/v4/anti-rea-0.4.0/src/cli.js") },
+  // v6: the v0.5 tool exactly as evaluated in v5 (bench/v5/anti-rea-0.5.0), the primary regression comparison.
+  { id: "AR-1@0.5", label: "Anti-REA v0.5 (frozen v5 build), owner asset model", needs: [], run: AR("manifest.json", () => [], "bench/policy.json", "bench/v5/anti-rea-0.5.0/src/cli.js") },
   { id: "GL-D", label: "gitleaks dir, defaults", needs: ["gitleaks"], run: gitleaks(false) },
   { id: "GL-T", label: "gitleaks dir, tuned (archives, decoding, owner rules + allowlist)", needs: ["gitleaks"], run: gitleaks(true) },
   { id: "TH-D", label: "trufflehog filesystem, defaults (no verification)", needs: ["trufflehog"], run: trufflehog(false) },

@@ -11,6 +11,8 @@ import { placementLane } from "../lanes/placement.js";
 import { authorizationLane, type AuthzResults } from "../lanes/authorization.js";
 import { DEFAULT_LIMITS, type Limits } from "../lanes/containers.js";
 import { externalLane, type ExternalImport } from "../lanes/external.js";
+import { platformLane } from "../lanes/platform.js";
+import { provenanceLane } from "../lanes/provenance.js";
 import { evaluateGates } from "./gate.js";
 
 export interface AssureInput {
@@ -46,6 +48,9 @@ export function assure(input: AssureInput): AssuranceReport {
     evidence.push(authorizationLane(manifest, inv.releaseId, input.authzResults ?? null, startedAt));
   }
   if ((input.imports ?? []).length > 0) evidence.push(...externalLane(manifest, input.imports!, inv.releaseId, startedAt));
+  // v0.6: platform hardening and provenance run when declared or required, like authorization.
+  if (manifest.platform || policy.requiredLanes.includes("platform")) evidence.push(platformLane(manifest, inv, startedAt));
+  if (manifest.provenance || policy.requiredLanes.includes("provenance")) evidence.push(provenanceLane(manifest, baseDir, inv, startedAt));
 
   const today = now().toISOString().slice(0, 10);
   const g = evaluateGates(policy, manifest, evidence, today);
@@ -81,7 +86,7 @@ export function assure(input: AssureInput): AssuranceReport {
     blockingReasons: g.blockingReasons,
     limitations: [
       "This is a scoped assurance statement about the declared release closure, assets, lanes and budgets — not a universal claim that the application cannot be reverse engineered (doc §3).",
-      "Static lanes cannot observe values assembled at runtime; runtime instrumentation, behavioral-cloning and tamper lanes are not implemented in this version.",
+      "Static lanes cannot observe values assembled at runtime; runtime instrumentation and behavioral-cloning lanes are not implemented. Tamper resistance is checked statically (signatures, seals, fuses, ASAR integrity) when declared, not by attacking a running app.",
       "\"Not recovered within budget\" is a right-censored observation, never a proof of impossibility.",
       "No aggregate protection score is produced: gates are the release authority (doc §10).",
     ],

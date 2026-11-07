@@ -96,10 +96,58 @@ export interface AuthorizationDecl {
   readonly defaultExpected?: "allow" | "deny";
 }
 
+/**
+ * v0.6: owner-declared platform expectations (research §14 stages 2–3). Facts are read from the shipped
+ * bytes by the platform lane; any declared expectation they violate trips `platformHardeningViolation`.
+ */
+export interface PlatformDecl {
+  readonly macos?: {
+    /** Every Mach-O file must carry a code signature (default true when macos is declared). */
+    readonly requireSigned?: boolean;
+    /** Signed code must be Developer-ID signed (CMS present), not ad hoc or linker-signed. */
+    readonly requireDeveloperId?: boolean;
+    /** Executables (MH_EXECUTE) must enable the hardened runtime. */
+    readonly requireHardenedRuntime?: boolean;
+    /** Developer-signed code must carry this TeamIdentifier. */
+    readonly teamId?: string;
+    /** Entitlements that must not appear (default: get-task-allow, allow-dyld-environment-variables, disable-executable-page-protection). */
+    readonly forbiddenEntitlements?: readonly string[];
+    /** Bundle seals (Info.plist, CodeResources, sealed resources, nested code, added files) must be intact (default true). */
+    readonly requireIntactSeal?: boolean;
+  };
+  readonly electron?: {
+    /** Required fuse states, e.g. { "RunAsNode": false, "OnlyLoadAppFromAsar": true }. */
+    readonly fuses?: Readonly<Record<string, boolean>>;
+    /** Every app.asar in a macOS bundle must match its ElectronAsarIntegrity header hash. */
+    readonly requireAsarIntegrity?: boolean;
+  };
+  readonly windows?: {
+    /** Every PE file must carry an Authenticode signature (presence only; chains are not validated). */
+    readonly requireAuthenticode?: boolean;
+  };
+}
+
+/**
+ * v0.6: build provenance to verify against the shipped bytes (research §9.2, §14 stage 4). An in-toto
+ * Statement (bare or in a DSSE envelope) whose subjects must cover the release's top-level artifacts.
+ */
+export interface ProvenanceDecl {
+  /** Path (relative to the manifest) of the provenance file: a DSSE envelope or a bare in-toto Statement, JSON or JSON Lines. */
+  readonly statement: string;
+  /** PEM public key(s) (relative paths) that must have signed the DSSE envelope. Unsigned provenance fails when set. */
+  readonly publicKeys?: readonly string[];
+  /** Expected builder id (SLSA v1 runDetails.builder.id or v0.2 builder.id). */
+  readonly builderId?: string;
+  /** Globs (relative to each root) of the artifacts that must be provenance subjects. Default: every top-level file. */
+  readonly subjects?: readonly string[];
+}
+
 export interface Manifest {
   readonly schema: "anti-rea/manifest/v1";
   readonly application: { readonly name: string; readonly version: string };
   readonly releaseClosure: ReleaseClosureDecl;
   readonly assets: readonly AssetDecl[];
   readonly authorization?: AuthorizationDecl;
+  readonly platform?: PlatformDecl;
+  readonly provenance?: ProvenanceDecl;
 }

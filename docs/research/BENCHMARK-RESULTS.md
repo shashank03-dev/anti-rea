@@ -1,14 +1,89 @@
 # Benchmark results: Anti-REA vs. current secret scanners as release gates
 
-There have been five pre-registered studies. Each was run once, on a sealed corpus, with the same tool versions (gitleaks 8.30.1, TruffleHog 3.99.8, detect-secrets 1.5.0), fully offline.
+There have been six pre-registered studies. Each was run once, on a sealed corpus, with the same tool versions (gitleaks 8.30.1, TruffleHog 3.99.8, detect-secrets 1.5.0), fully offline.
 
 | Study | Anti-REA | N | Seed | Pre-registration | Raw results |
 |---|---|---|---|---|---|
-| **v5** | **v0.5** | 260 | `0x88f2bb1e`, derived from frozen hash `88f2bb1e…eb7d` | [link](../../bench/PREREGISTRATION.md) | [link](../../bench/RESULTS-eval.md) |
+| **v6** | **v0.6** | 260 + 60 platform | `0x6099fbf6` / `0x4928e75c`, derived from frozen hash `6099fbf6…dfb0` | [link](../../bench/PREREGISTRATION.md) | [main](../../bench/RESULTS-eval.md), [platform](../../bench/RESULTS-platform.md) |
+| v5 | v0.5 | 260 | `0x88f2bb1e` | [link](../../bench/v5/PREREGISTRATION.md) | [link](../../bench/v5/RESULTS-eval.md) |
 | v4 | v0.4 | 240 | `0xd261b18b` | [link](../../bench/v4/PREREGISTRATION.md) | [link](../../bench/v4/RESULTS-eval.md) |
 | v3 | v0.3 | 200 | `0x363c69c6` | [link](../../bench/v3/PREREGISTRATION.md) | [link](../../bench/v3/RESULTS-eval.md) |
 | v2 | v0.2 | 200 | `0x8921d50f` | [link](../../bench/v2/PREREGISTRATION.md) | [link](../../bench/v2/RESULTS-eval.md) |
 | v1 | v0.1 | 180 | `0x5eed2026` | [link](../../bench/v1/PREREGISTRATION.md) | [link](../../bench/v1/RESULTS-eval.md) |
+
+## v6 (Anti-REA v0.6), run 2026-11-07
+
+### Main study (N = 260, new background, 16 new held-out formats)
+
+| Config | Accuracy | 95% CI | vs AR-1 (McNemar) |
+|---|---|---|---|
+| **AR-1** (Anti-REA v0.6) | **238/260 = 91.5%** | [87.5, 94.6] | — |
+| AR-2 (+ TruffleHog import) | 238/260 = 91.5% | [87.5, 94.6] | — |
+| AR-1o (uninspectable warns) | 238/260 = 91.5% | [87.5, 94.6] | — |
+| AR-1@0.5 (frozen v5 build) | 238/260 = 91.5% | | 0 : 0 |
+| AR-1@0.4 (frozen v4 build) | 212/260 = 81.5% | | 26 : 0, p = 3e-8 |
+| TH-T (tuned TruffleHog) | 211/260 = 81.2% | [75.9, 85.7] | 47 : 20, **p = 0.0013** |
+| GL-T (tuned gitleaks) | 195/260 = 75.0% | | 64 : 21, p = 3e-6 |
+| AR-0 (no owner knowledge) | 198/260 = 76.2% | | |
+| TH-D | 171/260 = 65.8% | | p = 4e-11 |
+| GL-D | 122/260 = 46.9% | | |
+| DS-D | 104/260 = 40.0% | | |
+
+**Hypotheses** (thresholds as pre-registered):
+
+| Result | Hypotheses |
+|---|---|
+| Supported or confirmed | **H1b** (first time; AR-1 vs TH-T p = 0.0013 < 0.01), **H1c**, H2 (91.5% each; UNDECLARED false passes 1 vs 2), H3 (0/20 silent passes), H4 (7/8), **H4c (16/16)**, H4d (7/8), H5 (expected loss: 20/20 vs 1/20), H6, H7 (6/6), H8 (0 spurious), H9 (78 vs 58 of 80), H9b (21 : 1, p = 1e-5), H10, H11 (0 regressions), H11b |
+| **Not supported** | **H1**: Δ ≥ 15 points against every baseline. Against TH-T Δ = 10.4 points; against GL-T 16.5. |
+
+**Against the author's predictions:**
+- H1b was predicted "uncertain". It was supported.
+- H7 was predicted "uncertain" because of Mapbox's dotted `sk.` body. It was supported.
+- H2 was predicted "uncertain". It was supported, narrowly: one fewer false pass.
+- The remaining predictions held.
+
+**AR-1's 22 errors:**
+- **20 are UNVERIFIABLE-CLEAN.** Clean releases with an encrypted zip or DMG are blocked fail-closed, by design (H5). AR-1o, which only warns on uninspectable content, also scores 91.5%. Its errors are instead the 20 UNVERIFIABLE releases that hide a secret.
+- **Mistral, config style (S168).** The random 32-character value happened to contain word-like runs (`Ubyqt`, `Lpephl`) and failed the generated-value test. This is the same ~4.5% loss on 32-character values first measured in v5 dev (S034).
+- **Postmark, bare style inside a zip (S179).** A bare UUID passed to an unknown factory is treated as an identifier. This was a predicted, deliberate miss, carried over from v5's Railway decision.
+
+**What v0.6's content changes did and did not show.**
+- AR-1 and AR-1@0.5 made **identical decisions on all 260 scenarios**. None of v6's eval formats uses a `pk_` prefix, a `<uuid>:<secret>` pair or a `*_PAT` name, so the v0.6 detector fixes were not exercised.
+- The Hugging Face guard caused no regression.
+- So v6 shows that **v0.5's rules generalised** to 16 new formats and a new background. It does not show that the v0.6 fixes generalise.
+- The rise from v5's 89.2% to 91.5% comes from the new providers and background, not from new rules.
+
+**AR-2's single false block (S253)** is TruffleHog's `URI` detector firing on a URL with embedded credentials from git's documentation, inside a `.zst` archive. Tuned TruffleHog blocks the same scenario. Anti-REA's own URL-password rule is warn-only.
+
+### Platform sub-study (N = 60, new)
+
+The scenarios are ad-hoc-signed `Example.app` bundles. Each is intact, tampered with after signing, or validly signed but violating the declared hardening policy.
+
+| Kind (n) | Truth | AR-1 | CS-D (`codesign --verify --deep --strict`) | CS-T (CS-D + runtime flag + entitlements) |
+|---|---|---|---|---|
+| intact (20) | pass | 20 | 20 | 20 |
+| 6 tamper kinds (24) | block | 24 | 24 | 24 |
+| `get-task-allow`, no hardened runtime (8) | block | 8 | 0 | 8 |
+| RunAsNode fuse, ASAR integrity mismatch (8) | block | 8 | 0 | 0 |
+| **Total** | | **60/60** | 44/60 | 52/60 |
+
+- **H12** (≥ 95%): supported.
+- **H12b** (agrees with `codesign` on all 44 clean and tampered bundles): supported.
+- **H12c** (AR-1 vs CS-T, 8 : 0, p = 0.0078): supported.
+
+**Interpretation:**
+- H12b is the externally referenced check: on signature integrity, Anti-REA's zero-dependency verifier agrees with Apple's `codesign` on every scenario.
+- H12c holds **by construction**. CS-T does not read Electron fuses or ASAR integrity, and those 8 bundles are validly signed.
+- The study shows that the declared Electron and macOS hardening policy is enforced in one gate. It does not show that Anti-REA finds tampering `codesign` misses.
+- All kinds were designed by the author, who also wrote the rules.
+
+### Verdict after six studies
+
+- With owner knowledge, Anti-REA is now **significantly better than every baseline** at the ship/block decision.
+  - In v6, AR-1 alone cleared p < 0.01 against tuned TruffleHog for the first time.
+  - The recommended AR-2 configuration has done so in both v5 and v6.
+- It is **not "substantially better"** by the pre-registered bar of 15 points against every baseline.
+- About 10 points of its lead over tuned TruffleHog comes from held-out formats and call styles (UNDECLARED-LEAK, 21 : 1). Uninspectable content costs it 20 false blocks, which it accepts by design.
 
 ## v5 (Anti-REA v0.5), run 2026-11-07
 

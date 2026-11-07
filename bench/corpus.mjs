@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Anti-REA benchmark corpus generator, v5 (pre-registered in bench/PREREGISTRATION.md).
-// The v1–v4 generators, as they ran, are kept in bench/v1/ … bench/v4/.
+// Anti-REA benchmark corpus generator, v6 (pre-registered in bench/PREREGISTRATION.md).
+// The v1–v5 generators, as they ran, are kept in bench/v1/ … bench/v5/.
 //
 //   node bench/corpus.mjs --set dev|eval --out <dir>
 //
@@ -8,8 +8,8 @@
 // tool+harness hash (bench/freeze.mjs), so it is fixed by the code being evaluated.
 //
 // Each scenario is an Electron-style release built from REAL third-party bytes
-// (v5: the Zen browser's toolkit JavaScript from Contents/Resources/omni.ja, bash-completion
-// scripts, slices of Homebrew's libx265 Mach-O) with zero or more planted "needles". Every random choice is seeded; EC private keys are derived
+// (v6: Homebrew git's share/ tree — docs, perl modules, gitweb, templates, shell completion —
+// abseil's C++ headers, and slices of Homebrew's libvpx Mach-O) with zero or more planted "needles". Every random choice is seeded; EC private keys are derived
 // from seeded scalars, so plain/asar/zip corpora are byte-reproducible.
 //
 // All secrets are SYNTHETIC values in the shape of real formats. None is valid.
@@ -24,7 +24,7 @@ import { frozenHash } from "./freeze.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sha1 = (s) => createHash("sha1").update(s).digest("hex");
-const SEEDS = { dev: 0x5eed0005, eval: null /* derived from the frozen hash at generation time */ };
+const SEEDS = { dev: 0x5eed0006, eval: null /* derived from the frozen hash at generation time */ };
 const seedFor = (set) => (set === "eval" ? parseInt(frozenHash().slice(0, 8), 16) : SEEDS[set]);
 const K = { dev: 4, eval: 20 };
 /** v4: UNDECLARED-LEAK is a forced factorial (stratum × render style), with this many scenarios per cell. */
@@ -108,36 +108,10 @@ const NAMED = {
 };
 const LOWER_AN = "abcdefghijklmnopqrstuvwxyz0123456789";
 /**
- * DEV held-out pools (v5): v4's eval held-out formats, already exposed by the v4 run. Used only by the
+ * DEV held-out pools (v6): v5's eval held-out formats, already exposed by the v5 run. Used only by the
  * dev set, which validates the harness.
  */
 const DEV_PREFIXED = {
-  langsmith: cred((r) => `lsv2_sk_${r.str(32, HEX)}_${r.str(10, HEX)}`, "LANGSMITH_API_KEY", "apiKey", "Client", "createClient"),
-  openrouter: cred((r) => "sk-or-v1-" + r.str(64, HEX), "OPENROUTER_API_KEY", "apiKey", "OpenRouter", "createOpenRouter"),
-  cerebras: cred((r) => "csk-" + r.str(48, LOWER_AN), "CEREBRAS_API_KEY", "apiKey", "Cerebras", "cerebras"),
-  firecrawl: cred((r) => "fc-" + r.str(32, HEX), "FIRECRAWL_API_KEY", "apiKey", "FirecrawlApp", "firecrawl"),
-  jina: cred((r) => "jina_" + r.str(60, AN), "JINA_API_KEY", "apiKey", "JinaClient", "jina"),
-  brevo: cred((r) => `xkeysib-${r.str(64, HEX)}-${r.str(16, AN)}`, "BREVO_API_KEY", "apiKey", "TransactionalEmailsApi", "brevo"),
-  render: cred((r) => "rnd_" + r.str(32, AN), "RENDER_API_KEY", "apiKey", "RenderApi", "render"),
-  resend: cred((r) => `re_${r.str(8, AN)}_${r.str(24, AN)}`, "RESEND_API_KEY", "apiKey", "Resend", "resend"),
-};
-const DEV_UNPREFIXED = {
-  datadog: cred((r) => r.str(32, HEX), "DD_API_KEY", "apiKey", "ApiClient", "datadogClient"),
-  assemblyai: cred((r) => r.str(32, HEX), "ASSEMBLYAI_API_KEY", "apiKey", "AssemblyAI", "assemblyai"),
-  wandb: cred((r) => r.str(40, HEX), "WANDB_API_KEY", "key", "Api", "wandbLogin"),
-  exa: cred((r) => `${r.str(8, HEX)}-${r.str(4, HEX)}-4${r.str(3, HEX)}-a${r.str(3, HEX)}-${r.str(12, HEX)}`, "EXA_API_KEY", "apiKey", "Exa", "exa"),
-  ably: cred((r) => `${r.str(6, URLSAFE)}.${r.str(6, URLSAFE)}:${r.str(43, URLSAFE)}`, "ABLY_API_KEY", "key", "Ably.Realtime", "ably"),
-  upstash: cred((r) => "A" + r.str(3, "XYZ") + r.str(56, AN) + "=", "UPSTASH_REDIS_REST_TOKEN", "token", "Redis", "upstash"),
-  mux: cred((r) => r.str(75, B64), "MUX_TOKEN_SECRET", "tokenSecret", "Mux", "mux"),
-  mailjet: cred((r) => r.str(32, HEX), "MJ_APIKEY_PRIVATE", "apiSecret", "Mailjet.Client", "mailjetConnect"),
-};
-/**
- * EVAL held-out pools (v5): formats used in no earlier benchmark and in no detector development or
- * calibration. Shapes follow each provider's documented key format as the author recalls it;
- * every value is synthetic. Klaviyo's PRIVATE keys start `pk_`, a prefix most issuers use for
- * PUBLIC keys: a deliberate counter-example to Anti-REA's public-prefix rule.
- */
-const EVAL_PREFIXED = {
   deepseek: cred((r) => "sk-" + r.str(32, HEX), "DEEPSEEK_API_KEY", "apiKey", "DeepSeek", "createDeepSeek"),
   langfuse: cred((r) => `sk-lf-${r.str(8, HEX)}-${r.str(4, HEX)}-4${r.str(3, HEX)}-8${r.str(3, HEX)}-${r.str(12, HEX)}`, "LANGFUSE_SECRET_KEY", "secretKey", "Langfuse", "langfuse"),
   anyscale: cred((r) => "esecret_" + r.str(26, LOWER_AN), "ANYSCALE_API_KEY", "apiKey", "Anyscale", "anyscale"),
@@ -147,7 +121,7 @@ const EVAL_PREFIXED = {
   airtable: cred((r) => `pat${r.str(14, AN)}.${r.str(64, HEX)}`, "AIRTABLE_PAT", "apiKey", "Airtable", "airtable"),
   klaviyo: cred((r) => "pk_" + r.str(34, HEX), "KLAVIYO_PRIVATE_API_KEY", "apiKey", "ApiKeySession", "klaviyo"),
 };
-const EVAL_UNPREFIXED = {
+const DEV_UNPREFIXED = {
   fal: cred((r) => `${r.str(8, HEX)}-${r.str(4, HEX)}-4${r.str(3, HEX)}-9${r.str(3, HEX)}-${r.str(12, HEX)}:${r.str(32, HEX)}`, "FAL_KEY", "credentials", "FalClient", "createFalClient"),
   railway: cred((r) => `${r.str(8, HEX)}-${r.str(4, HEX)}-4${r.str(3, HEX)}-b${r.str(3, HEX)}-${r.str(12, HEX)}`, "RAILWAY_TOKEN", "token", "RailwayClient", "railway"),
   algolia: cred((r) => r.str(32, HEX), "ALGOLIA_ADMIN_API_KEY", "apiKey", "SearchClient", "algoliasearch"),
@@ -156,6 +130,34 @@ const EVAL_UNPREFIXED = {
   zendesk: cred((r) => r.str(40, AN), "ZENDESK_API_TOKEN", "token", "ZendeskClient", "createZendeskClient"),
   mixpanel: cred((r) => r.str(32, HEX), "MIXPANEL_API_SECRET", "secret", "Mixpanel", "mixpanelInit"),
   bitly: cred((r) => r.str(40, HEX), "BITLY_ACCESS_TOKEN", "accessToken", "BitlyClient", "bitly"),
+};
+/**
+ * EVAL held-out pools (v6): formats used in no earlier benchmark and in no detector development or
+ * calibration. Shapes follow each provider's documented key format as the author recalls it; every
+ * value is synthetic. Mapbox SECRET tokens are `sk.` + a base64url JWT-like body: the `.` separator
+ * and JWT shape are deliberate counter-examples (v0.6 reads unquoted `.` as a member expression).
+ * Postmark's server token is a bare UUID, the shape v0.6 deliberately treats as an identifier when
+ * passed positionally (the v5 Railway miss was not fixed).
+ */
+const EVAL_PREFIXED = {
+  groq: cred((r) => "gsk_" + r.str(52, AN), "GROQ_API_KEY", "apiKey", "Groq", "createGroq"),
+  xai: cred((r) => "xai-" + r.str(80, AN), "XAI_API_KEY", "apiKey", "XAI", "createXai"),
+  perplexity: cred((r) => "pplx-" + r.str(48, AN), "PERPLEXITY_API_KEY", "apiKey", "Perplexity", "createPerplexity"),
+  replicate: cred((r) => "r8_" + r.str(37, AN), "REPLICATE_API_TOKEN", "auth", "Replicate", "replicate"),
+  linear: cred((r) => "lin_api_" + r.str(40, AN), "LINEAR_API_KEY", "apiKey", "LinearClient", "linear"),
+  doppler: cred((r) => "dp.st.prd." + r.str(43, AN), "DOPPLER_TOKEN", "accessToken", "DopplerSDK", "doppler"),
+  pinecone: cred((r) => `pcsk_${r.str(5, AN)}_${r.str(60, AN)}`, "PINECONE_API_KEY", "apiKey", "Pinecone", "pinecone"),
+  mapbox: cred((r) => `sk.eyJ1Ijoi${r.str(20, URLSAFE)}IiwiYSI6Im${r.str(22, URLSAFE)}.${r.str(22, URLSAFE)}`, "MAPBOX_SECRET_TOKEN", "accessToken", "MapboxClient", "mbxClient"),
+};
+const EVAL_UNPREFIXED = {
+  mistral: cred((r) => r.str(32, AN), "MISTRAL_API_KEY", "apiKey", "Mistral", "createMistral"),
+  cohere: cred((r) => r.str(40, AN), "CO_API_KEY", "token", "CohereClient", "cohere"),
+  elevenlabs: cred((r) => r.str(32, HEX), "ELEVENLABS_API_KEY", "apiKey", "ElevenLabsClient", "elevenlabs"),
+  postmark: cred((r) => `${r.str(8, HEX)}-${r.str(4, HEX)}-4${r.str(3, HEX)}-a${r.str(3, HEX)}-${r.str(12, HEX)}`, "POSTMARK_SERVER_TOKEN", "serverToken", "ServerClient", "postmark"),
+  contentful: cred((r) => r.str(43, URLSAFE), "CONTENTFUL_ACCESS_TOKEN", "accessToken", "ContentfulClient", "createClient"),
+  twilio: cred((r) => r.str(32, HEX), "TWILIO_AUTH_TOKEN", "authToken", "Twilio", "twilio"),
+  segment: cred((r) => r.str(32, AN), "SEGMENT_WRITE_KEY", "writeKey", "Analytics", "AnalyticsBrowser"),
+  okta: cred((r) => "00" + r.str(40, URLSAFE), "OKTA_API_TOKEN", "token", "OktaClient", "okta"),
 };
 const strataFor = (set) => ({
   INSIDE,
@@ -221,35 +223,27 @@ function render(c, style, methodIdx = 0) {
 }
 
 // ------------------------------------------------------------------ background (real third-party bytes)
-// v5 background: real third-party bytes never scanned during v0.5 development or calibration and never
-// used in v1–v4: the Zen browser's toolkit JavaScript/JSON (Contents/Resources/omni.ja, not the
-// browser/omni.ja used by v4) and bash-completion scripts, plus slices of Homebrew's libx265 as the
-// native addon. Paths are machine-specific; index.json records the sha256 of every pool file.
-const ZEN_OMNI = "/Applications/Zen.app/Contents/Resources/omni.ja";
-const ZEN_CACHE = join(ROOT, "bench", ".background", "v5-zen-toolkit-omni");
-const BASH_COMPLETION = "/opt/homebrew/Cellar/bash-completion@2/2.18.0/share/bash-completion/completions";
+// v6 background: real third-party bytes never scanned during v0.6 development or any calibration round
+// and never used in v1–v5: Homebrew git's share/ tree (AsciiDoc/HTML docs, man pages, perl modules,
+// gitweb, hook templates, bash/zsh completion, message catalogs) and abseil's C++ headers, plus slices
+// of Homebrew's libvpx as the native addon. Paths are machine-specific; index.json records every sha256.
+const GIT_SHARE = "/opt/homebrew/Cellar/git/2.56.0_1/share";
+const ABSEIL_INCLUDE = "/opt/homebrew/Cellar/abseil/20260817.0/include";
 function backgroundPool() {
-  if (!existsSync(join(ZEN_CACHE, ".complete"))) {
-    rmSync(ZEN_CACHE, { recursive: true, force: true });
-    mkdirSync(ZEN_CACHE, { recursive: true });
-    // omni.ja is an "optimized" zip; Info-ZIP extracts it but may exit non-zero with a warning about its layout.
-    try { execFileSync("unzip", ["-qq", "-o", ZEN_OMNI, "-d", ZEN_CACHE], { stdio: "ignore" }); } catch {}
-    writeFileSync(join(ZEN_CACHE, ".complete"), createHash("sha256").update(readFileSync(ZEN_OMNI)).digest("hex"));
-  }
   const out = [];
-  const walk = (d, re) => {
+  const walk = (d) => {
     for (const n of readdirSync(d).sort()) {
       const p = join(d, n);
       const st = statSync(p);
-      if (st.isDirectory()) walk(p, re);
-      else if (re.test(n) && st.size > 2048 && st.size < 1_500_000) out.push(p);
+      if (st.isDirectory()) walk(p);
+      else if (st.isFile() && st.size > 2048 && st.size < 1_500_000) out.push(p);
     }
   };
-  walk(ZEN_CACHE, /\.(js|mjs|json)$/);
-  walk(BASH_COMPLETION, /^[^.]/);
+  walk(GIT_SHARE);
+  walk(ABSEIL_INCLUDE);
   return out;
 }
-const LIBNODE = "/opt/homebrew/Cellar/x265/4.3/lib/libx265.217.dylib";
+const LIBNODE = "/opt/homebrew/Cellar/libvpx/1.17.0/lib/libvpx.12.dylib";
 
 function nativeSlice(rng, needleUtf16) {
   const src = existsSync(LIBNODE) ? readFileSync(LIBNODE) : rng.bytes(4 << 20);
@@ -343,7 +337,7 @@ function buildScenario(dir, id, family, rng, pool, cell = null) {
   const customRegexes = [CUSTOM_REGEX];
 
   // Real background bytes spread across the layout.
-  const bg = rng.shuffle(pool).slice(0, 7).map((p) => ({ name: p.replace(/^.*\/(v5-zen-toolkit-omni|share\/bash-completion\/completions)\//, "").replace(/\//g, "__"), data: readFileSync(p) }));
+  const bg = rng.shuffle(pool).slice(0, 7).map((p) => ({ name: p.replace(/^.*\/(git\/[^/]+\/share|abseil\/[^/]+\/include)\//, "").replace(/\//g, "__"), data: readFileSync(p) }));
   const asarFiles = [
     { path: "package.json", data: Buffer.from(JSON.stringify({ name: `app-${id}`, version: "1.0.0", main: "main.js" })) },
     { path: "main.js", data: Buffer.from('const { app, BrowserWindow } = require("electron");\napp.whenReady().then(() => new BrowserWindow().loadFile("renderer/index.html"));\n') },
@@ -622,8 +616,7 @@ function main() {
   const h = createHash("sha256").update(JSON.stringify(index)).digest("hex");
   const poolHashes = pool.map((p) => ({ path: p, sha256: createHash("sha256").update(readFileSync(p)).digest("hex") }));
   const nativeSha256 = createHash("sha256").update(readFileSync(LIBNODE)).digest("hex");
-  const omniSha256 = readFileSync(join(ZEN_CACHE, ".complete"), "utf8");
-  writeFileSync(join(out, "index.json"), JSON.stringify({ set, seed, perFamily: K[set], undeclaredCellReps: CELL_REPS[set], backgroundPoolSize: pool.length, backgroundPool: poolHashes, nativeSource: { path: LIBNODE, sha256: nativeSha256 }, zenOmniJa: { path: ZEN_OMNI, sha256: omniSha256 }, scenarios: index, indexSha256: h }, null, 2));
+  writeFileSync(join(out, "index.json"), JSON.stringify({ set, seed, perFamily: K[set], undeclaredCellReps: CELL_REPS[set], backgroundPoolSize: pool.length, backgroundPool: poolHashes, nativeSource: { path: LIBNODE, sha256: nativeSha256 }, scenarios: index, indexSha256: h }, null, 2));
   console.log(`generated ${index.length} scenarios (${set}, seed 0x${seed.toString(16)}, background pool ${pool.length} real files) -> ${out}`);
 }
 main();
