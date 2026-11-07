@@ -1,0 +1,1516 @@
+{
+  "schema": "anti-rea/bench-v7-subjects/v1",
+  "discoveredAt": "2026-11-07T14:42:34.705Z",
+  "toolchain": {
+    "go": "go version go1.27.2 darwin/arm64",
+    "clang": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+    "esbuild": "0.28.2",
+    "node": "v26.11.1"
+  },
+  "subjects": [
+    {
+      "kind": "go",
+      "id": "go:github.com/!micah!parks/jwkset@v0.11.0/cmd/gen_ec",
+      "module": "github.com/!micah!parks/jwkset@v0.11.0",
+      "pkg": "./cmd/gen_ec",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/!micah!parks/jwkset@v0.11.0/cmd/gen_pkcs1",
+      "module": "github.com/!micah!parks/jwkset@v0.11.0",
+      "pkg": "./cmd/gen_pkcs1",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/alecthomas/kong@v1.15.0/_examples/docker",
+      "module": "github.com/alecthomas/kong@v1.15.0",
+      "pkg": "./_examples/docker",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/alecthomas/kong@v1.15.0/_examples/shell/commandstring",
+      "module": "github.com/alecthomas/kong@v1.15.0",
+      "pkg": "./_examples/shell/commandstring",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/alecthomas/kong@v1.15.0/_examples/shell/help",
+      "module": "github.com/alecthomas/kong@v1.15.0",
+      "pkg": "./_examples/shell/help",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gohlslib/v2@v2.3.2/examples/playlist-parser",
+      "module": "github.com/bluenviron/gohlslib/v2@v2.3.2",
+      "pkg": "./examples/playlist-parser",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortmplib@v0.3.2/examples/client-read",
+      "module": "github.com/bluenviron/gortmplib@v0.3.2",
+      "pkg": "./examples/client-read",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortmplib@v0.3.2/examples/server",
+      "module": "github.com/bluenviron/gortmplib@v0.3.2",
+      "pkg": "./examples/server",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-backchannel",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-backchannel",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-g711",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-format-g711",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-h264-mpeg4audio-to-disk",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-format-h264-mpeg4audio-to-disk",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-h264-to-disk",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-format-h264-to-disk",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-h265-to-disk",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-format-h265-to-disk",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-lpcm",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-format-lpcm",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-mjpeg",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-format-mjpeg",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-mpeg4audio",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-format-mpeg4audio",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-mpeg4audio-to-disk",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-format-mpeg4audio-to-disk",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-opus",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-format-opus",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-format-opus-to-disk",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-format-opus-to-disk",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-options",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-options",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-pause",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-pause",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-timestamp",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-timestamp",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-play-to-record",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-play-to-record",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-query",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-query",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-record-format-g711",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-record-format-g711",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-record-format-h264-from-disk",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-record-format-h264-from-disk",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-record-format-klv",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-record-format-klv",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-record-format-lpcm",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-record-format-lpcm",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/client-record-format-mjpeg",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/client-record-format-mjpeg",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/proxy",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/proxy",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/proxy-backchannel",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/proxy-backchannel",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/server",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-auth",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/server-auth",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-play-backchannel",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/server-play-backchannel",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-play-format-h264-from-disk",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/server-play-format-h264-from-disk",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-record-format-h264-to-disk",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/server-record-format-h264-to-disk",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/bluenviron/gortsplib/v5@v5.5.3/examples/server-secure",
+      "module": "github.com/bluenviron/gortsplib/v5@v5.5.3",
+      "pkg": "./examples/server-secure",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/go-playground/universal-translator@v0.18.1/_examples/basic",
+      "module": "github.com/go-playground/universal-translator@v0.18.1",
+      "pkg": "./_examples/basic",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/golang-jwt/jwt/v5@v5.3.1/cmd/jwt",
+      "module": "github.com/golang-jwt/jwt/v5@v5.3.1",
+      "pkg": "./cmd/jwt",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/gorilla/websocket@v1.5.3/examples/autobahn",
+      "module": "github.com/gorilla/websocket@v1.5.3",
+      "pkg": "./examples/autobahn",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/gorilla/websocket@v1.5.3/examples/chat",
+      "module": "github.com/gorilla/websocket@v1.5.3",
+      "pkg": "./examples/chat",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/gorilla/websocket@v1.5.3/examples/command",
+      "module": "github.com/gorilla/websocket@v1.5.3",
+      "pkg": "./examples/command",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/gorilla/websocket@v1.5.3/examples/filewatch",
+      "module": "github.com/gorilla/websocket@v1.5.3",
+      "pkg": "./examples/filewatch",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/matthewhartstonge/argon2@v1.5.3/_example",
+      "module": "github.com/matthewhartstonge/argon2@v1.5.3",
+      "pkg": "./_example",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/matthewhartstonge/argon2@v1.5.3/cmd/argon2",
+      "module": "github.com/matthewhartstonge/argon2@v1.5.3",
+      "pkg": "./cmd/argon2",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/pelletier/go-toml/v2@v2.2.4/cmd/gotoml-test-decoder",
+      "module": "github.com/pelletier/go-toml/v2@v2.2.4",
+      "pkg": "./cmd/gotoml-test-decoder",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/pelletier/go-toml/v2@v2.2.4/cmd/gotoml-test-encoder",
+      "module": "github.com/pelletier/go-toml/v2@v2.2.4",
+      "pkg": "./cmd/gotoml-test-encoder",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/pelletier/go-toml/v2@v2.2.4/cmd/jsontoml",
+      "module": "github.com/pelletier/go-toml/v2@v2.2.4",
+      "pkg": "./cmd/jsontoml",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/pelletier/go-toml/v2@v2.2.4/cmd/tomljson",
+      "module": "github.com/pelletier/go-toml/v2@v2.2.4",
+      "pkg": "./cmd/tomljson",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/pelletier/go-toml/v2@v2.2.4/cmd/tomll",
+      "module": "github.com/pelletier/go-toml/v2@v2.2.4",
+      "pkg": "./cmd/tomll",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/pelletier/go-toml/v2@v2.2.4/cmd/tomltestgen",
+      "module": "github.com/pelletier/go-toml/v2@v2.2.4",
+      "pkg": "./cmd/tomltestgen",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/pion/rtp@v1.10.2/examples/send-h264",
+      "module": "github.com/pion/rtp@v1.10.2",
+      "pkg": "./examples/send-h264",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/pion/sctp@v1.9.5/examples/ping-pong/ping",
+      "module": "github.com/pion/sctp@v1.9.5",
+      "pkg": "./examples/ping-pong/ping",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/pion/sctp@v1.9.5/examples/ping-pong/pong",
+      "module": "github.com/pion/sctp@v1.9.5",
+      "pkg": "./examples/ping-pong/pong",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/pion/webrtc/v4@v4.2.12/examples",
+      "module": "github.com/pion/webrtc/v4@v4.2.12",
+      "pkg": "./examples",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/quic-go/quic-go@v0.59.0/fuzzing/header/cmd",
+      "module": "github.com/quic-go/quic-go@v0.59.0",
+      "pkg": "./fuzzing/header/cmd",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/quic-go/quic-go@v0.59.0/fuzzing/transportparameters/cmd",
+      "module": "github.com/quic-go/quic-go@v0.59.0",
+      "pkg": "./fuzzing/transportparameters/cmd",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/xo/terminfo@v0.0.0-20220910002029-abceb7e1c41e",
+      "module": "github.com/xo/terminfo@v0.0.0-20220910002029-abceb7e1c41e",
+      "pkg": "./",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/xo/terminfo@v0.0.0-20220910002029-abceb7e1c41e/_examples",
+      "module": "github.com/xo/terminfo@v0.0.0-20220910002029-abceb7e1c41e",
+      "pkg": "./_examples",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:github.com/xo/terminfo@v0.0.0-20220910002029-abceb7e1c41e/cmd/infocmp",
+      "module": "github.com/xo/terminfo@v0.0.0-20220910002029-abceb7e1c41e",
+      "pkg": "./cmd/infocmp",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/net@v0.54.0/html/atom",
+      "module": "golang.org/x/net@v0.54.0",
+      "pkg": "./html/atom",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/net@v0.54.0/http2/h2i",
+      "module": "golang.org/x/net@v0.54.0",
+      "pkg": "./http2/h2i",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/net@v0.54.0/http2/hpack",
+      "module": "golang.org/x/net@v0.54.0",
+      "pkg": "./http2/hpack",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/net@v0.54.0/ipv4",
+      "module": "golang.org/x/net@v0.54.0",
+      "pkg": "./ipv4",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/net@v0.54.0/ipv6",
+      "module": "golang.org/x/net@v0.54.0",
+      "pkg": "./ipv6",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/net@v0.54.0/publicsuffix",
+      "module": "golang.org/x/net@v0.54.0",
+      "pkg": "./publicsuffix",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/net@v0.54.0/webdav",
+      "module": "golang.org/x/net@v0.54.0",
+      "pkg": "./webdav",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/sys@v0.44.0/unix",
+      "module": "golang.org/x/sys@v0.44.0",
+      "pkg": "./unix",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/sys@v0.44.0/windows/mkwinsyscall",
+      "module": "golang.org/x/sys@v0.44.0",
+      "pkg": "./windows/mkwinsyscall",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/sys@v0.46.0/unix",
+      "module": "golang.org/x/sys@v0.46.0",
+      "pkg": "./unix",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/sys@v0.46.0/windows/mkwinsyscall",
+      "module": "golang.org/x/sys@v0.46.0",
+      "pkg": "./windows/mkwinsyscall",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/cases",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./cases",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/cmd/gotext/examples/extract",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./cmd/gotext/examples/extract",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/cmd/gotext/examples/extract_http",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./cmd/gotext/examples/extract_http",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/cmd/gotext/examples/rewrite",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./cmd/gotext/examples/rewrite",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/collate",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./collate",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/collate/tools/colcmp",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./collate/tools/colcmp",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/currency",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./currency",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/date",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./date",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/encoding/charmap",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./encoding/charmap",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/encoding/htmlindex",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./encoding/htmlindex",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/encoding/ianaindex",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./encoding/ianaindex",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/encoding/japanese",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./encoding/japanese",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/encoding/korean",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./encoding/korean",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/encoding/simplifiedchinese",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./encoding/simplifiedchinese",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/encoding/traditionalchinese",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./encoding/traditionalchinese",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/feature/plural",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./feature/plural",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/language",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./language",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/language/display",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./language/display",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/secure/precis",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./secure/precis",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/unicode/bidi",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./unicode/bidi",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/unicode/cldr",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./unicode/cldr",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/unicode/norm",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./unicode/norm",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/unicode/rangetable",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./unicode/rangetable",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/unicode/runenames",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./unicode/runenames",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:golang.org/x/text@v0.37.0/width",
+      "module": "golang.org/x/text@v0.37.0",
+      "pkg": "./width",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:google.golang.org/protobuf@v1.36.10/cmd/protoc-gen-go",
+      "module": "google.golang.org/protobuf@v1.36.10",
+      "pkg": "./cmd/protoc-gen-go",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:modernc.org/libc@v1.74.1",
+      "module": "modernc.org/libc@v1.74.1",
+      "pkg": "./",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:modernc.org/sqlite@v1.55.0",
+      "module": "modernc.org/sqlite@v1.55.0",
+      "pkg": "./",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:modernc.org/sqlite@v1.55.0/examples/example1",
+      "module": "modernc.org/sqlite@v1.55.0",
+      "pkg": "./examples/example1",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:modernc.org/sqlite@v1.55.0/examples/vtab_basic",
+      "module": "modernc.org/sqlite@v1.55.0",
+      "pkg": "./examples/vtab_basic",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:modernc.org/sqlite@v1.55.0/examples/vtab_csv",
+      "module": "modernc.org/sqlite@v1.55.0",
+      "pkg": "./examples/vtab_csv",
+      "set": "eval"
+    },
+    {
+      "kind": "go",
+      "id": "go:modernc.org/sqlite@v1.55.0/examples/vtab_match",
+      "module": "modernc.org/sqlite@v1.55.0",
+      "pkg": "./examples/vtab_match",
+      "set": "dev"
+    },
+    {
+      "kind": "go",
+      "id": "go:modernc.org/sqlite@v1.55.0/examples/vtab_regexp",
+      "module": "modernc.org/sqlite@v1.55.0",
+      "pkg": "./examples/vtab_regexp",
+      "set": "eval"
+    },
+    {
+      "kind": "c",
+      "id": "c:zstd",
+      "crate": "zstd-sys-2.1.2+zstd.1.5.7",
+      "root": "zstd/lib",
+      "units": [
+        "zstd/lib/common/debug.c",
+        "zstd/lib/common/entropy_common.c",
+        "zstd/lib/common/error_private.c",
+        "zstd/lib/common/fse_decompress.c",
+        "zstd/lib/common/pool.c",
+        "zstd/lib/common/threading.c",
+        "zstd/lib/common/xxhash.c",
+        "zstd/lib/common/zstd_common.c",
+        "zstd/lib/compress/fse_compress.c",
+        "zstd/lib/compress/hist.c",
+        "zstd/lib/compress/huf_compress.c",
+        "zstd/lib/compress/zstd_compress.c",
+        "zstd/lib/compress/zstd_compress_literals.c",
+        "zstd/lib/compress/zstd_compress_sequences.c",
+        "zstd/lib/compress/zstd_compress_superblock.c",
+        "zstd/lib/compress/zstd_double_fast.c",
+        "zstd/lib/compress/zstd_fast.c",
+        "zstd/lib/compress/zstd_lazy.c",
+        "zstd/lib/compress/zstd_ldm.c",
+        "zstd/lib/compress/zstd_opt.c",
+        "zstd/lib/compress/zstd_preSplit.c",
+        "zstd/lib/compress/zstdmt_compress.c",
+        "zstd/lib/decompress/huf_decompress.c",
+        "zstd/lib/decompress/zstd_ddict.c",
+        "zstd/lib/decompress/zstd_decompress.c",
+        "zstd/lib/decompress/zstd_decompress_block.c",
+        "zstd/lib/deprecated/zbuff_common.c",
+        "zstd/lib/deprecated/zbuff_compress.c",
+        "zstd/lib/deprecated/zbuff_decompress.c",
+        "zstd/lib/dictBuilder/divsufsort.c",
+        "zstd/lib/dictBuilder/fastcover.c",
+        "zstd/lib/dictBuilder/zdict.c",
+        "zstd/lib/legacy/zstd_v01.c",
+        "zstd/lib/legacy/zstd_v02.c",
+        "zstd/lib/legacy/zstd_v03.c",
+        "zstd/lib/legacy/zstd_v04.c",
+        "zstd/lib/legacy/zstd_v05.c",
+        "zstd/lib/legacy/zstd_v06.c",
+        "zstd/lib/legacy/zstd_v07.c"
+      ],
+      "set": "eval"
+    },
+    {
+      "kind": "c",
+      "id": "c:quickjs",
+      "crate": "rquickjs-sys-0.14.0",
+      "root": "quickjs",
+      "units": [
+        "quickjs/gen/repl.c",
+        "quickjs/gen/standalone.c"
+      ],
+      "set": "eval"
+    },
+    {
+      "kind": "c",
+      "id": "c:sqlite",
+      "crate": "libsqlite3-sys-0.35.0",
+      "root": "sqlite3",
+      "units": [
+        "sqlite3/sqlite3.c",
+        "sqlite3/wasm32-wasi-vfs.c"
+      ],
+      "set": "dev"
+    },
+    {
+      "kind": "c",
+      "id": "c:freetype",
+      "crate": "freetype-sys-0.20.1",
+      "root": "freetype2/src",
+      "units": [
+        "freetype2/src/autofit/afblue.c",
+        "freetype2/src/autofit/afdummy.c",
+        "freetype2/src/autofit/afindic.c",
+        "freetype2/src/autofit/afranges.c",
+        "freetype2/src/base/ftdbgmem.c",
+        "freetype2/src/base/ftdebug.c",
+        "freetype2/src/base/ftfntfmt.c",
+        "freetype2/src/base/ftfstype.c",
+        "freetype2/src/base/ftgasp.c",
+        "freetype2/src/base/fthash.c",
+        "freetype2/src/base/ftmac.c",
+        "freetype2/src/base/ftpatent.c",
+        "freetype2/src/base/ftsynth.c",
+        "freetype2/src/base/fttrigon.c",
+        "freetype2/src/base/md5.c",
+        "freetype2/src/cache/ftccmap.c",
+        "freetype2/src/cache/ftcglyph.c",
+        "freetype2/src/cache/ftcimage.c",
+        "freetype2/src/cache/ftcmru.c",
+        "freetype2/src/cid/cidriver.c",
+        "freetype2/src/dlg/dlg.c",
+        "freetype2/src/dlg/dlgwrap.c",
+        "freetype2/src/gxvalid/gxvmorx4.c",
+        "freetype2/src/gzip/adler32.c",
+        "freetype2/src/gzip/inffast.c",
+        "freetype2/src/gzip/inftrees.c",
+        "freetype2/src/pcf/pcfutil.c",
+        "freetype2/src/psaux/psauxmod.c",
+        "freetype2/src/psaux/psblues.c",
+        "freetype2/src/psaux/psconv.c",
+        "freetype2/src/psaux/pserror.c",
+        "freetype2/src/psaux/psfont.c",
+        "freetype2/src/psaux/pshints.c",
+        "freetype2/src/pshinter/pshalgo.c",
+        "freetype2/src/pshinter/pshglob.c",
+        "freetype2/src/pshinter/pshmod.c",
+        "freetype2/src/sdf/ftsdfcommon.c",
+        "freetype2/src/sfnt/ttmtx.c",
+        "freetype2/src/sfnt/woff2tags.c",
+        "freetype2/src/type1/t1driver.c",
+        "freetype2/src/type42/t42drivr.c"
+      ],
+      "set": "dev"
+    },
+    {
+      "kind": "c",
+      "id": "c:aws-lc",
+      "crate": "aws-lc-sys-0.40.0",
+      "root": "aws-lc/crypto",
+      "units": [
+        "aws-lc/crypto/fipsmodule/bn/rsaz_exp_x2.c",
+        "aws-lc/crypto/fipsmodule/cpucap/cpu_aarch64.c",
+        "aws-lc/crypto/fipsmodule/fips_shared_support.c"
+      ],
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:@gar/promise-retry",
+      "entry": "@gar/promise-retry/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@isaacs/fs-minipass",
+      "entry": "@isaacs/fs-minipass/dist/commonjs/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/agent",
+      "entry": "@npmcli/agent/lib/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/arborist",
+      "entry": "@npmcli/arborist/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/config",
+      "entry": "@npmcli/config/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/fs",
+      "entry": "@npmcli/fs/lib/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/git",
+      "entry": "@npmcli/git/lib/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/installed-package-contents",
+      "entry": "@npmcli/installed-package-contents/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/map-workspaces",
+      "entry": "@npmcli/map-workspaces/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/metavuln-calculator",
+      "entry": "@npmcli/metavuln-calculator/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/package-json",
+      "entry": "@npmcli/package-json/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/promise-spawn",
+      "entry": "@npmcli/promise-spawn/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/query",
+      "entry": "@npmcli/query/lib/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/redact",
+      "entry": "@npmcli/redact/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@npmcli/run-script",
+      "entry": "@npmcli/run-script/lib/run-script.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:@sigstore/bundle",
+      "entry": "@sigstore/bundle/dist/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@sigstore/core",
+      "entry": "@sigstore/core/dist/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@sigstore/protobuf-specs",
+      "entry": "@sigstore/protobuf-specs/dist/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@sigstore/sign",
+      "entry": "@sigstore/sign/dist/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@sigstore/tuf",
+      "entry": "@sigstore/tuf/dist/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@sigstore/verify",
+      "entry": "@sigstore/verify/dist/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:@tufjs/models",
+      "entry": "@tufjs/models/dist/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:agent-base",
+      "entry": "agent-base/dist/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:bin-links",
+      "entry": "bin-links/lib/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:brace-expansion",
+      "entry": "brace-expansion/dist/commonjs/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:cacache",
+      "entry": "cacache/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:chalk",
+      "entry": "chalk/source/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:ci-info",
+      "entry": "ci-info/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:cmd-shim",
+      "entry": "cmd-shim/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:debug",
+      "entry": "debug/src/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:diff",
+      "entry": "diff/libcjs/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:exponential-backoff",
+      "entry": "exponential-backoff/dist/backoff.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:fs-minipass",
+      "entry": "fs-minipass/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:glob",
+      "entry": "glob/dist/commonjs/index.min.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:graceful-fs",
+      "entry": "graceful-fs/graceful-fs.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:hosted-git-info",
+      "entry": "hosted-git-info/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:http-cache-semantics",
+      "entry": "http-cache-semantics/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:http-proxy-agent",
+      "entry": "http-proxy-agent/dist/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:https-proxy-agent",
+      "entry": "https-proxy-agent/dist/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:iconv-lite",
+      "entry": "iconv-lite/lib/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:ignore-walk",
+      "entry": "ignore-walk/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:ini",
+      "entry": "ini/lib/ini.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:init-package-json",
+      "entry": "init-package-json/lib/init-package-json.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:ip-address",
+      "entry": "ip-address/dist/ip-address.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:isexe",
+      "entry": "isexe/dist/commonjs/index.min.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:jsonparse",
+      "entry": "jsonparse/jsonparse.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:just-diff",
+      "entry": "just-diff/index.cjs",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:libnpmaccess",
+      "entry": "libnpmaccess/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:libnpmdiff",
+      "entry": "libnpmdiff/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:libnpmexec",
+      "entry": "libnpmexec/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:libnpmfund",
+      "entry": "libnpmfund/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:libnpmorg",
+      "entry": "libnpmorg/lib/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:libnpmpack",
+      "entry": "libnpmpack/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:libnpmpublish",
+      "entry": "libnpmpublish/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:libnpmsearch",
+      "entry": "libnpmsearch/lib/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:libnpmteam",
+      "entry": "libnpmteam/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:libnpmversion",
+      "entry": "libnpmversion/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:lru-cache",
+      "entry": "lru-cache/dist/commonjs/index.min.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:make-fetch-happen",
+      "entry": "make-fetch-happen/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:minimatch",
+      "entry": "minimatch/dist/commonjs/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:minipass",
+      "entry": "minipass/dist/commonjs/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:minipass-collect",
+      "entry": "minipass-collect/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:minipass-fetch",
+      "entry": "minipass-fetch/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:minipass-flush",
+      "entry": "minipass-flush/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:minipass-pipeline",
+      "entry": "minipass-pipeline/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:minipass-sized",
+      "entry": "minipass-sized/dist/commonjs/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:minizlib",
+      "entry": "minizlib/dist/commonjs/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:negotiator",
+      "entry": "negotiator/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:nopt",
+      "entry": "nopt/lib/nopt.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:npm-audit-report",
+      "entry": "npm-audit-report/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:npm-bundled",
+      "entry": "npm-bundled/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:npm-install-checks",
+      "entry": "npm-install-checks/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:npm-package-arg",
+      "entry": "npm-package-arg/lib/npa.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:npm-packlist",
+      "entry": "npm-packlist/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:npm-pick-manifest",
+      "entry": "npm-pick-manifest/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:npm-profile",
+      "entry": "npm-profile/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:npm-registry-fetch",
+      "entry": "npm-registry-fetch/lib/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:p-map",
+      "entry": "p-map/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:pacote",
+      "entry": "pacote/lib/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:parse-conflict-json",
+      "entry": "parse-conflict-json/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:path-scurry",
+      "entry": "path-scurry/dist/commonjs/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:postcss-selector-parser",
+      "entry": "postcss-selector-parser/dist/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:proggy",
+      "entry": "proggy/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:promzard",
+      "entry": "promzard/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:qrcode-terminal",
+      "entry": "qrcode-terminal/lib/main.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:read",
+      "entry": "read/dist/commonjs/read.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:semver",
+      "entry": "semver/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:signal-exit",
+      "entry": "signal-exit/dist/cjs/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:sigstore",
+      "entry": "sigstore/dist/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:smart-buffer",
+      "entry": "smart-buffer/build/smartbuffer.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:socks",
+      "entry": "socks/build/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:socks-proxy-agent",
+      "entry": "socks-proxy-agent/dist/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:spdx-expression-parse",
+      "entry": "spdx-expression-parse/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:ssri",
+      "entry": "ssri/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:supports-color",
+      "entry": "supports-color/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:tar",
+      "entry": "tar/dist/commonjs/index.min.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:tiny-relative-date",
+      "entry": "tiny-relative-date/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:tinyglobby",
+      "entry": "tinyglobby/dist/index.cjs",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:treeverse",
+      "entry": "treeverse/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:tuf-js",
+      "entry": "tuf-js/dist/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:undici",
+      "entry": "undici/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:validate-npm-package-name",
+      "entry": "validate-npm-package-name/lib/index.js",
+      "set": "dev"
+    },
+    {
+      "kind": "js",
+      "id": "js:which",
+      "entry": "which/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:write-file-atomic",
+      "entry": "write-file-atomic/lib/index.js",
+      "set": "eval"
+    },
+    {
+      "kind": "js",
+      "id": "js:yallist",
+      "entry": "yallist/dist/commonjs/index.js",
+      "set": "eval"
+    }
+  ]
+}
