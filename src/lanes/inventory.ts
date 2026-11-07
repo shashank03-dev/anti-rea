@@ -126,7 +126,9 @@ function inventoryBuilder(limits: Limits) {
 export function buildInventory(manifest: Manifest, baseDir: string, limits: Limits = DEFAULT_LIMITS): Inventory {
   const b = inventoryBuilder(limits);
   for (const root of manifest.releaseClosure.roots) {
-    const label = root.replace(/\/+$/, "");
+    // Labels are posix: every path-based rule (attribution, private globs, analyzers) splits on "/".
+    // A Windows-style root ("release\\App") must label its items exactly like "release/App".
+    const label = root.replace(/\\/g, "/").replace(/\/+$/, "");
     const absRoot = resolve(baseDir, root);
     if (!existsSync(absRoot) || !statSync(absRoot).isDirectory()) {
       b.notes.push(`release root "${root}" does not exist or is not a directory`);
@@ -256,7 +258,7 @@ export function inventoryLane(manifest: Manifest, inv: Inventory, startedAt: str
     limitations: [
       "Byte identity only: sha256 identifies bytes, it does not authenticate build context (use SLSA-style provenance for that).",
       "Only content under the declared roots is covered; remotely delivered modules, CDN assets and runtime downloads are out of scope unless placed under a root.",
-      ...(unsup.length > 0 ? [`${unsup.length} artifact(s) could not be inspected and remain UNKNOWN.`] : []),
+      ...(unsup.length > 0 ? [`${unsup.length} artifact(s) could not be inspected and remain UNKNOWN (${unsup.slice(0, 3).map((u) => `${u.ref.path}: ${u.unsupportedReason ?? "not inspected"}`).join("; ")}${unsup.length > 3 ? `; and ${unsup.length - 3} more` : ""}).`] : []),
     ],
     findings,
     startedAt,

@@ -4,6 +4,8 @@ import { ALL_GATES, DEFAULT_GATES, KNOWN_LANES } from "../model/policy.js";
 import { locationText } from "./report.js";
 import type { AppliedException, EvidenceRecord, Finding, GateResult, LaneStatus, ReleaseDecision } from "../model/evidence.js";
 
+const clip = (s: string, n: number) => (s.length > n ? `${s.slice(0, n - 1)}…` : s);
+
 /**
  * Hard-gate evaluation (doc §10.2). There is no score and nothing can offset a
  * blocking finding except an explicit, owned, scoped, unexpired exception —
@@ -56,7 +58,8 @@ export function evaluateGates(
       .flatMap((r) => r.limitations.map((l) => (r.assetId ? `[${r.assetId}] ${l}` : l)));
     all.push({
       id: `${lane}/required-lane-${st}`,
-      title: `Required lane "${lane}" ${st === "not-run" ? "did not run" : "is inconclusive"}`,
+      // The one-line reason is what a release owner reads first: say WHY and how to resolve it, not just that it happened.
+      title: `Required lane "${lane}" ${st === "not-run" ? "did not run" : "is inconclusive"}${why.length > 0 ? `: ${clip(why[0]!, 220)}` : ""} — fix the cause, or record a policy exception { gate: "requiredLaneInconclusive", lane: "${lane}" } with owner, scope, rationale and expiry`,
       severity: "high",
       confidence: "confirmed",
       gate: "requiredLaneInconclusive",
@@ -100,7 +103,8 @@ export function evaluateGates(
     for (const f of blocking) {
       const locs = grouped.get(f.title) ?? [];
       const t = locationText(f);
-      if (t) locs.push(t);
+      // A universal binary yields one finding per architecture slice at the same path: list the path once.
+      if (t && !locs.includes(t)) locs.push(t);
       grouped.set(f.title, locs);
     }
     for (const [title, locs] of grouped) blockingReasons.push(`[${gate}] ${title}${locs.length ? ` @ ${locs.join(", ")}` : ""}`);

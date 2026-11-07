@@ -1,8 +1,8 @@
 {
   "name": "anti-rea",
-  "version": "0.8.0",
+  "version": "0.1.0",
   "description": "Anti-REA: a defensive release-assurance engine. Inventories what a build actually ships, detects declared server-only secrets that leaked into the distribution, checks asset placement, records evidence with explicit result states, enforces hard release gates, and (v0.8) reports what a reverse-engineering tool would recover from a release.",
-  "license": "Apache-2.0",
+  "license": "SEE LICENSE IN LICENSE",
   "type": "module",
   "bin": {
     "anti-rea": "build/src/cli.js",

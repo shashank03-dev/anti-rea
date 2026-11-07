@@ -28,6 +28,12 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: npm
+      - name: Install differential reference tools (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq libarchive-tools lz4 zstd xz-utils bzip2 zip unzip binutils llvm
+      - name: Install differential reference tools (macOS)
+        if: runner.os == 'macOS'
+        run: brew install lz4 zstd xz || true
       - run: npm ci
       # Builds (strict tsc) and runs every unit, pipeline, regression, fuzz and differential test.
       # Differential tests skip themselves where the reference tool (codesign, hdiutil, xz, …) is absent.

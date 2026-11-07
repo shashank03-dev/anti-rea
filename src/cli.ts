@@ -1,8 +1,9 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync, statSync, writeFileSync } from "node:fs";
-import { dirname, resolve, sep } from "node:path";
+import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { dirname, isAbsolute, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
-import { ConfigError, loadManifest, loadPolicy } from "./util/io.js";
+import { ConfigError, loadManifest, loadPolicy, validateManifest, validatePolicy } from "./util/io.js";
+import { scaffold } from "./engine/init.js";
 import { nowIso, setClock } from "./util/clock.js";
 import { assure } from "./engine/evaluate.js";
 import { renderSummary, writeReport } from "./engine/report.js";
@@ -50,6 +51,11 @@ Usage:
       a directory or a single file; or point at a manifest's release closure. Writes exposure.json +
       exposure.md. Owner findings rank first; third-party findings are collapsed unless --include-third-party.
       Trips no gate. Exit code: 0 advisory, 2 if --fail-on <severity> is met by the maximum grade, 1 error.
+
+  anti-rea init <dist-dir> [--out <dir>] [--force]
+      Scaffold anti-rea.manifest.json + anti-rea.policy.json for a build directory, so \`assure\` runs on day one.
+      Platform expectations (macOS signing, Electron fuses, ASAR integrity, Authenticode) are declared only
+      when the build contains code they apply to. You then add your server-only secrets and code markers.
 
   anti-rea inspect --manifest <file> [--json]
       Print platform facts: Mach-O signing (team, hardened runtime, entitlements, page hashes),
@@ -274,6 +280,54 @@ function main(argv: string[]): number {
         else process.stdout.write(`${renderExposureSummary(report)}\nexposure report: ${files.md}\nexposure json: ${files.json}\n`);
       } else process.stdout.write(JSON.stringify(report, null, 2) + "\n");
       if (failOn && report.summary.maxGrade && meetsThreshold(report.summary.maxGrade, failOn)) return EXIT.block;
+      return EXIT.pass;
+    }
+
+    case "init": {
+      if (typeof c1 !== "string") throw new UsageError("init needs the build directory: anti-rea init <dist-dir> [--out <dir>] [--force]");
+      if (flags.out === true) throw new UsageError("--out needs a directory");
+      const rel = resolve(c1);
+      if (!existsSync(rel)) throw new UsageError(`${c1} does not exist`);
+      if (!statSync(rel).isDirectory())
+        throw new UsageError(`${c1} is a file; init needs the directory your build writes (for example dist/). For a single .apk/.ipa/.exe, \`anti-rea expose ${c1}\` needs no setup.`);
+      const outDir = typeof flags.out === "string" ? resolve(flags.out) : resolve(".");
+      // Every byte under a release root ships: a manifest written inside the release would ship with it.
+      if (outDir === rel || outDir.startsWith(rel + sep))
+        throw new UsageError(`${outDir} is inside the release directory ${rel}; run init from (or --out to) a directory outside the build output`);
+      const manifestPath = resolve(outDir, "anti-rea.manifest.json");
+      const policyPath = resolve(outDir, "anti-rea.policy.json");
+      for (const p of [manifestPath, policyPath])
+        if (existsSync(p) && flags.force !== true) throw new UsageError(`${p} already exists; pass --force to overwrite it`);
+
+      const r = inventoryOfPath(rel);
+      const facts = collectPlatformFacts(r.inventory);
+      const electron = facts.fuses.length > 0 || r.inventory.items.some((i) => /\.asar$/i.test(i.ref.path));
+      // A nearby build (the usual `dist/` beside the manifest) gets a portable relative root; a far-away
+      // one (another drive, or 3+ levels up) an absolute path, which reads better than ../../../…
+      const relRoot = relative(outDir, rel).split(sep).join("/");
+      const root = isAbsolute(relRoot) || relRoot.startsWith("../../../") ? rel.split(sep).join("/") : relRoot;
+      const result = scaffold({ root, app: detectApp(r.inventory, r.label), inventory: r.inventory, facts, electron });
+      // The written manifest must load exactly as `assure` will load it.
+      validateManifest(JSON.parse(JSON.stringify(result.manifest)), manifestPath);
+      validatePolicy(JSON.parse(JSON.stringify(result.policy)), policyPath);
+      mkdirSync(outDir, { recursive: true });
+      writeFileSync(manifestPath, JSON.stringify(result.manifest, null, 2) + "\n");
+      writeFileSync(policyPath, JSON.stringify(result.policy, null, 2) + "\n");
+
+      const show = (p: string) => {
+        const r = relative(process.cwd(), p);
+        return r && !r.startsWith("..") && !isAbsolute(r) ? r : p;
+      };
+      const lines = [
+        `anti-rea init: ${result.manifest.application.name} ${result.manifest.application.version} (${r.inventory.items.length} artifacts under ${root})`,
+        `wrote ${show(manifestPath)} and ${show(policyPath)}`,
+        "declared from what the build contains:",
+        ...result.declared.map((d) => `  - ${d}`),
+        "next:",
+        ...result.nextSteps.map((s, i) => `  ${i + 1}. ${s}`),
+        `  ${result.nextSteps.length + 1}. anti-rea assure --manifest ${show(manifestPath)} --policy ${show(policyPath)} --out anti-rea-report`,
+      ];
+      process.stdout.write(lines.join("\n") + "\n");
       return EXIT.pass;
     }
 

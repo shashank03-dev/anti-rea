@@ -9,6 +9,12 @@ import { DEFAULT_DECODE, decodeLayers } from "./decode.js";
 import type { Inventory, InventoryItem, TextView } from "./types.js";
 import { contentCoverage, isBinary, lineAt, readItem, scannable, textViews, unsupported } from "./types.js";
 
+/** Name the first few uninspectable artifacts and why, so a block message says what to act on. */
+export function nameGaps(unsup: readonly { ref: { path: string }; unsupportedReason?: string }[], n = 3): string {
+  const shown = unsup.slice(0, n).map((u) => `${u.ref.path}: ${u.unsupportedReason ?? "not inspected"}`);
+  return shown.join("; ") + (unsup.length > n ? `; and ${unsup.length - n} more` : "");
+}
+
 /**
  * Exposure lane (doc §11 "Secret exposure"): confirm exact forbidden
  * credentials, and surface unconfirmed credential-shaped leads for triage.
@@ -154,7 +160,7 @@ export function exposureLane(manifest: Manifest, inv: Inventory, startedAt: stri
 
   const coverage = contentCoverage(inv, unsup.map((u) => `${u.ref.path}: ${u.unsupportedReason}`));
   const gapLimitation =
-    unsup.length > 0 ? [`${unsup.length} artifact(s) could not be inspected; absence of a secret in those bytes is UNKNOWN.`] : [];
+    unsup.length > 0 ? [`${unsup.length} artifact(s) could not be inspected (${nameGaps(unsup)}); absence of a secret in those bytes is UNKNOWN.`] : [];
   const records: EvidenceRecord[] = [];
   const staticLimitation =
     "Static byte inspection only: secrets assembled at runtime, encrypted, compressed in an unsupported format, encoded beyond two layers of base64/hex/percent-encoding, split across literals, or fetched remotely are not detected.";

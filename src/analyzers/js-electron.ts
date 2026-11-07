@@ -11,6 +11,9 @@ import type { Analyzer, AnalyzerContext, ItemContext, ProfileTags, RawFinding } 
  */
 
 const JS = /\.(?:m?js|cjs)$/i;
+const MAX_JS_SCAN = 256 * 1024 * 1024;
+/** Every ELECTRON match contains one of these literal tokens. */
+const ELECTRON_TOKENS = ["electron", "webPreferences", "ipcMain", "ipcRenderer", "contextBridge", "BrowserWindow"].map((t) => Buffer.from(t));
 const ELECTRON = /require\(\s*['"]electron['"]\s*\)|from\s+['"]electron['"]|\b(?:webPreferences|ipcMain|ipcRenderer|contextBridge|BrowserWindow)\b/;
 /**
  * The second argument IS the object itself — `exposeInMainWorld('x', ipcRenderer)` or
@@ -32,7 +35,12 @@ export const jsElectron: Analyzer = {
     if (ctx.scope !== "item") return false;
     const { item, bytes } = ctx as ItemContext;
     if (!JS.test(item.ref.path) || isBinary(bytes)) return false;
-    return ELECTRON.test(bytes.toString("utf8", 0, Math.min(bytes.length, 1 << 20)));
+    // The WHOLE file (bounded): a bundler places the entry module — the one that requires electron and builds
+    // the BrowserWindow — at the END of the bundle, after its dependencies. A head-only check skipped every
+    // Electron main bundle larger than the head.
+    // Raw-byte token search first (no decode): most shipped JS is not Electron main/preload code.
+    if (!ELECTRON_TOKENS.some((t) => bytes.indexOf(t) !== -1)) return false;
+    return ELECTRON.test(bytes.toString("utf8", 0, Math.min(bytes.length, MAX_JS_SCAN)));
   },
 
   profile(): ProfileTags {

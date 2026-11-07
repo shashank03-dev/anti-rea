@@ -163,7 +163,8 @@ test("R11: the CLI refuses to write a report inside a release root", () => {
   assert.match(r.stderr, /inside release root/);
 });
 
-test("R12: unreadable files become coverage gaps instead of crashes", { skip: process.getuid?.() === 0 }, () => {
+// Windows has no POSIX mode bits: chmod 0o000 only sets the read-only attribute and the file stays readable.
+test("R12: unreadable files become coverage gaps instead of crashes", { skip: process.getuid?.() === 0 || process.platform === "win32" }, () => {
   const dir = tmp();
   put(dir, "rel/ok.js", "ok");
   put(dir, "rel/locked.bin", "secret?");

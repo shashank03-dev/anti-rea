@@ -50,6 +50,13 @@ export interface PeInfo {
   /** An Authenticode certificate table (data directory 4) is present (presence only; chain not validated). */
   readonly authenticode: boolean;
   readonly debug: readonly PeDebugInfo[];
+  /**
+   * Section names, with COFF long names ("/<offset>" into the string table) resolved. MinGW and Go write
+   * DWARF as `.debug_*` sections (Go: zlib-compressed `.zdebug_*`), whose names need the string table.
+   */
+  readonly sectionNames: readonly string[];
+  /** COFF symbol-table entries (NumberOfSymbols). Images normally carry none; MinGW and Go keep them unless stripped. */
+  readonly symbolCount: number;
   readonly imports: readonly string[];
   readonly errors: readonly string[];
 }
@@ -93,10 +100,22 @@ export function readPe(b: Buffer): PeInfo {
   // sections (for RVA → file offset)
   const secStart = opt + sizeOptional;
   const sections: { rva: number; vsize: number; raw: number; rawSize: number }[] = [];
+  const sectionNames: string[] = [];
+  // COFF string table: immediately after the symbol table (PointerToSymbolTable + 18 * NumberOfSymbols).
+  const symPtr = u32(coff + 8);
+  const strTab = symPtr > 0 ? symPtr + u32(coff + 12) * 18 : 0;
   for (let i = 0; i < Math.min(numSections, 96); i++) {
     const o = secStart + i * 40;
     if (!ok(o, 40)) break;
     sections.push({ rva: u32(o + 12), vsize: u32(o + 8), raw: u32(o + 20), rawSize: u32(o + 16) });
+    const raw8 = b.subarray(o, o + 8);
+    const nul = raw8.indexOf(0);
+    let name = raw8.toString("latin1", 0, nul === -1 ? 8 : nul);
+    if (/^\/\d+$/.test(name) && strTab > 0) {
+      const at = strTab + Number(name.slice(1));
+      if (ok(at, 1)) name = cstr(at, 256);
+    }
+    sectionNames.push(name);
   }
   const toOffset = (rva: number): number => {
     for (const s of sections) if (rva >= s.rva && rva < s.rva + Math.max(s.vsize, s.rawSize)) return rva - s.rva + s.raw;
@@ -169,6 +188,8 @@ export function readPe(b: Buffer): PeInfo {
     clr: dir(14).rva !== 0 && dir(14).size !== 0,
     authenticode: dir(4).rva !== 0 && dir(4).size > 8,
     debug,
+    sectionNames,
+    symbolCount: symPtr > 0 && ok(symPtr, 1) ? u32(coff + 12) : 0,
     imports,
     errors,
   };

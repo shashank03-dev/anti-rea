@@ -27,6 +27,19 @@ function has(cmd: string): boolean {
   return spawnSync("/usr/bin/which", [cmd]).status === 0;
 }
 
+/**
+ * The tar differentials compare against libarchive's bsdtar (macOS `tar`; `bsdtar` from libarchive-tools on
+ * Linux). GNU tar rejects bsdtar's flags, so it must not stand in silently: no bsdtar means the test is skipped.
+ */
+const BSDTAR: string | null = (() => {
+  for (const cmd of ["bsdtar", "tar"]) {
+    const r = spawnSync(cmd, ["--version"], { encoding: "utf8" });
+    if (r.status === 0 && /bsdtar/.test(r.stdout)) return cmd;
+  }
+  return null;
+})();
+const tarCmd = () => BSDTAR!;
+
 function listFiles(root: string): Map<string, string> {
   const out = new Map<string, string>();
   const walk = (d: string) => {
@@ -126,33 +139,33 @@ test("zip: writer output passes `unzip -t` and extracts identically", { skip: !h
   assert.deepEqual(listFiles(x), files);
 });
 
-test("tar: reader matches bsdtar in pax, gnutar and ustar formats, and gzip", { skip: !has("tar") }, () => {
+test("tar: reader matches bsdtar in pax, gnutar and ustar formats, and gzip", { skip: !BSDTAR }, () => {
   const { dir, files } = corpus();
   const src = join(dir, "src");
   for (const fmt of ["pax", "gnutar"]) {
     const out = join(dir, `${fmt}.tar`);
-    execFileSync("tar", ["--format", fmt, "--no-mac-metadata", "-cf", out, "."], { cwd: src });
+    execFileSync(tarCmd(), ["--format", fmt, "--no-mac-metadata", "-cf", out, "."], { cwd: src });
     assertSameEntries(`tar ${fmt}`, ok(expand("tar", out, readFileSync(out), DEFAULT_LIMITS)), files);
   }
   // With macOS metadata on, bsdtar writes AppleDouble `._*` members; they are real shipped bytes and must be surfaced.
   const mac = join(dir, "mac.tar");
-  execFileSync("tar", ["--format", "pax", "-cf", mac, "lib/lib.d.ts"], { cwd: src });
+  execFileSync(tarCmd(), ["--format", "pax", "-cf", mac, "lib/lib.d.ts"], { cwd: src });
   const macNames = ok(expand("tar", mac, readFileSync(mac), DEFAULT_LIMITS)).map((e) => e.name);
   assert.ok(macNames.includes("lib/lib.d.ts"));
   // ustar cannot represent every long path; compare only the files it accepted.
   const ustar = join(dir, "u.tar");
-  spawnSync("tar", ["--format", "ustar", "--no-mac-metadata", "-cf", ustar, "lib"], { cwd: src });
+  spawnSync(tarCmd(), ["--format", "ustar", "--no-mac-metadata", "-cf", ustar, "lib"], { cwd: src });
   const uFiles = new Map([...files].filter(([k]) => k.startsWith("lib/")));
   assertSameEntries("tar ustar", ok(expand("tar", ustar, readFileSync(ustar), DEFAULT_LIMITS)), uFiles);
 
   const tgz = join(dir, "x.tgz");
-  execFileSync("tar", ["--no-mac-metadata", "-czf", tgz, "."], { cwd: src });
+  execFileSync(tarCmd(), ["--no-mac-metadata", "-czf", tgz, "."], { cwd: src });
   const g = expand("gzip", "x.tgz", readFileSync(tgz), DEFAULT_LIMITS);
   assert.ok(g.ok && g.kind === "tar");
   assertSameEntries("tgz", ok(g), files);
 });
 
-test("tar: writer output is listed and extracted identically by bsdtar", { skip: !has("tar") }, () => {
+test("tar: writer output is listed and extracted identically by bsdtar", { skip: !BSDTAR }, () => {
   const { dir, files } = corpus();
   const src = join(dir, "src");
   const short = [...files.keys()].filter((p) => p.length < 100);
@@ -160,12 +173,12 @@ test("tar: writer output is listed and extracted identically by bsdtar", { skip:
   writeFileSync(out, writeTar(short.map((p) => ({ path: p, data: readFileSync(join(src, p)) }))));
   const x = join(dir, "x");
   mkdirSync(x);
-  execFileSync("tar", ["-xf", out, "-C", x]);
+  execFileSync(tarCmd(), ["-xf", out, "-C", x]);
   const got = listFiles(x);
   for (const p of short) assert.equal(got.get(p), files.get(p), p);
 });
 
-test("compressed tarballs from real tools (bzip2, xz, lzma, zstd) expand to identical entries", { skip: !has("tar") }, () => {
+test("compressed tarballs from real tools (bzip2, xz, lzma, zstd) expand to identical entries", { skip: !BSDTAR }, () => {
   const { dir, files } = corpus();
   const src = join(dir, "src");
   const cases: [string, string[]][] = [
@@ -174,23 +187,27 @@ test("compressed tarballs from real tools (bzip2, xz, lzma, zstd) expand to iden
     ["x.tar.lzma", ["--lzma", "-cf"]],
     ["x.tar.zst", ["--zstd", "-cf"]],
   ];
+  let checked = 0;
   for (const [name, flags] of cases) {
     const out = join(dir, name);
-    const r = spawnSync("tar", ["--no-mac-metadata", ...flags, out, "."], { cwd: src });
+    const r = spawnSync(tarCmd(), ["--no-mac-metadata", ...flags, out, "."], { cwd: src });
     if (r.status !== 0) continue; // this bsdtar lacks the compressor
+    checked++;
     const c = classify(name, readFileSync(out));
     assert.equal(c.type, "container", `${name}: ${JSON.stringify(c)}`);
     const ex = expand((c as { kind: Parameters<typeof expand>[0] }).kind, name, readFileSync(out), DEFAULT_LIMITS);
     assert.ok(ex.ok && ex.kind === "tar", `${name}: ${JSON.stringify(ex.ok ? ex.kind : ex.reason)}`);
     assertSameEntries(name, ok(ex), files);
   }
+  // A bsdtar that can write none of these formats must not turn this test into a silent pass.
+  assert.ok(checked > 0, "bsdtar wrote none of bzip2/xz/lzma/zstd tarballs; install the compressors or skip explicitly");
 });
 
-test("xz with BCJ/delta filters, multiple blocks and concatenated streams matches xz(1)", { skip: !has("xz") }, () => {
+test("xz with BCJ/delta filters, multiple blocks and concatenated streams matches xz(1)", { skip: !has("xz") || !BSDTAR }, () => {
   const { dir } = corpus();
   const src = join(dir, "src");
   const tarPath = join(dir, "plain.tar");
-  execFileSync("tar", ["--format", "pax", "--no-mac-metadata", "-cf", tarPath, "lib"], { cwd: src });
+  execFileSync(tarCmd(), ["--format", "pax", "--no-mac-metadata", "-cf", tarPath, "lib"], { cwd: src });
   const tarBytes = readFileSync(tarPath);
   const variants: string[][] = [["--x86", "--lzma2=preset=6"], ["--delta=dist=4", "--lzma2"], ["-T4", "--block-size=1MiB"], ["-0", "--check=sha256"], ["-9e", "--check=none"]];
   for (const v of variants) {
@@ -235,11 +252,11 @@ test("ar archives written by ar(1) (the .deb container) expand to identical memb
   assertSameEntries("ar", ok(ex).filter((e) => !e.name.startsWith("__.SYMDEF")), expected);
 });
 
-test("lz4 frames from lz4(1) (default, HC, linked blocks, block checksums, legacy) decode identically", { skip: !has("lz4") }, () => {
+test("lz4 frames from lz4(1) (default, HC, linked blocks, block checksums, legacy) decode identically", { skip: !has("lz4") || !BSDTAR }, () => {
   const { dir } = corpus();
   const src = join(dir, "src");
   const tarPath = join(dir, "plain.tar");
-  execFileSync("tar", ["--format", "pax", "--no-mac-metadata", "-cf", tarPath, "lib"], { cwd: src });
+  execFileSync(tarCmd(), ["--format", "pax", "--no-mac-metadata", "-cf", tarPath, "lib"], { cwd: src });
   const tarBytes = readFileSync(tarPath);
   for (const flags of [[], ["-9", "--no-frame-crc"], ["-BD", "-B4", "--content-size"], ["-BX", "-B5"], ["-l"]]) {
     const lz = execFileSync("lz4", ["-q", "-c", ...flags, tarPath], { maxBuffer: 1 << 30 });

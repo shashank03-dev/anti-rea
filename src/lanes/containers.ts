@@ -112,7 +112,7 @@ export function classify(name: string, buf: Buffer): Classification {
   if (/\.(lzma|tlz)$/i.test(name) && looksLikeLzmaAlone(buf)) return { type: "container", kind: "lzma" };
   if (ascii(buf, "!<arch>\n")) return { type: "container", kind: "ar" };
   if (looksLikeLz4(buf)) return { type: "container", kind: "lz4" };
-  if (has(buf, [0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1])) return { type: "opaque", format: "OLE compound file (MSI)" };
+  if (has(buf, [0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1])) return { type: "opaque", format: "OLE compound file (MSI installer or legacy Office .doc/.xls/.ppt)" };
   if (ascii(buf, "xar!")) return { type: "opaque", format: "xar (macOS .pkg)" };
   if (ascii(buf, "MSCF")) return { type: "opaque", format: "Cabinet" };
   if (ascii(buf, "hsqs") || ascii(buf, "sqsh")) return { type: "opaque", format: "squashfs" };

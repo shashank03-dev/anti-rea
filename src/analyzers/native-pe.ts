@@ -53,6 +53,14 @@ export const nativePe: Analyzer = {
       if (d.pdbPath)
         out.push({ analyzerId: this.id, rubricId: "metadata/build", title: "CodeView debug directory names a PDB build path", recovers: `the PDB path recorded at link time (${d.pdbPath}), which leaks the build-machine layout, user name and project name`, remediation: "link with `/PDBALTPATH:%_PDB%` (file name only) or build in a neutral directory; keep the .pdb on your symbol server", avoidable: true, path, coverage: "full", detail: `${where}: RSDS guid ${d.guid ?? "?"} age ${d.age ?? "?"}` });
 
+    // DWARF in a PE image: MinGW (`gcc -g`) writes `.debug_*`, the Go linker zlib-compressed `.zdebug_*`.
+    // Ghidra and IDA read both, recovering source-level names, types and line numbers.
+    const dwarf = pe.sectionNames.filter((n) => /^\.z?debug_/.test(n));
+    if (dwarf.length > 0)
+      out.push({ analyzerId: this.id, rubricId: "symbols/debug-info", title: "Embedded DWARF debug information", recovers: `source-level names, types and line numbers (${dwarf.length} section(s): ${dwarf.slice(0, 4).join(", ")}${dwarf.length > 4 ? ", …" : ""})`, remediation: lang === "go" ? "build with `-ldflags=\"-s -w\"` (`-w` drops DWARF)" : lang === "rust" ? "set `strip = \"debuginfo\"` (or `\"symbols\"`) in the release profile" : "strip the release image (`strip --strip-debug`, or link without `-g`) and keep the debug copy for symbolication", avoidable: true, path, coverage: "full", detail: `${where}: ${dwarf.join(", ")}` });
+    if (pe.symbolCount > 0)
+      out.push({ analyzerId: this.id, rubricId: "symbols/local", title: "COFF symbol table shipped", recovers: `${pe.symbolCount} COFF symbol-table entries: function and variable names`, remediation: lang === "go" ? "build with `-ldflags=\"-s -w\"` (`-s` drops the symbol table)" : "strip the release image (`strip --strip-all`)", avoidable: true, path, coverage: "full", detail: `${where}: NumberOfSymbols ${pe.symbolCount}` });
+
     const gap = (what: string, title: string, nativeFix: string, recovers: string) => {
       if (lang === "go")
         out.push({ analyzerId: this.id, rubricId: "mitigations/toolchain", title: `${title} (Go toolchain default)`, recovers: `${recovers}; Go is memory-safe and its linker ${what === "cfg" ? "cannot emit Control Flow Guard" : "sets this by default on current versions"}`, remediation: what === "cfg" ? "not available in the Go toolchain; inherent" : "rebuild with a current Go toolchain", avoidable: what !== "cfg", path, coverage: "full", detail: where });
