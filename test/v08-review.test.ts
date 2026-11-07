@@ -144,6 +144,17 @@ test("attribution: the release-root label is not a path segment; vendorRoots and
   assert.ok(!sameVendor("com.acmecorp.helper", "com.acme"));
 });
 
+test("attribution: a Chrome Web Store extension (.crx named by its 32-letter ID) bundled in an app is third-party", () => {
+  const p = emptyProfile();
+  // Seen on a real Electron app: React DevTools shipped inside app.asar set the headline to "owner: critical".
+  assert.equal(attribute("Postman.app/Contents/Resources/app.asar!/services/crx/fmkadmapgofadopljbjfkapdkoienihi.crx!/build/installHook.js.map", p), "third-party");
+  // The owner's own extension under a readable name stays owner, as does anything not inside such a .crx.
+  assert.equal(attribute("App.app/Contents/Resources/app.asar!/ext/acme-helper.crx!/build/main.js.map", p), "owner");
+  assert.equal(attribute("App.app/Contents/Resources/app.asar!/fmkadmapgofadopljbjfkapdkoienihi/main.js.map", p), "owner");
+  // Letters outside a–p cannot be a Web Store ID.
+  assert.equal(attribute("App.app/Contents/Resources/app.asar!/zzkadmapgofadopljbjfkapdkoienihi.crx!/a.js.map", p), "owner");
+});
+
 test("js-electron: process.versions is not wholesale exposure; a { ipcRenderer } object is", () => {
   const benign = `const { contextBridge } = require('electron');
     contextBridge.exposeInMainWorld('versions', { node: () => process.versions.node, chrome: () => process.versions.chrome });`;
@@ -296,4 +307,19 @@ test("structure-preserving fuzz: mutated valid fixtures never throw and stay fas
   }
   assert.ok(runs > 1000);
   assert.ok(Date.now() - started < 60_000, `fuzz took ${Date.now() - started}ms`);
+});
+
+test("cli: --version, -v and `version` print the bare version; no arguments still prints help", async () => {
+  const { spawnSync } = await import("node:child_process");
+  const { fileURLToPath } = await import("node:url");
+  const { TOOL_VERSION } = await import("../src/version.js");
+  const cli = fileURLToPath(new URL("../src/cli.js", import.meta.url));
+  for (const flag of ["--version", "-v", "version"]) {
+    const r = spawnSync(process.execPath, [cli, flag], { encoding: "utf8" });
+    assert.equal(r.status, 0, flag);
+    assert.equal(r.stdout.trim(), TOOL_VERSION, flag);
+  }
+  const help = spawnSync(process.execPath, [cli], { encoding: "utf8" });
+  assert.equal(help.status, 0);
+  assert.match(help.stdout, /^anti-rea .* — release assurance/);
 });

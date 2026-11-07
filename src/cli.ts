@@ -159,6 +159,12 @@ function main(argv: string[]): number {
     setClock(d);
   }
 
+  // `--version` / `-v` with no command is the conventional spelling of `version`.
+  if ((c0 === undefined && flags.version !== undefined) || (c0 === "-v" && cmd.length === 1)) {
+    process.stdout.write(`${TOOL_VERSION}\n`);
+    return EXIT.pass;
+  }
+
   switch (c0) {
     case undefined:
     case "help":

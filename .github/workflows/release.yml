@@ -1,0 +1,36 @@
+# Publishes to npm when a version tag (v1.2.3) is pushed. Nothing runs until you push such a tag.
+# Prerequisites: an NPM_TOKEN repository secret (an npm automation token) and a LICENSE file.
+name: Release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: read
+  id-token: write # npm provenance: links the published tarball to this workflow run
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: "22"
+          registry-url: https://registry.npmjs.org
+          cache: npm
+      - run: npm ci
+      - name: Tag must match package.json version
+        shell: bash
+        run: |
+          want="v$(node -p 'require("./package.json").version')"
+          test "$GITHUB_REF_NAME" = "$want" || { echo "tag $GITHUB_REF_NAME != package version $want"; exit 1; }
+      - name: Refuse to publish without a license
+        shell: bash
+        run: ls LICENSE* >/dev/null 2>&1 || { echo "add a LICENSE file before publishing"; exit 1; }
+      # prepublishOnly runs the full test suite; prepack builds.
+      - run: npm run smoke
+      - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

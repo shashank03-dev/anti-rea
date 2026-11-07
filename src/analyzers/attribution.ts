@@ -48,6 +48,11 @@ const VENDOR_DIR = [
   /(?:^|\/)base_library\.zip\//i,
   /(?:^|\/)(?:jre|jdk)\//i,
   /(?:^|\/)\.cargo\/registry\//,
+  // A Chromium extension packaged under its Chrome Web Store ID (32 letters a–p) is a store-published
+  // build copied into the app — e.g. React DevTools (`fmkadmapgofadopljbjfkapdkoienihi.crx`) bundled by
+  // Electron apps. The ID is an exact structural form, not a name prefix. An owner-built extension
+  // shipped as `my-extension.crx` (or unpacked) stays owner.
+  /(?:^|\/)[a-p]{32}\.crx\//,
 ];
 
 /** Known vendored components, by exact file or bundle name (never by prefix). */

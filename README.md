@@ -31,7 +31,7 @@ From v0.8 it adds an **advisory exposure report** — the defensive mirror of a 
 
 Every conclusion is an evidence record with an explicit result state, coverage, budget and limitations. Hard gates decide the release; no score does.
 
-It has zero runtime dependencies and needs Node ≥ 20. This is the "measurement and evidence system" that the Anti-REA research recommends building first (§1, §14 stage 1).
+It has zero runtime dependencies and needs Node ≥ 22 (Node 20 reached end-of-life in April 2026). This is the "measurement and evidence system" that the Anti-REA research recommends building first (§1, §14 stage 1).
 
 > **Scope.** Anti-REA makes scoped statements about a declared release closure, declared assets and the lanes that ran. It never claims an application "cannot be reverse engineered" (research §3).
 
