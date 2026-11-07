@@ -231,7 +231,8 @@ test("axml codec: truncated and hostile chunk headers never throw", () => {
   for (const c of cases) assert.doesNotThrow(() => readAndroidManifest(c));
 });
 
-test("report markdown: hostile artifact names cannot inject table cells, HTML or links", () => {
+// The hostile names contain | < > which NTFS forbids in file names, so the fixture cannot exist on Windows.
+test("report markdown: hostile artifact names cannot inject table cells, HTML or links", { skip: process.platform === "win32" }, () => {
   const dir = tmp("anti-rea-review-");
   const evil = "x|y<img src=a>](http://e).js.map";
   put(dir, evil, JSON.stringify({ version: 3, sources: ["a.ts"], sourcesContent: ["x"], mappings: "A" }));

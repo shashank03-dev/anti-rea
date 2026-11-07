@@ -105,7 +105,8 @@ test("asar: writer output is readable by @electron/asar", async () => {
   const listed = asar.listPackage(out, { isPack: false }).map((p: string) => p.replace(/^[/\\]/, "").split(sep).join("/"));
   for (const p of files.keys()) {
     assert.ok(listed.includes(p), `official lister missing ${p}`);
-    assert.equal(sha256Hex(asar.extractFile(out, p)), files.get(p), `official extractor differs on ${p}`);
+    // @electron/asar resolves the in-archive path with the platform separator (backslash on Windows).
+    assert.equal(sha256Hex(asar.extractFile(out, p.split("/").join(sep))), files.get(p), `official extractor differs on ${p}`);
   }
 });
 
@@ -139,7 +140,9 @@ test("zip: writer output passes `unzip -t` and extracts identically", { skip: !h
   assert.deepEqual(listFiles(x), files);
 });
 
-test("tar: reader matches bsdtar in pax, gnutar and ustar formats, and gzip", { skip: !BSDTAR }, () => {
+// Windows' tar.exe (bsdtar) writes gnutar/ustar member names in the console's ANSI code page, not UTF-8, so the
+// corpus's non-ASCII names cannot round-trip there. The differential runs on Linux and macOS.
+test("tar: reader matches bsdtar in pax, gnutar and ustar formats, and gzip", { skip: !BSDTAR || process.platform === "win32" }, () => {
   const { dir, files } = corpus();
   const src = join(dir, "src");
   for (const fmt of ["pax", "gnutar"]) {
