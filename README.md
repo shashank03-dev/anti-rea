@@ -42,7 +42,7 @@ It has zero runtime dependencies and needs Node ≥ 22 (Node 20 reached end-of-l
 Install it in the project that builds your app (Node ≥ 22):
 
 ```bash
-npm install --save-dev anti-rea
+npm install --save-dev @anti-rea/cli
 ```
 
 **1. See what a reverse-engineering tool would recover.** No setup needed. Point it at what your build produces:
@@ -72,7 +72,7 @@ npx anti-rea assure --manifest anti-rea.manifest.json --policy anti-rea.policy.j
 **3. Let your coding agent drive the fixes.** Register the read-only MCP server once:
 
 ```bash
-claude mcp add anti-rea -- npx -y -p anti-rea anti-rea-mcp
+claude mcp add anti-rea -- npx -y -p @anti-rea/cli anti-rea-mcp
 ```
 
 Then ask your agent, for example, *"Run expose_release on dist/ and fix every avoidable owner finding in our build config."* See [docs/AGENTS.md](docs/AGENTS.md) for the workflow and a snippet to paste into your repository's agent instructions.
@@ -276,7 +276,7 @@ npm run expose-demo                                # a synthetic release coverin
 - Each finding is attributed **owner vs third-party** (dependencies, vendored runtimes, engine libraries), and marked **avoidable** (a toolchain setting removes it) vs inherent (ObjC/Swift metadata, Go `pclntab`, IL2CPP `global-metadata.dat`).
 - The report is **about the product**: a profile (platforms, frameworks, languages), findings by surface with your code first, a deduplicated hardening checklist, coverage with every opaque artifact named, and the REA → Anti-REA matrix.
 - It never prints secret values. Go `-ldflags -X`, `KEY=…` pairs and model `__metadata__` are redacted; tests assert a planted secret never appears in the serialized report.
-- Distribution: a CI step (`npx anti-rea@0.1.0 expose …`, or the composite **GitHub Action** `shashank03-dev/anti-rea@v0.1.0`; see [examples/workflows/exposure.yml](examples/workflows/exposure.yml)), a zero-dependency **MCP server** (`anti-rea mcp-config`; [docs/AGENTS.md](docs/AGENTS.md)), and the CLI.
+- Distribution: a CI step (`npx -p @anti-rea/cli@0.1.0 anti-rea expose …`, or the composite **GitHub Action** `shashank03-dev/anti-rea@v0.1.0`; see [examples/workflows/exposure.yml](examples/workflows/exposure.yml)), a zero-dependency **MCP server** (`anti-rea mcp-config`; [docs/AGENTS.md](docs/AGENTS.md)), and the CLI.
 
 Coverage and the honest gaps (Flutter/GPU detected-only; EVM/BEAM detected as roadmap stubs) are in [docs/REA-COVERAGE.md](docs/REA-COVERAGE.md); the design and the tuning-only calibration are in [docs/research/V08-CHANGES.md](docs/research/V08-CHANGES.md).
 

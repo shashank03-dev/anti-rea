@@ -28,7 +28,7 @@ jobs:
 
       - name: Anti-REA exposure report
         # Pin the version you licensed. `--fail-on high` exits 2 when the worst finding is high or critical.
-        run: npx --yes anti-rea@0.1.0 expose dist --out anti-rea-exposure --fail-on high
+        run: npx --yes -p @anti-rea/cli@0.1.0 anti-rea expose dist --out anti-rea-exposure --fail-on high
 
       - name: Attach the report
         if: always()
@@ -38,7 +38,7 @@ jobs:
           path: anti-rea-exposure/
 
       # Release gate (in your release job): blocks until every declared check passes.
-      # - run: npx --yes anti-rea@0.1.0 assure --manifest anti-rea.manifest.json --policy anti-rea.policy.json --out anti-rea-report
+      # - run: npx --yes -p @anti-rea/cli@0.1.0 anti-rea assure --manifest anti-rea.manifest.json --policy anti-rea.policy.json --out anti-rea-report
       #
       # Or use the composite GitHub Action instead of npx:
       # - uses: shashank03-dev/anti-rea@v0.1.0

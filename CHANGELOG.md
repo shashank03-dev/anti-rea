@@ -2,6 +2,8 @@
 
 ## 0.1.0 — first public release
 
+Published on npm as **`@anti-rea/cli`** (npm reserves names close to existing packages; `anti-rea` is too close to `antirea`). The commands are `anti-rea` and `anti-rea-mcp`.
+
 The internal development milestones v0.1–v0.8 ([docs/research/](docs/research/)) precede this release.
 
 ### Added

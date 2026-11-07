@@ -13,8 +13,8 @@ recovery; it does not make shipped code unrecoverable.
 ## Set up (once)
 
 ```bash
-npm install --save-dev anti-rea
-claude mcp add anti-rea -- npx -y -p anti-rea anti-rea-mcp
+npm install --save-dev @anti-rea/cli
+claude mcp add anti-rea -- npx -y -p @anti-rea/cli anti-rea-mcp
 ```
 
 `npx anti-rea mcp-config` prints the same registration for other MCP clients (Cursor, VS Code, Windsurf, …).

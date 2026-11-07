@@ -40,7 +40,7 @@ try {
   writeFileSync(join(proj, "package.json"), JSON.stringify({ name: "customer", version: "1.0.0", private: true }));
   npm(["install", "--no-audit", "--no-fund", join(work, tgz)], proj);
 
-  const bin = join(proj, "node_modules", "anti-rea", "build", "src");
+  const bin = join(proj, "node_modules", "@anti-rea", "cli", "build", "src");
   const cli = (...args) => spawnSync(process.execPath, [join(bin, "cli.js"), ...args], { cwd: proj, encoding: "utf8" });
 
   for (const flag of ["--version", "-v", "version"]) {
