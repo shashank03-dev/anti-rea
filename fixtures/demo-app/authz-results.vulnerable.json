@@ -1,0 +1,68 @@
+{
+  "schema": "anti-rea/authz-results/v1",
+  "target": "https://staging-api.acme-ledger.example",
+  "executor": "acme-qa authz harness 2.3 (synthetic)",
+  "executedAt": "2026-11-06T09:00:00Z",
+  "results": [
+    {
+      "id": "admin@tenantA|tenantA|invoice:A-1001|delete",
+      "observed": "denied",
+      "evidence": "HTTP 403; role mapping missing invoices:delete for tenant admin"
+    },
+    {
+      "id": "admin@tenantA|tenantA|invoice:A-1001|read",
+      "observed": "allowed",
+      "evidence": "HTTP 200"
+    },
+    {
+      "id": "admin@tenantA|tenantB|invoice:A-1001|delete",
+      "observed": "denied",
+      "evidence": "HTTP 403"
+    },
+    {
+      "id": "admin@tenantA|tenantB|invoice:A-1001|read",
+      "observed": "denied",
+      "evidence": "HTTP 403"
+    },
+    {
+      "id": "alice@tenantA|tenantA|invoice:A-1001|delete",
+      "observed": "denied",
+      "evidence": "HTTP 403"
+    },
+    {
+      "id": "alice@tenantA|tenantA|invoice:A-1001|read",
+      "observed": "allowed",
+      "evidence": "HTTP 200"
+    },
+    {
+      "id": "alice@tenantA|tenantB|invoice:A-1001|delete",
+      "observed": "denied",
+      "evidence": "HTTP 403"
+    },
+    {
+      "id": "alice@tenantA|tenantB|invoice:A-1001|read",
+      "observed": "denied",
+      "evidence": "HTTP 403"
+    },
+    {
+      "id": "bob@tenantB|tenantA|invoice:A-1001|delete",
+      "observed": "denied",
+      "evidence": "HTTP 403"
+    },
+    {
+      "id": "bob@tenantB|tenantA|invoice:A-1001|read",
+      "observed": "allowed",
+      "evidence": "HTTP 200; body contained invoice A-1001 owned by tenantA (cross-tenant read)"
+    },
+    {
+      "id": "bob@tenantB|tenantB|invoice:A-1001|delete",
+      "observed": "denied",
+      "evidence": "HTTP 403"
+    },
+    {
+      "id": "bob@tenantB|tenantB|invoice:A-1001|read",
+      "observed": "denied",
+      "evidence": "HTTP 403"
+    }
+  ]
+}

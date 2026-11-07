@@ -1,0 +1,777 @@
+{
+  "summary": {
+    "AR-0": {
+      "ran": true,
+      "n": 180,
+      "correct": 110,
+      "accuracy": 0.6111111111111112,
+      "ci": [
+        0.5357623324163572,
+        0.6827363802762558
+      ],
+      "falseBlock": 0.25,
+      "falsePass": 0.5,
+      "toolErrors": 0,
+      "spuriousTotal": 0,
+      "medianMs": 91,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 0.85,
+        "PUBLIC-DECLARED": 1,
+        "SERVER-IMPL": 0,
+        "PRIVATE-ARTIFACT": 0,
+        "UNDECLARED-LEAK": 0.65,
+        "UNVERIFIABLE": 1,
+        "UNVERIFIABLE-CLEAN": 0,
+        "EXAMPLE-DOCS": 1
+      }
+    },
+    "AR-1": {
+      "ran": true,
+      "n": 180,
+      "correct": 152,
+      "accuracy": 0.8444444444444444,
+      "ci": [
+        0.7830858440660351,
+        0.8940771593142782
+      ],
+      "falseBlock": 0.25,
+      "falsePass": 0.08,
+      "toolErrors": 0,
+      "spuriousTotal": 0,
+      "medianMs": 107,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 0.95,
+        "PUBLIC-DECLARED": 1,
+        "SERVER-IMPL": 1,
+        "PRIVATE-ARTIFACT": 1,
+        "UNDECLARED-LEAK": 0.65,
+        "UNVERIFIABLE": 1,
+        "UNVERIFIABLE-CLEAN": 0,
+        "EXAMPLE-DOCS": 1
+      }
+    },
+    "GL-D": {
+      "ran": true,
+      "n": 180,
+      "correct": 74,
+      "accuracy": 0.4111111111111111,
+      "ci": [
+        0.33845926309241936,
+        0.48674048859974517
+      ],
+      "falseBlock": 0.3,
+      "falsePass": 0.82,
+      "toolErrors": 0,
+      "spuriousTotal": 9,
+      "medianMs": 270.5,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 0.2,
+        "PUBLIC-DECLARED": 0.6,
+        "SERVER-IMPL": 0,
+        "PRIVATE-ARTIFACT": 0,
+        "UNDECLARED-LEAK": 0.65,
+        "UNVERIFIABLE": 0.05,
+        "UNVERIFIABLE-CLEAN": 0.9,
+        "EXAMPLE-DOCS": 0.3
+      }
+    },
+    "GL-T": {
+      "ran": true,
+      "n": 180,
+      "correct": 150,
+      "accuracy": 0.8333333333333334,
+      "ci": [
+        0.7707017801098408,
+        0.8846360151537545
+      ],
+      "falseBlock": 0.2125,
+      "falsePass": 0.13,
+      "toolErrors": 0,
+      "spuriousTotal": 12,
+      "medianMs": 264,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 0.65,
+        "PUBLIC-DECLARED": 0.95,
+        "SERVER-IMPL": 1,
+        "PRIVATE-ARTIFACT": 0.7,
+        "UNDECLARED-LEAK": 1,
+        "UNVERIFIABLE": 1,
+        "UNVERIFIABLE-CLEAN": 0.9,
+        "EXAMPLE-DOCS": 0.3
+      }
+    },
+    "TH-D": {
+      "ran": true,
+      "n": 180,
+      "correct": 127,
+      "accuracy": 0.7055555555555556,
+      "ci": [
+        0.6331789072822489,
+        0.7710214756320046
+      ],
+      "falseBlock": 0.075,
+      "falsePass": 0.47,
+      "toolErrors": 0,
+      "spuriousTotal": 14,
+      "medianMs": 590.5,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 0.75,
+        "PUBLIC-DECLARED": 0.9,
+        "SERVER-IMPL": 0.15,
+        "PRIVATE-ARTIFACT": 0,
+        "UNDECLARED-LEAK": 0.9,
+        "UNVERIFIABLE": 0.85,
+        "UNVERIFIABLE-CLEAN": 0.9,
+        "EXAMPLE-DOCS": 0.9
+      }
+    },
+    "TH-T": {
+      "ran": true,
+      "n": 180,
+      "correct": 169,
+      "accuracy": 0.9388888888888889,
+      "ci": [
+        0.8932876965338319,
+        0.9691018833131884
+      ],
+      "falseBlock": 0.075,
+      "falsePass": 0.05,
+      "toolErrors": 0,
+      "spuriousTotal": 14,
+      "medianMs": 662.5,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 0.85,
+        "PUBLIC-DECLARED": 0.9,
+        "SERVER-IMPL": 1,
+        "PRIVATE-ARTIFACT": 1,
+        "UNDECLARED-LEAK": 0.9,
+        "UNVERIFIABLE": 1,
+        "UNVERIFIABLE-CLEAN": 0.9,
+        "EXAMPLE-DOCS": 0.9
+      }
+    },
+    "DS-D": {
+      "ran": true,
+      "n": 180,
+      "correct": 70,
+      "accuracy": 0.3888888888888889,
+      "ci": [
+        0.3172636197237112,
+        0.4642376675836607
+      ],
+      "falseBlock": 0.3,
+      "falsePass": 0.86,
+      "toolErrors": 0,
+      "spuriousTotal": 53,
+      "medianMs": 624.5,
+      "perFamily": {
+        "CLEAN": 0.95,
+        "LEAK-DECLARED": 0.15,
+        "PUBLIC-DECLARED": 0.35,
+        "SERVER-IMPL": 0.1,
+        "PRIVATE-ARTIFACT": 0.1,
+        "UNDECLARED-LEAK": 0.2,
+        "UNVERIFIABLE": 0.15,
+        "UNVERIFIABLE-CLEAN": 0.9,
+        "EXAMPLE-DOCS": 0.6
+      }
+    },
+    "AR-2": {
+      "ran": true,
+      "n": 180,
+      "correct": 154,
+      "accuracy": 0.8555555555555555,
+      "ci": [
+        0.7955606639062915,
+        0.9034238187240797
+      ],
+      "falseBlock": 0.3,
+      "falsePass": 0.02,
+      "toolErrors": 0,
+      "spuriousTotal": 14,
+      "medianMs": 740.5,
+      "perFamily": {
+        "CLEAN": 1,
+        "LEAK-DECLARED": 1,
+        "PUBLIC-DECLARED": 0.9,
+        "SERVER-IMPL": 1,
+        "PRIVATE-ARTIFACT": 1,
+        "UNDECLARED-LEAK": 0.9,
+        "UNVERIFIABLE": 1,
+        "UNVERIFIABLE-CLEAN": 0,
+        "EXAMPLE-DOCS": 0.9
+      }
+    }
+  },
+  "paired": {
+    "AR-1 vs GL-D": {
+      "aRightBWrong": 102,
+      "aWrongBRight": 24,
+      "diff": 0.43333333333333335,
+      "p": 1.213465882238861e-12
+    },
+    "AR-1 vs GL-T": {
+      "aRightBWrong": 28,
+      "aWrongBRight": 26,
+      "diff": 0.011111111111111072,
+      "p": 0.891923151104753
+    },
+    "AR-1 vs TH-D": {
+      "aRightBWrong": 49,
+      "aWrongBRight": 24,
+      "diff": 0.13888888888888884,
+      "p": 0.004626293921895303
+    },
+    "AR-1 vs TH-T": {
+      "aRightBWrong": 7,
+      "aWrongBRight": 24,
+      "diff": -0.09444444444444444,
+      "p": 0.0033268928527832344
+    },
+    "AR-1 vs DS-D": {
+      "aRightBWrong": 102,
+      "aWrongBRight": 20,
+      "diff": 0.45555555555555555,
+      "p": 1.9641987858979458e-14
+    },
+    "AR-2 vs GL-D": {
+      "aRightBWrong": 99,
+      "aWrongBRight": 19,
+      "diff": 0.4444444444444444,
+      "p": 3.0559701374428274e-14
+    },
+    "AR-2 vs GL-T": {
+      "aRightBWrong": 25,
+      "aWrongBRight": 21,
+      "diff": 0.022222222222222143,
+      "p": 0.6587380770236503
+    },
+    "AR-2 vs TH-D": {
+      "aRightBWrong": 45,
+      "aWrongBRight": 18,
+      "diff": 0.1499999999999999,
+      "p": 0.000898047178667954
+    },
+    "AR-2 vs TH-T": {
+      "aRightBWrong": 3,
+      "aWrongBRight": 18,
+      "diff": -0.08333333333333337,
+      "p": 0.0014896392822265525
+    },
+    "AR-2 vs DS-D": {
+      "aRightBWrong": 104,
+      "aWrongBRight": 20,
+      "diff": 0.4666666666666666,
+      "p": 6.960843757791798e-15
+    }
+  },
+  "recall": {
+    "AR-0": {
+      "LEAK-DECLARED / W3-zip": [
+        6,
+        6
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        5,
+        5
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W5-tgz": [
+        3,
+        3
+      ],
+      "LEAK-DECLARED / W2-asar": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (outside AR detectors)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (inside AR detectors)": [
+        6,
+        6
+      ],
+      "UNDECLARED-LEAK / W3-zip (inside AR detectors)": [
+        5,
+        5
+      ],
+      "UNDECLARED-LEAK / W2-asar (outside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (inside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (outside AR detectors)": [
+        2,
+        2
+      ],
+      "UNVERIFIABLE / W8-xz": [
+        0,
+        20
+      ]
+    },
+    "AR-1": {
+      "LEAK-DECLARED / W3-zip": [
+        6,
+        6
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        5,
+        5
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W5-tgz": [
+        3,
+        3
+      ],
+      "LEAK-DECLARED / W2-asar": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (outside AR detectors)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (inside AR detectors)": [
+        6,
+        6
+      ],
+      "UNDECLARED-LEAK / W3-zip (inside AR detectors)": [
+        5,
+        5
+      ],
+      "UNDECLARED-LEAK / W2-asar (outside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (inside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (outside AR detectors)": [
+        2,
+        2
+      ],
+      "UNVERIFIABLE / W8-xz": [
+        0,
+        20
+      ]
+    },
+    "GL-D": {
+      "LEAK-DECLARED / W3-zip": [
+        0,
+        6
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        0,
+        5
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W5-tgz": [
+        0,
+        3
+      ],
+      "LEAK-DECLARED / W2-asar": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (outside AR detectors)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (inside AR detectors)": [
+        6,
+        6
+      ],
+      "UNDECLARED-LEAK / W3-zip (inside AR detectors)": [
+        0,
+        5
+      ],
+      "UNDECLARED-LEAK / W2-asar (outside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (inside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (outside AR detectors)": [
+        0,
+        2
+      ],
+      "UNVERIFIABLE / W8-xz": [
+        0,
+        20
+      ]
+    },
+    "GL-T": {
+      "LEAK-DECLARED / W3-zip": [
+        6,
+        6
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        0,
+        5
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W5-tgz": [
+        3,
+        3
+      ],
+      "LEAK-DECLARED / W2-asar": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (outside AR detectors)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (inside AR detectors)": [
+        6,
+        6
+      ],
+      "UNDECLARED-LEAK / W3-zip (inside AR detectors)": [
+        5,
+        5
+      ],
+      "UNDECLARED-LEAK / W2-asar (outside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (inside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (outside AR detectors)": [
+        2,
+        2
+      ],
+      "UNVERIFIABLE / W8-xz": [
+        20,
+        20
+      ]
+    },
+    "TH-D": {
+      "LEAK-DECLARED / W3-zip": [
+        5,
+        6
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        2,
+        5
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W5-tgz": [
+        2,
+        3
+      ],
+      "LEAK-DECLARED / W2-asar": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (outside AR detectors)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (inside AR detectors)": [
+        6,
+        6
+      ],
+      "UNDECLARED-LEAK / W3-zip (inside AR detectors)": [
+        5,
+        5
+      ],
+      "UNDECLARED-LEAK / W2-asar (outside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (inside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (outside AR detectors)": [
+        0,
+        2
+      ],
+      "UNVERIFIABLE / W8-xz": [
+        16,
+        20
+      ]
+    },
+    "TH-T": {
+      "LEAK-DECLARED / W3-zip": [
+        6,
+        6
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        2,
+        5
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W5-tgz": [
+        3,
+        3
+      ],
+      "LEAK-DECLARED / W2-asar": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (outside AR detectors)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (inside AR detectors)": [
+        6,
+        6
+      ],
+      "UNDECLARED-LEAK / W3-zip (inside AR detectors)": [
+        5,
+        5
+      ],
+      "UNDECLARED-LEAK / W2-asar (outside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (inside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (outside AR detectors)": [
+        0,
+        2
+      ],
+      "UNVERIFIABLE / W8-xz": [
+        20,
+        20
+      ]
+    },
+    "DS-D": {
+      "LEAK-DECLARED / W3-zip": [
+        0,
+        6
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        0,
+        5
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        0,
+        1
+      ],
+      "LEAK-DECLARED / W5-tgz": [
+        0,
+        3
+      ],
+      "LEAK-DECLARED / W2-asar": [
+        0,
+        2
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (outside AR detectors)": [
+        1,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (inside AR detectors)": [
+        0,
+        6
+      ],
+      "UNDECLARED-LEAK / W3-zip (inside AR detectors)": [
+        0,
+        5
+      ],
+      "UNDECLARED-LEAK / W2-asar (outside AR detectors)": [
+        0,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (inside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (outside AR detectors)": [
+        0,
+        2
+      ],
+      "UNVERIFIABLE / W8-xz": [
+        0,
+        20
+      ]
+    },
+    "AR-2": {
+      "LEAK-DECLARED / W3-zip": [
+        6,
+        6
+      ],
+      "LEAK-DECLARED / W6-utf16-binary": [
+        5,
+        5
+      ],
+      "LEAK-DECLARED / W4-zip-in-asar": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W7-base64": [
+        1,
+        1
+      ],
+      "LEAK-DECLARED / W5-tgz": [
+        3,
+        3
+      ],
+      "LEAK-DECLARED / W2-asar": [
+        2,
+        2
+      ],
+      "LEAK-DECLARED / W1-plain": [
+        1,
+        1
+      ],
+      "UNDECLARED-LEAK / W1-plain (outside AR detectors)": [
+        3,
+        3
+      ],
+      "UNDECLARED-LEAK / W2-asar (inside AR detectors)": [
+        6,
+        6
+      ],
+      "UNDECLARED-LEAK / W3-zip (inside AR detectors)": [
+        5,
+        5
+      ],
+      "UNDECLARED-LEAK / W2-asar (outside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W1-plain (inside AR detectors)": [
+        2,
+        2
+      ],
+      "UNDECLARED-LEAK / W3-zip (outside AR detectors)": [
+        2,
+        2
+      ],
+      "UNVERIFIABLE / W8-xz": [
+        16,
+        20
+      ]
+    }
+  },
+  "hypotheses": [
+    {
+      "id": "H1",
+      "verdict": "NOT SUPPORTED",
+      "detail": "GL-D: Δ=43.3% p=1.21e-12 (need Δ≥15.0%, p<0.002); GL-T: Δ=1.1% p=8.92e-1 (need Δ≥15.0%, p<0.002); TH-D: Δ=13.9% p=4.63e-3 (need Δ≥15.0%, p<0.002); TH-T: Δ=-9.4% p=3.33e-3 (need Δ≥15.0%, p<0.002); DS-D: Δ=45.6% p=1.96e-14 (need Δ≥15.0%, p<0.002)"
+    },
+    {
+      "id": "H2",
+      "verdict": "SUPPORTED",
+      "detail": "AR-2 acc 85.6% vs AR-1 84.4%; UNDECLARED-LEAK false passes AR-2 2 vs AR-1 7"
+    },
+    {
+      "id": "H3",
+      "verdict": "SUPPORTED",
+      "detail": "AR-1 silent passes on secrets inside unsupported content: 0"
+    },
+    {
+      "id": "H4 (expected loss)",
+      "verdict": "NOT CONFIRMED",
+      "detail": "recall on undeclared formats outside AR detectors: AR-1 7/7, TH-D 5/7"
+    },
+    {
+      "id": "H5 (expected loss)",
+      "verdict": "CONFIRMED (Anti-REA loses)",
+      "detail": "false blocks on clean undecodable content: AR-1 20/20, TH-D 2/20"
+    }
+  ],
+  "environment": {
+    "node": "v26.11.1",
+    "platform": "darwin-arm64",
+    "tools": {
+      "gitleaks": "8.30.1",
+      "trufflehog": "trufflehog 3.99.8",
+      "detect-secrets": "1.5.0"
+    },
+    "frozenSha256": "652f6a4585a8288856467ab20030778bbf69b02cf26c4aca7d5180256c1898c2"
+  }
+}

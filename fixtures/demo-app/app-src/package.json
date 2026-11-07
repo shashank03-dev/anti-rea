@@ -1,0 +1,6 @@
+{
+  "name": "acme-ledger-desktop",
+  "version": "4.2.0",
+  "main": "main.js",
+  "description": "SYNTHETIC demo application for Anti-REA. Contains deliberately planted test-only secrets."
+}

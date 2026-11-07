@@ -1,0 +1,31 @@
+{
+  "name": "anti-rea",
+  "version": "0.5.0",
+  "description": "Anti-REA: a defensive release-assurance engine. Inventories what a build actually ships, detects declared server-only secrets that leaked into the distribution, checks asset placement, records evidence with explicit result states, and enforces hard release gates.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "bin": {
+    "anti-rea": "build/src/cli.js"
+  },
+  "files": [
+    "build/src",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf build",
+    "prebuild": "rm -rf build",
+    "test": "npm run build && node --test \"build/test/**/*.test.js\"",
+    "cli": "node build/src/cli.js",
+    "demo": "npm run build && node fixtures/demo-app/build-release.mjs vulnerable && node build/src/cli.js assure --manifest fixtures/demo-app/manifest.json --policy fixtures/demo-app/policy.json --authz-results fixtures/demo-app/authz-results.vulnerable.json --out build/demo-report/vulnerable",
+    "demo:fixed": "npm run build && node fixtures/demo-app/build-release.mjs fixed && node build/src/cli.js assure --manifest fixtures/demo-app/manifest.json --policy fixtures/demo-app/policy.json --authz-results fixtures/demo-app/authz-results.fixed.json --out build/demo-report/fixed"
+  },
+  "devDependencies": {
+    "@electron/asar": "^4.3.1",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}

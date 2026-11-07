@@ -1,0 +1,10 @@
+{
+  "node": "v26.11.1",
+  "platform": "darwin-arm64",
+  "tools": {
+    "gitleaks": "8.30.1",
+    "trufflehog": "trufflehog 3.99.8",
+    "detect-secrets": "1.5.0"
+  },
+  "frozenSha256": "8921d50f945022ef968d1782e466e3b43e127839c983f08cbe633ebb172c2e60"
+}

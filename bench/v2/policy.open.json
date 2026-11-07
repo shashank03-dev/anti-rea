@@ -1,0 +1,6 @@
+{
+  "schema": "anti-rea/policy/v1",
+  "releaseScope": "benchmark scenario release/ directory (secondary config AR-1o: uninspectable content warns)",
+  "requiredLanes": ["inventory", "exposure", "placement"],
+  "gates": { "requiredLaneInconclusive": "warn" }
+}

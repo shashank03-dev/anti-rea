@@ -1,0 +1,15 @@
+{
+  "schema": "anti-rea/policy/v1",
+  "releaseScope": "Desktop installer payload under release/ including app.asar and update bundles; excludes CDN and runtime downloads",
+  "requiredLanes": ["inventory", "exposure", "placement", "authorization"],
+  "gates": {
+    "confirmedCriticalSecret": "block",
+    "serverOnlyFoundInDistribution": "block",
+    "reproducedPrivilegedEffect": "block",
+    "declaredPrivateArtifactShipped": "block",
+    "unconfirmedCredentialLead": "block",
+    "lowConfidenceCredentialLead": "warn",
+    "requiredLaneInconclusive": "block"
+  },
+  "exceptions": []
+}

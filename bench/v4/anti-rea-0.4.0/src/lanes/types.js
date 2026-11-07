@@ -1,0 +1,85 @@
+import { readFileSync } from "node:fs";
+export function readItem(item) {
+    if (!item.source)
+        return null;
+    return item.source.kind === "mem" ? item.source.buf : readFileSync(item.source.abs);
+}
+/** Items whose bytes the content lanes can actually inspect. */
+export function scannable(inv) {
+    return inv.items.filter((i) => i.supported && i.source !== null);
+}
+export function unsupported(inv) {
+    return inv.items.filter((i) => !i.supported);
+}
+/**
+ * Content-lane coverage. Successfully expanded containers are excluded from the
+ * denominator because their entries are what get inspected; so
+ * considered = supported + unsupported.
+ */
+export function contentCoverage(inv, notes) {
+    const sup = scannable(inv).length;
+    const unsup = unsupported(inv).length;
+    const caveats = inv.items.filter((i) => i.note).map((i) => `${i.ref.path}: ${i.note}`);
+    const all = [...(notes ?? []), ...caveats];
+    return {
+        artifactsConsidered: sup + unsup,
+        artifactsSupported: sup,
+        artifactsUnsupported: unsup,
+        ...(all.length > 0 ? { notes: all } : {}),
+    };
+}
+/** 1-based line and column of a character offset in a string. */
+export function lineCol(text, index) {
+    let line = 1;
+    let last = -1;
+    for (let i = text.indexOf("\n"); i !== -1 && i < index; i = text.indexOf("\n", i + 1)) {
+        line++;
+        last = i;
+    }
+    return { line, column: index - last };
+}
+/** 1-based line of a byte offset (counts 0x0A bytes before it). */
+export function lineAt(buf, offset) {
+    let line = 1;
+    for (let i = buf.indexOf(10, 0); i !== -1 && i < offset; i = buf.indexOf(10, i + 1))
+        line++;
+    return line;
+}
+/** NUL bytes in the first 64 KiB indicate binary content (UTF-16 strings, native code, images). */
+export function isBinary(buf) {
+    const n = Math.min(buf.length, 64 * 1024);
+    let zeros = 0;
+    for (let i = 0; i < n; i++)
+        if (buf[i] === 0)
+            zeros++;
+    return zeros >= Math.max(4, n * 0.002);
+}
+/**
+ * Chunked text views of a buffer: Latin-1 (byte-exact, covers ASCII/UTF-8
+ * secrets) and, for binaries, UTF-16LE at both byte alignments (Windows / .NET
+ * string tables). Chunks overlap so bounded matches are never split.
+ */
+export function* textViews(buf, limits) {
+    const chunk = Math.max(2, limits.scanChunkBytes - (limits.scanChunkBytes % 2));
+    const overlap = Math.max(0, limits.scanOverlapBytes);
+    for (let start = 0;; start += chunk) {
+        const end = Math.min(buf.length, start + chunk + overlap);
+        const last = end >= buf.length;
+        yield { text: buf.toString("latin1", start, end), base: start, stride: 1, encoding: "latin1", ownEnd: last ? Infinity : start + chunk };
+        if (last)
+            break;
+    }
+    if (!isBinary(buf))
+        return;
+    for (const align of [0, 1]) {
+        for (let start = align; start + 1 < buf.length; start += chunk) {
+            let end = Math.min(buf.length, start + chunk + overlap);
+            if ((end - start) % 2 === 1)
+                end--;
+            const last = end + 1 >= buf.length;
+            yield { text: buf.toString("utf16le", start, end), base: start, stride: 2, encoding: "utf16le", ownEnd: last ? Infinity : start + chunk };
+            if (last)
+                break;
+        }
+    }
+}

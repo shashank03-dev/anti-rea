@@ -1,0 +1,69 @@
+{
+  "schema": "anti-rea/manifest/v1",
+  "application": { "name": "acme-ledger-desktop (synthetic)", "version": "4.2.0" },
+  "releaseClosure": {
+    "roots": ["release"],
+    "private": ["**/*.map", "**/*.pdb", "**/*.dSYM/**"]
+  },
+  "assets": [
+    {
+      "id": "license-signing-key",
+      "description": "RSA private key that mints customer licenses; whoever holds it can issue unlimited licenses",
+      "owner": "licensing-team",
+      "placement": "server-only",
+      "rationale": "Authority to mint licenses must stay with the licensing service",
+      "fingerprints": [{ "type": "sha256", "value": "fa9b591f2551e5a33c85c60e1ee962abde221d3325c2f1700f7f55b74588482c", "note": "server-secrets/synthetic-signing-key.pem" }],
+      "attacker": { "objective": "secret-extraction", "success": "recover the exact private key from the delivered application" }
+    },
+    {
+      "id": "payments-api-secret",
+      "description": "Live payments provider secret key (negative control: must never be in the client)",
+      "owner": "payments-team",
+      "placement": "server-only",
+      "fingerprints": [{ "type": "sha256", "value": "1a132204150335148afe6b199f3bde34a4c9137f028460b55385f1cac41eea8e", "note": "server-secrets/synthetic-payments-secret.txt" }],
+      "attacker": { "objective": "secret-extraction", "success": "recover the exact secret from the delivered application" }
+    },
+    {
+      "id": "fraud-rules-v3",
+      "description": "Proprietary transaction risk rules and weights",
+      "owner": "risk-team",
+      "placement": "server-only",
+      "rationale": "Rules lose value once copied; decisions are served by the risk API",
+      "markers": ["scoreTransactionRiskV3", "FRAUD_RULES_TABLE_V3"],
+      "attacker": { "objective": "implementation-recovery", "success": "recover rule fields, thresholds and weights" }
+    },
+    {
+      "id": "offline-ranking",
+      "description": "Candidate ranking that must work offline",
+      "owner": "ledger-ui-team",
+      "placement": "sensitive-local",
+      "offlineRequired": true,
+      "markers": ["rankCandidatesOffline"],
+      "attacker": {
+        "objective": "behavioral-cloning",
+        "success": ">= 90% top-5 agreement on the hidden test set",
+        "budget": "2 analyst-hours, static + runtime, no source access"
+      }
+    },
+    {
+      "id": "maps-browser-key",
+      "description": "Browser maps key, restricted by referrer and API on the provider side",
+      "owner": "ledger-ui-team",
+      "placement": "public-by-design",
+      "fingerprints": [{ "type": "sha256", "value": "ab38a95a43ddfa67a35ec676d50a400502b888154ac5c818471fbc15fbd68def" }]
+    }
+  ],
+  "authorization": {
+    "target": "https://staging-api.acme-ledger.example",
+    "principals": ["alice@tenantA", "bob@tenantB", "admin@tenantA"],
+    "tenants": ["tenantA", "tenantB"],
+    "objects": ["invoice:A-1001"],
+    "operations": ["read", "delete"],
+    "defaultExpected": "deny",
+    "cases": [
+      { "principal": "alice@tenantA", "tenant": "tenantA", "object": "invoice:A-1001", "operation": "read", "expected": "allow" },
+      { "principal": "admin@tenantA", "tenant": "tenantA", "object": "invoice:A-1001", "operation": "read", "expected": "allow" },
+      { "principal": "admin@tenantA", "tenant": "tenantA", "object": "invoice:A-1001", "operation": "delete", "expected": "allow" }
+    ]
+  }
+}
