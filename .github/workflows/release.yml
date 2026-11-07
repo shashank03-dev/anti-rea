@@ -1,5 +1,6 @@
 # Publishes to npm when a version tag (v1.2.3) is pushed. Nothing runs until you push such a tag.
-# Prerequisites: an NPM_TOKEN repository secret (an npm automation token) and a LICENSE file.
+# Auth is npm Trusted Publishing (OIDC): no npm token is stored anywhere. The package's Trusted Publisher
+# on npmjs.com must name this repository and this workflow file (release.yml).
 name: Release
 
 on:
@@ -8,7 +9,7 @@ on:
 
 permissions:
   contents: read
-  id-token: write # npm provenance: links the published tarball to this workflow run
+  id-token: write # OIDC token for npm Trusted Publishing; npm also attaches provenance automatically
 
 jobs:
   publish:
@@ -20,6 +21,8 @@ jobs:
           node-version: "22"
           registry-url: https://registry.npmjs.org
           cache: npm
+      # Trusted Publishing needs npm 11.5.1 or newer; Node 22 bundles npm 10.
+      - run: npm install -g npm@11
       - run: npm ci
       - name: Tag must match package.json version
         shell: bash
@@ -31,11 +34,4 @@ jobs:
         run: ls LICENSE* >/dev/null 2>&1 || { echo "add a LICENSE file before publishing"; exit 1; }
       # prepublishOnly runs the full test suite; prepack builds.
       - run: npm run smoke
-      # npm generates provenance only for PUBLIC source repositories; from a private one it would fail the publish.
-      - name: Publish
-        shell: bash
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          PRIVATE_REPO: ${{ github.event.repository.private }}
-        run: |
-          if [ "$PRIVATE_REPO" = "true" ]; then npm publish --access public; else npm publish --provenance --access public; fi
+      - run: npm publish --access public
