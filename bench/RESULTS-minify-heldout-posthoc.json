@@ -1,0 +1,38 @@
+{
+  "thresholds": {
+    "longLineShare": 0.5,
+    "shortShare": 0.7,
+    "minDeclared": 8,
+    "minCodeBytes": 1024
+  },
+  "corpus": "/Users/shashank/Desktop/antibody/node_modules",
+  "files": 600,
+  "halves": {
+    "heldout": {
+      "samples": 1599,
+      "whitespace": {
+        "judged": 1495,
+        "correct": 1495,
+        "accuracy": 1,
+        "abstained": 104,
+        "confusion": {
+          "readable->flag": 388,
+          "whitespace->pass": 577,
+          "mangled->pass": 530
+        }
+      },
+      "identifiers": {
+        "judged": 1419,
+        "correct": 1400,
+        "accuracy": 0.9866,
+        "abstained": 180,
+        "confusion": {
+          "readable->flag": 388,
+          "whitespace->flag": 516,
+          "mangled->pass": 496,
+          "whitespace->pass": 19
+        }
+      }
+    }
+  }
+}

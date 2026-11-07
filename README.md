@@ -19,6 +19,12 @@ From v0.6 it can also check **platform hardening** against what the owner declar
 - hardened runtime, team and entitlements;
 - Electron fuses and ASAR integrity.
 
+From v0.7 it checks for **reverse-engineering aids** a release should not hand out:
+- embedded DWARF, Mach-O debug maps (object-file build paths, source files, functions) and local symbol names in Mach-O and ELF code;
+- PDB, dSYM and source-map files, recognised by content (a map with `sourcesContent` ships the original source);
+- original source files, unminified or unmangled owner JavaScript;
+- Electron `webPreferences` that switch isolation off, and `openDevTools()` calls.
+
 It can verify **build provenance** (DSSE / in-toto / SLSA, with pinned keys) against the shipped bytes. And it can **sign its decision** as an in-toto attestation that a deploy step verifies.
 
 Every conclusion is an evidence record with an explicit result state, coverage, budget and limitations. Hard gates decide the release; no score does.
@@ -114,7 +120,7 @@ npm run demo:fixed
 | `anti-rea assure --manifest m.json --policy p.json [--authz-results r.json] [--import <tool>:<file>]… [--out dir] [--json] [--now ISO]` | Full pipeline. Writes `report.json` and `report.md`. **Exit codes:** 0 = pass or pass-with-exceptions, 2 = block, 1 = error. `--out` may not be inside a release root. |
 | `anti-rea assure … --sign-key key.pem` | Also writes `attestation.dsse.json`: a DSSE-signed in-toto Statement binding the decision, gates, policy and report digest to every shipped artifact's sha256. |
 | `anti-rea verify-attestation --attestation a.json --public-key k.pub [--artifact f]… [--require-decision pass]` | Checks the signature, predicate type, subject coverage and decision. **Exit codes:** 0 = valid, 2 = invalid. |
-| `anti-rea inspect --manifest m.json [--json]` | Platform facts with no policy applied: Mach-O signing (team, runtime, entitlements, bad pages), bundle seals, Electron fuses and ASAR integrity, PE Authenticode presence. |
+| `anti-rea inspect --manifest m.json [--json]` | Facts with no policy applied: Mach-O signing (team, runtime, entitlements, bad pages), bundle seals, Electron fuses and ASAR integrity, PE Authenticode presence; and (v0.7) native debug info, debug maps and local symbols, debug files, source files, unminified JavaScript and Electron leads. |
 | `anti-rea inventory --manifest m.json [--json]` | The release closure, including nested entries, with sha256 for each, plus a deterministic release ID. |
 | `anti-rea fingerprint --file secret.pem` or `--stdin` | Prints the canonical sha256 to put in the manifest. The secret is never printed. |
 | `anti-rea authz-plan --manifest m.json [--out plan.json]` | Expands the declared authorization matrix into a test plan for **your own** harness. |
@@ -168,6 +174,7 @@ gates ──────── block / warn / owned + scoped + expiring exceptio
 | `keyedCredentialLead` | block | A generated-looking value (random token, 32+ hex, or UUID) assigned to a key whose name ends in a credential noun: `…_API_KEY`, `apiKey`, `access_token`, `client_secret`, `password` and so on. It catches unprefixed credentials. Placeholders, templates, editor-theme scopes and base64-encoded prose are excluded. |
 | `lowConfidenceCredentialLead` | warn | A JWT, an often-public key (Google), a test-mode key, or a password in a URL. |
 | `platformHardeningViolation` | block | A declared platform expectation is violated: unsigned or ad hoc code where Developer ID is required, a modified code page, a broken bundle seal, no hardened runtime, the wrong team, a forbidden entitlement, an Electron fuse in the wrong state, an ASAR integrity mismatch, or a PE file without Authenticode. |
+| `reverseEngineeringAidShipped` | block | (v0.7, when `reAids` is declared) embedded debug info, a debug map, local symbols beyond the allowance, a PDB/dSYM/source map, an original source file, JavaScript that fails the declared minification level, or an insecure Electron `webPreferences` value / `openDevTools()` call ships. Native counts agree with `dsymutil -s` and `llvm-objdump` ([V07-CHANGES.md](docs/research/V07-CHANGES.md)). |
 | `provenanceMismatch` | block | A shipped artifact is not a subject of trusted build provenance or differs from the attested digest, or the provenance is unsigned, badly signed or from an unexpected builder. |
 | `requiredLaneInconclusive` | block | A required lane did not run to a conclusion. |
 
@@ -245,6 +252,7 @@ Complete examples: [fixtures/demo-app/manifest.json](fixtures/demo-app/manifest.
   - `windows`: `requireAuthenticode`.
 
   An expectation with nothing to apply to is inconclusive.
+- **`reAids`** (v0.7): `native` (`forbidDebugInfo`, `forbidDebugMap`, `maxLocalSymbols`, `exclude`), `debugFiles` (`exclude`), `sources` (`extensions`, `exclude`; `node_modules` trees excluded by default), `minified` (`include`, `exclude`, `level: "whitespace" | "identifiers"`) and `electron` (`forbidInsecureWebPreferences`, `forbidDevTools`, `include`, `exclude`). `{}` runs native, debugFiles and sources with defaults; any check can be `false`.
 - **`provenance`** (v0.6): `statement` (a DSSE envelope, Sigstore bundle or in-toto Statement; JSON or JSONL), `publicKeys`, `builderId` and `subjects` (globs; default: every top-level file).
 
 ## Status against the research roadmap (§14)
@@ -253,7 +261,7 @@ Complete examples: [fixtures/demo-app/manifest.json](fixtures/demo-app/manifest.
 |---|---|
 | 0 Research specification | ✅ encoded as types, validation and policy |
 | 1 Release assurance foundation | ✅ this codebase, self-reviewed and differentially tested |
-| 2 Platform adapters | ◐ macOS Mach-O / bundle-seal / entitlement semantics, Electron fuses and ASAR integrity, PE Authenticode *presence*. No DEX, ELF or PE semantics beyond that. |
+| 2 Platform adapters | ◐ macOS Mach-O / bundle-seal / entitlement semantics, Electron fuses and ASAR integrity, PE Authenticode *presence*; (v0.7) Mach-O and ELF symbol-table and debug-section facts. No DEX semantics; no PE debug-directory parsing. |
 | 3 Adversarial evaluation | ◐ Pre-registered release-gate benchmarks (v1–v6) and a static tamper sub-study against `codesign`. Runtime and cloning lanes are not implemented. |
 | 4 Architecture, API, attestation | ◐ Authorization-matrix evaluation, DSSE/in-toto/SLSA provenance verification, signed decision attestations. |
 | 5–6 Transformations, confidential execution | ✗ out of scope until stage-3 measurements justify them |
@@ -264,13 +272,13 @@ Byte identity (sha256) does **not** authenticate the build context. Declare `pro
 
 ```
 src/model/     result states, manifest, policy, evidence types
-src/codecs/    zero-dependency xz/LZMA2, lzma, bzip2, lz4, UDIF/HFS+ (DMG), plist and Mach-O readers; CRCs
-src/lanes/     containers, inventory, detectors, decode, exposure, placement, authorization, external, platform, provenance
+src/codecs/    zero-dependency xz/LZMA2, lzma, bzip2, lz4, UDIF/HFS+ (DMG), plist, Mach-O and Mach-O/ELF symbol-table readers; CRCs
+src/lanes/     containers, inventory, detectors, decode, exposure, placement, authorization, external, platform, provenance, aids (reverse-engineering aids)
 src/engine/    evaluate (pipeline), gate, report, stats, attest (signed decisions)
 src/pack/      deterministic asar/zip/tar writers (fixtures and tests)
 test/          unit, pipeline, regression and differential tests (node:test)
-bench/         v6 pre-registration, corpus generator, runner, scorer, platform sub-study, baseline installer, calibration; v1/–v5/ archived
-docs/research/ self-review, tool landscape, calibration, v0.2–v0.6 changes, benchmark results
+bench/         v6 pre-registration, corpus generator, runner, scorer, platform sub-study, baseline installer, calibration, minify classifier corpus, dsymutil differential; v1/–v5/ archived
+docs/research/ self-review, tool landscape, calibration, v0.2–v0.7 changes, benchmark results
 fixtures/demo-app/  synthetic app, build script, manifest, policy, authz results
 ```
 

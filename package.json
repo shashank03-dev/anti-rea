@@ -1,6 +1,6 @@
 {
   "name": "anti-rea",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Anti-REA: a defensive release-assurance engine. Inventories what a build actually ships, detects declared server-only secrets that leaked into the distribution, checks asset placement, records evidence with explicit result states, and enforces hard release gates.",
   "license": "Apache-2.0",
   "type": "module",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@electron/asar": "^4.3.1",
     "@types/node": "^22.10.0",
+    "esbuild": "^0.28.2",
     "typescript": "^5.7.0"
   }
 }

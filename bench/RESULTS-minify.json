@@ -1,0 +1,63 @@
+{
+  "thresholds": {
+    "longLineShare": 0.5,
+    "shortShare": 0.7,
+    "minDeclared": 8,
+    "minCodeBytes": 1024
+  },
+  "corpus": "/opt/homebrew/lib/node_modules/npm",
+  "files": 569,
+  "halves": {
+    "dev": {
+      "samples": 867,
+      "whitespace": {
+        "judged": 801,
+        "correct": 801,
+        "accuracy": 1,
+        "abstained": 66,
+        "confusion": {
+          "readable->flag": 285,
+          "whitespace->pass": 276,
+          "mangled->pass": 240
+        }
+      },
+      "identifiers": {
+        "judged": 749,
+        "correct": 746,
+        "accuracy": 0.996,
+        "abstained": 118,
+        "confusion": {
+          "readable->flag": 285,
+          "whitespace->flag": 243,
+          "mangled->pass": 218,
+          "whitespace->pass": 3
+        }
+      }
+    },
+    "eval": {
+      "samples": 840,
+      "whitespace": {
+        "judged": 782,
+        "correct": 782,
+        "accuracy": 1,
+        "abstained": 58,
+        "confusion": {
+          "readable->flag": 277,
+          "whitespace->pass": 268,
+          "mangled->pass": 237
+        }
+      },
+      "identifiers": {
+        "judged": 747,
+        "correct": 747,
+        "accuracy": 1,
+        "abstained": 93,
+        "confusion": {
+          "readable->flag": 277,
+          "whitespace->flag": 247,
+          "mangled->pass": 223
+        }
+      }
+    }
+  }
+}

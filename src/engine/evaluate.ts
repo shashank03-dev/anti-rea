@@ -13,6 +13,7 @@ import { DEFAULT_LIMITS, type Limits } from "../lanes/containers.js";
 import { externalLane, type ExternalImport } from "../lanes/external.js";
 import { platformLane } from "../lanes/platform.js";
 import { provenanceLane } from "../lanes/provenance.js";
+import { aidsLane } from "../lanes/aids.js";
 import { evaluateGates } from "./gate.js";
 
 export interface AssureInput {
@@ -51,6 +52,8 @@ export function assure(input: AssureInput): AssuranceReport {
   // v0.6: platform hardening and provenance run when declared or required, like authorization.
   if (manifest.platform || policy.requiredLanes.includes("platform")) evidence.push(platformLane(manifest, inv, startedAt));
   if (manifest.provenance || policy.requiredLanes.includes("provenance")) evidence.push(provenanceLane(manifest, baseDir, inv, startedAt));
+  // v0.7: reverse-engineering aids, when declared or required.
+  if (manifest.reAids || policy.requiredLanes.includes("aids")) evidence.push(aidsLane(manifest, inv, startedAt));
 
   const today = now().toISOString().slice(0, 10);
   const g = evaluateGates(policy, manifest, evidence, today);

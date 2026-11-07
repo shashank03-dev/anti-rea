@@ -147,6 +147,31 @@ export function validateManifest(json: unknown, file = "<manifest>"): Manifest {
     }
     if (pl.windows !== undefined) bools(pl.windows, "platform.windows", ["requireAuthenticode"]);
   }
+  if (json.reAids !== undefined) {
+    const ra = json.reAids;
+    if (!isObj(ra)) throw err("reAids must be an object");
+    for (const k of Object.keys(ra)) if (!["native", "debugFiles", "sources", "minified", "electron"].includes(k)) throw err(`reAids.${k} is not supported (native, debugFiles, sources, minified, electron)`);
+    const sub = (k: string, bools: string[], arrays: string[], allowFalse = true) => {
+      const v = ra[k];
+      if (v === undefined || (allowFalse && v === false)) return v;
+      if (!isObj(v)) throw err(`reAids.${k} must be an object${allowFalse ? " or false" : ""}`);
+      for (const b of bools) if (v[b] !== undefined && typeof v[b] !== "boolean") throw err(`reAids.${k}.${b} must be a boolean`);
+      for (const a of arrays) if (v[a] !== undefined && !isStrArr(v[a])) throw err(`reAids.${k}.${a} must be a string array`);
+      return v;
+    };
+    const nat = sub("native", ["forbidDebugInfo", "forbidDebugMap"], ["exclude"]);
+    if (isObj(nat) && nat.maxLocalSymbols !== undefined && (typeof nat.maxLocalSymbols !== "number" || !Number.isInteger(nat.maxLocalSymbols) || nat.maxLocalSymbols < 0))
+      throw err("reAids.native.maxLocalSymbols must be a non-negative integer");
+    sub("debugFiles", [], ["exclude"]);
+    const src = sub("sources", [], ["extensions", "exclude"]);
+    if (isObj(src) && isStrArr(src.extensions) && src.extensions.some((e) => !e.startsWith("."))) throw err("reAids.sources.extensions must start with a dot");
+    const min = sub("minified", [], ["include", "exclude"], false);
+    if (isObj(min)) {
+      if (!isStrArr(min.include) || min.include.length === 0) throw err("reAids.minified.include must be a non-empty string array");
+      if (min.level !== undefined && min.level !== "whitespace" && min.level !== "identifiers") throw err(`reAids.minified.level must be "whitespace" or "identifiers"`);
+    }
+    sub("electron", ["forbidInsecureWebPreferences", "forbidDevTools"], ["include", "exclude"], false);
+  }
   if (json.provenance !== undefined) {
     const pv = json.provenance;
     if (!isObj(pv) || typeof pv.statement !== "string" || pv.statement.length === 0) throw err("provenance.statement must be a path");

@@ -252,3 +252,17 @@ After the fix, `/System/Applications` has 0 leads.
 **Throughput** across A–E was 31.7 MB/s (v0.5: 31.5 MB/s). F ran at 20.3 MB/s, dominated by `/System/Applications`' many small Mach-O files. Both runs shared the machine with other jobs.
 
 **Pattern across rounds:** every fresh validation set so far (C, D, E, F) has found at least one false-lead class. The classes are getting smaller: 690 leads in E, 1 in F. They have also moved from the new rules to an old format rule. A new kind of release should still be expected to produce some false leads. Triage them with scoped, expiring exceptions.
+
+## Round 7 (v0.7): reverse-engineering aids on nine installed applications
+
+The new `aids` lane was calibrated on VS Code, Postman, ChatGPT, Claude, Figma, Loom, Ghostty, Tailscale and WhatsApp, with every finding class sampled and labelled by reading the file. Full detail is in [V07-CHANGES.md](V07-CHANGES.md); in brief:
+
+- **Native facts:** 223/223 Mach-O slices (201 files) agree with `dsymutil -s`. `nm` is not a valid oracle: it omits `N_AST` stabs and invents names for stripped binaries.
+- **Minification:** three false-positive classes were fixed: text embedded in literals, destructuring keys, and exported bindings. Flagged files fell from 429 to 3 (Claude), 2,947 to 55 (ChatGPT), 77 to 1 (VS Code) and 12 to 2 (Postman). Every remaining flag sampled is true.
+- **True findings confirmed by hand:**
+  - Postman's main windows run with `nodeIntegration` on, `contextIsolation` off and `webSecurity` off, and the app ships 440 source maps;
+  - ChatGPT ships a `pty.node.dSYM`;
+  - VS Code ships 698 source maps and 13 TypeScript sources;
+  - Ghostty's executable keeps its full debug map;
+  - Sparkle's `Autoupdate` keeps its debug map in four apps.
+- **These nine apps are now tuning data**, and the sealed antibody `node_modules` run has been spent. The next unseen JavaScript corpus has to come from somewhere else.

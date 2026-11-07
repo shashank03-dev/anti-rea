@@ -12,6 +12,7 @@ import { fingerprintOf } from "./lanes/detectors.js";
 import { minTrialsForBound, zeroEventUpperBound } from "./engine/stats.js";
 import { TOOL_NAME, TOOL_VERSION } from "./version.js";
 import { decisionStatement, signStatement, verifyAttestation } from "./engine/attest.js";
+import { collectAidsFacts, minifyVerdict } from "./lanes/aids.js";
 import { collectPlatformFacts } from "./lanes/platform.js";
 import { sha256Hex } from "./util/hash.js";
 
@@ -36,7 +37,8 @@ Usage:
 
   anti-rea inspect --manifest <file> [--json]
       Print platform facts: Mach-O signing (team, hardened runtime, entitlements, page hashes),
-      bundle seals, Electron fuses and ASAR integrity, PE Authenticode presence.
+      bundle seals, Electron fuses and ASAR integrity, PE Authenticode presence; and reverse-engineering
+      aids: native debug info / debug maps / local symbols, debug files, sources, unminified JS, Electron leads.
 
   anti-rea inventory --manifest <file> [--json]
       List the release closure (including nested container entries) with sha256 and the release ID.
@@ -206,9 +208,12 @@ function main(argv: string[]): number {
 
     case "inspect": {
       const manifest = loadManifest(req(flags, "manifest"));
-      const facts = collectPlatformFacts(buildInventory(manifest.value, dirname(resolve(manifest.path))));
+      const inv = buildInventory(manifest.value, dirname(resolve(manifest.path)));
+      const facts = collectPlatformFacts(inv);
+      const aids = collectAidsFacts(inv, manifest.value.reAids ?? { minified: { include: ["**/*.{js,mjs,cjs}"], exclude: ["**/node_modules/**"] } });
       if (flags.json === true) {
-        process.stdout.write(JSON.stringify(facts, null, 2) + "\n");
+        const { electron, ...rest } = aids;
+        process.stdout.write(JSON.stringify({ ...facts, aids: { ...rest, electron: electron.map(({ text: _t, ...e }) => e) } }, null, 2) + "\n");
         return EXIT.pass;
       }
       const w = (s: string) => process.stdout.write(s + "\n");
@@ -223,6 +228,17 @@ function main(argv: string[]): number {
       for (const f of facts.fuses) w(`fuses  ${f.path} v${f.version} ${Object.entries(f.fuses).map(([k, v]) => `${k}=${v}`).join(" ")}`);
       for (const p of facts.pe) w(`pe     ${p.path} ${p.authenticode ? "authenticode" : "UNSIGNED"}`);
       for (const e of facts.errors) w(`error  ${e}`);
+      for (const n of aids.native)
+        for (const s of n.slices)
+          if (s.debugSections.length || s.stabs || s.localSymbols || s.error)
+            w(`symbols ${n.path} [${s.arch}] ${s.format} ${s.filetype}${s.debugSections.length ? ` DWARF:${s.debugSections.length}` : ""}${s.stabs ? ` stabs:${s.stabs} objects:${s.debugMapObjects.length}` : ""}${s.localSymbols ? ` locals:${s.localSymbols}` : ""}${s.error ? ` error: ${s.error}` : ""}`);
+      for (const d of aids.debugFiles) w(`debug  ${d.path} ${d.kind}`);
+      for (const p of aids.sources) w(`source ${p}`);
+      for (const j of aids.js) {
+        const v = minifyVerdict(j.shape, "identifiers");
+        if (v.ok === false) w(`js     ${j.path} ${v.why}`);
+      }
+      for (const e of aids.electron) w(`electron ${e.path}${e.insecure.map((l) => ` ${l.key}=${l.value}`).join("")}${e.devTools.length ? ` openDevTools×${e.devTools.length}` : ""}`);
       return EXIT.pass;
     }
 

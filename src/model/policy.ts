@@ -18,6 +18,7 @@ export type GateId =
   | "lowConfidenceCredentialLead" // a medium/low-confidence credential-shaped value (generic entropy, JWT, often-public keys)
   | "platformHardeningViolation" // v0.6: a declared signing / hardening / Electron-fuse / integrity expectation is violated
   | "provenanceMismatch" // v0.6: shipped bytes are not covered by valid, trusted build provenance
+  | "reverseEngineeringAidShipped" // v0.7: debug info, debug maps, local symbols, debug files, sources or unminified code ship
   | "requiredLaneInconclusive"; // a mandatory lane could not run to a conclusion
 
 export type GateAction = "block" | "warn";
@@ -65,6 +66,7 @@ export const DEFAULT_GATES: Record<GateId, GateAction> = {
   lowConfidenceCredentialLead: "warn",
   platformHardeningViolation: "block",
   provenanceMismatch: "block",
+  reverseEngineeringAidShipped: "block",
   requiredLaneInconclusive: "block",
 };
 
@@ -79,8 +81,9 @@ export const ALL_GATES: readonly GateId[] = [
   "lowConfidenceCredentialLead",
   "platformHardeningViolation",
   "provenanceMismatch",
+  "reverseEngineeringAidShipped",
   "requiredLaneInconclusive",
 ];
 
-export const KNOWN_LANES = ["inventory", "exposure", "placement", "authorization", "external", "platform", "provenance"] as const;
+export const KNOWN_LANES = ["inventory", "exposure", "placement", "authorization", "external", "platform", "provenance", "aids"] as const;
 export type LaneId = (typeof KNOWN_LANES)[number];

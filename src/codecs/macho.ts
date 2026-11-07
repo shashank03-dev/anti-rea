@@ -217,6 +217,27 @@ function parseSuperBlob(sig: Buffer, slice: Buffer): Pick<SliceInfo, "codeDirect
   return { codeDirectories: cds, ...(entitlements ? { entitlements } : {}), hasCmsSignature: hasCms };
 }
 
+/** The thin slices of a Mach-O file (one for a thin file), with architecture names. */
+export function machOSlices(b: Buffer): { arch: string; buf: Buffer }[] {
+  if (!looksLikeMachO(b)) throw new DecodeError("not a Mach-O file");
+  const be = b.readUInt32BE(0);
+  if (be !== 0xcafebabe && be !== 0xcafebabf) {
+    const cpu = b.length >= 8 ? b.readUInt32LE(4) : 0;
+    return [{ arch: CPU[cpu] ?? `cpu-${cpu.toString(16)}`, buf: b }];
+  }
+  const n = b.readUInt32BE(4);
+  const entry = be === 0xcafebabf ? 32 : 20;
+  const out: { arch: string; buf: Buffer }[] = [];
+  for (let i = 0; i < n; i++) {
+    const at = 8 + i * entry;
+    const cputype = b.readUInt32BE(at);
+    const off = be === 0xcafebabf ? Number(b.readBigUInt64BE(at + 8)) : b.readUInt32BE(at + 8);
+    const size = be === 0xcafebabf ? Number(b.readBigUInt64BE(at + 16)) : b.readUInt32BE(at + 12);
+    out.push({ arch: CPU[cputype] ?? `cpu-${cputype.toString(16)}`, buf: b.subarray(off, off + size) });
+  }
+  return out;
+}
+
 /** Parse a Mach-O file. Throws DecodeError only when the file is not Mach-O at all. */
 export function readMachO(b: Buffer): MachOInfo {
   if (!looksLikeMachO(b)) throw new DecodeError("not a Mach-O file");

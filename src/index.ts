@@ -14,6 +14,8 @@ export { DEFAULT_LIMITS, classify, expand } from "./lanes/containers.js";
 export type { Limits } from "./lanes/containers.js";
 export { externalLane, EXTERNAL_TOOLS } from "./lanes/external.js";
 export type { ExternalImport, ExternalTool } from "./lanes/external.js";
+export { aidsLane, collectAidsFacts, debugFileKind, electronLeads, jsShape, minifyVerdict, MINIFY_THRESHOLDS } from "./lanes/aids.js";
+export { readNativeSymbols, isNativeBinary } from "./codecs/symbols.js";
 export { assure } from "./engine/evaluate.js";
 export { evaluateGates, laneStatuses } from "./engine/gate.js";
 export { renderMarkdown, renderSummary, writeReport } from "./engine/report.js";

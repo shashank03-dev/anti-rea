@@ -142,6 +142,40 @@ export interface ProvenanceDecl {
   readonly subjects?: readonly string[];
 }
 
+/**
+ * v0.7: reverse-engineering aids the release must not ship (lane `aids`, gate `reverseEngineeringAidShipped`).
+ * Declaring `reAids` (even `{}`) runs the native, debugFiles and sources checks with their defaults;
+ * `minified` and `electron` are opt-in. Set a check to `false` to disable it.
+ */
+export interface ReAidsDecl {
+  readonly native?:
+    | false
+    | {
+        /** Embedded DWARF (`__DWARF`, `.debug_*`) is forbidden (default true). */
+        readonly forbidDebugInfo?: boolean;
+        /** Mach-O debug-map stabs (object-file build paths, source files, function names) are forbidden (default true). */
+        readonly forbidDebugMap?: boolean;
+        /** Most non-exported symbol names allowed per slice (default 0). */
+        readonly maxLocalSymbols?: number;
+        readonly exclude?: readonly string[];
+      };
+  /** PDB, dSYM and source-map files, recognised by content (default on). */
+  readonly debugFiles?: false | { readonly exclude?: readonly string[] };
+  /** Original source files by extension (default on; third-party trees such as node_modules excluded). */
+  readonly sources?: false | { readonly extensions?: readonly string[]; readonly exclude?: readonly string[] };
+  /** Owner JavaScript that must be minified. */
+  readonly minified?: { readonly include: readonly string[]; readonly exclude?: readonly string[]; readonly level?: "whitespace" | "identifiers" };
+  /** Electron main/preload code checks. */
+  readonly electron?: {
+    /** Insecure values in webPreferences object literals (default true when electron is declared). */
+    readonly forbidInsecureWebPreferences?: boolean;
+    /** openDevTools() calls in shipped code (default false). */
+    readonly forbidDevTools?: boolean;
+    readonly include?: readonly string[];
+    readonly exclude?: readonly string[];
+  };
+}
+
 export interface Manifest {
   readonly schema: "anti-rea/manifest/v1";
   readonly application: { readonly name: string; readonly version: string };
@@ -150,4 +184,5 @@ export interface Manifest {
   readonly authorization?: AuthorizationDecl;
   readonly platform?: PlatformDecl;
   readonly provenance?: ProvenanceDecl;
+  readonly reAids?: ReAidsDecl;
 }
